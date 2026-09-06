@@ -9,5 +9,5 @@
 /*.webp
 	Cache-Control: public, max-age=31556952, immutable
 
-/_astro
+/_astro/*
 	Cache-Control: public, max-age=31556952, immutable
