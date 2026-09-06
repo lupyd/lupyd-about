@@ -1,0 +1,454 @@
+---
+// Screenshot Carousel Component - Alternating Light & Dark Mode
+interface Slide {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
+  category: string;
+  mode: 'light' | 'dark';
+}
+
+const slides: Slide[] = [
+  {
+    id: "slide-1",
+    src: "/screenshots/Screenshot_20260906_065353.webp",
+    alt: "Lupyd Platform Interface - Direct Messaging & Communication (Light Mode)",
+    title: "Secure Communication & Chat",
+    category: "Messaging",
+    mode: "light"
+  },
+  {
+    id: "slide-2",
+    src: "/screenshots/Screenshot_20260906_114410.webp",
+    alt: "Lupyd Platform Interface - Direct Messaging & Communication (Dark Mode)",
+    title: "Secure Communication & Chat",
+    category: "Messaging",
+    mode: "dark"
+  },
+  {
+    id: "slide-3",
+    src: "/screenshots/Screenshot_20260906_065426.webp",
+    alt: "Lupyd Workspace & Project Collaboration (Light Mode)",
+    title: "Real-Time Collaboration Canvas",
+    category: "Workspace",
+    mode: "light"
+  },
+  {
+    id: "slide-4",
+    src: "/screenshots/Screenshot_20260906_114449.webp",
+    alt: "Lupyd Workspace & Project Collaboration (Dark Mode)",
+    title: "Real-Time Collaboration Canvas",
+    category: "Workspace",
+    mode: "dark"
+  },
+  {
+    id: "slide-5",
+    src: "/screenshots/Screenshot_20260906_065648.webp",
+    alt: "Lupyd Social Feed & Activity Stream (Light Mode)",
+    title: "Interactive Social Feed & Updates",
+    category: "Social Network",
+    mode: "light"
+  },
+  {
+    id: "slide-6",
+    src: "/screenshots/Screenshot_20260906_114612.webp",
+    alt: "Lupyd Social Feed & Activity Stream (Dark Mode)",
+    title: "Interactive Social Feed & Updates",
+    category: "Social Network",
+    mode: "dark"
+  },
+  {
+    id: "slide-7",
+    src: "/screenshots/Screenshot_20260906_065759.webp",
+    alt: "Lupyd Analytics & Insights Dashboard (Light Mode)",
+    title: "Analytics & Growth Dashboard",
+    category: "Insights",
+    mode: "light"
+  },
+  {
+    id: "slide-8",
+    src: "/screenshots/Screenshot_20260906_114639.webp",
+    alt: "Lupyd Analytics & Insights Dashboard (Dark Mode)",
+    title: "Analytics & Growth Dashboard",
+    category: "Insights",
+    mode: "dark"
+  },
+  {
+    id: "slide-9",
+    src: "/screenshots/Screenshot_20260906_065907.webp",
+    alt: "Lupyd Media Manager & Content Sharing (Light Mode)",
+    title: "Multi-Format Media Manager",
+    category: "Media Library",
+    mode: "light"
+  },
+  {
+    id: "slide-10",
+    src: "/screenshots/Screenshot_20260906_114657.webp",
+    alt: "Lupyd Media Manager & Content Sharing (Dark Mode)",
+    title: "Multi-Format Media Manager",
+    category: "Media Library",
+    mode: "dark"
+  },
+  {
+    id: "slide-11",
+    src: "/screenshots/Screenshot_20260906_070005.webp",
+    alt: "Lupyd Privacy & Security Settings (Light Mode)",
+    title: "Zero-Knowledge Security Controls",
+    category: "Privacy & Security",
+    mode: "light"
+  },
+  {
+    id: "slide-12",
+    src: "/screenshots/Screenshot_20260906_114725.webp",
+    alt: "Lupyd Privacy & Security Settings (Dark Mode)",
+    title: "Zero-Knowledge Security Controls",
+    category: "Privacy & Security",
+    mode: "dark"
+  },
+  {
+    id: "slide-13",
+    src: "/screenshots/Screenshot_20260906_114318.webp",
+    alt: "Lupyd Community Spaces & Channels (Light Mode)",
+    title: "Community Spaces & Channels",
+    category: "Community",
+    mode: "light"
+  }
+];
+---
+
+<section 
+  class="w-full py-12 md:py-20 overflow-hidden relative" 
+  aria-label="Platform Screenshots Preview" 
+  id="app-screenshots-carousel"
+>
+  <div class="container mx-auto px-4 max-w-7xl relative z-10">
+    <!-- Header -->
+    <div class="flex flex-col items-center text-center mb-8 md:mb-12 space-y-3">
+      
+      <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl text-foreground">
+        See Lupyd in Action
+      </h2>
+      
+
+      <!-- Mode Quick Filters / Counter Bar -->
+      <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
+        <button
+          type="button"
+          class="carousel-filter-btn active-filter px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border border-primary/30 bg-primary/10 text-foreground shadow-sm"
+          data-filter="all"
+        >
+          All (Alternating 13)
+        </button>
+        <button
+          type="button"
+          class="carousel-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border border-border/60 bg-card/50 text-muted-foreground hover:text-foreground hover:bg-card/90"
+          data-filter="light"
+        >
+          ☀️ Light Mode (7)
+        </button>
+        <button
+          type="button"
+          class="carousel-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border border-border/60 bg-card/50 text-muted-foreground hover:text-foreground hover:bg-card/90"
+          data-filter="dark"
+        >
+          🌙 Dark Mode (6)
+        </button>
+      </div>
+    </div>
+
+    <!-- Carousel Window Container -->
+    <div class="relative max-w-5xl mx-auto group">
+      <!-- Ambient Glow Behind Frame -->
+      <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl blur-xl opacity-60 group-hover:opacity-85 transition duration-700 pointer-events-none"></div>
+
+      <!-- App Mockup Frame (without title bar) -->
+      <div class="relative bg-card/90 dark:bg-card/80 border border-border/70 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl transition-all duration-300">
+        <!-- Slides Viewport -->
+        <div 
+          id="carousel-viewport" 
+          class="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[1350/635] overflow-hidden bg-muted/20 select-none cursor-grab active:cursor-grabbing"
+          tabindex="0"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Lupyd App Screenshots"
+        >
+          <!-- Slides Track -->
+          <div 
+            id="carousel-track" 
+            class="flex h-full transition-transform duration-500 ease-out"
+            style="transform: translateX(0%);"
+          >
+            {slides.map((slide, index) => (
+              <div 
+                class="carousel-slide min-w-full h-full relative flex items-center justify-center overflow-hidden bg-card"
+                data-index={index}
+                data-mode={slide.mode}
+                data-title={slide.title}
+                data-category={slide.category}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${index + 1} of ${slides.length}: ${slide.title} (${slide.mode} mode)`}
+              >
+                <img 
+                  src={slide.src} 
+                  alt={slide.alt}
+                  class="w-full h-full object-contain md:object-cover select-none transition-transform duration-300"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              </div>
+            ))}
+          </div>
+
+          <!-- Navigation Arrow Buttons -->
+          <button 
+            id="carousel-prev" 
+            class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-background/80 hover:bg-background border border-border/80 text-foreground flex items-center justify-center shadow-lg backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="Previous screenshot"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <button 
+            id="carousel-next" 
+            class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-background/80 hover:bg-background border border-border/80 text-foreground flex items-center justify-center shadow-lg backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="Next screenshot"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Window Footer Controls & Indicators -->
+        <div class="px-4 py-3 border-t border-border/60 bg-muted/40 flex flex-wrap items-center justify-between gap-3 select-none">
+          <!-- Slide Counter -->
+          <div class="text-xs text-muted-foreground font-mono flex items-center gap-2">
+            <span>Slide</span>
+            <span id="carousel-current-index" class="font-bold text-foreground">1</span>
+            <span>of</span>
+            <span id="carousel-total-count">{slides.length}</span>
+          </div>
+
+          <!-- Dot Indicators -->
+          <div id="carousel-dots" class="flex items-center gap-1.5 overflow-x-auto max-w-full py-1">
+            {slides.map((slide, index) => (
+              <button
+                type="button"
+                class={`carousel-dot h-2 rounded-full transition-all duration-300 ${index === 0 ? "w-6 bg-primary" : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60"}`}
+                data-target={index}
+                aria-label={`Go to slide ${index + 1}: ${slide.title}`}
+              ></button>
+            ))}
+          </div>
+
+          <!-- Autoplay / Pause Control -->
+          <button
+            type="button"
+            id="carousel-autoplay-toggle"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium text-muted-foreground hover:text-foreground border border-border/50 hover:bg-card transition-colors"
+            aria-label="Pause autoplay"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span id="autoplay-label">Auto-play On</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupScreenshotCarousel() {
+    const root = document.getElementById("app-screenshots-carousel");
+    if (!root) return;
+
+    const track = root.querySelector("#carousel-track") as HTMLElement;
+    const viewport = root.querySelector("#carousel-viewport") as HTMLElement;
+    const prevBtn = root.querySelector("#carousel-prev") as HTMLButtonElement;
+    const nextBtn = root.querySelector("#carousel-next") as HTMLButtonElement;
+    const dots = Array.from(root.querySelectorAll(".carousel-dot")) as HTMLButtonElement[];
+    const filterBtns = Array.from(root.querySelectorAll(".carousel-filter-btn")) as HTMLButtonElement[];
+    const currentIndexEl = root.querySelector("#carousel-current-index") as HTMLElement;
+    const totalCountEl = root.querySelector("#carousel-total-count") as HTMLElement;
+    const autoplayBtn = root.querySelector("#carousel-autoplay-toggle") as HTMLButtonElement;
+    const autoplayLabel = root.querySelector("#autoplay-label") as HTMLElement;
+
+    const allSlides = Array.from(root.querySelectorAll(".carousel-slide")) as HTMLElement[];
+    let visibleIndices = allSlides.map((_, i) => i);
+    let activePos = 0; // index into visibleIndices
+    let isAutoplay = true;
+    let autoplayTimer: ReturnType<typeof setInterval> | null = null;
+
+    function updateView() {
+      if (visibleIndices.length === 0) return;
+      const targetSlideIndex = visibleIndices[activePos];
+
+      // Update track translation
+      track.style.transform = `translateX(-${targetSlideIndex * 100}%)`;
+
+      // Update counter
+      if (currentIndexEl) currentIndexEl.textContent = String(activePos + 1);
+      if (totalCountEl) totalCountEl.textContent = String(visibleIndices.length);
+
+      // Update dots
+      dots.forEach((dot) => {
+        const dotTarget = Number(dot.getAttribute("data-target"));
+        const isCurrent = dotTarget === targetSlideIndex;
+        const isVisible = visibleIndices.includes(dotTarget);
+
+        dot.style.display = isVisible ? "inline-block" : "none";
+        if (isCurrent) {
+          dot.className = "carousel-dot h-2 rounded-full transition-all duration-300 w-6 bg-primary";
+        } else {
+          dot.className = "carousel-dot h-2 rounded-full transition-all duration-300 w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60";
+        }
+      });
+    }
+
+    function goToNext() {
+      activePos = (activePos + 1) % visibleIndices.length;
+      updateView();
+    }
+
+    function goToPrev() {
+      activePos = (activePos - 1 + visibleIndices.length) % visibleIndices.length;
+      updateView();
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      if (!isAutoplay) return;
+      autoplayTimer = setInterval(() => {
+        goToNext();
+      }, 4500);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+
+    // Button event listeners
+    nextBtn?.addEventListener("click", () => {
+      goToNext();
+      startAutoplay();
+    });
+
+    prevBtn?.addEventListener("click", () => {
+      goToPrev();
+      startAutoplay();
+    });
+
+    // Dot click listeners
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const target = Number(dot.getAttribute("data-target"));
+        const pos = visibleIndices.indexOf(target);
+        if (pos !== -1) {
+          activePos = pos;
+          updateView();
+          startAutoplay();
+        }
+      });
+    });
+
+    // Filter toggle listeners
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+        filterBtns.forEach(b => {
+          b.classList.remove("active-filter", "border-primary/30", "bg-primary/10", "text-foreground");
+          b.classList.add("border-border/60", "bg-card/50", "text-muted-foreground");
+        });
+        btn.classList.add("active-filter", "border-primary/30", "bg-primary/10", "text-foreground");
+        btn.classList.remove("border-border/60", "bg-card/50", "text-muted-foreground");
+
+        if (filter === "all") {
+          visibleIndices = allSlides.map((_, i) => i);
+        } else {
+          visibleIndices = allSlides
+            .map((slide, i) => slide.getAttribute("data-mode") === filter ? i : -1)
+            .filter(i => i !== -1);
+        }
+        activePos = 0;
+        updateView();
+        startAutoplay();
+      });
+    });
+
+    // Autoplay toggle
+    autoplayBtn?.addEventListener("click", () => {
+      isAutoplay = !isAutoplay;
+      if (isAutoplay) {
+        if (autoplayLabel) autoplayLabel.textContent = "Auto-play On";
+        autoplayBtn.querySelector(".rounded-full")?.classList.remove("bg-muted-foreground");
+        autoplayBtn.querySelector(".rounded-full")?.classList.add("bg-emerald-500");
+        startAutoplay();
+      } else {
+        if (autoplayLabel) autoplayLabel.textContent = "Auto-play Off";
+        autoplayBtn.querySelector(".rounded-full")?.classList.remove("bg-emerald-500");
+        autoplayBtn.querySelector(".rounded-full")?.classList.add("bg-muted-foreground");
+        stopAutoplay();
+      }
+    });
+
+    // Pause on hover
+    viewport?.addEventListener("mouseenter", stopAutoplay);
+    viewport?.addEventListener("mouseleave", () => {
+      if (isAutoplay) startAutoplay();
+    });
+
+    // Keyboard navigation
+    viewport?.addEventListener("keydown", (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        goToPrev();
+        startAutoplay();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        goToNext();
+        startAutoplay();
+      }
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    viewport?.addEventListener("touchstart", (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoplay();
+    }, { passive: true });
+
+    viewport?.addEventListener("touchend", (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          goToNext();
+        } else {
+          goToPrev();
+        }
+      }
+      if (isAutoplay) startAutoplay();
+    }, { passive: true });
+
+    // Initial view
+    updateView();
+    startAutoplay();
+  }
+
+  // Setup on initial load & Astro page transitions
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupScreenshotCarousel);
+  } else {
+    setupScreenshotCarousel();
+  }
+  document.addEventListener("astro:page-load", setupScreenshotCarousel);
+</script>

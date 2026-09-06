@@ -21,7 +21,10 @@ const navLinks = [
   { href: "/experience", label: "Experience" },
   { href: "/community", label: "Community" },
   { href: "/privacy", label: "Privacy" },
-  { href: "/creator-tools", label: "Creator Tools" }
+  { href: "/creator-tools", label: "Creator Tools" },
+  { href: "https://billing.lupyd.com", label: "Pricing", external: true },
+  { href: "https://blogs.lupyd.com", label: "Blogs", external: true },
+  { href: "https://docs.lupyd.com", label: "Documentation", external: true }
 ];
 ---
 
@@ -94,12 +97,14 @@ const navLinks = [
           </a>
         </div>
         
-        <nav class="hidden md:flex gap-6">
-          {navLinks.map(({ href, label }) => {
+        <nav class="hidden md:flex gap-4 lg:gap-6">
+          {navLinks.map(({ href, label, external }) => {
             const isActive = cleanPath === href;
             return (
               <a 
                 href={href} 
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
                 class={`text-sm font-medium transition-colors hover:text-foreground/80 ${isActive ? 'text-foreground border-b-2 border-foreground pb-1' : 'text-muted-foreground'}`}
               >
                 {label}
@@ -186,11 +191,13 @@ const navLinks = [
         <!-- Dropdown Content -->
         <div class="absolute top-16 left-0 right-0 bg-background border-b border-border shadow-lg z-50">
           <div class="container mx-auto py-6 px-4 flex flex-col space-y-4">
-            {navLinks.map(({ href, label }) => {
+            {navLinks.map(({ href, label, external }) => {
               const isActive = cleanPath === href;
               return (
                 <a
                   href={href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
                   class={`text-sm font-medium py-3 px-4 rounded-md transition-colors hover:bg-muted ${isActive ? 'bg-muted text-foreground font-semibold' : 'text-muted-foreground'}`}
                 >
                   {label}
@@ -222,6 +229,8 @@ const navLinks = [
                 <li><a href="/features" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a></li>
                 <li><a href="/experience" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Experience</a></li>
                 <li><a href="/creator-tools" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Creator Tools</a></li>
+                <li><a href="https://billing.lupyd.com" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a></li>
+                <li><a href="https://docs.lupyd.com" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Documentation</a></li>
               </ul>
             </div>
             <div class="space-y-3">
@@ -229,6 +238,7 @@ const navLinks = [
               <ul class="space-y-2">
                 <li><a href="/community" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Connections</a></li>
                 <li><a href="/privacy" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy & Security</a></li>
+                <li><a href="https://blogs.lupyd.com" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Blogs</a></li>
               </ul>
             </div>
           </div>
