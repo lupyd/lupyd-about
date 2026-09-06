@@ -1,3 +1,13 @@
 /*
   Content-Security-Policy: frame-ancestors 'self' https://*.lupyd.com http://localhost:* http://127.0.0.1:*
   Access-Control-Allow-Origin: *
+
+  
+/*.svg
+	Cache-Control: public, max-age=31556952, immutable
+
+/*.webp
+	Cache-Control: public, max-age=31556952, immutable
+
+/_astro
+	Cache-Control: public, max-age=31556952, immutable
