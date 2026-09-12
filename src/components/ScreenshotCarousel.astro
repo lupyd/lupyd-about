@@ -117,338 +117,340 @@ const slides: Slide[] = [
 ];
 ---
 
-<section 
-  class="w-full py-12 md:py-20 overflow-hidden relative" 
-  aria-label="Platform Screenshots Preview" 
+<section
+  class="w-full py-16 md:py-20 border-t border-border/30"
+  aria-label="Platform Screenshots Preview"
   id="app-screenshots-carousel"
 >
-  <div class="container mx-auto px-4 max-w-7xl relative z-10">
-    <!-- Header -->
-    <div class="flex flex-col items-center text-center mb-8 md:mb-12 space-y-3">
-      
-      <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl text-foreground">
-        See Lupyd in Action
-      </h2>
-      
+  <!-- Header -->
+  <div class="mx-auto px-6 max-w-5xl mb-8 md:mb-10">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div>
+        <span class="label-pill mb-3 inline-flex">Platform Preview</span>
+        <h2 class="font-extrabold tracking-tight text-foreground
+                   text-[clamp(1.6rem,3.5vw,2.6rem)] leading-tight">
+          See Lupyd in Action
+        </h2>
+      </div>
 
-      <!-- Mode Quick Filters / Counter Bar -->
-      <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
-        <button
-          type="button"
-          class="carousel-filter-btn active-filter px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border border-primary/30 bg-primary/10 text-foreground shadow-sm"
-          data-filter="all"
-        >
-          All (Alternating 13)
+      <!-- Mode filters -->
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button type="button"
+          class="carousel-filter-btn active-filter px-3 py-1.5 rounded-full text-xs font-semibold
+                 transition-all border border-foreground/20 bg-foreground/8 text-foreground"
+          data-filter="all">
+          All
         </button>
-        <button
-          type="button"
-          class="carousel-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border border-border/60 bg-card/50 text-muted-foreground hover:text-foreground hover:bg-card/90"
-          data-filter="light"
-        >
-          ☀️ Light Mode (7)
+        <button type="button"
+          class="carousel-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold
+                 transition-all border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
+          data-filter="light">
+          ☀ Light
         </button>
-        <button
-          type="button"
-          class="carousel-filter-btn px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border border-border/60 bg-card/50 text-muted-foreground hover:text-foreground hover:bg-card/90"
-          data-filter="dark"
-        >
-          🌙 Dark Mode (6)
+        <button type="button"
+          class="carousel-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold
+                 transition-all border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
+          data-filter="dark">
+          ☾ Dark
         </button>
       </div>
     </div>
+  </div>
 
-    <!-- Carousel Window Container -->
-    <div class="relative max-w-5xl mx-auto group">
-      <!-- Ambient Glow Behind Frame -->
-      <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl blur-xl opacity-60 group-hover:opacity-85 transition duration-700 pointer-events-none"></div>
+  <!-- Carousel — wider than the text container -->
+  <div class="mx-auto px-4 sm:px-6 max-w-6xl">
+    <div class="carousel-shell">
 
-      <!-- App Mockup Frame (without title bar) -->
-      <div class="relative bg-card/90 dark:bg-card/80 border border-border/70 rounded-2xl shadow-2xl overflow-hidden backdrop-blur-xl transition-all duration-300">
-        <!-- Slides Viewport -->
-        <div 
-          id="carousel-viewport" 
-          class="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[1350/635] overflow-hidden bg-muted/20 select-none cursor-grab active:cursor-grabbing"
-          tabindex="0"
-          role="region"
-          aria-roledescription="carousel"
-          aria-label="Lupyd App Screenshots"
+      <!-- Slide title bar -->
+      <div class="carousel-titlebar">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-border"></span>
+          <span class="w-2 h-2 rounded-full bg-border"></span>
+          <span class="w-2 h-2 rounded-full bg-border"></span>
+        </div>
+        <span id="carousel-slide-title" class="text-xs font-medium text-muted-foreground truncate">
+          Secure Communication &amp; Chat
+        </span>
+        <span id="carousel-slide-category" class="text-xs text-muted-foreground/60 hidden sm:block">
+          Messaging
+        </span>
+      </div>
+
+      <!-- Viewport -->
+      <div
+        id="carousel-viewport"
+        class="relative w-full overflow-hidden bg-card select-none cursor-grab active:cursor-grabbing"
+        style="aspect-ratio: 1345 / 635;"
+        tabindex="0"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Lupyd App Screenshots"
+      >
+        <!-- Track -->
+        <div
+          id="carousel-track"
+          class="flex h-full transition-transform duration-500 ease-out"
+          style="transform: translateX(0%);"
         >
-          <!-- Slides Track -->
-          <div 
-            id="carousel-track" 
-            class="flex h-full transition-transform duration-500 ease-out"
-            style="transform: translateX(0%);"
-          >
-            {slides.map((slide, index) => (
-              <div 
-                class="carousel-slide min-w-full h-full relative flex items-center justify-center overflow-hidden bg-card"
-                data-index={index}
-                data-mode={slide.mode}
-                data-title={slide.title}
-                data-category={slide.category}
-                role="group"
-                aria-roledescription="slide"
-                aria-label={`${index + 1} of ${slides.length}: ${slide.title} (${slide.mode} mode)`}
-              >
-                <img 
-                  src={slide.src} 
-                  alt={slide.alt}
-                  class="w-full h-full object-contain md:object-cover select-none transition-transform duration-300"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                />
-              </div>
-            ))}
-          </div>
-
-          <!-- Navigation Arrow Buttons -->
-          <button 
-            id="carousel-prev" 
-            class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-background/80 hover:bg-background border border-border/80 text-foreground flex items-center justify-center shadow-lg backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label="Previous screenshot"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-
-          <button 
-            id="carousel-next" 
-            class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-background/80 hover:bg-background border border-border/80 text-foreground flex items-center justify-center shadow-lg backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label="Next screenshot"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
+          {slides.map((slide, index) => (
+            <div
+              class="carousel-slide min-w-full h-full relative overflow-hidden"
+              data-index={index}
+              data-mode={slide.mode}
+              data-title={slide.title}
+              data-category={slide.category}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${index + 1} of ${slides.length}: ${slide.title} (${slide.mode} mode)`}
+            >
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                class="w-full h-full object-cover object-top select-none"
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </div>
+          ))}
         </div>
 
-        <!-- Window Footer Controls & Indicators -->
-        <div class="px-4 py-3 border-t border-border/60 bg-muted/40 flex flex-wrap items-center justify-between gap-3 select-none">
-          <!-- Slide Counter -->
-          <div class="text-xs text-muted-foreground font-mono flex items-center gap-2">
-            <span>Slide</span>
-            <span id="carousel-current-index" class="font-bold text-foreground">1</span>
-            <span>of</span>
-            <span id="carousel-total-count">{slides.length}</span>
-          </div>
+        <!-- Prev / Next -->
+        <button
+          id="carousel-prev"
+          class="absolute left-3 top-1/2 -translate-y-1/2 z-20
+                 w-9 h-9 rounded-full bg-background/90 border border-border/80
+                 text-foreground flex items-center justify-center shadow-md
+                 transition-all hover:bg-background hover:scale-105 active:scale-95
+                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          aria-label="Previous screenshot"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
 
-          <!-- Dot Indicators -->
-          <div id="carousel-dots" class="flex items-center gap-1.5 overflow-x-auto max-w-full py-1">
-            {slides.map((slide, index) => (
-              <button
-                type="button"
-                class={`carousel-dot h-2 rounded-full transition-all duration-300 ${index === 0 ? "w-6 bg-primary" : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60"}`}
-                data-target={index}
-                aria-label={`Go to slide ${index + 1}: ${slide.title}`}
-              ></button>
-            ))}
-          </div>
+        <button
+          id="carousel-next"
+          class="absolute right-3 top-1/2 -translate-y-1/2 z-20
+                 w-9 h-9 rounded-full bg-background/90 border border-border/80
+                 text-foreground flex items-center justify-center shadow-md
+                 transition-all hover:bg-background hover:scale-105 active:scale-95
+                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          aria-label="Next screenshot"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
 
-          <!-- Autoplay / Pause Control -->
-          <button
-            type="button"
-            id="carousel-autoplay-toggle"
-            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium text-muted-foreground hover:text-foreground border border-border/50 hover:bg-card transition-colors"
-            aria-label="Pause autoplay"
-          >
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            <span id="autoplay-label">Auto-play On</span>
-          </button>
+      <!-- Footer bar -->
+      <div class="carousel-footer">
+        <!-- Counter -->
+        <span class="text-xs text-muted-foreground font-mono tabular-nums">
+          <span id="carousel-current-index">1</span>
+          <span class="opacity-40"> / </span>
+          <span id="carousel-total-count">{slides.length}</span>
+        </span>
+
+        <!-- Dots -->
+        <div id="carousel-dots" class="flex items-center gap-1 overflow-x-auto py-0.5">
+          {slides.map((slide, index) => (
+            <button
+              type="button"
+              class={`carousel-dot rounded-full transition-all duration-300 h-1.5
+                      ${index === 0 ? "w-5 bg-foreground" : "w-1.5 bg-foreground/20 hover:bg-foreground/40"}`}
+              data-target={index}
+              aria-label={`Go to slide ${index + 1}: ${slide.title}`}
+            />
+          ))}
         </div>
+
+        <!-- Autoplay toggle -->
+        <button
+          type="button"
+          id="carousel-autoplay-toggle"
+          class="inline-flex items-center gap-1.5 px-2 py-1 rounded text-xs font-medium
+                 text-muted-foreground hover:text-foreground border border-border/50
+                 hover:bg-muted transition-colors"
+          aria-label="Pause autoplay"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span id="autoplay-label">Auto</span>
+        </button>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .carousel-shell {
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+    overflow: hidden;
+    background: hsl(var(--card));
+    box-shadow: 0 8px 40px -8px rgba(0,0,0,0.12);
+  }
+  .dark .carousel-shell {
+    box-shadow: 0 8px 40px -8px rgba(0,0,0,0.5);
+  }
+
+  .carousel-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    border-bottom: 1px solid hsl(var(--border));
+    background: hsl(var(--muted));
+  }
+  .carousel-titlebar span:nth-child(2) {
+    flex: 1;
+  }
+
+  .carousel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 14px;
+    border-top: 1px solid hsl(var(--border));
+    background: hsl(var(--muted));
+  }
+
+  /* Active filter pill */
+  .carousel-filter-btn.active-filter {
+    background: hsl(var(--foreground) / 0.08);
+    border-color: hsl(var(--foreground) / 0.25);
+    color: hsl(var(--foreground));
+  }
+</style>
 
 <script>
   function setupScreenshotCarousel() {
     const root = document.getElementById("app-screenshots-carousel");
     if (!root) return;
 
-    const track = root.querySelector("#carousel-track") as HTMLElement;
-    const viewport = root.querySelector("#carousel-viewport") as HTMLElement;
-    const prevBtn = root.querySelector("#carousel-prev") as HTMLButtonElement;
-    const nextBtn = root.querySelector("#carousel-next") as HTMLButtonElement;
-    const dots = Array.from(root.querySelectorAll(".carousel-dot")) as HTMLButtonElement[];
-    const filterBtns = Array.from(root.querySelectorAll(".carousel-filter-btn")) as HTMLButtonElement[];
-    const currentIndexEl = root.querySelector("#carousel-current-index") as HTMLElement;
-    const totalCountEl = root.querySelector("#carousel-total-count") as HTMLElement;
-    const autoplayBtn = root.querySelector("#carousel-autoplay-toggle") as HTMLButtonElement;
-    const autoplayLabel = root.querySelector("#autoplay-label") as HTMLElement;
+    const track        = root.querySelector("#carousel-track") as HTMLElement;
+    const viewport     = root.querySelector("#carousel-viewport") as HTMLElement;
+    const prevBtn      = root.querySelector("#carousel-prev") as HTMLButtonElement;
+    const nextBtn      = root.querySelector("#carousel-next") as HTMLButtonElement;
+    const dots         = Array.from(root.querySelectorAll(".carousel-dot")) as HTMLButtonElement[];
+    const filterBtns   = Array.from(root.querySelectorAll(".carousel-filter-btn")) as HTMLButtonElement[];
+    const currentIdxEl = root.querySelector("#carousel-current-index") as HTMLElement;
+    const totalEl      = root.querySelector("#carousel-total-count") as HTMLElement;
+    const autoplayBtn  = root.querySelector("#carousel-autoplay-toggle") as HTMLButtonElement;
+    const autoplayLbl  = root.querySelector("#autoplay-label") as HTMLElement;
+    const titleEl      = root.querySelector("#carousel-slide-title") as HTMLElement;
+    const categoryEl   = root.querySelector("#carousel-slide-category") as HTMLElement;
 
     const allSlides = Array.from(root.querySelectorAll(".carousel-slide")) as HTMLElement[];
     let visibleIndices = allSlides.map((_, i) => i);
-    let activePos = 0; // index into visibleIndices
+    let activePos = 0;
     let isAutoplay = true;
     let autoplayTimer: ReturnType<typeof setInterval> | null = null;
 
     function updateView() {
-      if (visibleIndices.length === 0) return;
-      const targetSlideIndex = visibleIndices[activePos];
+      if (!visibleIndices.length) return;
+      const idx = visibleIndices[activePos];
+      track.style.transform = `translateX(-${idx * 100}%)`;
 
-      // Update track translation
-      track.style.transform = `translateX(-${targetSlideIndex * 100}%)`;
+      if (currentIdxEl) currentIdxEl.textContent = String(activePos + 1);
+      if (totalEl)      totalEl.textContent      = String(visibleIndices.length);
 
-      // Update counter
-      if (currentIndexEl) currentIndexEl.textContent = String(activePos + 1);
-      if (totalCountEl) totalCountEl.textContent = String(visibleIndices.length);
+      const slide = allSlides[idx];
+      if (titleEl)    titleEl.textContent    = slide?.dataset.title    ?? "";
+      if (categoryEl) categoryEl.textContent = slide?.dataset.category ?? "";
 
-      // Update dots
-      dots.forEach((dot) => {
-        const dotTarget = Number(dot.getAttribute("data-target"));
-        const isCurrent = dotTarget === targetSlideIndex;
-        const isVisible = visibleIndices.includes(dotTarget);
-
-        dot.style.display = isVisible ? "inline-block" : "none";
-        if (isCurrent) {
-          dot.className = "carousel-dot h-2 rounded-full transition-all duration-300 w-6 bg-primary";
+      dots.forEach(dot => {
+        const t = Number(dot.dataset.target);
+        const vis = visibleIndices.includes(t);
+        dot.style.display = vis ? "inline-block" : "none";
+        if (t === idx) {
+          dot.className = "carousel-dot rounded-full transition-all duration-300 h-1.5 w-5 bg-foreground";
         } else {
-          dot.className = "carousel-dot h-2 rounded-full transition-all duration-300 w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60";
+          dot.className = "carousel-dot rounded-full transition-all duration-300 h-1.5 w-1.5 bg-foreground/20 hover:bg-foreground/40";
         }
       });
     }
 
-    function goToNext() {
-      activePos = (activePos + 1) % visibleIndices.length;
-      updateView();
-    }
-
-    function goToPrev() {
-      activePos = (activePos - 1 + visibleIndices.length) % visibleIndices.length;
-      updateView();
-    }
+    const goNext = () => { activePos = (activePos + 1) % visibleIndices.length; updateView(); };
+    const goPrev = () => { activePos = (activePos - 1 + visibleIndices.length) % visibleIndices.length; updateView(); };
 
     function startAutoplay() {
       stopAutoplay();
       if (!isAutoplay) return;
-      autoplayTimer = setInterval(() => {
-        goToNext();
-      }, 4500);
+      autoplayTimer = setInterval(goNext, 4500);
     }
-
     function stopAutoplay() {
-      if (autoplayTimer) {
-        clearInterval(autoplayTimer);
-        autoplayTimer = null;
-      }
+      if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
     }
 
-    // Button event listeners
-    nextBtn?.addEventListener("click", () => {
-      goToNext();
-      startAutoplay();
-    });
+    nextBtn?.addEventListener("click", () => { goNext(); startAutoplay(); });
+    prevBtn?.addEventListener("click", () => { goPrev(); startAutoplay(); });
 
-    prevBtn?.addEventListener("click", () => {
-      goToPrev();
-      startAutoplay();
-    });
-
-    // Dot click listeners
-    dots.forEach((dot) => {
+    dots.forEach(dot => {
       dot.addEventListener("click", () => {
-        const target = Number(dot.getAttribute("data-target"));
-        const pos = visibleIndices.indexOf(target);
-        if (pos !== -1) {
-          activePos = pos;
-          updateView();
-          startAutoplay();
-        }
+        const t = Number(dot.dataset.target);
+        const pos = visibleIndices.indexOf(t);
+        if (pos !== -1) { activePos = pos; updateView(); startAutoplay(); }
       });
     });
 
-    // Filter toggle listeners
-    filterBtns.forEach((btn) => {
+    filterBtns.forEach(btn => {
       btn.addEventListener("click", () => {
-        const filter = btn.getAttribute("data-filter");
-        filterBtns.forEach(b => {
-          b.classList.remove("active-filter", "border-primary/30", "bg-primary/10", "text-foreground");
-          b.classList.add("border-border/60", "bg-card/50", "text-muted-foreground");
-        });
-        btn.classList.add("active-filter", "border-primary/30", "bg-primary/10", "text-foreground");
-        btn.classList.remove("border-border/60", "bg-card/50", "text-muted-foreground");
+        const filter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.remove("active-filter"));
+        btn.classList.add("active-filter");
 
-        if (filter === "all") {
-          visibleIndices = allSlides.map((_, i) => i);
-        } else {
-          visibleIndices = allSlides
-            .map((slide, i) => slide.getAttribute("data-mode") === filter ? i : -1)
-            .filter(i => i !== -1);
-        }
+        visibleIndices = filter === "all"
+          ? allSlides.map((_, i) => i)
+          : allSlides.map((s, i) => s.dataset.mode === filter ? i : -1).filter(i => i !== -1);
         activePos = 0;
         updateView();
         startAutoplay();
       });
     });
 
-    // Autoplay toggle
     autoplayBtn?.addEventListener("click", () => {
       isAutoplay = !isAutoplay;
+      const dot = autoplayBtn.querySelector(".rounded-full");
       if (isAutoplay) {
-        if (autoplayLabel) autoplayLabel.textContent = "Auto-play On";
-        autoplayBtn.querySelector(".rounded-full")?.classList.remove("bg-muted-foreground");
-        autoplayBtn.querySelector(".rounded-full")?.classList.add("bg-emerald-500");
+        if (autoplayLbl) autoplayLbl.textContent = "Auto";
+        dot?.classList.replace("bg-muted-foreground", "bg-emerald-500");
         startAutoplay();
       } else {
-        if (autoplayLabel) autoplayLabel.textContent = "Auto-play Off";
-        autoplayBtn.querySelector(".rounded-full")?.classList.remove("bg-emerald-500");
-        autoplayBtn.querySelector(".rounded-full")?.classList.add("bg-muted-foreground");
+        if (autoplayLbl) autoplayLbl.textContent = "Paused";
+        dot?.classList.replace("bg-emerald-500", "bg-muted-foreground");
         stopAutoplay();
       }
     });
 
-    // Pause on hover
     viewport?.addEventListener("mouseenter", stopAutoplay);
-    viewport?.addEventListener("mouseleave", () => {
-      if (isAutoplay) startAutoplay();
-    });
+    viewport?.addEventListener("mouseleave", () => { if (isAutoplay) startAutoplay(); });
 
-    // Keyboard navigation
     viewport?.addEventListener("keydown", (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        goToPrev();
-        startAutoplay();
-      } else if (e.key === "ArrowRight") {
-        e.preventDefault();
-        goToNext();
-        startAutoplay();
-      }
+      if (e.key === "ArrowLeft")  { e.preventDefault(); goPrev(); startAutoplay(); }
+      if (e.key === "ArrowRight") { e.preventDefault(); goNext(); startAutoplay(); }
     });
 
-    // Touch swipe support
     let touchStartX = 0;
-    let touchEndX = 0;
-
     viewport?.addEventListener("touchstart", (e: TouchEvent) => {
-      touchStartX = e.changedTouches[0].screenX;
-      stopAutoplay();
+      touchStartX = e.changedTouches[0].screenX; stopAutoplay();
     }, { passive: true });
-
     viewport?.addEventListener("touchend", (e: TouchEvent) => {
-      touchEndX = e.changedTouches[0].screenX;
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0) {
-          goToNext();
-        } else {
-          goToPrev();
-        }
-      }
+      const diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 40) { diff > 0 ? goNext() : goPrev(); }
       if (isAutoplay) startAutoplay();
     }, { passive: true });
 
-    // Initial view
     updateView();
     startAutoplay();
   }
 
-  // Setup on initial load & Astro page transitions
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupScreenshotCarousel);
-  } else {
-    setupScreenshotCarousel();
-  }
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", setupScreenshotCarousel)
+    : setupScreenshotCarousel();
   document.addEventListener("astro:page-load", setupScreenshotCarousel);
 </script>

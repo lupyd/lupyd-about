@@ -3,254 +3,443 @@ import Layout from "../layouts/Layout.astro";
 import ScreenshotCarousel from "../components/ScreenshotCarousel.astro";
 ---
 
-<Layout title="Lupyd: The Next-Generation Social Media & Collaboration Platform" description="A social and collaboration platform built to connect people, empower teams, and keep communication private, secure, and encrypted.">
+<Layout
+  title="Lupyd: The Next-Generation Social Media & Collaboration Platform"
+  description="A social and collaboration platform built to connect people, empower teams, and keep communication private, secure, and encrypted."
+>
 
-  <!-- Hero Section -->
-  <section class="w-full py-16 md:py-24 lg:py-32 flex items-center justify-center relative overflow-hidden">
-    <div class="container mx-auto px-4 max-w-7xl relative z-10 text-center">
-      <div class="flex flex-col items-center space-y-6 max-w-3xl mx-auto">
-        <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-foreground animate-card">
-          Lupyd: The Next-Generation Social Media & Collaboration Platform
-        </h1>
-        <p class="text-lg md:text-xl text-muted-foreground animate-card" style="animation-delay: 0.1s">
-          A social and collaboration platform built to connect people, empower teams, and keep communication private, secure, and encrypted.
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-4 animate-card" style="animation-delay: 0.2s">
-          <a
-            href="https://lupyd.com"
-            class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-11 px-8 py-3 transform hover:scale-[1.02] active:scale-[0.98]"
-          >
-            Get Started
-          </a>
-          <a
-            href="https://download.lupyd.com"
-            class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring border border-border bg-background/50 hover:bg-muted/80 backdrop-blur-sm h-11 px-8 py-3 transform hover:scale-[1.02] active:scale-[0.98]"
-          >
-            Download Now
-          </a>
-        </div>
-        <p class="text-sm md:text-base text-muted-foreground animate-card" style="animation-delay: 0.3s">
-          Social when you want it. Collaborative when you need it. Private by design.
-        </p>
+<!-- ════════════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════════ -->
+<section class="w-full pt-14 pb-0 overflow-hidden">
+  <div class="mx-auto px-6 max-w-5xl">
+
+    <!-- Eyebrow -->
+    <div class="flex justify-center mb-6 anim-hero" style="animation-delay:0s">
+      <span class="label-pill">Next-Generation Platform</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="text-center font-extrabold tracking-tight leading-[1.04] text-foreground anim-hero
+               text-[clamp(2rem,6vw,4rem)]"
+        style="animation-delay:0.08s">
+      Lupyd: The Next-Generation<br class="hidden sm:block" />
+      Social Media &amp; Collaboration Platform
+    </h1>
+
+    <!-- Sub -->
+    <p class="mt-5 text-center text-muted-foreground max-w-2xl mx-auto leading-relaxed anim-hero
+              text-[clamp(0.9rem,1.8vw,1.1rem)]"
+       style="animation-delay:0.16s">
+      A social and collaboration platform built to connect people, empower teams,
+      and keep communication private, secure, and encrypted.
+    </p>
+
+    <!-- CTAs -->
+    <div class="mt-7 flex flex-wrap items-center justify-center gap-3 anim-hero"
+         style="animation-delay:0.24s">
+      <a href="https://lupyd.com"
+         class="inline-flex items-center justify-center rounded-md font-semibold transition-all
+                bg-primary text-primary-foreground hover:opacity-88 active:scale-[0.98]
+                h-11 px-7 text-sm shadow-sm">
+        Get Started
+      </a>
+      <a href="https://download.lupyd.com"
+         class="inline-flex items-center justify-center rounded-md font-semibold transition-all
+                border border-border bg-background hover:bg-muted active:scale-[0.98]
+                h-11 px-7 text-sm">
+        Download Now
+      </a>
+    </div>
+
+    <p class="mt-4 text-center text-xs text-muted-foreground anim-hero" style="animation-delay:0.3s">
+      Social when you want it. Collaborative when you need it. Private by design.
+    </p>
+  </div>
+
+  <!-- Full-width hero screenshot — breaks out of max-w-5xl -->
+  <div class="mt-10 mx-auto px-4 sm:px-6 max-w-6xl anim-hero" style="animation-delay:0.38s">
+    <div class="hero-frame">
+      <div class="hero-chrome">
+        <span class="hero-chrome-dot"></span>
+        <span class="hero-chrome-dot"></span>
+        <span class="hero-chrome-dot"></span>
+        <span class="hero-chrome-bar">lupyd.com</span>
+      </div>
+      <img
+        src="/screenshots/Screenshot_20260906_065353.webp"
+        alt="Lupyd Platform — Main Interface"
+        class="hero-img"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SEE LUPYD IN ACTION  (carousel — full width)
+════════════════════════════════════════════════════════════ -->
+<ScreenshotCarousel />
+
+
+<!-- ════════════════════════════════════════════════════════════
+     BUILT DIFFERENTLY  (why lupyd — 4-cell grid)
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-20 md:py-24 border-t border-border/30">
+  <div class="mx-auto px-6 max-w-5xl">
+
+    <div class="mb-10 sr">
+      <span class="label-pill mb-4 inline-flex">Why Lupyd?</span>
+      <h2 class="mt-3 font-extrabold tracking-tight text-foreground
+                 text-[clamp(1.6rem,3.5vw,2.6rem)] leading-tight">
+        Built different, by design
+      </h2>
+      <p class="mt-3 text-muted-foreground max-w-xl text-sm leading-relaxed">
+        Lupyd is revolutionizing social connections in the digital age — faster, smarter,
+        and more private than anything that came before.
+      </p>
+    </div>
+
+    <div class="feat-grid sr" style="transition-delay:0.1s">
+      <div class="feat-cell">
+        <p class="feat-num">01</p>
+        <h3 class="feat-title">Revolutionary Connections</h3>
+        <p class="feat-body">Lupyd is revolutionizing social connections in the digital age, offering a seamless and engaging experience.</p>
+      </div>
+      <div class="feat-cell">
+        <p class="feat-num">02</p>
+        <h3 class="feat-title">Faster Content Sharing</h3>
+        <p class="feat-body">Enjoy 87% faster content sharing compared to competitors, making your interactions more efficient.</p>
+      </div>
+      <div class="feat-cell">
+        <p class="feat-num">03</p>
+        <h3 class="feat-title">Privacy-First Approach</h3>
+        <p class="feat-body">Experience a privacy-first social networking environment, ensuring your data is protected.</p>
+      </div>
+      <div class="feat-cell">
+        <p class="feat-num">04</p>
+        <h3 class="feat-title">AI Personalization</h3>
+        <p class="feat-body">Benefit from AI-powered personalization algorithms that tailor your experience to your preferences.</p>
       </div>
     </div>
-  </section>
 
-  <!-- Screenshot Carousel Section -->
-  <ScreenshotCarousel />
-
-  <!-- Why Lupyd Section -->
-  <section class="w-full py-12 md:py-20 bg-muted/30 backdrop-blur-[2px] border-y border-border/20">
-    <div class="container mx-auto px-4 max-w-7xl">
-      <div class="flex flex-col items-center space-y-4 text-center mb-16">
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Why Lupyd?</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-        <!-- Card 1 -->
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <div class="bg-card/45 hover:bg-card/75 border border-border/50 hover:border-border transition-all duration-300 rounded-lg p-6 flex flex-col h-full shadow-sm hover:shadow-md">
-            <h3 class="text-lg font-bold mb-2">Revolutionary Connections</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              Lupyd is revolutionizing social connections in the digital age, offering a seamless and engaging experience.
-            </p>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-card/45 hover:bg-card/75 border border-border/50 hover:border-border transition-all duration-300 rounded-lg p-6 flex flex-col h-full shadow-sm hover:shadow-md">
-            <h3 class="text-lg font-bold mb-2">Faster Content Sharing</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              Enjoy 87% faster content sharing compared to competitors, making your interactions more efficient.
-            </p>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="animate-card" style="animation-delay: 0.15s">
-          <div class="bg-card/45 hover:bg-card/75 border border-border/50 hover:border-border transition-all duration-300 rounded-lg p-6 flex flex-col h-full shadow-sm hover:shadow-md">
-            <h3 class="text-lg font-bold mb-2">Privacy-First Approach</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              Experience a privacy-first social networking environment, ensuring your data is protected.
-            </p>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="animate-card" style="animation-delay: 0.2s">
-          <div class="bg-card/45 hover:bg-card/75 border border-border/50 hover:border-border transition-all duration-300 rounded-lg p-6 flex flex-col h-full shadow-sm hover:shadow-md">
-            <h3 class="text-lg font-bold mb-2">AI personalization</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              Benefit from AI-powered personalization algorithms that tailor your experience to your preferences.
-            </p>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="animate-card" style="animation-delay: 0.25s">
-          <div class="bg-card/45 hover:bg-card/75 border border-border/50 hover:border-border transition-all duration-300 rounded-lg p-6 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md">
-            <img src="/flag.webp" alt="Indian Flag" class="h-12 w-12 object-contain mb-3" />
-            <h3 class="text-lg font-bold mb-2">Made in India</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              The first ever Encrypted Project Development app developed in India, built with sense of security for global users.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="flex justify-center mt-12">
-        <a 
-          href="/features" 
-          class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring border border-border bg-background hover:bg-muted/80 h-10 px-6 py-2"
-        >
-          Explore All Features
-        </a>
-      </div>
+    <div class="mt-7 sr" style="transition-delay:0.18s">
+      <a href="/features"
+         class="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+        Explore All Features
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Key Features Preview Section -->
-  <section class="w-full py-16 md:py-24">
-    <div class="container mx-auto px-4 max-w-7xl">
-      <div class="flex flex-col items-center space-y-4 text-center mb-16">
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Key Features</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-        <!-- MessageSquare Card -->
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <div class="bg-card/30 border border-border/40 rounded-lg p-6 flex flex-col items-center text-center h-full">
-            <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+
+<!-- ════════════════════════════════════════════════════════════
+     KEY FEATURES  (text left + large screenshot right)
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-20 md:py-24 border-t border-border/30 section-stripe">
+  <div class="mx-auto px-6 max-w-5xl">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-14 items-center">
+
+      <!-- Text -->
+      <div class="space-y-6 order-2 lg:order-1 sr">
+        <span class="label-pill">Key Features</span>
+        <h2 class="font-extrabold tracking-tight text-foreground
+                   text-[clamp(1.5rem,3vw,2.2rem)] leading-tight">
+          Built for how you actually work and connect
+        </h2>
+
+        <ul class="space-y-4">
+          <li class="flex gap-3 items-start">
+            <span class="mt-0.5 shrink-0 w-6 h-6 rounded-full border border-border flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </span>
+            <div>
+              <p class="text-sm font-semibold text-foreground">Encrypted Messaging</p>
+              <p class="text-xs text-muted-foreground mt-0.5 leading-relaxed">Enjoy secure, end-to-end encrypted messaging for private conversations.</p>
             </div>
-            <h3 class="text-lg font-bold mb-2">Encrypted Messaging</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              Enjoy secure, end-to-end encrypted messaging for private conversations.
-            </p>
-          </div>
-        </div>
-
-        <!-- Zap Card -->
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-card/30 border border-border/40 rounded-lg p-6 flex flex-col items-center text-center h-full">
-            <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="mt-0.5 shrink-0 w-6 h-6 rounded-full border border-border flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </span>
+            <div>
+              <p class="text-sm font-semibold text-foreground">Advanced Recommendations</p>
+              <p class="text-xs text-muted-foreground mt-0.5 leading-relaxed">Discover content tailored to your interests with our advanced recommendation system.</p>
             </div>
-            <h3 class="text-lg font-bold mb-2">Advanced Recommendations</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              Discover content tailored to your interests with our advanced content recommendation system.
-            </p>
-          </div>
-        </div>
-
-        <!-- Share2 Card -->
-        <div class="animate-card" style="animation-delay: 0.15s">
-          <div class="bg-card/30 border border-border/40 rounded-lg p-6 flex flex-col items-center text-center h-full">
-            <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="mt-0.5 shrink-0 w-6 h-6 rounded-full border border-border flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </span>
+            <div>
+              <p class="text-sm font-semibold text-foreground">Multi-Format Sharing</p>
+              <p class="text-xs text-muted-foreground mt-0.5 leading-relaxed">Share various content formats seamlessly across the platform.</p>
             </div>
-            <h3 class="text-lg font-bold mb-2">Multi-Format Sharing</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              Share various content formats seamlessly across the platform.
-            </p>
-          </div>
-        </div>
-
-        <!-- Settings Card -->
-        <div class="animate-card" style="animation-delay: 0.2s">
-          <div class="bg-card/30 border border-border/40 rounded-lg p-6 flex flex-col items-center text-center h-full">
-            <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="mt-0.5 shrink-0 w-6 h-6 rounded-full border border-border flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </span>
+            <div>
+              <p class="text-sm font-semibold text-foreground">Customizable Controls</p>
+              <p class="text-xs text-muted-foreground mt-0.5 leading-relaxed">Take control of your privacy with customizable settings.</p>
             </div>
-            <h3 class="text-lg font-bold mb-2">Customizable Controls</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              Take control of your privacy with customizable settings.
-            </p>
-          </div>
-        </div>
+          </li>
+        </ul>
 
-        <!-- Flag Card -->
-        <div class="animate-card" style="animation-delay: 0.25s">
-          <div class="bg-card/30 border border-border/40 rounded-lg p-6 flex flex-col items-center text-center h-full">
-            <img src="/flag.webp" alt="Indian Flag" class="h-12 w-12 object-contain mb-4" />
-            <h3 class="text-lg font-bold mb-2">Indian Innovation</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-              Proudly developed in India with cutting-edge security and technology standards.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="flex justify-center mt-12">
-        <a 
-          href="/features" 
-          class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring border border-border bg-background hover:bg-muted/80 h-10 px-6 py-2"
-        >
+        <a href="/features"
+           class="inline-flex items-center justify-center rounded-md text-sm font-semibold
+                  border border-border bg-background hover:bg-muted transition-colors h-10 px-5">
           View All Features
         </a>
       </div>
-    </div>
-  </section>
 
-  <!-- Collaboration Section -->
-  <section class="w-full py-16 md:py-24 border-t border-border/20 bg-muted/10">
-    <div class="container mx-auto px-4 max-w-7xl">
-      <div class="grid gap-12 lg:grid-cols-2 items-center">
-        <div class="space-y-6 animate-card">
-          <div class="inline-block rounded-lg bg-muted border border-border px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Join Today</div>
-          <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl text-foreground">
-            Collaboration, without compromise
-          </h2>
-          <div>
-            <a 
-              href="https://lupyd.com" 
-              class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 px-6 py-2"
-            >
-              Get Started
-            </a>
-          </div>
-        </div>
-        <div class="space-y-6 animate-card" style="animation-delay: 0.1s">
-          <div class="inline-block rounded-lg bg-muted border border-border px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Premium Features</div>
-          <p class="text-base md:text-lg text-muted-foreground leading-relaxed">
-            End-to-end encrypted infrastructure designed to protect every interaction, a zero-knowledge architecture to ensure your data stays private, and the tools to collaborate without ever exposing what you share.
-          </p>
-          <div>
-            <a 
-              href="mailto:sales@lupyd.com" 
-              class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring border border-border bg-background hover:bg-muted/80 h-10 px-6 py-2"
-            >
-              Contact Sales
-            </a>
-          </div>
+      <!-- Screenshot -->
+      <div class="order-1 lg:order-2 sr" style="transition-delay:0.12s">
+        <div class="shot-frame">
+          <img src="/screenshots/Screenshot_20260906_065426.webp"
+               alt="Lupyd Workspace & Collaboration Interface" loading="lazy" />
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Call to Action Section -->
-  <section class="w-full py-16 md:py-24 border-t border-border/20">
-    <div class="container mx-auto px-4 max-w-7xl">
-      <div class="grid gap-12 lg:grid-cols-2 items-center">
-        <div class="space-y-6 animate-card">
-          <div class="inline-block rounded-lg bg-muted border border-border px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Join Today</div>
-          <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl text-foreground">
-            Experience the future of social networking
-          </h2>
-          <div>
-            <a 
-              href="https://lupyd.com" 
-              class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 px-6 py-2"
-            >
-              Get Started
-            </a>
-          </div>
-        </div>
-        <div class="space-y-6 animate-card" style="animation-delay: 0.1s">
-          <div class="inline-block rounded-lg bg-muted border border-border px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Premium Features</div>
-          <p class="text-base md:text-lg text-muted-foreground leading-relaxed">
-            Fully managed infrastructure designed to scale dynamically with your network, a global edge to ensure
-            your experience is fast, and the tools to monitor every aspect of your social presence.
-          </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PRIVACY  (inverted dark band — high contrast)
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-20 md:py-24 privacy-band">
+  <div class="mx-auto px-6 max-w-5xl">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-14 items-center">
+
+      <!-- Screenshot -->
+      <div class="sr">
+        <div class="shot-frame">
+          <img src="/screenshots/Screenshot_20260906_070005.webp"
+               alt="Lupyd Privacy & Security Settings" loading="lazy" />
         </div>
       </div>
+
+      <!-- Text -->
+      <div class="space-y-5 sr" style="transition-delay:0.12s">
+        <span class="label-pill privacy-label">Privacy &amp; Security</span>
+        <h2 class="privacy-heading font-extrabold tracking-tight
+                   text-[clamp(1.5rem,3vw,2.2rem)] leading-tight">
+          Zero-Knowledge Security Controls
+        </h2>
+        <p class="privacy-body text-sm leading-relaxed">
+          Your data belongs to you. Lupyd's zero-knowledge architecture means even we can't
+          read your private messages. Granular privacy settings put you in full control of
+          who sees what.
+        </p>
+        <a href="/privacy" class="privacy-link text-sm font-medium inline-flex items-center gap-1.5">
+          Learn about Privacy
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     EVERYTHING YOU NEED  (collaboration — screenshot left, text right)
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-20 md:py-24 border-t border-border/30">
+  <div class="mx-auto px-6 max-w-5xl">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-center">
+
+      <!-- Screenshot -->
+      <div class="sr">
+        <div class="shot-frame">
+          <img src="/screenshots/Screenshot_20260906_114410.webp"
+               alt="Lupyd Collaboration Interface" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="space-y-5 sr" style="transition-delay:0.12s">
+        <span class="label-pill">Join Today</span>
+        <h2 class="font-extrabold tracking-tight text-foreground
+                   text-[clamp(1.5rem,3vw,2.2rem)] leading-tight">
+          Collaboration, without compromise
+        </h2>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          End-to-end encrypted infrastructure designed to protect every interaction,
+          a zero-knowledge architecture to ensure your data stays private, and the tools
+          to collaborate without ever exposing what you share.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://lupyd.com"
+             class="inline-flex items-center justify-center rounded-md text-sm font-semibold
+                    bg-primary text-primary-foreground hover:opacity-88 transition-all h-10 px-6 shadow-sm">
+            Get Started
+          </a>
+          <a href="mailto:sales@lupyd.com"
+             class="inline-flex items-center justify-center rounded-md text-sm font-semibold
+                    border border-border bg-background hover:bg-muted transition-colors h-10 px-6">
+            Contact Sales
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     MORE THAN SOCIAL  (text left + screenshot right)
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-20 md:py-24 border-t border-border/30 section-stripe">
+  <div class="mx-auto px-6 max-w-5xl">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-14 items-center">
+
+      <!-- Text -->
+      <div class="space-y-5 order-2 lg:order-1 sr">
+        <span class="label-pill">Social Features</span>
+        <h2 class="font-extrabold tracking-tight text-foreground
+                   text-[clamp(1.5rem,3vw,2.2rem)] leading-tight">
+          Experience the future of social networking
+        </h2>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Fully managed infrastructure designed to scale dynamically with your network,
+          a global edge to ensure your experience is fast, and the tools to monitor every
+          aspect of your social presence.
+        </p>
+        <a href="https://lupyd.com"
+           class="inline-flex items-center justify-center rounded-md text-sm font-semibold
+                  bg-primary text-primary-foreground hover:opacity-88 transition-all h-10 px-6 shadow-sm">
+          Get Started
+        </a>
+      </div>
+
+      <!-- Screenshot -->
+      <div class="order-1 lg:order-2 sr" style="transition-delay:0.12s">
+        <div class="shot-frame">
+          <img src="/screenshots/Screenshot_20260906_065648.webp"
+               alt="Lupyd Social Feed & Activity Stream" loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     BUILT IN INDIA  (screenshot left, text right)
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-20 md:py-24 border-t border-border/30">
+  <div class="mx-auto px-6 max-w-5xl">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-14 items-center">
+
+      <!-- Screenshot -->
+      <div class="sr">
+        <div class="shot-frame">
+          <img src="/screenshots/Screenshot_20260906_114318.webp"
+               alt="Lupyd Community Spaces — Built in India" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="space-y-5 sr" style="transition-delay:0.12s">
+        <div class="flex items-center gap-2">
+          <img src="/flag.webp" alt="Indian Flag" class="h-5 w-5 object-contain" />
+          <span class="label-pill">Made in India</span>
+        </div>
+        <h2 class="font-extrabold tracking-tight text-foreground
+                   text-[clamp(1.5rem,3vw,2.2rem)] leading-tight">
+          Indian Innovation
+        </h2>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          The first ever Encrypted Project Development app developed in India, built with
+          sense of security for global users. Proudly developed in India with cutting-edge
+          security and technology standards.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     FINAL CTA
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-24 md:py-32 border-t border-border/30">
+  <div class="mx-auto px-6 max-w-2xl text-center sr">
+    <h2 class="font-extrabold tracking-tight text-foreground
+               text-[clamp(1.8rem,4vw,3rem)] leading-tight">
+      Ready to join Lupyd?
+    </h2>
+    <p class="mt-4 text-muted-foreground text-sm leading-relaxed">
+      Social when you want it. Collaborative when you need it. Private by design.
+    </p>
+    <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+      <a href="https://lupyd.com"
+         class="inline-flex items-center justify-center rounded-md text-sm font-semibold
+                bg-primary text-primary-foreground hover:opacity-88 transition-all h-11 px-8 shadow-sm">
+        Get Started
+      </a>
+      <a href="https://download.lupyd.com"
+         class="inline-flex items-center justify-center rounded-md text-sm font-semibold
+                border border-border bg-background hover:bg-muted transition-colors h-11 px-8">
+        Download Now
+      </a>
+    </div>
+  </div>
+</section>
+
 </Layout>
+
+<script>
+  // Scroll reveal
+  function initSR() {
+    const els = document.querySelectorAll('.sr');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+    els.forEach(el => io.observe(el));
+  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', initSR)
+    : initSR();
+  document.addEventListener('astro:page-load', initSR);
+</script>
