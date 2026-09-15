@@ -3,143 +3,910 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Community & Connections - Lupyd" description="Build meaningful relationships and connect with like-minded individuals on Lupyd's community-focused platform.">
-  <div class="container mx-auto px-4 py-16 md:py-24 lg:py-32 max-w-7xl relative z-10">
-    <!-- Page Header -->
-    <div class="flex flex-col items-center space-y-4 text-center mb-16 animate-card">
-      <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">Community & Connections</h1>
-      <p class="mx-auto max-w-[700px] text-lg md:text-xl text-muted-foreground leading-relaxed">
-        Build meaningful relationships and connect with like-minded individuals on Lupyd's community-focused platform.
-      </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="cm-hero">
+    <div class="cm-hero-bg" aria-hidden="true"><div class="cm-hero-grid"></div></div>
+
+    <div class="cm-container">
+
+      <div class="cm-hero-inner">
+        <!-- Left: headline block -->
+        <div class="cm-hero-left animate-card">
+          <span class="cm-pill">Community</span>
+          <h1 class="cm-h1">Community<br/>&amp;<br/><em>Connections</em></h1>
+        </div>
+
+        <!-- Right: sub + connection nodes visual -->
+        <div class="cm-hero-right animate-card" style="animation-delay:0.09s">
+          <p class="cm-hero-sub">
+            Build meaningful relationships and connect with like-minded individuals on Lupyd's community-focused platform.
+          </p>
+
+          <!-- Abstract connection visual -->
+          <div class="cm-nodes" aria-hidden="true">
+            <div class="cm-node cm-node--center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="cm-node cm-node--a">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <div class="cm-node cm-node--b">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <div class="cm-node cm-node--c">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <div class="cm-node cm-node--d">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <svg class="cm-nodes-lines" viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="130" y1="90" x2="40" y2="40" stroke="currentColor" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.4"/>
+              <line x1="130" y1="90" x2="220" y2="40" stroke="currentColor" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.4"/>
+              <line x1="130" y1="90" x2="50" y2="150" stroke="currentColor" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.4"/>
+              <line x1="130" y1="90" x2="210" y2="150" stroke="currentColor" stroke-width="0.8" stroke-dasharray="4 4" opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three capability strip -->
+      <div class="cm-caps animate-card" style="animation-delay:0.17s">
+        <div class="cm-cap">
+          <div class="cm-cap-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          </div>
+          <div>
+            <p class="cm-cap-title">Smart Friend Discovery</p>
+            <p class="cm-cap-desc">Find people who share your interests and passions.</p>
+          </div>
+        </div>
+        <div class="cm-cap-div" aria-hidden="true"></div>
+        <div class="cm-cap">
+          <div class="cm-cap-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <p class="cm-cap-title">Interest-Based Groups</p>
+            <p class="cm-cap-desc">Join communities built around shared passions.</p>
+          </div>
+        </div>
+        <div class="cm-cap-div" aria-hidden="true"></div>
+        <div class="cm-cap">
+          <div class="cm-cap-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M12 8v8M12 16H5v2M12 16h7v2"/></svg>
+          </div>
+          <div>
+            <p class="cm-cap-title">Professional Networking</p>
+            <p class="cm-cap-desc">Manage professional and personal networks with ease.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Community Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-      <!-- Card 1 -->
-      <div class="animate-card" style="animation-delay: 0.05s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Smart Friend Discovery</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Connect with like-minded individuals using our smart friend discovery algorithms. Find people who share your interests and passions.
-          </p>
-        </div>
-      </div>
+  <!-- ═══════════════════════════════════════════════════════════
+       BUILDING MEANINGFUL CONNECTIONS — image left, text right
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="cm-section cm-section--split">
+    <div class="cm-container">
+      <div class="cm-split">
 
-      <!-- Card 2 -->
-      <div class="animate-card" style="animation-delay: 0.1s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Interest-Based Groups</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Join interest-based community groups to share your passions. Engage in discussions, share content, and build connections around shared interests.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="animate-card" style="animation-delay: 0.15s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M12 8v8M12 16H5v2M12 16h7v2"></path></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Professional Networking</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Manage both professional and personal networks with ease. Build your professional presence while maintaining separate personal connections.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Meaningful Connections Section -->
-    <section class="mb-20">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <div class="bg-muted/30 border border-border/20 p-4 rounded-lg flex items-center justify-center">
+        <!-- Image -->
+        <div class="cm-split-visual sr">
+          <div class="cm-img-frame">
             <img
               src="/BM.webp"
               alt="Community interaction"
-              class="rounded-lg shadow-md max-w-full h-auto object-cover border border-border/40"
+              class="cm-img-frame-img"
+              loading="lazy"
             />
           </div>
         </div>
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <h2 class="text-3xl font-bold mb-4">Building Meaningful Connections</h2>
-          <p class="text-muted-foreground mb-6 leading-relaxed">
+
+        <!-- Text -->
+        <div class="cm-split-text sr" style="transition-delay:0.1s">
+          <span class="cm-overline">Connections</span>
+          <h2 class="cm-split-h2">Building Meaningful<br/>Connections</h2>
+          <p class="cm-split-body">
             Lupyd is designed to foster genuine connections between users. Our platform encourages meaningful interactions rather than superficial engagement.
           </p>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Quality conversations over quantity of connections</span>
+          <ul class="cm-checklist">
+            <li class="cm-check-item">
+              <span class="cm-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Quality conversations over quantity of connections</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Tools to maintain long-term relationships</span>
+            <li class="cm-check-item">
+              <span class="cm-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Tools to maintain long-term relationships</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Engagement-focused rather than metrics-focused</span>
+            <li class="cm-check-item">
+              <span class="cm-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Engagement-focused rather than metrics-focused</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Community guidelines that promote respect and authenticity</span>
+            <li class="cm-check-item">
+              <span class="cm-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Community guidelines that promote respect and authenticity</span>
             </li>
           </ul>
         </div>
-      </div>
-    </section>
 
-    <!-- Community Features -->
-    <section class="mb-20">
-      <h2 class="text-2xl font-bold mb-8 text-center animate-card">Community Features</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Community Events</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Discover and participate in virtual and in-person events organized by communities. Connect with others who share your interests in real-time.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Collaborative Projects</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Work together on collaborative projects within your communities. Share ideas, contribute content, and achieve goals as a team.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.15s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Community Challenges</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Participate in community challenges to engage with others and showcase your skills. Challenges provide a fun way to connect and compete.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.2s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Global Communities</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Connect with communities around the world. Expand your horizons by engaging with diverse perspectives and cultures.
-            </p>
-          </div>
-        </div>
       </div>
-    </section>
-
-    <!-- Back Home Link -->
-    <div class="flex justify-center animate-card">
-      <a
-        href="/"
-        class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 px-6 py-2"
-      >
-        Back to Home
-      </a>
     </div>
-  </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       COMMUNITY FEATURES — inverted band with bento grid
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="cm-features-band">
+    <div class="cm-container">
+
+      <div class="cm-features-header sr">
+        <span class="cm-features-overline">Features</span>
+        <h2 class="cm-features-h2">Community<br/>Features</h2>
+        <p class="cm-features-sub">Everything you need to build, grow, and engage your community.</p>
+      </div>
+
+      <div class="cm-features-bento sr" style="transition-delay:0.1s">
+
+        <!-- Card 1 — wide left -->
+        <div class="cm-feat-card cm-feat-card--wide">
+          <div class="cm-feat-card-top">
+            <span class="cm-feat-num">01</span>
+            <div class="cm-feat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+          </div>
+          <h3 class="cm-feat-title">Community Events</h3>
+          <p class="cm-feat-desc">Discover and participate in virtual and in-person events organized by communities. Connect with others who share your interests in real-time.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="cm-feat-card">
+          <div class="cm-feat-card-top">
+            <span class="cm-feat-num">02</span>
+            <div class="cm-feat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+          </div>
+          <h3 class="cm-feat-title">Collaborative Projects</h3>
+          <p class="cm-feat-desc">Work together on collaborative projects within your communities. Share ideas, contribute content, and achieve goals as a team.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="cm-feat-card">
+          <div class="cm-feat-card-top">
+            <span class="cm-feat-num">03</span>
+            <div class="cm-feat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+          </div>
+          <h3 class="cm-feat-title">Community Challenges</h3>
+          <p class="cm-feat-desc">Participate in community challenges to engage with others and showcase your skills. Challenges provide a fun way to connect and compete.</p>
+        </div>
+
+        <!-- Card 4 — full-width bottom -->
+        <div class="cm-feat-card cm-feat-card--bottom">
+          <div class="cm-feat-card-bottom-left">
+            <div class="cm-feat-card-top">
+              <span class="cm-feat-num">04</span>
+              <div class="cm-feat-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+            </div>
+            <h3 class="cm-feat-title">Global Communities</h3>
+          </div>
+          <p class="cm-feat-desc cm-feat-desc--right">Connect with communities around the world. Expand your horizons by engaging with diverse perspectives and cultures.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PRODUCT SHOWCASE — group chat screenshot
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="cm-section cm-section--showcase">
+    <div class="cm-container">
+      <div class="cm-showcase sr">
+        <div class="cm-showcase-text">
+          <span class="cm-overline">Platform</span>
+          <h2 class="cm-showcase-h2">Where every<br/>conversation matters.</h2>
+          <p class="cm-showcase-body">
+            From group chats to community spaces, Lupyd gives every interaction the context and privacy it deserves.
+          </p>
+        </div>
+        <div class="cm-showcase-visual sr" style="transition-delay:0.12s">
+          <div class="cm-shot-frame">
+            <div class="cm-shot-chrome">
+              <span class="cm-chrome-dot"></span>
+              <span class="cm-chrome-dot"></span>
+              <span class="cm-chrome-dot"></span>
+              <span class="cm-chrome-bar">lupyd.com</span>
+            </div>
+            <img
+              src="/screenshots/group-chat.webp"
+              alt="Lupyd Group Chat"
+              class="cm-shot-img"
+              loading="lazy"
+              onerror="this.closest('.cm-shot-frame').style.display='none'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CLOSING CTA
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="cm-cta sr">
+    <div class="cm-container">
+      <div class="cm-cta-inner">
+        <span class="cm-overline">Get started</span>
+        <h2 class="cm-cta-h2">Join the<br/>community.</h2>
+        <a href="/" class="cm-cta-btn">← Back to Home</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+/* ── SHARED ──────────────────────────────────────────────────── */
+.cm-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.cm-overline {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 0.8rem;
+}
+
+.cm-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  padding: 3px 13px;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1.75rem;
+}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.cm-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 0;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.cm-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cm-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, black 30%, transparent 100%);
+}
+
+.cm-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: end;
+  padding-bottom: 3rem;
+}
+
+.cm-hero-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.cm-h1 {
+  font-size: clamp(3.4rem, 8.5vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.cm-h1 em {
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.cm-hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-self: end;
+  padding-bottom: 0.5rem;
+}
+
+.cm-hero-sub {
+  font-size: clamp(0.88rem, 1.6vw, 1rem);
+  color: hsl(var(--muted-foreground));
+  line-height: 1.72;
+  max-width: 380px;
+  margin: 0;
+}
+
+/* Connection nodes visual */
+.cm-nodes {
+  position: relative;
+  width: 260px;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+.cm-nodes-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: hsl(var(--foreground));
+}
+
+.cm-node {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  animation: cm-pulse 3s ease-in-out infinite;
+}
+
+.cm-node--center {
+  width: 52px; height: 52px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-color: hsl(var(--foreground) / 0.3);
+  animation-delay: 0s;
+}
+
+.cm-node--a {
+  width: 30px; height: 30px;
+  top: 10px; left: 20px;
+  animation-delay: 0.4s;
+}
+
+.cm-node--b {
+  width: 30px; height: 30px;
+  top: 10px; right: 20px;
+  animation-delay: 0.8s;
+}
+
+.cm-node--c {
+  width: 30px; height: 30px;
+  bottom: 10px; left: 20px;
+  animation-delay: 1.2s;
+}
+
+.cm-node--d {
+  width: 30px; height: 30px;
+  bottom: 10px; right: 20px;
+  animation-delay: 1.6s;
+}
+
+@keyframes cm-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+.cm-node--center {
+  animation-name: cm-pulse-center;
+}
+
+@keyframes cm-pulse-center {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Capability strip */
+.cm-caps {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  background: hsl(var(--card));
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.cm-cap {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.5rem 1.75rem;
+  transition: background 0.2s;
+}
+
+.cm-cap:hover { background: hsl(var(--muted) / 0.5); }
+
+.cm-cap-div {
+  width: 1px;
+  background: hsl(var(--border));
+  align-self: stretch;
+}
+
+.cm-cap-icon {
+  width: 34px; height: 34px;
+  border-radius: 7px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.cm-cap:hover .cm-cap-icon {
+  transform: translateY(-2px);
+  border-color: hsl(var(--foreground) / 0.3);
+}
+
+.cm-cap-title {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  letter-spacing: -0.01em;
+  margin: 0 0 0.25rem;
+}
+
+.cm-cap-desc {
+  font-size: 0.74rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── SECTIONS ────────────────────────────────────────────────── */
+.cm-section { padding: 6rem 0; }
+.cm-section--split { border-bottom: 1px solid hsl(var(--border)); }
+.cm-section--showcase {
+  border-top: 1px solid hsl(var(--border));
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--stripe));
+}
+
+/* ── MEANINGFUL CONNECTIONS — split ─────────────────────────── */
+.cm-split {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.cm-img-frame {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid hsl(var(--border));
+  overflow: hidden;
+  background: hsl(var(--card));
+  box-shadow: 0 24px 64px -16px rgba(0,0,0,0.12);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.dark .cm-img-frame {
+  box-shadow: 0 24px 64px -16px rgba(0,0,0,0.55);
+}
+
+.cm-img-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 80px -16px rgba(0,0,0,0.18);
+}
+
+.dark .cm-img-frame:hover {
+  box-shadow: 0 32px 80px -16px rgba(0,0,0,0.7);
+}
+
+.cm-img-frame-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.cm-split-h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: hsl(var(--foreground));
+  margin: 0 0 1.25rem;
+}
+
+.cm-split-body {
+  font-size: 0.88rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.75;
+  margin: 0 0 2rem;
+  max-width: 400px;
+}
+
+.cm-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.cm-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.5;
+}
+
+.cm-check-mark {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── COMMUNITY FEATURES — inverted band ─────────────────────── */
+.cm-features-band {
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  padding: 6rem 0;
+}
+
+.cm-features-header { margin-bottom: 3.5rem; }
+
+.cm-features-overline {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.4);
+  margin-bottom: 0.8rem;
+}
+
+.cm-features-h2 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.97;
+  color: hsl(var(--background));
+  margin: 0 0 0.9rem;
+}
+
+.cm-features-sub {
+  font-size: 0.9rem;
+  color: hsl(var(--background) / 0.45);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Bento grid */
+.cm-features-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: hsl(var(--background) / 0.1);
+  border: 1px solid hsl(var(--background) / 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.cm-feat-card--wide  { grid-column: 1 / 3; }
+.cm-feat-card--bottom { grid-column: 1 / -1; }
+
+.cm-feat-card {
+  background: hsl(var(--foreground));
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+}
+
+.cm-feat-card:hover { background: hsl(var(--background) / 0.05); }
+
+.cm-feat-card--bottom {
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+}
+
+.cm-feat-card-bottom-left {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-width: 220px;
+}
+
+.cm-feat-desc--right {
+  flex: 1;
+  border-left: 1px solid hsl(var(--background) / 0.12);
+  padding-left: 2.5rem;
+  margin: 0 !important;
+}
+
+.cm-feat-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.cm-feat-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.3);
+}
+
+.cm-feat-icon {
+  width: 38px; height: 38px;
+  border-radius: 8px;
+  border: 1px solid hsl(var(--background) / 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--background));
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cm-feat-card:hover .cm-feat-icon {
+  border-color: hsl(var(--background) / 0.4);
+  transform: translateY(-2px);
+}
+
+.cm-feat-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: hsl(var(--background));
+  margin: 0 0 0.65rem;
+  line-height: 1.25;
+}
+
+.cm-feat-desc {
+  font-size: 0.8rem;
+  color: hsl(var(--background) / 0.5);
+  line-height: 1.72;
+  margin: 0;
+}
+
+/* ── SHOWCASE ────────────────────────────────────────────────── */
+.cm-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.cm-showcase-h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  color: hsl(var(--foreground));
+  margin: 0 0 1.1rem;
+}
+
+.cm-showcase-body {
+  font-size: 0.88rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.75;
+  margin: 0;
+}
+
+.cm-shot-frame {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid hsl(var(--border));
+  overflow: hidden;
+  background: hsl(var(--card));
+  box-shadow: 0 20px 60px -12px rgba(0,0,0,0.12);
+}
+
+.dark .cm-shot-frame {
+  box-shadow: 0 20px 60px -12px rgba(0,0,0,0.55);
+}
+
+.cm-shot-chrome {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background: hsl(var(--muted));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.cm-chrome-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: hsl(var(--border));
+}
+
+.cm-chrome-bar {
+  flex: 1;
+  max-width: 160px;
+  height: 15px;
+  border-radius: 4px;
+  background: hsl(var(--border) / 0.5);
+  margin-left: 6px;
+  font-size: 9px;
+  color: hsl(var(--muted-foreground));
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+}
+
+.cm-shot-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cm-shot-frame:hover .cm-shot-img { transform: scale(1.015); }
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.cm-cta {
+  padding: 6rem 0 7rem;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.cm-cta-inner {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.cm-cta-h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.cm-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0 1.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  margin-top: 0.5rem;
+  width: fit-content;
+  transition: opacity 0.15s;
+}
+
+.cm-cta-btn:hover { opacity: 0.82; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .cm-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+  }
+  .cm-nodes { display: none; }
+  .cm-caps { flex-direction: column; }
+  .cm-cap-div { width: 100%; height: 1px; align-self: auto; }
+
+  .cm-split {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .cm-features-bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cm-feat-card--wide { grid-column: 1 / -1; }
+  .cm-feat-card--bottom {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .cm-feat-desc--right {
+    border-left: none;
+    border-top: 1px solid hsl(var(--background) / 0.12);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+
+  .cm-showcase {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .cm-features-bento { grid-template-columns: 1fr; }
+  .cm-feat-card--wide { grid-column: 1; }
+  .cm-h1 { font-size: clamp(2.8rem, 13vw, 4.5rem); }
+}
+</style>
+
+<script>
+  function initSR() {
+    const els = document.querySelectorAll('.sr');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => io.observe(el));
+  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', initSR)
+    : initSR();
+  document.addEventListener('astro:page-load', initSR);
+</script>

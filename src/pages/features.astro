@@ -1,152 +1,943 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const mainFeatures = [
+  {
+    icon: `<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>`,
+    title: "Encrypted Messaging",
+    desc: "Enjoy secure, end-to-end encrypted messaging for private conversations. Our advanced encryption ensures your messages remain private and secure.",
+    size: "large",
+  },
+  {
+    icon: `<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>`,
+    title: "Advanced Recommendations",
+    desc: "Discover content tailored to your interests with our advanced content recommendation system. Our AI algorithms learn your preferences to deliver relevant content.",
+    size: "normal",
+  },
+  {
+    icon: `<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>`,
+    title: "Multi-Format Sharing",
+    desc: "Share various content formats seamlessly across the platform. From images and videos to documents and links, share what matters to you.",
+    size: "normal",
+  },
+  {
+    icon: `<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>`,
+    title: "Customizable Privacy Controls",
+    desc: "Take control of your privacy with customizable settings. Manage who sees your content and how you interact with others on the platform.",
+    size: "normal",
+  },
+  {
+    icon: `<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>`,
+    title: "Group Collaboration",
+    desc: "Collaborate with friends, family, or colleagues in dedicated group spaces. Share ideas, plan events, and stay connected.",
+    size: "normal",
+  },
+  {
+    icon: `<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>`,
+    title: "Privacy Controls",
+    desc: "Advanced privacy controls give you complete authority over your data and who can access your information.",
+    size: "wide",
+  },
+];
+
+const securityFeatures = [
+  {
+    num: "01",
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`,
+    title: "Two-Factor Authentication",
+    desc: "Add an extra layer of security to your account with two-factor authentication. Protect your personal information and ensure only you can access your account.",
+  },
+  {
+    num: "02",
+    icon: `<path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2z"/><path d="M2 20c0-4 4-7 10-7s10 3 10 7"/>`,
+    title: "Biometric Login",
+    desc: "Use your fingerprint or facial recognition to quickly and securely access your account. Biometric authentication provides both convenience and enhanced security.",
+  },
+];
+
+const contentFeatures = [
+  {
+    num: "01",
+    icon: `<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>`,
+    title: "Content Scheduling",
+    desc: "Plan and schedule your content in advance to maintain a consistent presence. Our scheduling tools help you optimize posting times for maximum engagement.",
+  },
+  {
+    num: "02",
+    icon: `<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>`,
+    title: "Content Library",
+    desc: "Organize and manage all your content in one centralized library. Easily search, filter, and reuse your content across different channels and campaigns.",
+  },
+];
 ---
 
 <Layout title="Key Features - Lupyd" description="Discover all the powerful features that make Lupyd the next generation social platform.">
-  <div class="container mx-auto px-4 py-16 md:py-24 lg:py-32 max-w-7xl relative z-10">
-    <!-- Page Header -->
-    <div class="flex flex-col items-center space-y-4 text-center mb-16 animate-card">
-      <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">Key Features</h1>
-      <p class="mx-auto max-w-[700px] text-lg md:text-xl text-muted-foreground leading-relaxed">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="fh-hero">
+    <div class="fh-hero-bg" aria-hidden="true">
+      <div class="fh-hero-grid"></div>
+    </div>
+    <div class="fh-hero-inner">
+      <div class="fh-hero-eyebrow animate-card">
+        <span class="fh-pill">Platform</span>
+        <span class="fh-pill-sep" aria-hidden="true">—</span>
+        <span class="fh-pill-text">Next Generation Social</span>
+      </div>
+      <h1 class="fh-h1 animate-card" style="animation-delay:0.06s">
+        Key<br/><em>Features</em>
+      </h1>
+      <p class="fh-lead animate-card" style="animation-delay:0.12s">
         Discover all the powerful features that make Lupyd the next generation social platform.
       </p>
-    </div>
-
-    <!-- Features Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-      <!-- Card 1 -->
-      <div class="animate-card" style="animation-delay: 0.05s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground w-fit mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Encrypted Messaging</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            Enjoy secure, end-to-end encrypted messaging for private conversations. Our advanced encryption ensures your messages remain private and secure.
-          </p>
+      <div class="fh-hero-stats animate-card" style="animation-delay:0.18s">
+        <div class="fh-stat">
+          <span class="fh-stat-num">6+</span>
+          <span class="fh-stat-label">Core Features</span>
         </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="animate-card" style="animation-delay: 0.1s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground w-fit mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Advanced Recommendations</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            Discover content tailored to your interests with our advanced content recommendation system. Our AI algorithms learn your preferences to deliver relevant content.
-          </p>
+        <div class="fh-stat-div" aria-hidden="true"></div>
+        <div class="fh-stat">
+          <span class="fh-stat-num">E2E</span>
+          <span class="fh-stat-label">Encryption</span>
         </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="animate-card" style="animation-delay: 0.15s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground w-fit mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Multi-Format Sharing</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            Share various content formats seamlessly across the platform. From images and videos to documents and links, share what matters to you.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="animate-card" style="animation-delay: 0.2s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground w-fit mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Customizable Privacy Controls</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            Take control of your privacy with customizable settings. Manage who sees your content and how you interact with others on the platform.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="animate-card" style="animation-delay: 0.25s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground w-fit mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Group Collaboration</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            Collaborate with friends, family, or colleagues in dedicated group spaces. Share ideas, plan events, and stay connected.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="animate-card" style="animation-delay: 0.3s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground w-fit mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Privacy Controls</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            Advanced privacy controls give you complete authority over your data and who can access your information.
-          </p>
+        <div class="fh-stat-div" aria-hidden="true"></div>
+        <div class="fh-stat">
+          <span class="fh-stat-num">0</span>
+          <span class="fh-stat-label">Data Leaks</span>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Advanced Security -->
-    <section class="mb-20">
-      <h2 class="text-2xl font-bold mb-8 animate-card">Advanced Security Features</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-3">Two-Factor Authentication</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Add an extra layer of security to your account with two-factor authentication. Protect your personal information and ensure only you can access your account.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-3">Biometric Login</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Use your fingerprint or facial recognition to quickly and securely access your account. Biometric authentication provides both convenience and enhanced security.
-            </p>
-          </div>
-        </div>
+  <!-- ═══════════════════════════════════════════════════════════
+       BENTO FEATURE GRID
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="fh-section fh-section--bento">
+    <div class="fh-container">
+      <div class="fh-section-label sr">
+        <span class="fh-overline">Core capabilities</span>
+        <h2 class="fh-section-h2">Everything you need,<br/>nothing you don't.</h2>
       </div>
-    </section>
 
-    <!-- Content Management -->
-    <section class="mb-20">
-      <h2 class="text-2xl font-bold mb-8 animate-card">Content Management</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-3">Content Scheduling</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Plan and schedule your content in advance to maintain a consistent presence. Our scheduling tools help you optimize posting times for maximum engagement.
-            </p>
+      <div class="fh-bento sr" style="transition-delay:0.08s">
+
+        <!-- CELL 1 — large, top-left -->
+        <div class="fh-bento-cell fh-bento-cell--featured">
+          <div class="fh-bento-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="1.6"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 set:html={mainFeatures[0].icon} />
+          </div>
+          <div class="fh-bento-content">
+            <p class="fh-bento-num">01</p>
+            <h3 class="fh-bento-title">{mainFeatures[0].title}</h3>
+            <p class="fh-bento-desc">{mainFeatures[0].desc}</p>
+          </div>
+          <div class="fh-bento-deco" aria-hidden="true">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="60" r="55" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 6"/>
+              <circle cx="60" cy="60" r="35" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5"/>
+              <circle cx="60" cy="60" r="15" stroke="currentColor" stroke-width="0.5"/>
+            </svg>
           </div>
         </div>
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-3">Content Library</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Organize and manage all your content in one centralized library. Easily search, filter, and reuse your content across different channels and campaigns.
-            </p>
+
+        <!-- CELL 2 -->
+        <div class="fh-bento-cell">
+          <div class="fh-bento-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="1.6"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 set:html={mainFeatures[1].icon} />
           </div>
+          <p class="fh-bento-num">02</p>
+          <h3 class="fh-bento-title">{mainFeatures[1].title}</h3>
+          <p class="fh-bento-desc">{mainFeatures[1].desc}</p>
         </div>
+
+        <!-- CELL 3 -->
+        <div class="fh-bento-cell">
+          <div class="fh-bento-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="1.6"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 set:html={mainFeatures[2].icon} />
+          </div>
+          <p class="fh-bento-num">03</p>
+          <h3 class="fh-bento-title">{mainFeatures[2].title}</h3>
+          <p class="fh-bento-desc">{mainFeatures[2].desc}</p>
+        </div>
+
+        <!-- CELL 4 -->
+        <div class="fh-bento-cell">
+          <div class="fh-bento-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="1.6"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 set:html={mainFeatures[3].icon} />
+          </div>
+          <p class="fh-bento-num">04</p>
+          <h3 class="fh-bento-title">{mainFeatures[3].title}</h3>
+          <p class="fh-bento-desc">{mainFeatures[3].desc}</p>
+        </div>
+
+        <!-- CELL 5 -->
+        <div class="fh-bento-cell">
+          <div class="fh-bento-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="1.6"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 set:html={mainFeatures[4].icon} />
+          </div>
+          <p class="fh-bento-num">05</p>
+          <h3 class="fh-bento-title">{mainFeatures[4].title}</h3>
+          <p class="fh-bento-desc">{mainFeatures[4].desc}</p>
+        </div>
+
+        <!-- CELL 6 — wide bottom -->
+        <div class="fh-bento-cell fh-bento-cell--wide">
+          <div class="fh-bento-wide-left">
+            <div class="fh-bento-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="1.6"
+                   stroke-linecap="round" stroke-linejoin="round"
+                   set:html={mainFeatures[5].icon} />
+            </div>
+            <p class="fh-bento-num">06</p>
+            <h3 class="fh-bento-title">{mainFeatures[5].title}</h3>
+          </div>
+          <p class="fh-bento-desc fh-bento-wide-desc">{mainFeatures[5].desc}</p>
+        </div>
+
       </div>
-    </section>
-
-    <!-- Back Home Link -->
-    <div class="flex justify-center animate-card">
-      <a
-        href="/"
-        class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 px-6 py-2"
-      >
-        Back to Home
-      </a>
     </div>
-  </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECURITY — INVERTED BAND
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="fh-security-band">
+    <div class="fh-container">
+
+      <div class="fh-security-header sr">
+        <span class="fh-security-overline">Advanced Security</span>
+        <h2 class="fh-security-h2">Built to protect<br/>everything you share.</h2>
+        <p class="fh-security-sub">Security isn't a feature — it's the foundation.</p>
+      </div>
+
+      <div class="fh-security-grid sr" style="transition-delay:0.1s">
+        {securityFeatures.map((f) => (
+          <div class="fh-security-card">
+            <div class="fh-security-card-top">
+              <span class="fh-security-num">{f.num}</span>
+              <div class="fh-security-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="1.6"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     set:html={f.icon} />
+              </div>
+            </div>
+            <h3 class="fh-security-title">{f.title}</h3>
+            <p class="fh-security-desc">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CONTENT MANAGEMENT — EDITORIAL SPLIT
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="fh-section fh-section--cm">
+    <div class="fh-container">
+
+      <div class="fh-cm-layout">
+
+        <!-- Left: sticky label column -->
+        <div class="fh-cm-left sr">
+          <span class="fh-overline">Management</span>
+          <h2 class="fh-cm-h2">Content<br/>Management</h2>
+          <p class="fh-cm-sub">Powerful tools to organize, schedule, and amplify your content.</p>
+        </div>
+
+        <!-- Right: stacked feature cards -->
+        <div class="fh-cm-right">
+          {contentFeatures.map((f, i) => (
+            <div class="fh-cm-card sr" style={`transition-delay:${0.06 + i * 0.1}s`}>
+              <div class="fh-cm-card-header">
+                <div class="fh-cm-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                       fill="none" stroke="currentColor" stroke-width="1.6"
+                       stroke-linecap="round" stroke-linejoin="round"
+                       set:html={f.icon} />
+                </div>
+                <span class="fh-cm-num">{f.num}</span>
+              </div>
+              <h3 class="fh-cm-title">{f.title}</h3>
+              <p class="fh-cm-desc">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CLOSING CTA
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="fh-cta sr">
+    <div class="fh-container">
+      <div class="fh-cta-inner">
+        <p class="fh-overline">Ready to get started?</p>
+        <h2 class="fh-cta-h2">The platform built<br/>for what's next.</h2>
+        <a href="/" class="fh-cta-btn">← Back to Home</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+/* ── SHARED ──────────────────────────────────────────────────── */
+.fh-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.fh-overline {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 0.75rem;
+}
+
+.fh-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.fh-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 1.5rem 5rem;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.fh-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fh-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
+}
+
+.fh-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.fh-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.fh-pill-sep {
+  color: hsl(var(--border));
+  font-size: 0.8rem;
+}
+
+.fh-pill-text {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+
+.fh-h1 {
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.fh-h1 em {
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.fh-lead {
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  color: hsl(var(--muted-foreground));
+  line-height: 1.7;
+  max-width: 460px;
+  margin: 0;
+}
+
+.fh-hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.25rem 2rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  background: hsl(var(--card));
+  margin-top: 0.5rem;
+}
+
+.fh-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.fh-stat-num {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: hsl(var(--foreground));
+  line-height: 1;
+}
+
+.fh-stat-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+
+.fh-stat-div {
+  width: 1px;
+  height: 2rem;
+  background: hsl(var(--border));
+}
+
+/* ── SECTIONS ────────────────────────────────────────────────── */
+.fh-section {
+  padding: 6rem 0;
+}
+
+.fh-section--bento {
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.fh-section--cm {
+  border-top: 1px solid hsl(var(--border));
+}
+
+.fh-section-label {
+  margin-bottom: 3rem;
+}
+
+.fh-section-h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+/* ── BENTO GRID ──────────────────────────────────────────────── */
+.fh-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 1px;
+  background: hsl(var(--border));
+  border: 1px solid hsl(var(--border));
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Cell 1 spans 2 rows on the left */
+.fh-bento-cell--featured {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+/* Cell 6 spans full width at bottom */
+.fh-bento-cell--wide {
+  grid-column: 1 / -1;
+}
+
+.fh-bento-cell {
+  background: hsl(var(--card));
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.22s ease;
+}
+
+.fh-bento-cell:hover {
+  background: hsl(var(--muted) / 0.55);
+}
+
+.dark .fh-bento-cell:hover {
+  background: hsl(var(--muted));
+}
+
+.fh-bento-cell--featured {
+  padding: 2.5rem 2.25rem;
+  justify-content: space-between;
+}
+
+.fh-bento-cell--wide {
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem 2.25rem;
+}
+
+.fh-bento-wide-left {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-width: 220px;
+}
+
+.fh-bento-wide-desc {
+  flex: 1;
+  margin: 0 !important;
+  border-left: 1px solid hsl(var(--border));
+  padding-left: 2.5rem;
+}
+
+.fh-bento-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.fh-bento-cell:hover .fh-bento-icon-wrap {
+  border-color: hsl(var(--foreground) / 0.35);
+  transform: translateY(-2px);
+}
+
+.fh-bento-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground) / 0.6);
+  margin: 0 0 0.5rem;
+}
+
+.fh-bento-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: hsl(var(--foreground));
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+
+.fh-bento-cell--featured .fh-bento-title {
+  font-size: 1.25rem;
+}
+
+.fh-bento-desc {
+  font-size: 0.8rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.72;
+  margin: 0;
+}
+
+.fh-bento-content {
+  position: relative;
+  z-index: 1;
+}
+
+.fh-bento-deco {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 140px;
+  height: 140px;
+  color: hsl(var(--border));
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.4s;
+}
+
+.fh-bento-cell--featured:hover .fh-bento-deco {
+  opacity: 1;
+  transform: scale(1.06) rotate(6deg);
+}
+
+/* ── SECURITY BAND ───────────────────────────────────────────── */
+.fh-security-band {
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  padding: 6rem 0;
+}
+
+.fh-security-header {
+  margin-bottom: 3.5rem;
+}
+
+.fh-security-band .fh-overline {
+  color: hsl(var(--background) / 0.45);
+}
+
+.fh-security-overline {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.45);
+  margin-bottom: 0.75rem;
+}
+
+.fh-security-h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: hsl(var(--background));
+  margin: 0 0 1rem;
+}
+
+.fh-security-sub {
+  font-size: 0.9rem;
+  color: hsl(var(--background) / 0.5);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.fh-security-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: hsl(var(--background) / 0.12);
+  border: 1px solid hsl(var(--background) / 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.fh-security-card {
+  background: hsl(var(--foreground));
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: background 0.2s;
+}
+
+.fh-security-card:hover {
+  background: hsl(var(--background) / 0.06);
+}
+
+.fh-security-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.fh-security-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.35);
+}
+
+.fh-security-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 9px;
+  border: 1px solid hsl(var(--background) / 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--background));
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.fh-security-card:hover .fh-security-icon {
+  border-color: hsl(var(--background) / 0.4);
+  transform: translateY(-2px);
+}
+
+.fh-security-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: hsl(var(--background));
+  margin: 0 0 0.75rem;
+  line-height: 1.25;
+}
+
+.fh-security-desc {
+  font-size: 0.82rem;
+  color: hsl(var(--background) / 0.55);
+  line-height: 1.72;
+  margin: 0;
+}
+
+/* ── CONTENT MANAGEMENT ──────────────────────────────────────── */
+.fh-cm-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.fh-cm-left {
+  position: sticky;
+  top: 6rem;
+}
+
+.fh-cm-h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: hsl(var(--foreground));
+  margin: 0 0 1rem;
+}
+
+.fh-cm-sub {
+  font-size: 0.88rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.7;
+  margin: 0;
+}
+
+.fh-cm-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fh-cm-card {
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  padding: 2rem 2rem;
+  background: hsl(var(--card));
+  transition: border-color 0.22s, background 0.22s, transform 0.22s;
+}
+
+.fh-cm-card:hover {
+  border-color: hsl(var(--foreground) / 0.25);
+  background: hsl(var(--muted) / 0.4);
+  transform: translateY(-2px);
+}
+
+.fh-cm-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.fh-cm-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.fh-cm-card:hover .fh-cm-icon {
+  border-color: hsl(var(--foreground) / 0.3);
+  transform: translateY(-1px);
+}
+
+.fh-cm-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground) / 0.6);
+}
+
+.fh-cm-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+  margin: 0 0 0.65rem;
+  line-height: 1.25;
+}
+
+.fh-cm-desc {
+  font-size: 0.82rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.72;
+  margin: 0;
+}
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.fh-cta {
+  padding: 6rem 0 7rem;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.fh-cta-inner {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fh-cta-h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.fh-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0 1.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  margin-top: 0.5rem;
+  width: fit-content;
+  transition: opacity 0.15s;
+}
+
+.fh-cta-btn:hover { opacity: 0.82; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .fh-bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fh-bento-cell--featured {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .fh-bento-cell--wide {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .fh-bento-wide-desc {
+    border-left: none;
+    border-top: 1px solid hsl(var(--border));
+    padding-left: 0;
+    padding-top: 1.25rem;
+  }
+  .fh-cm-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .fh-cm-left {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .fh-bento {
+    grid-template-columns: 1fr;
+  }
+  .fh-bento-cell--featured {
+    grid-column: 1;
+  }
+  .fh-security-grid {
+    grid-template-columns: 1fr;
+  }
+  .fh-hero-stats {
+    gap: 1.25rem;
+    padding: 1rem 1.25rem;
+  }
+  .fh-h1 {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+}
+</style>
+
+<script>
+  function initSR() {
+    const els = document.querySelectorAll('.sr');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => io.observe(el));
+  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', initSR)
+    : initSR();
+  document.addEventListener('astro:page-load', initSR);
+</script>

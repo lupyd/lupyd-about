@@ -3,140 +3,878 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Privacy & Security - Lupyd" description="At Lupyd, we prioritize your privacy and security with advanced data protection and user-controlled sharing preferences.">
-  <div class="container mx-auto px-4 py-16 md:py-24 lg:py-32 max-w-7xl relative z-10">
-    <!-- Page Header -->
-    <div class="flex flex-col items-center space-y-4 text-center mb-16 animate-card">
-      <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">Privacy & Security</h1>
-      <p class="mx-auto max-w-[700px] text-lg md:text-xl text-muted-foreground leading-relaxed">
-        At Lupyd, we prioritize your privacy and security with advanced protection mechanisms and user-controlled settings.
-      </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="pv-hero">
+    <div class="pv-hero-bg" aria-hidden="true">
+      <div class="pv-hero-grid"></div>
     </div>
 
-    <!-- Privacy Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-      <!-- Card 1 -->
-      <div class="animate-card" style="animation-delay: 0.05s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Advanced Data Protection</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Utilize advanced data protection mechanisms to secure your information. Our multi-layered security approach keeps your data safe.
-          </p>
-        </div>
-      </div>
+    <div class="pv-container">
+      <div class="pv-hero-inner">
 
-      <!-- Card 2 -->
-      <div class="animate-card" style="animation-delay: 0.1s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">User-Controlled Sharing</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Control your data sharing preferences with our user-centric settings. You decide what information is shared and with whom.
-          </p>
+        <!-- Left: large headline -->
+        <div class="pv-hero-left animate-card">
+          <span class="pv-pill">Privacy &amp; Security</span>
+          <h1 class="pv-h1">Privacy<br/>&amp;<br/><em>Security</em></h1>
         </div>
-      </div>
 
-      <!-- Card 3 -->
-      <div class="animate-card" style="animation-delay: 0.15s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Anonymous Browsing</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Browse anonymously with our enhanced privacy options. Explore content without leaving a digital footprint when you choose.
+        <!-- Right: sub + three pillars -->
+        <div class="pv-hero-right animate-card" style="animation-delay:0.08s">
+          <p class="pv-hero-sub">
+            At Lupyd, we prioritize your privacy and security with advanced protection mechanisms and user-controlled settings.
           </p>
+
+          <!-- Three core pillars as a vertical stack -->
+          <div class="pv-pillars">
+            <div class="pv-pillar">
+              <div class="pv-pillar-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <p class="pv-pillar-title">Advanced Data Protection</p>
+                <p class="pv-pillar-desc">Multi-layered security keeps your data safe.</p>
+              </div>
+            </div>
+            <div class="pv-pillar">
+              <div class="pv-pillar-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div>
+                <p class="pv-pillar-title">User-Controlled Sharing</p>
+                <p class="pv-pillar-desc">You decide what is shared and with whom.</p>
+              </div>
+            </div>
+            <div class="pv-pillar">
+              <div class="pv-pillar-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div>
+                <p class="pv-pillar-title">Anonymous Browsing</p>
+                <p class="pv-pillar-desc">Explore without leaving a digital footprint.</p>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
 
-    <!-- Privacy Commitment Section -->
-    <section class="mb-20">
-      <h2 class="text-2xl font-bold mb-8 text-center animate-card">Our Privacy Commitment</h2>
-      <div class="bg-muted/40 border border-border/20 p-8 rounded-lg animate-card" style="animation-delay: 0.05s">
-        <p class="text-muted-foreground mb-8 leading-relaxed max-w-3xl">
+    <!-- Privacy settings screenshot — full width at bottom of hero -->
+    <div class="pv-hero-shot animate-card" style="animation-delay:0.18s">
+      <div class="pv-container">
+        <div class="pv-shot-frame">
+          <div class="pv-shot-chrome">
+            <span class="pv-chrome-dot"></span>
+            <span class="pv-chrome-dot"></span>
+            <span class="pv-chrome-dot"></span>
+            <span class="pv-chrome-bar">lupyd.com — Privacy Settings</span>
+          </div>
+          <img
+            src="/screenshots/privacy-settings.webp"
+            alt="Lupyd Privacy Settings"
+            class="pv-shot-img"
+            loading="eager"
+            fetchpriority="high"
+            onerror="this.closest('.pv-shot-frame').style.display='none'"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OUR PRIVACY COMMITMENT — inverted dark band
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="pv-commitment-band">
+    <div class="pv-container">
+
+      <div class="pv-commitment-header sr">
+        <span class="pv-commitment-overline">Our Commitment</span>
+        <h2 class="pv-commitment-h2">Privacy is a<br/>fundamental right.</h2>
+        <p class="pv-commitment-sub">
           At Lupyd, we believe privacy is a fundamental right. Our platform is built with privacy at its core, not as an afterthought. We are committed to:
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="border-l-4 border-primary pl-4 animate-card" style="animation-delay: 0.1s">
-            <h3 class="font-bold text-lg mb-2 text-foreground">Transparency</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              We are clear about what data we collect and how we use it. Our privacy policy is written in plain language, not legal jargon.
-            </p>
-          </div>
-          <div class="border-l-4 border-primary pl-4 animate-card" style="animation-delay: 0.15s">
-            <h3 class="font-bold text-lg mb-2 text-foreground">User Control</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              You have complete control over your data. We provide easy-to-use tools to manage your privacy settings and data.
-            </p>
-          </div>
-          <div class="border-l-4 border-primary pl-4 animate-card" style="animation-delay: 0.2s">
-            <h3 class="font-bold text-lg mb-2 text-foreground">Data Minimization</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              We only collect the data necessary to provide our services. We don't collect data for the sake of having more information.
-            </p>
-          </div>
-          <div class="border-l-4 border-primary pl-4 animate-card" style="animation-delay: 0.25s">
-            <h3 class="font-bold text-lg mb-2 text-foreground">Security First</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              We implement the latest security measures to protect your data from unauthorized access and breaches.
-            </p>
-          </div>
-        </div>
       </div>
-    </section>
 
-    <!-- Security Features -->
-    <section class="mb-20">
-      <h2 class="text-2xl font-bold mb-8 text-center animate-card">Security Features</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">End-to-End Encryption</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              All your messages and sensitive content are protected with end-to-end encryption, ensuring only intended recipients can access them.
-            </p>
+      <!-- Four principles in a bento grid -->
+      <div class="pv-principles sr" style="transition-delay:0.1s">
+
+        <!-- Transparency — wide left -->
+        <div class="pv-principle pv-principle--wide">
+          <div class="pv-principle-top">
+            <span class="pv-principle-num">01</span>
+            <div class="pv-principle-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
           </div>
+          <h3 class="pv-principle-title">Transparency</h3>
+          <p class="pv-principle-desc">We are clear about what data we collect and how we use it. Our privacy policy is written in plain language, not legal jargon.</p>
         </div>
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Two-Factor Authentication</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Add an extra layer of security to your account with two-factor authentication, preventing unauthorized access even if your password is compromised.
-            </p>
+
+        <!-- User Control -->
+        <div class="pv-principle">
+          <div class="pv-principle-top">
+            <span class="pv-principle-num">02</span>
+            <div class="pv-principle-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
           </div>
+          <h3 class="pv-principle-title">User Control</h3>
+          <p class="pv-principle-desc">You have complete control over your data. We provide easy-to-use tools to manage your privacy settings and data.</p>
         </div>
-        <div class="animate-card" style="animation-delay: 0.15s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Regular Security Audits</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              We conduct regular security audits and vulnerability assessments to identify and address potential security issues before they become problems.
-            </p>
+
+        <!-- Data Minimization -->
+        <div class="pv-principle">
+          <div class="pv-principle-top">
+            <span class="pv-principle-num">03</span>
+            <div class="pv-principle-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
           </div>
+          <h3 class="pv-principle-title">Data Minimization</h3>
+          <p class="pv-principle-desc">We only collect the data necessary to provide our services. We don't collect data for the sake of having more information.</p>
         </div>
-        <div class="animate-card" style="animation-delay: 0.2s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Data Breach Notifications</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              In the unlikely event of a data breach, we commit to promptly notifying affected users and taking immediate steps to mitigate any potential harm.
-            </p>
+
+        <!-- Security First — full-width bottom -->
+        <div class="pv-principle pv-principle--bottom">
+          <div class="pv-principle-bottom-left">
+            <div class="pv-principle-top">
+              <span class="pv-principle-num">04</span>
+              <div class="pv-principle-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+            </div>
+            <h3 class="pv-principle-title">Security First</h3>
           </div>
+          <p class="pv-principle-desc pv-principle-desc--right">We implement the latest security measures to protect your data from unauthorized access and breaches.</p>
         </div>
+
       </div>
-    </section>
-
-    <!-- Back Home Link -->
-    <div class="flex justify-center animate-card">
-      <a
-        href="/"
-        class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 px-6 py-2"
-      >
-        Back to Home
-      </a>
     </div>
-  </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECURITY FEATURES — editorial split layout
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="pv-section pv-section--security">
+    <div class="pv-container">
+
+      <!-- Section header -->
+      <div class="pv-sec-header sr">
+        <span class="pv-overline">Security</span>
+        <h2 class="pv-sec-h2">Security<br/>Features</h2>
+      </div>
+
+      <!-- Four security features in an asymmetric layout -->
+      <div class="pv-security-layout sr" style="transition-delay:0.08s">
+
+        <!-- Featured large card — E2E Encryption -->
+        <div class="pv-sec-featured">
+          <div class="pv-sec-featured-inner">
+            <div class="pv-sec-featured-top">
+              <span class="pv-sec-num">01</span>
+              <div class="pv-sec-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+            </div>
+            <h3 class="pv-sec-featured-title">End-to-End<br/>Encryption</h3>
+            <p class="pv-sec-featured-desc">All your messages and sensitive content are protected with end-to-end encryption, ensuring only intended recipients can access them.</p>
+            <!-- Decorative rings -->
+            <div class="pv-sec-deco" aria-hidden="true">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="0.5" stroke-dasharray="5 7"/>
+                <circle cx="100" cy="100" r="65" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 6"/>
+                <circle cx="100" cy="100" r="40" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5"/>
+                <circle cx="100" cy="100" r="18" stroke="currentColor" stroke-width="0.5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column: three smaller cards -->
+        <div class="pv-sec-stack">
+
+          <div class="pv-sec-card">
+            <div class="pv-sec-card-top">
+              <span class="pv-sec-num">02</span>
+              <div class="pv-sec-icon pv-sec-icon--sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+            </div>
+            <h3 class="pv-sec-card-title">Two-Factor Authentication</h3>
+            <p class="pv-sec-card-desc">Add an extra layer of security to your account with two-factor authentication, preventing unauthorized access even if your password is compromised.</p>
+          </div>
+
+          <div class="pv-sec-card">
+            <div class="pv-sec-card-top">
+              <span class="pv-sec-num">03</span>
+              <div class="pv-sec-icon pv-sec-icon--sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+            </div>
+            <h3 class="pv-sec-card-title">Regular Security Audits</h3>
+            <p class="pv-sec-card-desc">We conduct regular security audits and vulnerability assessments to identify and address potential security issues before they become problems.</p>
+          </div>
+
+          <div class="pv-sec-card">
+            <div class="pv-sec-card-top">
+              <span class="pv-sec-num">04</span>
+              <div class="pv-sec-icon pv-sec-icon--sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg>
+              </div>
+            </div>
+            <h3 class="pv-sec-card-title">Data Breach Notifications</h3>
+            <p class="pv-sec-card-desc">In the unlikely event of a data breach, we commit to promptly notifying affected users and taking immediate steps to mitigate any potential harm.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CLOSING CTA
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="pv-cta sr">
+    <div class="pv-container">
+      <div class="pv-cta-inner">
+        <span class="pv-overline">Get started</span>
+        <h2 class="pv-cta-h2">Your data.<br/>Your control.</h2>
+        <a href="/" class="pv-cta-btn">← Back to Home</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+/* ── SHARED ──────────────────────────────────────────────────── */
+.pv-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.pv-overline {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 0.8rem;
+}
+
+.pv-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  padding: 3px 13px;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1.75rem;
+}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.pv-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 0;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.pv-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pv-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, black 30%, transparent 100%);
+}
+
+.pv-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: end;
+  padding-bottom: 3.5rem;
+}
+
+.pv-hero-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.pv-h1 {
+  font-size: clamp(3.4rem, 8.5vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.pv-h1 em {
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.pv-hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-self: end;
+  padding-bottom: 0.5rem;
+}
+
+.pv-hero-sub {
+  font-size: clamp(0.88rem, 1.6vw, 1rem);
+  color: hsl(var(--muted-foreground));
+  line-height: 1.72;
+  max-width: 380px;
+  margin: 0;
+}
+
+/* Three pillars vertical stack */
+.pv-pillars {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  overflow: hidden;
+  background: hsl(var(--card));
+}
+
+.pv-pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid hsl(var(--border));
+  transition: background 0.2s;
+}
+
+.pv-pillar:last-child { border-bottom: none; }
+.pv-pillar:hover { background: hsl(var(--muted) / 0.5); }
+
+.pv-pillar-icon {
+  width: 32px; height: 32px;
+  border-radius: 7px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.pv-pillar:hover .pv-pillar-icon {
+  transform: translateY(-2px);
+  border-color: hsl(var(--foreground) / 0.3);
+}
+
+.pv-pillar-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  letter-spacing: -0.01em;
+  margin: 0 0 0.2rem;
+}
+
+.pv-pillar-desc {
+  font-size: 0.72rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Hero screenshot */
+.pv-hero-shot {
+  position: relative;
+  z-index: 1;
+}
+
+.pv-shot-frame {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid hsl(var(--border));
+  border-bottom: none;
+  overflow: hidden;
+  background: hsl(var(--card));
+  box-shadow:
+    0 0 0 1px hsl(var(--border) / 0.4),
+    0 -4px 40px -8px rgba(0,0,0,0.08);
+}
+
+.dark .pv-shot-frame {
+  box-shadow:
+    0 0 0 1px hsl(var(--border) / 0.4),
+    0 -4px 40px -8px rgba(0,0,0,0.5);
+}
+
+.pv-shot-chrome {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background: hsl(var(--muted));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.pv-chrome-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: hsl(var(--border));
+}
+
+.pv-chrome-bar {
+  flex: 1;
+  max-width: 220px;
+  height: 15px;
+  border-radius: 4px;
+  background: hsl(var(--border) / 0.5);
+  margin-left: 6px;
+  font-size: 9px;
+  color: hsl(var(--muted-foreground));
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+}
+
+.pv-shot-img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1345 / 635;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pv-shot-frame:hover .pv-shot-img { transform: scale(1.015); }
+
+/* ── PRIVACY COMMITMENT — inverted band ─────────────────────── */
+.pv-commitment-band {
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  padding: 6rem 0;
+}
+
+.pv-commitment-header { margin-bottom: 3.5rem; }
+
+.pv-commitment-overline {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.4);
+  margin-bottom: 0.8rem;
+}
+
+.pv-commitment-h2 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.97;
+  color: hsl(var(--background));
+  margin: 0 0 1rem;
+}
+
+.pv-commitment-sub {
+  font-size: 0.9rem;
+  color: hsl(var(--background) / 0.5);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* Bento grid for principles */
+.pv-principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: hsl(var(--background) / 0.1);
+  border: 1px solid hsl(var(--background) / 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.pv-principle--wide   { grid-column: 1 / 3; }
+.pv-principle--bottom { grid-column: 1 / -1; }
+
+.pv-principle {
+  background: hsl(var(--foreground));
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+}
+
+.pv-principle:hover { background: hsl(var(--background) / 0.05); }
+
+.pv-principle--bottom {
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+}
+
+.pv-principle-bottom-left {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-width: 220px;
+}
+
+.pv-principle-desc--right {
+  flex: 1;
+  border-left: 1px solid hsl(var(--background) / 0.12);
+  padding-left: 2.5rem;
+  margin: 0 !important;
+}
+
+.pv-principle-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.pv-principle-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.3);
+}
+
+.pv-principle-icon {
+  width: 38px; height: 38px;
+  border-radius: 8px;
+  border: 1px solid hsl(var(--background) / 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--background));
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.pv-principle:hover .pv-principle-icon {
+  border-color: hsl(var(--background) / 0.4);
+  transform: translateY(-2px);
+}
+
+.pv-principle-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: hsl(var(--background));
+  margin: 0 0 0.65rem;
+  line-height: 1.25;
+}
+
+.pv-principle-desc {
+  font-size: 0.8rem;
+  color: hsl(var(--background) / 0.5);
+  line-height: 1.72;
+  margin: 0;
+}
+
+/* ── SECURITY FEATURES ───────────────────────────────────────── */
+.pv-section { padding: 6rem 0; }
+
+.pv-section--security {
+  border-top: 1px solid hsl(var(--border));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.pv-sec-header {
+  margin-bottom: 3rem;
+}
+
+.pv-sec-h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+/* Asymmetric layout: large featured left, stack right */
+.pv-security-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+/* Featured card */
+.pv-sec-featured {
+  border: 1px solid hsl(var(--border));
+  border-radius: 14px;
+  overflow: hidden;
+  background: hsl(var(--card));
+  transition: border-color 0.22s;
+}
+
+.pv-sec-featured:hover {
+  border-color: hsl(var(--foreground) / 0.25);
+}
+
+.pv-sec-featured-inner {
+  padding: 2.5rem 2.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.pv-sec-featured-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.pv-sec-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground) / 0.6);
+}
+
+.pv-sec-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.pv-sec-featured:hover .pv-sec-icon,
+.pv-sec-card:hover .pv-sec-icon {
+  border-color: hsl(var(--foreground) / 0.3);
+  transform: translateY(-2px);
+}
+
+.pv-sec-icon--sm {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+}
+
+.pv-sec-featured-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: hsl(var(--foreground));
+  margin: 0 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.pv-sec-featured-desc {
+  font-size: 0.85rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.72;
+  margin: 0;
+  max-width: 340px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Decorative rings */
+.pv-sec-deco {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  color: hsl(var(--border));
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.5s;
+}
+
+.pv-sec-featured:hover .pv-sec-deco {
+  opacity: 1;
+  transform: scale(1.05) rotate(8deg);
+}
+
+/* Right stack */
+.pv-sec-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pv-sec-card {
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  padding: 1.75rem 1.75rem;
+  background: hsl(var(--card));
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  transition: border-color 0.22s, background 0.22s, transform 0.22s;
+}
+
+.pv-sec-card:hover {
+  border-color: hsl(var(--foreground) / 0.2);
+  background: hsl(var(--muted) / 0.4);
+  transform: translateY(-2px);
+}
+
+.pv-sec-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.pv-sec-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: hsl(var(--foreground));
+  margin: 0 0 0.55rem;
+  line-height: 1.25;
+}
+
+.pv-sec-card-desc {
+  font-size: 0.79rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.72;
+  margin: 0;
+}
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.pv-cta {
+  padding: 6rem 0 7rem;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.pv-cta-inner {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.pv-cta-h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.pv-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0 1.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  margin-top: 0.5rem;
+  width: fit-content;
+  transition: opacity 0.15s;
+}
+
+.pv-cta-btn:hover { opacity: 0.82; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .pv-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .pv-principles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pv-principle--wide   { grid-column: 1 / -1; }
+  .pv-principle--bottom {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .pv-principle-desc--right {
+    border-left: none;
+    border-top: 1px solid hsl(var(--background) / 0.12);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+
+  .pv-security-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .pv-principles { grid-template-columns: 1fr; }
+  .pv-principle--wide { grid-column: 1; }
+  .pv-h1 { font-size: clamp(2.8rem, 13vw, 4.5rem); }
+}
+</style>
+
+<script>
+  function initSR() {
+    const els = document.querySelectorAll('.sr');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => io.observe(el));
+  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', initSR)
+    : initSR();
+  document.addEventListener('astro:page-load', initSR);
+</script>

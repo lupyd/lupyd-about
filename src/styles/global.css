@@ -98,6 +98,12 @@ body {
   opacity: 0;
 }
 
+/* Legacy alias — used by features, experience, community, privacy, creator-tools pages */
+.animate-card {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 0;
+}
+
 /* ─── SCROLL REVEAL ─────────────────────────────────────────── */
 .sr {
   opacity: 0;

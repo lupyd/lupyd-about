@@ -3,143 +3,885 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="User Experience - Lupyd" description="Discover how Lupyd delivers an exceptional user experience through intuitive design and seamless functionality.">
-  <div class="container mx-auto px-4 py-16 md:py-24 lg:py-32 max-w-7xl relative z-10">
-    <!-- Page Header -->
-    <div class="flex flex-col items-center space-y-4 text-center mb-16 animate-card">
-      <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">User Experience</h1>
-      <p class="mx-auto max-w-[700px] text-lg md:text-xl text-muted-foreground leading-relaxed">
-        Discover how Lupyd delivers an exceptional user experience through intuitive design and seamless functionality.
-      </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="ex-hero">
+    <div class="ex-hero-bg" aria-hidden="true"><div class="ex-hero-grid"></div></div>
+
+    <div class="ex-container">
+      <div class="ex-hero-top animate-card">
+        <span class="ex-pill">Experience</span>
+      </div>
+
+      <div class="ex-hero-headline animate-card" style="animation-delay:0.07s">
+        <h1 class="ex-h1">User<br/><em>Experience</em></h1>
+        <p class="ex-hero-sub">
+          Discover how Lupyd delivers an exceptional user experience through intuitive design and seamless functionality.
+        </p>
+      </div>
+
+      <!-- Three capability strips -->
+      <div class="ex-hero-caps animate-card" style="animation-delay:0.14s">
+        <div class="ex-cap">
+          <div class="ex-cap-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div>
+            <p class="ex-cap-title">Intuitive Interface</p>
+            <p class="ex-cap-desc">Navigate with ease using our intuitive, minimalist interface design.</p>
+          </div>
+        </div>
+        <div class="ex-cap-div" aria-hidden="true"></div>
+        <div class="ex-cap">
+          <div class="ex-cap-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div>
+            <p class="ex-cap-title">Seamless Integration</p>
+            <p class="ex-cap-desc">Stay connected across all your devices with synchronized content.</p>
+          </div>
+        </div>
+        <div class="ex-cap-div" aria-hidden="true"></div>
+        <div class="ex-cap">
+          <div class="ex-cap-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <p class="ex-cap-title">Instant Loading</p>
+            <p class="ex-cap-desc">Optimized for speed — your platform never makes you wait.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Experience Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-      <!-- Card 1 -->
-      <div class="animate-card" style="animation-delay: 0.05s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+    <!-- Full-width product screenshot -->
+    <div class="ex-hero-shot animate-card" style="animation-delay:0.22s">
+      <div class="ex-container">
+        <div class="ex-shot-frame">
+          <div class="ex-shot-chrome">
+            <span class="ex-chrome-dot"></span>
+            <span class="ex-chrome-dot"></span>
+            <span class="ex-chrome-dot"></span>
+            <span class="ex-chrome-bar">lupyd.com</span>
           </div>
-          <h2 class="text-xl font-bold mb-3">Intuitive Interface</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Navigate with ease using our intuitive, minimalist interface design. Our platform is designed to be user-friendly and accessible to everyone.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="animate-card" style="animation-delay: 0.1s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Seamless Integration</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Experience seamless mobile and desktop integration for on-the-go access. Stay connected across all your devices with synchronized content and notifications.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="animate-card" style="animation-delay: 0.15s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Instant Loading</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Enjoy instant content loading for a smooth and responsive experience. Our platform is optimized for speed, ensuring you never have to wait.
-          </p>
+          <img
+            src="/screenshots/Screenshot_20260906_065353.webp"
+            alt="Lupyd Platform Interface"
+            class="ex-shot-img"
+            loading="eager"
+            fetchpriority="high"
+          />
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Designed for Everyone Section -->
-    <section class="mb-20">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <h2 class="text-3xl font-bold mb-4">Designed for Everyone</h2>
-          <p class="text-muted-foreground mb-6 leading-relaxed">
+  <!-- ═══════════════════════════════════════════════════════════
+       DESIGNED FOR EVERYONE — editorial split
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="ex-section ex-section--split">
+    <div class="ex-container">
+      <div class="ex-split">
+
+        <!-- Text left -->
+        <div class="ex-split-text sr">
+          <span class="ex-overline">Accessibility</span>
+          <h2 class="ex-split-h2">Designed for<br/>Everyone</h2>
+          <p class="ex-split-body">
             Our platform is designed with accessibility in mind, ensuring that everyone can enjoy a seamless social networking experience regardless of their abilities or technical expertise.
           </p>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Accessibility features built in</span>
+          <ul class="ex-checklist">
+            <li class="ex-check-item">
+              <span class="ex-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Accessibility features built in</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Customizable text sizes and contrast settings</span>
+            <li class="ex-check-item">
+              <span class="ex-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Customizable text sizes and contrast settings</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Voice commands and screen reader compatibility</span>
+            <li class="ex-check-item">
+              <span class="ex-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Voice commands and screen reader compatibility</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Simplified navigation for all users</span>
+            <li class="ex-check-item">
+              <span class="ex-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Simplified navigation for all users</span>
             </li>
           </ul>
         </div>
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-muted/30 border border-border/20 p-4 rounded-lg flex items-center justify-center">
+
+        <!-- Image right -->
+        <div class="ex-split-visual sr" style="transition-delay:0.1s">
+          <div class="ex-img-frame">
             <img
               src="/DD22.webp"
               alt="User interface example"
-              class="rounded-lg shadow-md max-w-full h-auto object-cover border border-border/40"
+              class="ex-img-frame-img"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PERSONALIZED EXPERIENCE — inverted dark band
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="ex-personal-band">
+    <div class="ex-container">
+
+      <div class="ex-personal-header sr">
+        <span class="ex-personal-overline">Personalization</span>
+        <h2 class="ex-personal-h2">Personalized<br/>Experience</h2>
+        <p class="ex-personal-sub">Your platform, shaped entirely around you.</p>
+      </div>
+
+      <div class="ex-personal-grid sr" style="transition-delay:0.1s">
+
+        <!-- Card 1 — wide top-left -->
+        <div class="ex-personal-card ex-personal-card--wide">
+          <div class="ex-personal-card-top">
+            <span class="ex-personal-num">01</span>
+            <div class="ex-personal-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/></svg>
+            </div>
+          </div>
+          <h3 class="ex-personal-title">
+            Custom Themes
+            <span class="ex-soon-badge">soon</span>
+          </h3>
+          <p class="ex-personal-desc">Personalize your experience with custom themes and layouts. Choose from a variety of color schemes and design options to make the platform your own.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="ex-personal-card">
+          <div class="ex-personal-card-top">
+            <span class="ex-personal-num">02</span>
+            <div class="ex-personal-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+          </div>
+          <h3 class="ex-personal-title">Content Preferences</h3>
+          <p class="ex-personal-desc">Set your content preferences to see more of what you love. Our AI-powered algorithms learn from your interactions to deliver a personalized feed.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="ex-personal-card">
+          <div class="ex-personal-card-top">
+            <span class="ex-personal-num">03</span>
+            <div class="ex-personal-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+          </div>
+          <h3 class="ex-personal-title">Notification Controls</h3>
+          <p class="ex-personal-desc">Take control of your notifications to stay informed without feeling overwhelmed. Customize when and how you receive alerts about activity on the platform.</p>
+        </div>
+
+        <!-- Card 4 — wide bottom -->
+        <div class="ex-personal-card ex-personal-card--bottom-wide">
+          <div class="ex-personal-card-top">
+            <span class="ex-personal-num">04</span>
+            <div class="ex-personal-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+          </div>
+          <div class="ex-personal-bottom-inner">
+            <div>
+              <h3 class="ex-personal-title">Language Settings</h3>
+              <p class="ex-personal-desc">Use the platform in your preferred language. We support multiple languages to ensure a comfortable experience for users around the world.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECOND PRODUCT VISUAL — full editorial showcase
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="ex-section ex-section--showcase">
+    <div class="ex-container">
+      <div class="ex-showcase-inner sr">
+        <div class="ex-showcase-text">
+          <span class="ex-overline">Platform</span>
+          <h2 class="ex-showcase-h2">Built for how<br/>you actually live.</h2>
+          <p class="ex-showcase-body">
+            Every interaction on Lupyd is designed to feel natural, fast, and effortless — whether you're messaging, sharing, or discovering new content.
+          </p>
+        </div>
+        <div class="ex-showcase-shot sr" style="transition-delay:0.12s">
+          <div class="ex-shot-frame ex-shot-frame--plain">
+            <img
+              src="/screenshots/Screenshot_20260906_114410.webp"
+              alt="Lupyd Collaboration Interface"
+              class="ex-shot-img"
+              loading="lazy"
             />
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Personalized Experience -->
-    <section class="mb-20">
-      <h2 class="text-2xl font-bold mb-8 text-center animate-card">Personalized Experience</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Custom Themes <span class="text-xs px-2 py-0.5 bg-primary/10 text-primary rounded-full font-normal">soon</span></h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Personalize your experience with custom themes and layouts. Choose from a variety of color schemes and design options to make the platform your own.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Content Preferences</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Set your content preferences to see more of what you love. Our AI-powered algorithms learn from your interactions to deliver a personalized feed.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.15s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Notification Controls</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Take control of your notifications to stay informed without feeling overwhelmed. Customize when and how you receive alerts about activity on the platform.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.2s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-2">Language Settings</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Use the platform in your preferred language. We support multiple languages to ensure a comfortable experience for users around the world.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Back Home Link -->
-    <div class="flex justify-center animate-card">
-      <a
-        href="/"
-        class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 px-6 py-2"
-      >
-        Back to Home
-      </a>
     </div>
-  </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CLOSING CTA
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="ex-cta sr">
+    <div class="ex-container">
+      <div class="ex-cta-inner">
+        <span class="ex-overline">Get started</span>
+        <h2 class="ex-cta-h2">Ready to experience<br/>Lupyd?</h2>
+        <a href="/" class="ex-cta-btn">← Back to Home</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+/* ── SHARED ──────────────────────────────────────────────────── */
+.ex-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.ex-overline {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 0.8rem;
+}
+
+.ex-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  padding: 3px 13px;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.ex-hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 5rem;
+  padding-bottom: 0;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.ex-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ex-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.55) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 30%, transparent 100%);
+}
+
+.ex-hero-top {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+
+.ex-hero-headline {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: end;
+  margin-bottom: 3rem;
+}
+
+.ex-h1 {
+  font-size: clamp(3.8rem, 9vw, 7.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.93;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.ex-h1 em {
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.ex-hero-sub {
+  font-size: clamp(0.88rem, 1.6vw, 1rem);
+  color: hsl(var(--muted-foreground));
+  line-height: 1.72;
+  max-width: 380px;
+  align-self: end;
+  padding-bottom: 0.5rem;
+}
+
+/* Capability strip */
+.ex-hero-caps {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  background: hsl(var(--card));
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.ex-cap {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.5rem 1.75rem;
+  transition: background 0.2s;
+}
+
+.ex-cap:hover {
+  background: hsl(var(--muted) / 0.5);
+}
+
+.ex-cap-div {
+  width: 1px;
+  background: hsl(var(--border));
+  align-self: stretch;
+}
+
+.ex-cap-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 7px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.ex-cap:hover .ex-cap-icon {
+  transform: translateY(-2px);
+  border-color: hsl(var(--foreground) / 0.3);
+}
+
+.ex-cap-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  letter-spacing: -0.01em;
+  margin: 0 0 0.25rem;
+}
+
+.ex-cap-desc {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Hero screenshot */
+.ex-hero-shot {
+  position: relative;
+  z-index: 1;
+}
+
+.ex-shot-frame {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid hsl(var(--border));
+  border-bottom: none;
+  overflow: hidden;
+  background: hsl(var(--card));
+  box-shadow:
+    0 0 0 1px hsl(var(--border) / 0.4),
+    0 -4px 40px -8px rgba(0,0,0,0.08);
+}
+
+.dark .ex-shot-frame {
+  box-shadow:
+    0 0 0 1px hsl(var(--border) / 0.4),
+    0 -4px 40px -8px rgba(0,0,0,0.5);
+}
+
+.ex-shot-chrome {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background: hsl(var(--muted));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.ex-chrome-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: hsl(var(--border));
+}
+
+.ex-chrome-bar {
+  flex: 1;
+  max-width: 180px;
+  height: 16px;
+  border-radius: 4px;
+  background: hsl(var(--border) / 0.5);
+  margin-left: 6px;
+  font-size: 9px;
+  color: hsl(var(--muted-foreground));
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+}
+
+.ex-shot-img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1345 / 635;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ex-shot-frame:hover .ex-shot-img {
+  transform: scale(1.015);
+}
+
+/* ── SECTIONS ────────────────────────────────────────────────── */
+.ex-section {
+  padding: 6rem 0;
+}
+
+.ex-section--split {
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.ex-section--showcase {
+  border-top: 1px solid hsl(var(--border));
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--stripe));
+}
+
+/* ── DESIGNED FOR EVERYONE — split ──────────────────────────── */
+.ex-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.ex-split-h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: hsl(var(--foreground));
+  margin: 0 0 1.25rem;
+}
+
+.ex-split-body {
+  font-size: 0.88rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.75;
+  margin: 0 0 2rem;
+  max-width: 400px;
+}
+
+.ex-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.ex-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.83rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.5;
+}
+
+.ex-check-mark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ex-img-frame {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid hsl(var(--border));
+  overflow: hidden;
+  background: hsl(var(--card));
+  box-shadow: 0 24px 64px -16px rgba(0,0,0,0.12);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.dark .ex-img-frame {
+  box-shadow: 0 24px 64px -16px rgba(0,0,0,0.55);
+}
+
+.ex-img-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 80px -16px rgba(0,0,0,0.18);
+}
+
+.dark .ex-img-frame:hover {
+  box-shadow: 0 32px 80px -16px rgba(0,0,0,0.7);
+}
+
+.ex-img-frame-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── PERSONALIZED — inverted band ────────────────────────────── */
+.ex-personal-band {
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  padding: 6rem 0;
+}
+
+.ex-personal-header {
+  margin-bottom: 3.5rem;
+}
+
+.ex-personal-overline {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.4);
+  margin-bottom: 0.8rem;
+}
+
+.ex-personal-h2 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.97;
+  color: hsl(var(--background));
+  margin: 0 0 0.9rem;
+}
+
+.ex-personal-sub {
+  font-size: 0.9rem;
+  color: hsl(var(--background) / 0.45);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Bento-style grid: wide card top-left, two normal, wide bottom */
+.ex-personal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1px;
+  background: hsl(var(--background) / 0.1);
+  border: 1px solid hsl(var(--background) / 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.ex-personal-card--wide {
+  grid-column: 1 / 3;
+}
+
+.ex-personal-card--bottom-wide {
+  grid-column: 1 / -1;
+}
+
+.ex-personal-card {
+  background: hsl(var(--foreground));
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+}
+
+.ex-personal-card:hover {
+  background: hsl(var(--background) / 0.05);
+}
+
+.ex-personal-card--bottom-wide {
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+}
+
+.ex-personal-bottom-inner {
+  flex: 1;
+  border-left: 1px solid hsl(var(--background) / 0.12);
+  padding-left: 2.5rem;
+}
+
+.ex-personal-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.ex-personal-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.3);
+}
+
+.ex-personal-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid hsl(var(--background) / 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--background));
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.ex-personal-card:hover .ex-personal-icon {
+  border-color: hsl(var(--background) / 0.4);
+  transform: translateY(-2px);
+}
+
+.ex-personal-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: hsl(var(--background));
+  margin: 0 0 0.65rem;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ex-soon-badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.5);
+  border: 1px solid hsl(var(--background) / 0.2);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.ex-personal-desc {
+  font-size: 0.8rem;
+  color: hsl(var(--background) / 0.5);
+  line-height: 1.72;
+  margin: 0;
+}
+
+/* ── SHOWCASE ────────────────────────────────────────────────── */
+.ex-showcase-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.ex-showcase-h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  color: hsl(var(--foreground));
+  margin: 0 0 1.1rem;
+}
+
+.ex-showcase-body {
+  font-size: 0.88rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.75;
+  margin: 0;
+}
+
+.ex-shot-frame--plain {
+  border-radius: 10px;
+  border-bottom: 1px solid hsl(var(--border));
+  box-shadow: 0 20px 60px -12px rgba(0,0,0,0.12);
+}
+
+.dark .ex-shot-frame--plain {
+  box-shadow: 0 20px 60px -12px rgba(0,0,0,0.55);
+}
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.ex-cta {
+  padding: 6rem 0 7rem;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.ex-cta-inner {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.ex-cta-h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.ex-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0 1.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  margin-top: 0.5rem;
+  width: fit-content;
+  transition: opacity 0.15s;
+}
+
+.ex-cta-btn:hover { opacity: 0.82; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .ex-hero-headline {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .ex-hero-sub { max-width: 100%; padding-bottom: 0; }
+
+  .ex-hero-caps {
+    flex-direction: column;
+  }
+  .ex-cap-div {
+    width: 100%;
+    height: 1px;
+    align-self: auto;
+  }
+
+  .ex-split {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .ex-personal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ex-personal-card--wide {
+    grid-column: 1 / -1;
+  }
+  .ex-personal-card--bottom-wide {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .ex-personal-bottom-inner {
+    border-left: none;
+    border-top: 1px solid hsl(var(--background) / 0.12);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+
+  .ex-showcase-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .ex-personal-grid {
+    grid-template-columns: 1fr;
+  }
+  .ex-personal-card--wide {
+    grid-column: 1;
+  }
+  .ex-h1 {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+}
+</style>
+
+<script>
+  function initSR() {
+    const els = document.querySelectorAll('.sr');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => io.observe(el));
+  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', initSR)
+    : initSR();
+  document.addEventListener('astro:page-load', initSR);
+</script>
