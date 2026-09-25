@@ -8,8 +8,8 @@ interface Props {
 }
 
 const { 
-  title = "Lupyd: The Next-Generation Social Media & Collaboration Platform", 
-  description = "A social and collaboration platform built to connect people, empower teams, and keep communication private, secure, and encrypted." 
+  title = "Lupyd : Private by design. Connected by default.", 
+  description = "The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption, not bolted on as an afterthought." 
 } = Astro.props;
 
 // Current path for active link highlight
@@ -17,11 +17,6 @@ const currentPath = Astro.url.pathname;
 const cleanPath = currentPath.endsWith('/') && currentPath.length > 1 ? currentPath.slice(0, -1) : currentPath;
 
 const navLinks = [
-  { href: "/features", label: "Features" },
-  { href: "/experience", label: "Experience" },
-  { href: "/community", label: "Community" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/creator-tools", label: "Creator Tools" },
   { href: "https://billing.lupyd.com", label: "Pricing", external: true },
   { href: "https://blogs.lupyd.com", label: "Blogs", external: true },
   { href: "https://docs.lupyd.com", label: "Documentation", external: true }
@@ -219,7 +214,7 @@ const navLinks = [
           <div class="space-y-4 max-w-md">
             <a href="/" class="text-xl font-bold tracking-tight">Lupyd</a>
             <p class="text-sm text-muted-foreground">
-              The next generation social platform for connecting, sharing, and collaborating.
+              The workspace where nothing leaks. Private by design, connected by default.
             </p>
           </div>
           <div class="flex flex-col sm:flex-row gap-8 sm:gap-16">
