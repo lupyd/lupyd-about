@@ -4,75 +4,65 @@ import ScreenshotCarousel from "../components/ScreenshotCarousel.astro";
 ---
 
 <Layout
-  title="Lupyd: The Next-Generation Social Media & Collaboration Platform"
-  description="A social and collaboration platform built to connect people, empower teams, and keep communication private, secure, and encrypted."
+  title="Lupyd : Private by design. Connected by default."
+  description="The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption, not bolted on as an afterthought."
 >
 
 <!-- ════════════════════════════════════════════════════════════
      HERO
 ════════════════════════════════════════════════════════════ -->
-<section class="w-full pt-14 pb-0 overflow-hidden">
-  <div class="mx-auto px-6 max-w-5xl">
+<section class="w-full py-12 md:py-16 lg:py-24 overflow-hidden">
+  <div class="mx-auto px-6 max-w-7xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-    <!-- Eyebrow -->
-    <div class="flex justify-center mb-6 anim-hero" style="animation-delay:0s">
-      <span class="label-pill">Next-Generation Platform</span>
-    </div>
+      <!-- Left side: Lupyd -->
+      <div class="lg:col-span-5 space-y-6 anim-hero" style="animation-delay:0.08s">
+        <!-- Headline -->
+        <h1 class="font-extrabold tracking-tight leading-[1.08] text-foreground
+                   text-[clamp(2.1rem,4vw,3.5rem)]">
+          Lupyd : Private by design.<br />
+          <span class="text-muted-foreground">Connected by default.</span>
+        </h1>
 
-    <!-- Headline -->
-    <h1 class="text-center font-extrabold tracking-tight leading-[1.04] text-foreground anim-hero
-               text-[clamp(2rem,6vw,4rem)]"
-        style="animation-delay:0.08s">
-      Lupyd: The Next-Generation<br class="hidden sm:block" />
-      Social Media &amp; Collaboration Platform
-    </h1>
+        <!-- Sub / Description -->
+        <p class="text-muted-foreground leading-relaxed
+                  text-[clamp(0.95rem,1.25vw,1.1rem)]">
+          The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption, not bolted on as an afterthought.
+        </p>
 
-    <!-- Sub -->
-    <p class="mt-5 text-center text-muted-foreground max-w-2xl mx-auto leading-relaxed anim-hero
-              text-[clamp(0.9rem,1.8vw,1.1rem)]"
-       style="animation-delay:0.16s">
-      A social and collaboration platform built to connect people, empower teams,
-      and keep communication private, secure, and encrypted.
-    </p>
+        <!-- CTAs -->
+        <div class="pt-2 flex flex-wrap items-center gap-3">
+          <a href="https://lupyd.com"
+             class="inline-flex items-center justify-center rounded-md font-semibold transition-all
+                    bg-primary text-primary-foreground hover:opacity-88 active:scale-[0.98]
+                    h-11 px-7 text-sm shadow-sm">
+            Get Started
+          </a>
+          <a href="https://download.lupyd.com"
+             class="inline-flex items-center justify-center rounded-md font-semibold transition-all
+                    border border-border bg-background hover:bg-muted active:scale-[0.98]
+                    h-11 px-7 text-sm">
+            Download Now
+          </a>
+        </div>
 
-    <!-- CTAs -->
-    <div class="mt-7 flex flex-wrap items-center justify-center gap-3 anim-hero"
-         style="animation-delay:0.24s">
-      <a href="https://lupyd.com"
-         class="inline-flex items-center justify-center rounded-md font-semibold transition-all
-                bg-primary text-primary-foreground hover:opacity-88 active:scale-[0.98]
-                h-11 px-7 text-sm shadow-sm">
-        Get Started
-      </a>
-      <a href="https://download.lupyd.com"
-         class="inline-flex items-center justify-center rounded-md font-semibold transition-all
-                border border-border bg-background hover:bg-muted active:scale-[0.98]
-                h-11 px-7 text-sm">
-        Download Now
-      </a>
-    </div>
-
-    <p class="mt-4 text-center text-xs text-muted-foreground anim-hero" style="animation-delay:0.3s">
-      Social when you want it. Collaborative when you need it. Private by design.
-    </p>
-  </div>
-
-  <!-- Full-width hero screenshot — breaks out of max-w-5xl -->
-  <div class="mt-10 mx-auto px-4 sm:px-6 max-w-6xl anim-hero" style="animation-delay:0.38s">
-    <div class="hero-frame">
-      <div class="hero-chrome">
-        <span class="hero-chrome-dot"></span>
-        <span class="hero-chrome-dot"></span>
-        <span class="hero-chrome-dot"></span>
-        <span class="hero-chrome-bar">lupyd.com</span>
+        <!-- Security Badge -->
+        <div class="flex items-center gap-2 pt-1 text-xs text-muted-foreground">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="text-foreground shrink-0">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span>End-to-End Encrypted &bull; Zero-Knowledge Architecture</span>
+        </div>
       </div>
-      <img
-        src="/screenshots/Screenshot_20260906_065353.webp"
-        alt="Lupyd Platform — Main Interface"
-        class="hero-img"
-        loading="eager"
-        fetchpriority="high"
-      />
+
+      <!-- Right side: Reserved space for your custom component/content -->
+      <div class="lg:col-span-7 w-full flex items-center justify-center anim-hero" style="animation-delay:0.2s">
+        <!-- Right side space reserved for your custom content / component -->
+      </div>
+
     </div>
   </div>
 </section>
