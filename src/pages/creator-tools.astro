@@ -3,186 +3,1202 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Creator Tools - Lupyd" description="Empower your creative journey with Lupyd's comprehensive suite of tools designed for content creators.">
-  <div class="container mx-auto px-4 py-16 md:py-24 lg:py-32 max-w-7xl relative z-10">
-    <!-- Page Header -->
-    <div class="flex flex-col items-center space-y-4 text-center mb-16 animate-card">
-      <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">Creator Tools</h1>
-      <p class="mx-auto max-w-[700px] text-lg md:text-xl text-muted-foreground leading-relaxed">
-        Empower your creative journey with Lupyd's comprehensive suite of tools designed for content creators.
-      </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="ct-hero">
+    <div class="ct-hero-bg" aria-hidden="true"><div class="ct-hero-grid"></div></div>
+
+    <div class="ct-container">
+      <div class="ct-hero-inner">
+
+        <!-- Left: headline -->
+        <div class="ct-hero-left animate-card">
+          <span class="ct-pill">Creator Tools</span>
+          <h1 class="ct-h1">Create.<br/>Grow.<br/><em>Earn.</em></h1>
+        </div>
+
+        <!-- Right: sub + three core tools strip -->
+        <div class="ct-hero-right animate-card" style="animation-delay:0.08s">
+          <p class="ct-hero-sub">
+            Empower your creative journey with Lupyd's comprehensive suite of tools designed for content creators.
+          </p>
+          <div class="ct-core-strip">
+            <div class="ct-core-item">
+              <div class="ct-core-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div>
+                <p class="ct-core-title">Monetization</p>
+                <p class="ct-core-desc">Turn your passion into income.</p>
+              </div>
+            </div>
+            <div class="ct-core-div" aria-hidden="true"></div>
+            <div class="ct-core-item">
+              <div class="ct-core-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <div>
+                <p class="ct-core-title">Analytics</p>
+                <p class="ct-core-desc">Insights to grow your audience.</p>
+              </div>
+            </div>
+            <div class="ct-core-div" aria-hidden="true"></div>
+            <div class="ct-core-item">
+              <div class="ct-core-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <p class="ct-core-title">Tracking</p>
+                <p class="ct-core-desc">Monitor what resonates most.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <!-- Core Features Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-      <!-- Card 1 -->
-      <div class="animate-card" style="animation-delay: 0.05s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+    <!-- Full-width product screenshot -->
+    <div class="ct-hero-shot animate-card" style="animation-delay:0.18s">
+      <div class="ct-container">
+        <div class="ct-shot-frame">
+          <div class="ct-shot-chrome">
+            <span class="ct-chrome-dot"></span>
+            <span class="ct-chrome-dot"></span>
+            <span class="ct-chrome-dot"></span>
+            <span class="ct-chrome-bar">lupyd.com — Creator Dashboard</span>
           </div>
-          <h2 class="text-xl font-bold mb-3">Monetization</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Unlock opportunities for monetization on the platform. Turn your passion into income with our creator-friendly monetization tools.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="animate-card" style="animation-delay: 0.1s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Analytics</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Utilize an advanced analytics dashboard to track your content's performance. Gain insights to optimize your strategy and grow your audience.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="animate-card" style="animation-delay: 0.15s">
-        <div class="bg-card/40 border border-border/50 rounded-lg p-8 flex flex-col items-center text-center h-full shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="p-3 bg-primary/10 rounded-full text-foreground mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-          </div>
-          <h2 class="text-xl font-bold mb-3">Tracking</h2>
-          <p class="text-sm text-muted-foreground leading-relaxed flex-1">
-            Monitor your content's performance and audience engagement metrics. Understand what resonates with your audience to create more impactful content.
-          </p>
+          <img
+            src="/screenshots/Screenshot_20260906_114612.webp"
+            alt="Lupyd Creator Dashboard"
+            class="ct-shot-img"
+            loading="eager"
+            fetchpriority="high"
+            onerror="this.closest('.ct-shot-frame').style.display='none'"
+          />
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Content Creation Suite Section -->
-    <section class="mb-20">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <h2 class="text-3xl font-bold mb-4">Content Creation Suite</h2>
-          <p class="text-muted-foreground mb-6 leading-relaxed">
+  <!-- ═══════════════════════════════════════════════════════════
+       CONTENT CREATION SUITE — editorial split
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="ct-section ct-section--split">
+    <div class="ct-container">
+      <div class="ct-split">
+
+        <!-- Text left -->
+        <div class="ct-split-text sr">
+          <span class="ct-overline">Creation</span>
+          <h2 class="ct-split-h2">Content Creation<br/>Suite</h2>
+          <p class="ct-split-body">
             Our comprehensive content creation tools help you produce high-quality content that stands out. From ideation to publication, we support your creative process.
           </p>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Simple uploading features</span>
+          <ul class="ct-checklist">
+            <li class="ct-check-item">
+              <span class="ct-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Simple uploading features</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Content inspiration resources</span>
+            <li class="ct-check-item">
+              <span class="ct-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Content inspiration resources</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">Collaboration features for team projects</span>
+            <li class="ct-check-item">
+              <span class="ct-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>Collaboration features for team projects</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold">✓</span>
-              <span class="text-sm text-muted-foreground">AI-powered content suggestions and improvements</span>
+            <li class="ct-check-item">
+              <span class="ct-check-mark" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span>AI-powered content suggestions and improvements</span>
             </li>
           </ul>
         </div>
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-muted/30 border border-border/20 p-4 rounded-lg flex items-center justify-center">
+
+        <!-- Image right -->
+        <div class="ct-split-visual sr" style="transition-delay:0.1s">
+          <div class="ct-img-frame">
             <img
               src="/CMC.webp"
               alt="Content creation tools"
-              class="rounded-lg shadow-md max-w-full h-auto object-cover border border-border/40"
+              class="ct-img-frame-img"
+              loading="lazy"
             />
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Creator Tools Grid -->
-    <section class="mb-20">
-      <h2 class="text-2xl font-bold mb-8 text-center animate-card">Creator Tools</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.3642 19.5056 5.61702 19.7584 5.61702 20.0898C5.61702 20.2198 5.56846 20.3452 5.48007 20.4435C5.22851 20.7233 4.70425 20.8931 4.23788 20.9427C3.59388 21.0112 3 21.5056 3 22.1538C3 22.3686 3.17889 22.535 3.39178 22.5022C4.16104 22.3837 5.21312 22 6 22H12Z"></path><circle cx="7.5" cy="10.5" r="1.5"></circle><circle cx="11.5" cy="7.5" r="1.5"></circle><circle cx="16.5" cy="9.5" r="1.5"></circle></svg>
-              Design Tools
-            </h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Create stunning visuals with our intuitive design tools. Access templates, graphics, and editing features to make your content visually appealing.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-              Video Creation
-            </h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Create high quality videos and increase your engagement with the right audience.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.15s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              Content Calendar
-            </h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Plan and schedule your content with our content calendar. Stay organized and maintain a consistent posting schedule to grow your audience.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.2s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors">
-            <h3 class="text-lg font-semibold mb-3 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-              Performance Analytics
-            </h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Gain deep insights into your content performance with detailed analytics. Track engagement, reach, and conversion metrics to refine your strategy.
-            </p>
-          </div>
-        </div>
       </div>
-    </section>
-
-    <!-- Monetization Options -->
-    <section class="mb-20">
-      <h2 class="text-2xl font-bold mb-8 text-center animate-card">Monetization Options</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="animate-card" style="animation-delay: 0.05s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors h-full">
-            <h3 class="text-lg font-semibold mb-2">Creator Fund <span class="text-xs px-2 py-0.5 bg-primary/10 text-primary rounded-full font-normal">soon</span></h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Access our Creator Fund to receive financial support based on your content performance and audience engagement. Reward your creativity and hard work.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.1s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors h-full">
-            <h3 class="text-lg font-semibold mb-2">Subscription Model</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Offer premium content to subscribers who pay a monthly fee. Build a steady income stream while providing exclusive value to your most dedicated followers.
-            </p>
-          </div>
-        </div>
-        <div class="animate-card" style="animation-delay: 0.15s">
-          <div class="bg-muted/40 border border-border/20 rounded-lg p-6 hover:bg-muted/60 transition-colors h-full">
-            <h3 class="text-lg font-semibold mb-2">Brand Partnerships</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed">
-              Connect with brands for sponsored content opportunities. Our platform makes it easy to find and collaborate with brands that align with your values.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Back Home Link -->
-    <div class="flex justify-center animate-card">
-      <a
-        href="/"
-        class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 px-6 py-2"
-      >
-        Back to Home
-      </a>
     </div>
-  </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CREATOR TOOLS — inverted band with bento grid
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="ct-tools-band">
+    <div class="ct-container">
+
+      <div class="ct-tools-header sr">
+        <span class="ct-tools-overline">Tools</span>
+        <h2 class="ct-tools-h2">Creator<br/>Tools</h2>
+        <p class="ct-tools-sub">Everything you need to create, publish, and grow.</p>
+      </div>
+
+      <!-- Design Tools — full-width editorial showcase ABOVE the bento -->
+      <div class="ct-dt-showcase sr">
+        <!-- Left: text -->
+        <div class="ct-dt-text">
+          <div class="ct-dt-top">
+            <span class="ct-tool-num">01</span>
+          </div>
+          <h3 class="ct-dt-heading">Design<br/>Tools</h3>
+          <p class="ct-dt-body">Create stunning visuals with our intuitive design tools. Access templates, graphics, and editing features to make your content visually appealing.</p>
+        </div>
+        <!-- Right: visual composition -->
+        <div class="ct-dt-visual" aria-hidden="true">
+          <div class="ct-dt-canvas">
+            <!-- Palette swatch row -->
+            <div class="ct-dt-swatches">
+              <span class="ct-dt-swatch ct-dt-swatch--1"></span>
+              <span class="ct-dt-swatch ct-dt-swatch--2"></span>
+              <span class="ct-dt-swatch ct-dt-swatch--3"></span>
+              <span class="ct-dt-swatch ct-dt-swatch--4"></span>
+              <span class="ct-dt-swatch ct-dt-swatch--5"></span>
+            </div>
+            <!-- Mock toolbar -->
+            <div class="ct-dt-toolbar">
+              <span class="ct-dt-tool-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+              </span>
+              <span class="ct-dt-tool-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+              </span>
+              <span class="ct-dt-tool-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+              </span>
+              <span class="ct-dt-tool-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+              <span class="ct-dt-tool-btn ct-dt-tool-btn--active">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13.5V20h6.5L20 8.5 13.5 2 2 13.5z"/><path d="M15 6l3 3"/></svg>
+              </span>
+            </div>
+            <!-- Mock canvas area -->
+            <div class="ct-dt-artboard">
+              <div class="ct-dt-ab-shape ct-dt-ab-shape--rect"></div>
+              <div class="ct-dt-ab-shape ct-dt-ab-shape--circle"></div>
+              <div class="ct-dt-ab-shape ct-dt-ab-shape--line"></div>
+              <!-- Selection handles -->
+              <div class="ct-dt-ab-selection">
+                <span class="ct-dt-handle ct-dt-handle--tl"></span>
+                <span class="ct-dt-handle ct-dt-handle--tr"></span>
+                <span class="ct-dt-handle ct-dt-handle--bl"></span>
+                <span class="ct-dt-handle ct-dt-handle--br"></span>
+              </div>
+            </div>
+            <!-- Layers panel -->  
+            <div class="ct-dt-layers">
+              <p class="ct-dt-layers-label">Layers</p>
+              <div class="ct-dt-layer ct-dt-layer--active">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                <span>Background</span>
+              </div>
+              <div class="ct-dt-layer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+                <span>Shape 01</span>
+              </div>
+              <div class="ct-dt-layer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Divider</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ct-tools-bento sr" style="transition-delay:0.1s">
+
+        <!-- Video Creation -->
+        <div class="ct-tool-card">
+          <div class="ct-tool-card-top">
+            <span class="ct-tool-num">02</span>
+            <div class="ct-tool-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+          </div>
+          <h3 class="ct-tool-title">Video Creation</h3>
+          <p class="ct-tool-desc">Create high quality videos and increase your engagement with the right audience.</p>
+        </div>
+
+        <!-- Content Calendar -->
+        <div class="ct-tool-card">
+          <div class="ct-tool-card-top">
+            <span class="ct-tool-num">03</span>
+            <div class="ct-tool-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+          </div>
+          <h3 class="ct-tool-title">Content Calendar</h3>
+          <p class="ct-tool-desc">Plan and schedule your content with our content calendar. Stay organized and maintain a consistent posting schedule to grow your audience.</p>
+        </div>
+
+        <!-- Performance Analytics — full-width bottom -->
+        <div class="ct-tool-card ct-tool-card--bottom">
+          <div class="ct-tool-bottom-left">
+            <div class="ct-tool-card-top">
+              <span class="ct-tool-num">04</span>
+              <div class="ct-tool-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+            </div>
+            <h3 class="ct-tool-title">Performance Analytics</h3>
+          </div>
+          <p class="ct-tool-desc ct-tool-desc--right">Gain deep insights into your content performance with detailed analytics. Track engagement, reach, and conversion metrics to refine your strategy.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MONETIZATION OPTIONS — editorial asymmetric layout
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="ct-section ct-section--mono">
+    <div class="ct-container">
+
+      <div class="ct-mono-header sr">
+        <span class="ct-overline">Monetization</span>
+        <h2 class="ct-mono-h2">Monetization<br/>Options</h2>
+      </div>
+
+      <div class="ct-mono-grid sr" style="transition-delay:0.08s">
+
+        <!-- Creator Fund — featured wide -->
+        <div class="ct-mono-card ct-mono-card--featured">
+          <div class="ct-mono-card-top">
+            <span class="ct-mono-num">01</span>
+            <div class="ct-mono-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+          </div>
+          <h3 class="ct-mono-title">
+            Creator Fund
+            <span class="ct-soon-badge">soon</span>
+          </h3>
+          <p class="ct-mono-desc">Access our Creator Fund to receive financial support based on your content performance and audience engagement. Reward your creativity and hard work.</p>
+        </div>
+
+        <!-- Subscription Model -->
+        <div class="ct-mono-card">
+          <div class="ct-mono-card-top">
+            <span class="ct-mono-num">02</span>
+            <div class="ct-mono-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+          </div>
+          <h3 class="ct-mono-title">Subscription Model</h3>
+          <p class="ct-mono-desc">Offer premium content to subscribers who pay a monthly fee. Build a steady income stream while providing exclusive value to your most dedicated followers.</p>
+        </div>
+
+        <!-- Brand Partnerships -->
+        <div class="ct-mono-card">
+          <div class="ct-mono-card-top">
+            <span class="ct-mono-num">03</span>
+            <div class="ct-mono-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+          </div>
+          <h3 class="ct-mono-title">Brand Partnerships</h3>
+          <p class="ct-mono-desc">Connect with brands for sponsored content opportunities. Our platform makes it easy to find and collaborate with brands that align with your values.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CLOSING CTA
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="ct-cta sr">
+    <div class="ct-container">
+      <div class="ct-cta-inner">
+        <span class="ct-overline">Get started</span>
+        <h2 class="ct-cta-h2">Your creative<br/>journey starts here.</h2>
+        <a href="/" class="ct-cta-btn">← Back to Home</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+/* ── SHARED ──────────────────────────────────────────────────── */
+.ct-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.ct-overline {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 0.8rem;
+}
+
+.ct-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  padding: 3px 13px;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1.75rem;
+}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.ct-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 0;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.ct-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ct-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, black 30%, transparent 100%);
+}
+
+.ct-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: end;
+  padding-bottom: 3.5rem;
+}
+
+.ct-hero-left { display: flex; flex-direction: column; }
+
+.ct-h1 {
+  font-size: clamp(3.4rem, 8.5vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.ct-h1 em {
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+
+.ct-hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-self: end;
+  padding-bottom: 0.5rem;
+}
+
+.ct-hero-sub {
+  font-size: clamp(0.88rem, 1.6vw, 1rem);
+  color: hsl(var(--muted-foreground));
+  line-height: 1.72;
+  max-width: 380px;
+  margin: 0;
+}
+
+/* Core strip */
+.ct-core-strip {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  overflow: hidden;
+  background: hsl(var(--card));
+}
+
+.ct-core-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid hsl(var(--border));
+  transition: background 0.2s;
+}
+
+.ct-core-item:last-child { border-bottom: none; }
+.ct-core-item:hover { background: hsl(var(--muted) / 0.5); }
+
+.ct-core-div { display: none; }
+
+.ct-core-icon {
+  width: 32px; height: 32px;
+  border-radius: 7px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.ct-core-item:hover .ct-core-icon {
+  transform: translateY(-2px);
+  border-color: hsl(var(--foreground) / 0.3);
+}
+
+.ct-core-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  letter-spacing: -0.01em;
+  margin: 0 0 0.2rem;
+}
+
+.ct-core-desc {
+  font-size: 0.72rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Hero screenshot */
+.ct-hero-shot { position: relative; z-index: 1; }
+
+.ct-shot-frame {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid hsl(var(--border));
+  border-bottom: none;
+  overflow: hidden;
+  background: hsl(var(--card));
+  box-shadow: 0 0 0 1px hsl(var(--border) / 0.4), 0 -4px 40px -8px rgba(0,0,0,0.08);
+}
+
+.dark .ct-shot-frame {
+  box-shadow: 0 0 0 1px hsl(var(--border) / 0.4), 0 -4px 40px -8px rgba(0,0,0,0.5);
+}
+
+.ct-shot-chrome {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background: hsl(var(--muted));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.ct-chrome-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: hsl(var(--border));
+}
+
+.ct-chrome-bar {
+  flex: 1;
+  max-width: 220px;
+  height: 15px;
+  border-radius: 4px;
+  background: hsl(var(--border) / 0.5);
+  margin-left: 6px;
+  font-size: 9px;
+  color: hsl(var(--muted-foreground));
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+}
+
+.ct-shot-img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1345 / 635;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ct-shot-frame:hover .ct-shot-img { transform: scale(1.015); }
+
+/* ── SECTIONS ────────────────────────────────────────────────── */
+.ct-section { padding: 6rem 0; }
+.ct-section--split { border-bottom: 1px solid hsl(var(--border)); }
+.ct-section--mono {
+  border-top: 1px solid hsl(var(--border));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+/* ── CONTENT CREATION SUITE — split ─────────────────────────── */
+.ct-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.ct-split-h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: hsl(var(--foreground));
+  margin: 0 0 1.25rem;
+}
+
+.ct-split-body {
+  font-size: 0.88rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.75;
+  margin: 0 0 2rem;
+  max-width: 400px;
+}
+
+.ct-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.ct-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.5;
+}
+
+.ct-check-mark {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ct-img-frame {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid hsl(var(--border));
+  overflow: hidden;
+  background: hsl(var(--card));
+  box-shadow: 0 24px 64px -16px rgba(0,0,0,0.12);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.dark .ct-img-frame {
+  box-shadow: 0 24px 64px -16px rgba(0,0,0,0.55);
+}
+
+.ct-img-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 80px -16px rgba(0,0,0,0.18);
+}
+
+.dark .ct-img-frame:hover {
+  box-shadow: 0 32px 80px -16px rgba(0,0,0,0.7);
+}
+
+.ct-img-frame-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── CREATOR TOOLS — inverted band ──────────────────────────── */
+.ct-tools-band {
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  padding: 6rem 0;
+}
+
+.ct-tools-header { margin-bottom: 3.5rem; }
+
+.ct-tools-overline {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.4);
+  margin-bottom: 0.8rem;
+}
+
+.ct-tools-h2 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.97;
+  color: hsl(var(--background));
+  margin: 0 0 0.9rem;
+}
+
+.ct-tools-sub {
+  font-size: 0.9rem;
+  color: hsl(var(--background) / 0.45);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Bento grid */
+.ct-tools-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: hsl(var(--background) / 0.1);
+  border: 1px solid hsl(var(--background) / 0.1);
+  border-radius: 0 0 14px 14px;
+  overflow: hidden;
+}
+
+.ct-tool-card--bottom { grid-column: 1 / -1; }
+
+.ct-tool-card {
+  background: hsl(var(--foreground));
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s;
+}
+
+.ct-tool-card:hover { background: hsl(var(--background) / 0.05); }
+
+.ct-tool-card--bottom {
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+}
+
+.ct-tool-bottom-left {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-width: 220px;
+}
+
+.ct-tool-desc--right {
+  flex: 1;
+  border-left: 1px solid hsl(var(--background) / 0.12);
+  padding-left: 2.5rem;
+  margin: 0 !important;
+}
+
+.ct-tool-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.ct-tool-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.3);
+}
+
+.ct-tool-icon {
+  width: 40px; height: 40px;
+  border-radius: 9px;
+  border: 1px solid hsl(var(--background) / 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--background));
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.ct-tool-card:hover .ct-tool-icon {
+  border-color: hsl(var(--background) / 0.4);
+  transform: translateY(-2px);
+}
+
+.ct-tool-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: hsl(var(--background));
+  margin: 0 0 0.65rem;
+  line-height: 1.25;
+}
+
+.ct-tool-title--lg {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ct-tool-desc {
+  font-size: 0.8rem;
+  color: hsl(var(--background) / 0.5);
+  line-height: 1.72;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── DESIGN TOOLS SHOWCASE ───────────────────────────────────── */
+.ct-dt-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: center;
+  border: 1px solid hsl(var(--background) / 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1px;
+  background: hsl(var(--foreground));
+  padding: 3rem 2.5rem;
+  transition: background 0.2s;
+}
+
+.ct-dt-showcase:hover { background: hsl(var(--background) / 0.04); }
+
+.ct-dt-text { display: flex; flex-direction: column; }
+
+.ct-dt-top { margin-bottom: 1.25rem; }
+
+.ct-dt-heading {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: hsl(var(--background));
+  margin: 0 0 1.25rem;
+}
+
+.ct-dt-body {
+  font-size: 0.85rem;
+  color: hsl(var(--background) / 0.5);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 340px;
+}
+
+/* Visual composition */
+.ct-dt-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ct-dt-canvas {
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid hsl(var(--background) / 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  background: hsl(var(--background) / 0.04);
+}
+
+/* Swatches row */
+.ct-dt-swatches {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid hsl(var(--background) / 0.12);
+  padding: 0.75rem 1rem;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ct-dt-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid hsl(var(--background) / 0.2);
+  flex-shrink: 0;
+}
+
+.ct-dt-swatch--1 { background: hsl(var(--background) / 0.9); }
+.ct-dt-swatch--2 { background: hsl(var(--background) / 0.6); }
+.ct-dt-swatch--3 { background: hsl(var(--background) / 0.35); }
+.ct-dt-swatch--4 { background: hsl(var(--background) / 0.15); }
+.ct-dt-swatch--5 { background: hsl(var(--background) / 0.05); border-style: dashed; }
+
+/* Toolbar */
+.ct-dt-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid hsl(var(--background) / 0.12);
+  background: hsl(var(--background) / 0.03);
+}
+
+.ct-dt-tool-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--background) / 0.45);
+  cursor: default;
+  transition: background 0.15s, color 0.15s;
+}
+
+.ct-dt-tool-btn:hover,
+.ct-dt-tool-btn--active {
+  background: hsl(var(--background) / 0.1);
+  color: hsl(var(--background) / 0.9);
+}
+
+/* Artboard */
+.ct-dt-artboard {
+  position: relative;
+  height: 140px;
+  padding: 1rem;
+  border-bottom: 1px solid hsl(var(--background) / 0.12);
+}
+
+.ct-dt-ab-shape {
+  position: absolute;
+  border: 1px solid hsl(var(--background) / 0.25);
+}
+
+.ct-dt-ab-shape--rect {
+  width: 80px;
+  height: 55px;
+  top: 24px;
+  left: 24px;
+  border-radius: 4px;
+  background: hsl(var(--background) / 0.06);
+}
+
+.ct-dt-ab-shape--circle {
+  width: 48px;
+  height: 48px;
+  top: 30px;
+  left: 80px;
+  border-radius: 50%;
+  background: hsl(var(--background) / 0.04);
+}
+
+.ct-dt-ab-shape--line {
+  width: 60px;
+  height: 0;
+  top: 90px;
+  left: 40px;
+  border-top: 1px solid hsl(var(--background) / 0.3);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+/* Selection handles */
+.ct-dt-ab-selection {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 88px;
+  height: 63px;
+  border: 1px solid hsl(var(--background) / 0.5);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.ct-dt-handle {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  background: hsl(var(--foreground));
+  border: 1px solid hsl(var(--background) / 0.7);
+}
+
+.ct-dt-handle--tl { top: -4px; left: -4px; }
+.ct-dt-handle--tr { top: -4px; right: -4px; }
+.ct-dt-handle--bl { bottom: -4px; left: -4px; }
+.ct-dt-handle--br { bottom: -4px; right: -4px; }
+
+/* Layers panel */
+.ct-dt-layers {
+  padding: 0.75rem 1rem;
+}
+
+.ct-dt-layers-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--background) / 0.3);
+  margin: 0 0 0.5rem;
+}
+
+.ct-dt-layer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  color: hsl(var(--background) / 0.45);
+  transition: background 0.15s;
+}
+
+.ct-dt-layer:hover { background: hsl(var(--background) / 0.06); }
+
+.ct-dt-layer--active {
+  background: hsl(var(--background) / 0.1);
+  color: hsl(var(--background) / 0.85);
+}
+
+/* ── MONETIZATION OPTIONS ────────────────────────────────────── */
+.ct-mono-header { margin-bottom: 3rem; }
+
+.ct-mono-h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.ct-mono-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: hsl(var(--border));
+  border: 1px solid hsl(var(--border));
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.ct-mono-card--featured { grid-column: 1 / 3; }
+
+.ct-mono-card {
+  background: hsl(var(--card));
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+}
+
+.ct-mono-card:hover { background: hsl(var(--muted) / 0.55); }
+
+.ct-mono-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.ct-mono-num {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground) / 0.6);
+}
+
+.ct-mono-icon {
+  width: 40px; height: 40px;
+  border-radius: 9px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.ct-mono-card:hover .ct-mono-icon {
+  border-color: hsl(var(--foreground) / 0.3);
+  transform: translateY(-2px);
+}
+
+.ct-mono-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+  margin: 0 0 0.65rem;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ct-soon-badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.ct-mono-desc {
+  font-size: 0.8rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.72;
+  margin: 0;
+}
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.ct-cta {
+  padding: 6rem 0 7rem;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.ct-cta-inner {
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.ct-cta-h2 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.ct-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0 1.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  margin-top: 0.5rem;
+  width: fit-content;
+  transition: opacity 0.15s;
+}
+
+.ct-cta-btn:hover { opacity: 0.82; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .ct-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .ct-split {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .ct-dt-showcase {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2rem 1.5rem;
+  }
+  .ct-dt-heading { font-size: clamp(2rem, 8vw, 3rem); }
+  .ct-tools-bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ct-tool-card--bottom {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .ct-tool-desc--right {
+    border-left: none;
+    border-top: 1px solid hsl(var(--background) / 0.12);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+
+  .ct-mono-grid {
+    grid-template-columns: 1fr;
+  }
+  .ct-mono-card--featured { grid-column: 1; }
+}
+
+@media (max-width: 560px) {
+  .ct-tools-bento { grid-template-columns: 1fr; }
+  .ct-tool-card--featured { grid-column: 1; }
+  .ct-h1 { font-size: clamp(2.8rem, 13vw, 4.5rem); }
+}
+</style>
+
+<script>
+  function initSR() {
+    const els = document.querySelectorAll('.sr');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => io.observe(el));
+  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', initSR)
+    : initSR();
+  document.addEventListener('astro:page-load', initSR);
+</script>
