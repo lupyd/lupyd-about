@@ -17,11 +17,6 @@ const currentPath = Astro.url.pathname;
 const cleanPath = currentPath.endsWith('/') && currentPath.length > 1 ? currentPath.slice(0, -1) : currentPath;
 
 const navLinks = [
-  { href: "/features", label: "Features" },
-  { href: "/experience", label: "Experience" },
-  { href: "/community", label: "Community" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/creator-tools", label: "Creator Tools" },
   { href: "https://billing.lupyd.com", label: "Pricing", external: true },
   { href: "https://blogs.lupyd.com", label: "Blogs", external: true },
   { href: "https://docs.lupyd.com", label: "Documentation", external: true }
