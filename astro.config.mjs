@@ -4,9 +4,14 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://about.lupyd.com',
+  site: 'https://www.lupyd.com',
   redirects: {
     '/privacy-policy': '/privacy',
   },
-  integrations: [tailwind(), sitemap({ lastmod: new Date('2026-09-06T16:07:46.188Z') })],
+  integrations: [
+    tailwind(),
+    sitemap({
+      filter: (page) => !page.includes('/privacy-policy'),
+    }),
+  ],
 });

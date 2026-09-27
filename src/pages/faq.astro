@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 interface FAQItem {
   number: number;
@@ -131,14 +132,15 @@ const faqs: FAQItem[] = [
   }
 ];
 
-// Schema.org FAQPage structured data for Google SEO rich snippets and direct question links
+// Schema.org FAQPage structured data
+const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.com").replace(/\/$/, "");
 const faqSchema = {
-  "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": `${siteBase}/faq#faq`,
   "mainEntity": faqs.map(faq => ({
     "@type": "Question",
     "name": faq.question,
-    "url": `https://about.lupyd.com/faq#${faq.slug}`,
+    "url": `${siteBase}/faq#${faq.slug}`,
     "acceptedAnswer": {
       "@type": "Answer",
       "text": faq.answer
@@ -148,18 +150,20 @@ const faqSchema = {
 ---
 
 <Layout
-  title="FAQ - Lupyd"
-  description="Frequently Asked Questions about Lupyd: privacy, encryption, open source, and collaboration."
+  title="Frequently Asked Questions (FAQ) - Lupyd"
+  description="Frequently Asked Questions about Lupyd: privacy, end-to-end encryption, open source, secure collaboration, and platform features."
+  pageType="WebPage"
+  breadcrumbs={[{ name: "FAQ", href: "/faq" }]}
+  schema={faqSchema}
 >
-
-  <!-- Google FAQPage Structured Data for SEO Direct Jump Links -->
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
   <div class="faq-page-wrapper">
     <!-- Grid Background (Neutral / Monochromatic, No Pink) -->
     <div class="faq-bg-grid" aria-hidden="true"></div>
 
     <div class="faq-container">
+      <div class="pt-6 pb-2">
+        <Breadcrumbs items={[{ name: "FAQ" }]} />
+      </div>
       
       <!-- ═════════════════════════════════════════════════════════
            SECTION 1: HERO

@@ -1,8 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.com").replace(/\/$/, "");
+const creatorToolsSchema = {
+  "@type": "SoftwareApplication",
+  "@id": `${siteBase}/creator-tools#software`,
+  "name": "Lupyd Creator Tools",
+  "applicationCategory": "MultimediaApplication, BusinessApplication",
+  "description": "Empower your creative journey with Lupyd's comprehensive suite of tools designed for content creators, publishers, and community builders.",
+  "url": `${siteBase}/creator-tools`
+};
 ---
 
-<Layout title="Creator Tools - Lupyd" description="Empower your creative journey with Lupyd's comprehensive suite of tools designed for content creators.">
+<Layout
+  title="Creator Tools - Lupyd"
+  description="Empower your creative journey with Lupyd's comprehensive suite of tools designed for content creators."
+  pageType="ItemPage"
+  breadcrumbs={[{ name: "Creator Tools", href: "/creator-tools" }]}
+  schema={creatorToolsSchema}
+>
 
   <!-- ═══════════════════════════════════════════════════════════
        HERO
@@ -11,6 +28,10 @@ import Layout from "../layouts/Layout.astro";
     <div class="ct-hero-bg" aria-hidden="true"><div class="ct-hero-grid"></div></div>
 
     <div class="ct-container">
+      <div class="pt-2 pb-4">
+        <Breadcrumbs items={[{ name: "Creator Tools" }]} />
+      </div>
+
       <div class="ct-hero-inner">
 
         <!-- Left: headline -->

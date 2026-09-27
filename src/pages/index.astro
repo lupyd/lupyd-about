@@ -1,11 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ScreenshotCarousel from "../components/ScreenshotCarousel.astro";
+
+const softwareSchema = {
+  "@type": "SoftwareApplication",
+  "@id": "https://www.lupyd.com/#software",
+  "name": "Lupyd",
+  "operatingSystem": "Web, macOS, Windows, Linux, iOS, Android",
+  "applicationCategory": "CommunicationApplication, SecurityApplication",
+  "description": "The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption.",
+  "url": "https://www.lupyd.com",
+  "downloadUrl": "https://download.lupyd.com",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "End-to-End Encryption",
+    "Zero-Knowledge Architecture",
+    "Team Channels & Messaging",
+    "Secure File Sharing",
+    "Cross-Platform Sync"
+  ]
+};
 ---
 
 <Layout
   title="Lupyd : Private by design. Connected by default. Collaborative Platform"
   description="The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption, not bolted on as an afterthought."
+  pageType="AboutPage"
+  schema={softwareSchema}
 >
 
 <!-- ════════════════════════════════════════════════════════════

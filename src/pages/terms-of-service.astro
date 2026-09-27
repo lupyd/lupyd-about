@@ -1,10 +1,35 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.com").replace(/\/$/, "");
+const tosDocSchema = {
+  "@type": "DigitalDocument",
+  "@id": `${siteBase}/terms-of-service#document`,
+  "name": "Lupyd Terms of Service",
+  "headline": "Terms of Service - Lupyd",
+  "description": "Please read these terms carefully before using Lupyd. By accessing or using our platform, you agree to be bound by these Terms of Service.",
+  "url": `${siteBase}/terms-of-service`,
+  "dateModified": "2025-10-01",
+  "inLanguage": "en-US",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Lupyd",
+    "url": siteBase
+  }
+};
 ---
 
 <Layout
   title="Terms of Service - Lupyd"
   description="Please read these terms carefully before using Lupyd. By accessing or using our platform, you agree to be bound by these Terms of Service."
+  pageType="WebPage"
+  modifiedTime="2025-10-01"
+  breadcrumbs={[
+    { name: "Legal", href: "/terms-of-service" },
+    { name: "Terms of Service", href: "/terms-of-service" }
+  ]}
+  schema={tosDocSchema}
 >
   <!-- Legal Sub-nav Tabs -->
   <section class="border-b border-border/50 bg-background/60 backdrop-blur-md sticky top-16 z-30">
@@ -34,7 +59,12 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <!-- Page Content -->
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <!-- Breadcrumbs -->
+    <div class="mb-6">
+      <Breadcrumbs items={[{ name: "Legal", href: "/terms-of-service" }, { name: "Terms of Service" }]} />
+    </div>
+
     <!-- Header -->
     <div class="mb-10 sm:mb-12">
       <span class="inline-block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">Legal Agreement</span>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 const sections = [
   { id: "introduction", title: "Introduction" },
@@ -14,11 +15,35 @@ const sections = [
   { id: "csam-policy", title: "Child Safety & CSAM Policy" },
   { id: "contact", title: "Contact Us" },
 ];
+
+const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.com").replace(/\/$/, "");
+const privacyDocSchema = {
+  "@type": "DigitalDocument",
+  "@id": `${siteBase}/privacy#document`,
+  "name": "Lupyd Privacy Policy",
+  "headline": "Privacy Policy - Lupyd",
+  "description": "At Lupyd, we believe in transparency and protecting your privacy. This policy explains how we collect, use, and safeguard your information.",
+  "url": `${siteBase}/privacy`,
+  "dateModified": "2025-10-01",
+  "inLanguage": "en-US",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Lupyd",
+    "url": siteBase
+  }
+};
 ---
 
 <Layout
   title="Privacy Policy - Lupyd"
-  description="At Lupyd, we believe in transparency and protecting your privacy. This policy explains how we collect, use, and safeguard your information."
+  description="At Lupyd, we believe in transparency and protecting your privacy. This policy explains how we collect, use, and safeguard your personal information."
+  pageType="WebPage"
+  modifiedTime="2025-10-01"
+  breadcrumbs={[
+    { name: "Legal", href: "/privacy" },
+    { name: "Privacy Policy", href: "/privacy" }
+  ]}
+  schema={privacyDocSchema}
 >
   <!-- Legal Sub-nav Tabs -->
   <section class="border-b border-border/50 bg-background/60 backdrop-blur-md sticky top-16 z-30">
@@ -48,7 +73,12 @@ const sections = [
   </section>
 
   <!-- Page Content -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <!-- Breadcrumbs -->
+    <div class="mb-6">
+      <Breadcrumbs items={[{ name: "Legal", href: "/privacy" }, { name: "Privacy Policy" }]} />
+    </div>
+
     <!-- Header -->
     <div class="mb-10 sm:mb-14">
       <span class="inline-block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">Legal Documentation</span>

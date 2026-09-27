@@ -1,8 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.com").replace(/\/$/, "");
+const experienceSchema = {
+  "@type": "SoftwareApplication",
+  "@id": `${siteBase}/experience#software`,
+  "name": "The Lupyd Experience",
+  "applicationCategory": "CommunicationApplication, DesignApplication",
+  "description": "Discover how Lupyd delivers an exceptional user experience through intuitive design, fluid performance, and seamless privacy.",
+  "url": `${siteBase}/experience`
+};
 ---
 
-<Layout title="User Experience - Lupyd" description="Discover how Lupyd delivers an exceptional user experience through intuitive design and seamless functionality.">
+<Layout
+  title="User Experience - Lupyd"
+  description="Discover how Lupyd delivers an exceptional user experience through intuitive design, fluid performance, and seamless privacy."
+  pageType="ItemPage"
+  breadcrumbs={[{ name: "Experience", href: "/experience" }]}
+  schema={experienceSchema}
+>
 
   <!-- ═══════════════════════════════════════════════════════════
        HERO
@@ -11,6 +28,10 @@ import Layout from "../layouts/Layout.astro";
     <div class="ex-hero-bg" aria-hidden="true"><div class="ex-hero-grid"></div></div>
 
     <div class="ex-container">
+      <div class="pt-2 pb-4">
+        <Breadcrumbs items={[{ name: "Experience" }]} />
+      </div>
+
       <div class="ex-hero-top animate-card">
         <span class="ex-pill">Experience</span>
       </div>
