@@ -1,880 +1,352 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const sections = [
+  { id: "introduction", title: "Introduction" },
+  { id: "information-collection", title: "Information We Collect" },
+  { id: "information-use", title: "How We Use Your Information" },
+  { id: "information-sharing", title: "Information Sharing" },
+  { id: "data-security", title: "Data Security" },
+  { id: "user-rights", title: "Your Rights" },
+  { id: "cookies", title: "Cookies & Tracking Technologies" },
+  { id: "third-party", title: "Third-Party Services" },
+  { id: "children", title: "Children's Privacy" },
+  { id: "csam-policy", title: "Child Safety & CSAM Policy" },
+  { id: "contact", title: "Contact Us" },
+];
 ---
 
-<Layout title="Privacy & Security - Lupyd" description="At Lupyd, we prioritize your privacy and security with advanced data protection and user-controlled sharing preferences.">
+<Layout
+  title="Privacy Policy - Lupyd"
+  description="At Lupyd, we believe in transparency and protecting your privacy. This policy explains how we collect, use, and safeguard your information."
+>
+  <!-- Legal Sub-nav Tabs -->
+  <section class="border-b border-border/50 bg-background/60 backdrop-blur-md sticky top-16 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2 sm:gap-6 overflow-x-auto no-scrollbar py-1">
+        <a
+          href="/privacy"
+          class="text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-full bg-foreground text-background transition-colors whitespace-nowrap"
+        >
+          Privacy Policy
+        </a>
+        <a
+          href="/terms-of-use"
+          class="text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors whitespace-nowrap"
+        >
+          Terms of Use
+        </a>
+        <a
+          href="/terms-of-service"
+          class="text-xs sm:text-sm font-medium px-3 py-1.5 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors whitespace-nowrap"
+        >
+          Terms of Service
+        </a>
+      </div>
+      <span class="hidden sm:inline-block text-xs text-muted-foreground font-mono">Last updated: Oct 2025</span>
+    </div>
+  </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="pv-hero">
-    <div class="pv-hero-bg" aria-hidden="true">
-      <div class="pv-hero-grid"></div>
+  <!-- Page Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <!-- Header -->
+    <div class="mb-10 sm:mb-14">
+      <span class="inline-block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">Legal Documentation</span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-4">Privacy Policy</h1>
+      <p class="text-lg sm:text-xl text-muted-foreground max-w-3xl leading-relaxed">
+        At Lupyd, we believe in transparency and protecting your privacy. This policy explains how we collect, use, and safeguard your information.
+      </p>
+      <p class="text-xs text-muted-foreground mt-3 font-mono sm:hidden">Last updated: October 2025</p>
     </div>
 
-    <div class="pv-container">
-      <div class="pv-hero-inner">
-
-        <!-- Left: large headline -->
-        <div class="pv-hero-left animate-card">
-          <span class="pv-pill">Privacy &amp; Security</span>
-          <h1 class="pv-h1">Privacy<br/>&amp;<br/><em>Security</em></h1>
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
+      <!-- Sidebar Table of Contents -->
+      <aside class="lg:col-span-1">
+        <div class="sticky top-32 space-y-1 p-4 rounded-xl border border-border/50 bg-card/40 backdrop-blur-sm">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3 px-3">Table of Contents</h2>
+          <nav id="toc-nav" class="space-y-1">
+            {sections.map((section, idx) => (
+              <a
+                href={`#${section.id}`}
+                data-section={section.id}
+                class={`toc-link block text-xs sm:text-sm py-2 px-3 rounded-lg transition-all ${
+                  idx === 0
+                    ? "font-semibold bg-foreground text-background"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                }`}
+              >
+                {section.title}
+              </a>
+            ))}
+          </nav>
         </div>
+      </aside>
 
-        <!-- Right: sub + three pillars -->
-        <div class="pv-hero-right animate-card" style="animation-delay:0.08s">
-          <p class="pv-hero-sub">
-            At Lupyd, we prioritize your privacy and security with advanced protection mechanisms and user-controlled settings.
+      <!-- Main Document Content -->
+      <main class="lg:col-span-3 space-y-12 text-foreground/90 leading-relaxed">
+        <!-- Introduction -->
+        <section id="introduction" class="scroll-mt-36 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Introduction</h2>
+          <p>
+            Welcome to Lupyd (&ldquo;we,&rdquo; &ldquo;us,&rdquo; &ldquo;our,&rdquo; or &ldquo;Company&rdquo;). Lupyd is committed to protecting your privacy and ensuring you have a positive experience on our platform. This Privacy Policy explains our online information practices and the choices you can make about how your information is collected and used.
           </p>
+          <p>
+            This Privacy Policy applies to information we collect through our website, mobile application, and all related services (collectively, the &ldquo;Service&rdquo;). Please read this policy carefully. If you do not agree with our policies and practices, please do not use our Service.
+          </p>
+        </section>
 
-          <!-- Three core pillars as a vertical stack -->
-          <div class="pv-pillars">
-            <div class="pv-pillar">
-              <div class="pv-pillar-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div>
-                <p class="pv-pillar-title">Advanced Data Protection</p>
-                <p class="pv-pillar-desc">Multi-layered security keeps your data safe.</p>
-              </div>
+        <!-- Information We Collect -->
+        <section id="information-collection" class="scroll-mt-36 space-y-5">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Information We Collect</h2>
+
+          <div class="p-5 rounded-xl border border-border/50 bg-card/30 space-y-3">
+            <h3 class="text-lg font-semibold text-foreground">Information You Provide Directly</h3>
+            <ul class="list-disc list-inside space-y-1.5 text-sm sm:text-base text-muted-foreground">
+              <li>Account registration information (name, email, phone number, profile picture)</li>
+              <li>Profile information and biographical data</li>
+              <li>Content you create, upload, or share (posts, comments, messages)</li>
+              <li>Payment and billing information</li>
+              <li>Customer support communications</li>
+              <li>Preferences and settings</li>
+            </ul>
+          </div>
+
+          <div class="p-5 rounded-xl border border-border/50 bg-card/30 space-y-3">
+            <h3 class="text-lg font-semibold text-foreground">Information Collected Automatically</h3>
+            <ul class="list-disc list-inside space-y-1.5 text-sm sm:text-base text-muted-foreground">
+              <li>Device information (type, operating system, unique identifiers)</li>
+              <li>Log data (IP address, access times, pages viewed)</li>
+              <li>Location information (with your permission)</li>
+              <li>Usage patterns and interaction data</li>
+              <li>Cookies and similar tracking technologies</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- How We Use Your Information -->
+        <section id="information-use" class="scroll-mt-36 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">How We Use Your Information</h2>
+          <div class="p-5 rounded-xl border border-border/50 bg-card/30">
+            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-muted-foreground">
+              <li>Providing, maintaining, and improving our Service</li>
+              <li>Processing transactions and sending related information</li>
+              <li>Sending promotional communications (with your consent)</li>
+              <li>Responding to your inquiries and providing customer support</li>
+              <li>Personalizing your experience and content recommendations</li>
+              <li>Analyzing usage patterns to improve our platform</li>
+              <li>Detecting and preventing fraud and security issues</li>
+              <li>Complying with legal obligations</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Information Sharing -->
+        <section id="information-sharing" class="scroll-mt-36 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Information Sharing</h2>
+          <div class="p-5 rounded-xl border border-border/50 bg-card/30">
+            <ul class="list-disc list-inside space-y-2.5 text-sm sm:text-base text-muted-foreground">
+              <li><strong class="text-foreground">Service Providers:</strong> With vendors who assist us in operating our website and conducting our business</li>
+              <li><strong class="text-foreground">Legal Requirements:</strong> When required by law or to protect our rights and safety</li>
+              <li><strong class="text-foreground">Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+              <li><strong class="text-foreground">With Your Consent:</strong> When you explicitly authorize us to share your information</li>
+              <li><strong class="text-foreground">Public Content:</strong> Information you choose to make public on your profile</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Data Security -->
+        <section id="data-security" class="scroll-mt-36 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Data Security</h2>
+          <div class="p-5 rounded-xl border border-border/50 bg-card/30 space-y-3">
+            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-muted-foreground">
+              <li>Encryption of data in transit and at rest</li>
+              <li>Secure authentication protocols</li>
+              <li>Regular security audits and assessments</li>
+              <li>Access controls and employee training</li>
+              <li>Incident response procedures</li>
+            </ul>
+            <p class="text-xs sm:text-sm text-muted-foreground pt-2 border-t border-border/30">
+              While we strive to protect your information, no security system is impenetrable. We cannot guarantee absolute security of your data.
+            </p>
+          </div>
+        </section>
+
+        <!-- Your Rights -->
+        <section id="user-rights" class="scroll-mt-36 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Your Rights</h2>
+          <div class="p-5 rounded-xl border border-border/50 bg-card/30">
+            <ul class="list-disc list-inside space-y-2.5 text-sm sm:text-base text-muted-foreground">
+              <li><strong class="text-foreground">Right to Access:</strong> Request a copy of your personal information</li>
+              <li><strong class="text-foreground">Right to Correction:</strong> Update or correct inaccurate information</li>
+              <li><strong class="text-foreground">Right to Deletion:</strong> Request deletion of your data (subject to legal obligations)</li>
+              <li><strong class="text-foreground">Right to Opt-Out:</strong> Unsubscribe from marketing communications</li>
+              <li><strong class="text-foreground">Right to Data Portability:</strong> Receive your data in a portable format</li>
+              <li><strong class="text-foreground">Right to Object:</strong> Object to certain processing activities</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Cookies & Tracking Technologies -->
+        <section id="cookies" class="scroll-mt-36 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Cookies &amp; Tracking Technologies</h2>
+          <div class="p-5 rounded-xl border border-border/50 bg-card/30">
+            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-muted-foreground">
+              <li><strong class="text-foreground">Essential Cookies:</strong> Required for basic functionality</li>
+              <li><strong class="text-foreground">Analytics Cookies:</strong> Help us understand how you use our Service</li>
+              <li><strong class="text-foreground">Preference Cookies:</strong> Remember your settings and preferences</li>
+              <li><strong class="text-foreground">Marketing Cookies:</strong> Used for targeted advertising (with consent)</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Third-Party Services -->
+        <section id="third-party" class="scroll-mt-36 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Third-Party Services</h2>
+          <p class="text-muted-foreground">
+            Our Service may contain links to third-party websites and services that are not operated by Lupyd. This Privacy Policy does not apply to third-party services, and we are not responsible for their privacy practices. We encourage you to review the privacy policies of any third-party services before providing your information.
+          </p>
+        </section>
+
+        <!-- Children's Privacy -->
+        <section id="children" class="scroll-mt-36 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Children&rsquo;s Privacy</h2>
+          <p class="text-muted-foreground">
+            Lupyd is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected information from a child under 13, we will take steps to delete such information and terminate the child&rsquo;s account.
+          </p>
+          <p class="text-muted-foreground">
+            For users between 13 and 18, we provide additional privacy protections and limit the collection and use of their information.
+          </p>
+        </section>
+
+        <!-- Child Safety & CSAM Policy -->
+        <section id="csam-policy" class="scroll-mt-36 space-y-6 pt-6 border-t border-border/60">
+          <div class="space-y-3">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 dark:text-red-400 text-xs font-semibold">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Zero-Tolerance Policy
             </div>
-            <div class="pv-pillar">
-              <div class="pv-pillar-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-              </div>
-              <div>
-                <p class="pv-pillar-title">User-Controlled Sharing</p>
-                <p class="pv-pillar-desc">You decide what is shared and with whom.</p>
-              </div>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Child Safety &amp; CSAM Policy</h2>
+            <p class="text-muted-foreground">
+              Lupyd has a <strong class="text-foreground font-semibold">zero-tolerance policy</strong> for Child Sexual Abuse Material (CSAM) and any content that exploits or endangers children. We are committed to maintaining a safe environment and protecting minors from harm.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl border border-border/50 bg-card/30 space-y-3">
+            <h3 class="text-lg font-semibold text-foreground">Prohibited Content</h3>
+            <p class="text-sm text-muted-foreground">The following activities are strictly prohibited on our platform:</p>
+            <ul class="list-disc list-inside space-y-1.5 text-sm sm:text-base text-muted-foreground">
+              <li>Uploading, sharing, or distributing any form of CSAM</li>
+              <li>Creating, possessing, or transmitting sexually explicit content involving minors</li>
+              <li>Grooming, soliciting, or attempting to exploit children</li>
+              <li>Sharing content that sexualizes minors in any way</li>
+              <li>Facilitating or promoting child exploitation</li>
+            </ul>
+          </div>
+
+          <div class="p-5 rounded-xl border border-border/50 bg-card/30 space-y-3">
+            <h3 class="text-lg font-semibold text-foreground">Our Commitment</h3>
+            <p class="text-sm text-muted-foreground">We actively monitor our platform and take immediate action when CSAM or child exploitation is detected:</p>
+            <ul class="list-disc list-inside space-y-1.5 text-sm sm:text-base text-muted-foreground">
+              <li>Immediate removal of all CSAM content</li>
+              <li>Permanent account termination for violators</li>
+              <li>Reporting to the National Center for Missing &amp; Exploited Children (NCMEC)</li>
+              <li>Cooperation with law enforcement agencies worldwide</li>
+              <li>Preservation of evidence for legal proceedings</li>
+            </ul>
+          </div>
+
+          <!-- Alert Reporting Box -->
+          <div class="p-5 sm:p-6 rounded-xl border border-red-500/30 bg-red-500/10 dark:bg-red-950/30 space-y-3">
+            <h3 class="text-lg font-bold text-red-600 dark:text-red-400">Reporting CSAM</h3>
+            <p class="text-sm text-foreground/90">
+              If you encounter any content that may constitute CSAM or child exploitation, please report it immediately:
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <span class="font-semibold text-foreground">Email:</span>
+                <a href="mailto:complaint@lupyd.com" class="text-red-600 dark:text-red-400 underline hover:opacity-80">
+                  complaint@lupyd.com
+                </a>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="font-semibold text-foreground">NCMEC CyberTipline:</span>
+                <a
+                  href="https://www.cybertipline.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-red-600 dark:text-red-400 underline hover:opacity-80"
+                >
+                  www.cybertipline.org
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            <strong class="text-foreground">Legal Consequences:</strong> Violations of this policy may result in criminal prosecution. CSAM-related offenses are serious crimes punishable by imprisonment and other severe penalties under federal and international law.
+          </p>
+        </section>
+
+        <!-- Contact Us -->
+        <section id="contact" class="scroll-mt-36 space-y-4 pt-6 border-t border-border/60">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">Contact Us</h2>
+          <div class="p-6 rounded-xl border border-border/60 bg-card/40 space-y-4">
+            <div>
+              <p class="font-bold text-foreground">Lupyd Privacy Team</p>
+              <a href="mailto:privacy@lupyd.com" class="text-sm text-primary hover:underline">
+                privacy@lupyd.com
+              </a>
             </div>
-            <div class="pv-pillar">
-              <div class="pv-pillar-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </div>
-              <div>
-                <p class="pv-pillar-title">Anonymous Browsing</p>
-                <p class="pv-pillar-desc">Explore without leaving a digital footprint.</p>
-              </div>
+            <div>
+              <p class="font-bold text-sm text-foreground">Mailing Address</p>
+              <p class="text-sm text-muted-foreground">
+                Lupyd<br />
+                Khanapuram, Khammam
+              </p>
+            </div>
+            <div>
+              <p class="font-bold text-sm text-foreground">Response Time</p>
+              <p class="text-sm text-muted-foreground">We aim to respond to all privacy inquiries within 30 days.</p>
             </div>
           </div>
-        </div>
+        </section>
 
-      </div>
+        <!-- Footer Notice -->
+        <div class="pt-8 border-t border-border/40 text-xs text-muted-foreground leading-relaxed">
+          <p>
+            This Privacy Policy may be updated from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the &ldquo;Last updated&rdquo; date. Your continued use of the Service following the posting of revised Privacy Policy means that you accept and agree to the changes.
+          </p>
+        </div>
+      </main>
     </div>
+  </div>
 
-    <!-- Privacy settings screenshot — full width at bottom of hero -->
-    <div class="pv-hero-shot animate-card" style="animation-delay:0.18s">
-      <div class="pv-container">
-        <div class="pv-shot-frame">
-          <div class="pv-shot-chrome">
-            <span class="pv-chrome-dot"></span>
-            <span class="pv-chrome-dot"></span>
-            <span class="pv-chrome-dot"></span>
-            <span class="pv-chrome-bar">lupyd.com — Privacy Settings</span>
-          </div>
-          <img
-            src="/screenshots/privacy-settings.webp"
-            alt="Lupyd Privacy Settings"
-            class="pv-shot-img"
-            loading="eager"
-            fetchpriority="high"
-            onerror="this.closest('.pv-shot-frame').style.display='none'"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
+  <script>
+    const tocLinks = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('main > section[id]'));
 
-  <!-- ═══════════════════════════════════════════════════════════
-       OUR PRIVACY COMMITMENT — inverted dark band
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="pv-commitment-band">
-    <div class="pv-container">
+    // IntersectionObserver for TOC highlight
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            tocLinks.forEach((link) => {
+              const isActive = link.getAttribute('data-section') === id;
+              if (isActive) {
+                link.classList.remove('text-muted-foreground', 'hover:bg-muted/60');
+                link.classList.add('font-semibold', 'bg-foreground', 'text-background');
+              } else {
+                link.classList.remove('font-semibold', 'bg-foreground', 'text-background');
+                link.classList.add('text-muted-foreground', 'hover:bg-muted/60');
+              }
+            });
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -70% 0px' }
+    );
 
-      <div class="pv-commitment-header sr">
-        <span class="pv-commitment-overline">Our Commitment</span>
-        <h2 class="pv-commitment-h2">Privacy is a<br/>fundamental right.</h2>
-        <p class="pv-commitment-sub">
-          At Lupyd, we believe privacy is a fundamental right. Our platform is built with privacy at its core, not as an afterthought. We are committed to:
-        </p>
-      </div>
-
-      <!-- Four principles in a bento grid -->
-      <div class="pv-principles sr" style="transition-delay:0.1s">
-
-        <!-- Transparency — wide left -->
-        <div class="pv-principle pv-principle--wide">
-          <div class="pv-principle-top">
-            <span class="pv-principle-num">01</span>
-            <div class="pv-principle-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            </div>
-          </div>
-          <h3 class="pv-principle-title">Transparency</h3>
-          <p class="pv-principle-desc">We are clear about what data we collect and how we use it. Our privacy policy is written in plain language, not legal jargon.</p>
-        </div>
-
-        <!-- User Control -->
-        <div class="pv-principle">
-          <div class="pv-principle-top">
-            <span class="pv-principle-num">02</span>
-            <div class="pv-principle-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-            </div>
-          </div>
-          <h3 class="pv-principle-title">User Control</h3>
-          <p class="pv-principle-desc">You have complete control over your data. We provide easy-to-use tools to manage your privacy settings and data.</p>
-        </div>
-
-        <!-- Data Minimization -->
-        <div class="pv-principle">
-          <div class="pv-principle-top">
-            <span class="pv-principle-num">03</span>
-            <div class="pv-principle-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-          </div>
-          <h3 class="pv-principle-title">Data Minimization</h3>
-          <p class="pv-principle-desc">We only collect the data necessary to provide our services. We don't collect data for the sake of having more information.</p>
-        </div>
-
-        <!-- Security First — full-width bottom -->
-        <div class="pv-principle pv-principle--bottom">
-          <div class="pv-principle-bottom-left">
-            <div class="pv-principle-top">
-              <span class="pv-principle-num">04</span>
-              <div class="pv-principle-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-            </div>
-            <h3 class="pv-principle-title">Security First</h3>
-          </div>
-          <p class="pv-principle-desc pv-principle-desc--right">We implement the latest security measures to protect your data from unauthorized access and breaches.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       SECURITY FEATURES — editorial split layout
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="pv-section pv-section--security">
-    <div class="pv-container">
-
-      <!-- Section header -->
-      <div class="pv-sec-header sr">
-        <span class="pv-overline">Security</span>
-        <h2 class="pv-sec-h2">Security<br/>Features</h2>
-      </div>
-
-      <!-- Four security features in an asymmetric layout -->
-      <div class="pv-security-layout sr" style="transition-delay:0.08s">
-
-        <!-- Featured large card — E2E Encryption -->
-        <div class="pv-sec-featured">
-          <div class="pv-sec-featured-inner">
-            <div class="pv-sec-featured-top">
-              <span class="pv-sec-num">01</span>
-              <div class="pv-sec-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </div>
-            </div>
-            <h3 class="pv-sec-featured-title">End-to-End<br/>Encryption</h3>
-            <p class="pv-sec-featured-desc">All your messages and sensitive content are protected with end-to-end encryption, ensuring only intended recipients can access them.</p>
-            <!-- Decorative rings -->
-            <div class="pv-sec-deco" aria-hidden="true">
-              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="0.5" stroke-dasharray="5 7"/>
-                <circle cx="100" cy="100" r="65" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 6"/>
-                <circle cx="100" cy="100" r="40" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5"/>
-                <circle cx="100" cy="100" r="18" stroke="currentColor" stroke-width="0.5"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right column: three smaller cards -->
-        <div class="pv-sec-stack">
-
-          <div class="pv-sec-card">
-            <div class="pv-sec-card-top">
-              <span class="pv-sec-num">02</span>
-              <div class="pv-sec-icon pv-sec-icon--sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-            </div>
-            <h3 class="pv-sec-card-title">Two-Factor Authentication</h3>
-            <p class="pv-sec-card-desc">Add an extra layer of security to your account with two-factor authentication, preventing unauthorized access even if your password is compromised.</p>
-          </div>
-
-          <div class="pv-sec-card">
-            <div class="pv-sec-card-top">
-              <span class="pv-sec-num">03</span>
-              <div class="pv-sec-icon pv-sec-icon--sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              </div>
-            </div>
-            <h3 class="pv-sec-card-title">Regular Security Audits</h3>
-            <p class="pv-sec-card-desc">We conduct regular security audits and vulnerability assessments to identify and address potential security issues before they become problems.</p>
-          </div>
-
-          <div class="pv-sec-card">
-            <div class="pv-sec-card-top">
-              <span class="pv-sec-num">04</span>
-              <div class="pv-sec-icon pv-sec-icon--sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg>
-              </div>
-            </div>
-            <h3 class="pv-sec-card-title">Data Breach Notifications</h3>
-            <p class="pv-sec-card-desc">In the unlikely event of a data breach, we commit to promptly notifying affected users and taking immediate steps to mitigate any potential harm.</p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       CLOSING CTA
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="pv-cta sr">
-    <div class="pv-container">
-      <div class="pv-cta-inner">
-        <span class="pv-overline">Get started</span>
-        <h2 class="pv-cta-h2">Your data.<br/>Your control.</h2>
-        <a href="/" class="pv-cta-btn">← Back to Home</a>
-      </div>
-    </div>
-  </section>
-
+    sections.forEach((section) => observer.observe(section));
+  </script>
 </Layout>
-
-<style>
-/* ── SHARED ──────────────────────────────────────────────────── */
-.pv-container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.pv-overline {
-  display: block;
-  font-size: 0.63rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: hsl(var(--muted-foreground));
-  margin-bottom: 0.8rem;
-}
-
-.pv-pill {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid hsl(var(--border));
-  border-radius: 999px;
-  padding: 3px 13px;
-  font-size: 0.63rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: hsl(var(--muted-foreground));
-  margin-bottom: 1.75rem;
-}
-
-/* ── HERO ────────────────────────────────────────────────────── */
-.pv-hero {
-  position: relative;
-  overflow: hidden;
-  padding: 5rem 0 0;
-  border-bottom: 1px solid hsl(var(--border));
-}
-
-.pv-hero-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.pv-hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, black 30%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, black 30%, transparent 100%);
-}
-
-.pv-hero-inner {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: end;
-  padding-bottom: 3.5rem;
-}
-
-.pv-hero-left {
-  display: flex;
-  flex-direction: column;
-}
-
-.pv-h1 {
-  font-size: clamp(3.4rem, 8.5vw, 7rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.92;
-  color: hsl(var(--foreground));
-  margin: 0;
-}
-
-.pv-h1 em {
-  font-style: italic;
-  font-weight: 300;
-  letter-spacing: -0.03em;
-}
-
-.pv-hero-right {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-self: end;
-  padding-bottom: 0.5rem;
-}
-
-.pv-hero-sub {
-  font-size: clamp(0.88rem, 1.6vw, 1rem);
-  color: hsl(var(--muted-foreground));
-  line-height: 1.72;
-  max-width: 380px;
-  margin: 0;
-}
-
-/* Three pillars vertical stack */
-.pv-pillars {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid hsl(var(--border));
-  border-radius: 10px;
-  overflow: hidden;
-  background: hsl(var(--card));
-}
-
-.pv-pillar {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.9rem;
-  padding: 1.1rem 1.4rem;
-  border-bottom: 1px solid hsl(var(--border));
-  transition: background 0.2s;
-}
-
-.pv-pillar:last-child { border-bottom: none; }
-.pv-pillar:hover { background: hsl(var(--muted) / 0.5); }
-
-.pv-pillar-icon {
-  width: 32px; height: 32px;
-  border-radius: 7px;
-  border: 1px solid hsl(var(--border));
-  background: hsl(var(--background));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: hsl(var(--foreground));
-  flex-shrink: 0;
-  margin-top: 1px;
-  transition: transform 0.2s, border-color 0.2s;
-}
-
-.pv-pillar:hover .pv-pillar-icon {
-  transform: translateY(-2px);
-  border-color: hsl(var(--foreground) / 0.3);
-}
-
-.pv-pillar-title {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: hsl(var(--foreground));
-  letter-spacing: -0.01em;
-  margin: 0 0 0.2rem;
-}
-
-.pv-pillar-desc {
-  font-size: 0.72rem;
-  color: hsl(var(--muted-foreground));
-  line-height: 1.55;
-  margin: 0;
-}
-
-/* Hero screenshot */
-.pv-hero-shot {
-  position: relative;
-  z-index: 1;
-}
-
-.pv-shot-frame {
-  width: 100%;
-  border-radius: 10px 10px 0 0;
-  border: 1px solid hsl(var(--border));
-  border-bottom: none;
-  overflow: hidden;
-  background: hsl(var(--card));
-  box-shadow:
-    0 0 0 1px hsl(var(--border) / 0.4),
-    0 -4px 40px -8px rgba(0,0,0,0.08);
-}
-
-.dark .pv-shot-frame {
-  box-shadow:
-    0 0 0 1px hsl(var(--border) / 0.4),
-    0 -4px 40px -8px rgba(0,0,0,0.5);
-}
-
-.pv-shot-chrome {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 8px 12px;
-  background: hsl(var(--muted));
-  border-bottom: 1px solid hsl(var(--border));
-}
-
-.pv-chrome-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: hsl(var(--border));
-}
-
-.pv-chrome-bar {
-  flex: 1;
-  max-width: 220px;
-  height: 15px;
-  border-radius: 4px;
-  background: hsl(var(--border) / 0.5);
-  margin-left: 6px;
-  font-size: 9px;
-  color: hsl(var(--muted-foreground));
-  display: flex;
-  align-items: center;
-  padding: 0 7px;
-}
-
-.pv-shot-img {
-  width: 100%;
-  display: block;
-  aspect-ratio: 1345 / 635;
-  object-fit: cover;
-  object-position: top center;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.pv-shot-frame:hover .pv-shot-img { transform: scale(1.015); }
-
-/* ── PRIVACY COMMITMENT — inverted band ─────────────────────── */
-.pv-commitment-band {
-  background: hsl(var(--foreground));
-  color: hsl(var(--background));
-  padding: 6rem 0;
-}
-
-.pv-commitment-header { margin-bottom: 3.5rem; }
-
-.pv-commitment-overline {
-  display: block;
-  font-size: 0.63rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: hsl(var(--background) / 0.4);
-  margin-bottom: 0.8rem;
-}
-
-.pv-commitment-h2 {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.97;
-  color: hsl(var(--background));
-  margin: 0 0 1rem;
-}
-
-.pv-commitment-sub {
-  font-size: 0.9rem;
-  color: hsl(var(--background) / 0.5);
-  line-height: 1.7;
-  max-width: 520px;
-  margin: 0;
-}
-
-/* Bento grid for principles */
-.pv-principles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: hsl(var(--background) / 0.1);
-  border: 1px solid hsl(var(--background) / 0.1);
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.pv-principle--wide   { grid-column: 1 / 3; }
-.pv-principle--bottom { grid-column: 1 / -1; }
-
-.pv-principle {
-  background: hsl(var(--foreground));
-  padding: 2.25rem 2rem;
-  display: flex;
-  flex-direction: column;
-  transition: background 0.2s;
-}
-
-.pv-principle:hover { background: hsl(var(--background) / 0.05); }
-
-.pv-principle--bottom {
-  flex-direction: row;
-  align-items: center;
-  gap: 3rem;
-}
-
-.pv-principle-bottom-left {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  min-width: 220px;
-}
-
-.pv-principle-desc--right {
-  flex: 1;
-  border-left: 1px solid hsl(var(--background) / 0.12);
-  padding-left: 2.5rem;
-  margin: 0 !important;
-}
-
-.pv-principle-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-
-.pv-principle-num {
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: hsl(var(--background) / 0.3);
-}
-
-.pv-principle-icon {
-  width: 38px; height: 38px;
-  border-radius: 8px;
-  border: 1px solid hsl(var(--background) / 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: hsl(var(--background));
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.pv-principle:hover .pv-principle-icon {
-  border-color: hsl(var(--background) / 0.4);
-  transform: translateY(-2px);
-}
-
-.pv-principle-title {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: hsl(var(--background));
-  margin: 0 0 0.65rem;
-  line-height: 1.25;
-}
-
-.pv-principle-desc {
-  font-size: 0.8rem;
-  color: hsl(var(--background) / 0.5);
-  line-height: 1.72;
-  margin: 0;
-}
-
-/* ── SECURITY FEATURES ───────────────────────────────────────── */
-.pv-section { padding: 6rem 0; }
-
-.pv-section--security {
-  border-top: 1px solid hsl(var(--border));
-  border-bottom: 1px solid hsl(var(--border));
-}
-
-.pv-sec-header {
-  margin-bottom: 3rem;
-}
-
-.pv-sec-h2 {
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-  color: hsl(var(--foreground));
-  margin: 0;
-}
-
-/* Asymmetric layout: large featured left, stack right */
-.pv-security-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  align-items: stretch;
-}
-
-/* Featured card */
-.pv-sec-featured {
-  border: 1px solid hsl(var(--border));
-  border-radius: 14px;
-  overflow: hidden;
-  background: hsl(var(--card));
-  transition: border-color 0.22s;
-}
-
-.pv-sec-featured:hover {
-  border-color: hsl(var(--foreground) / 0.25);
-}
-
-.pv-sec-featured-inner {
-  padding: 2.5rem 2.25rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-}
-
-.pv-sec-featured-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-.pv-sec-num {
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: hsl(var(--muted-foreground) / 0.6);
-}
-
-.pv-sec-icon {
-  width: 44px; height: 44px;
-  border-radius: 10px;
-  border: 1px solid hsl(var(--border));
-  background: hsl(var(--background));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: hsl(var(--foreground));
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.pv-sec-featured:hover .pv-sec-icon,
-.pv-sec-card:hover .pv-sec-icon {
-  border-color: hsl(var(--foreground) / 0.3);
-  transform: translateY(-2px);
-}
-
-.pv-sec-icon--sm {
-  width: 36px; height: 36px;
-  border-radius: 8px;
-}
-
-.pv-sec-featured-title {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: hsl(var(--foreground));
-  margin: 0 0 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-.pv-sec-featured-desc {
-  font-size: 0.85rem;
-  color: hsl(var(--muted-foreground));
-  line-height: 1.72;
-  margin: 0;
-  max-width: 340px;
-  position: relative;
-  z-index: 1;
-}
-
-/* Decorative rings */
-.pv-sec-deco {
-  position: absolute;
-  bottom: -40px;
-  right: -40px;
-  width: 200px;
-  height: 200px;
-  color: hsl(var(--border));
-  opacity: 0.6;
-  pointer-events: none;
-  transition: opacity 0.3s, transform 0.5s;
-}
-
-.pv-sec-featured:hover .pv-sec-deco {
-  opacity: 1;
-  transform: scale(1.05) rotate(8deg);
-}
-
-/* Right stack */
-.pv-sec-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.pv-sec-card {
-  border: 1px solid hsl(var(--border));
-  border-radius: 12px;
-  padding: 1.75rem 1.75rem;
-  background: hsl(var(--card));
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  transition: border-color 0.22s, background 0.22s, transform 0.22s;
-}
-
-.pv-sec-card:hover {
-  border-color: hsl(var(--foreground) / 0.2);
-  background: hsl(var(--muted) / 0.4);
-  transform: translateY(-2px);
-}
-
-.pv-sec-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.pv-sec-card-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  color: hsl(var(--foreground));
-  margin: 0 0 0.55rem;
-  line-height: 1.25;
-}
-
-.pv-sec-card-desc {
-  font-size: 0.79rem;
-  color: hsl(var(--muted-foreground));
-  line-height: 1.72;
-  margin: 0;
-}
-
-/* ── CTA ─────────────────────────────────────────────────────── */
-.pv-cta {
-  padding: 6rem 0 7rem;
-  border-top: 1px solid hsl(var(--border));
-}
-
-.pv-cta-inner {
-  max-width: 560px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-}
-
-.pv-cta-h2 {
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.0;
-  color: hsl(var(--foreground));
-  margin: 0;
-}
-
-.pv-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 0 1.5rem;
-  height: 2.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  letter-spacing: 0.01em;
-  margin-top: 0.5rem;
-  width: fit-content;
-  transition: opacity 0.15s;
-}
-
-.pv-cta-btn:hover { opacity: 0.82; }
-
-/* ── RESPONSIVE ──────────────────────────────────────────────── */
-@media (max-width: 860px) {
-  .pv-hero-inner {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding-bottom: 2.5rem;
-  }
-
-  .pv-principles {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .pv-principle--wide   { grid-column: 1 / -1; }
-  .pv-principle--bottom {
-    grid-column: 1 / -1;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .pv-principle-desc--right {
-    border-left: none;
-    border-top: 1px solid hsl(var(--background) / 0.12);
-    padding-left: 0;
-    padding-top: 1.5rem;
-  }
-
-  .pv-security-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 560px) {
-  .pv-principles { grid-template-columns: 1fr; }
-  .pv-principle--wide { grid-column: 1; }
-  .pv-h1 { font-size: clamp(2.8rem, 13vw, 4.5rem); }
-}
-</style>
-
-<script>
-  function initSR() {
-    const els = document.querySelectorAll('.sr');
-    if (!('IntersectionObserver' in window)) {
-      els.forEach(el => el.classList.add('visible'));
-      return;
-    }
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-    els.forEach(el => io.observe(el));
-  }
-  document.readyState === 'loading'
-    ? document.addEventListener('DOMContentLoaded', initSR)
-    : initSR();
-  document.addEventListener('astro:page-load', initSR);
-</script>
