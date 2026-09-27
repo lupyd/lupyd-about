@@ -1,0 +1,23 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.lupyd.client",
+      "sha256_cert_fingerprints": [
+        "2B:E8:BC:47:88:2E:81:93:B3:FB:3A:D9:BC:F4:EE:D3:CE:92:B2:D3:AB:49:A5:5F:C9:CA:25:70:EC:4E:5B:7B",
+        "31:3C:FF:3B:1B:ED:52:8E:28:32:F6:A5:7A:1F:CB:9D:88:89:C5:E2:85:1F:DE:63:D2:2D:02:12:2B:22:56:37"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.lupyd.dev",
+      "sha256_cert_fingerprints": [
+        "F8:50:4E:55:D8:14:3A:0F:9F:E3:13:44:DA:2C:A1:07:A6:9D:DF:B2:8C:AB:FD:DB:4E:BB:84:DA:2F:C5:85:2E"
+      ]
+    }
+  }  
+]
