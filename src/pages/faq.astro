@@ -1,0 +1,644 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const faqs = [
+  {
+    number: 1,
+    question: "What is the idea behind Lupyd?",
+    answer: "Lupyd is built around a simple focus: privacy and encryption, something that's often missing in today's platforms."
+  },
+  {
+    number: 2,
+    question: "What is Lupyd?",
+    answer: "Lupyd is a private, collaborative platform."
+  },
+  {
+    number: 3,
+    question: "Why should we use Lupyd?",
+    answer: "Lupyd offers a private environment, free from data leaks, built for seamless collaboration."
+  },
+  {
+    number: 4,
+    question: "How can I benefit from Lupyd?",
+    answer: "Lupyd is designed to protect you and your data."
+  },
+  {
+    number: 5,
+    question: "Why is Lupyd an alternative to other apps and websites?",
+    answer: "Lupyd is a more organized and professional platform for collaboration."
+  },
+  {
+    number: 6,
+    question: "Why should I use Lupyd instead of other apps?",
+    answer: "For the best visual chat experience."
+  },
+  {
+    number: 7,
+    question: "Is Lupyd for big organizations or for everybody?",
+    answer: "Lupyd is for everybody."
+  },
+  {
+    number: 8,
+    question: "Where can Lupyd be used?",
+    answer: "Lupyd can be used anywhere in daily life — schools, gaming, reviews, offices, and more."
+  },
+  {
+    number: 9,
+    question: "How is Lupyd useful for students?",
+    answer: "Students can experience a real-time office-like environment."
+  },
+  {
+    number: 10,
+    question: "Is Lupyd a SaaS (Software as a Service)?",
+    answer: "Yes, it is a SaaS platform."
+  },
+  {
+    number: 11,
+    question: "Can Lupyd compete in the market against other players?",
+    answer: "Yes, it has the capacity to compete."
+  },
+  {
+    number: 12,
+    question: "Can Lupyd be trusted by companies?",
+    answer: "Yes, it can be — in fact, it's designed specifically for them."
+  },
+  {
+    number: 13,
+    question: "How can I trust that it is end-to-end encrypted?",
+    answer: "You can review Lupyd's open-source code for full transparency."
+  },
+  {
+    number: 14,
+    question: "What happens if Lupyd gets hacked?",
+    answer: "It's never happened, and it never will — user data is fully shielded, and protecting it is Lupyd's top priority."
+  },
+  {
+    number: 15,
+    question: "Is Lupyd open source?",
+    answer: "Yes."
+  },
+  {
+    number: 16,
+    question: "Which languages are involved in building Lupyd?",
+    answer: "Rust, React.js, TypeScript, and more."
+  },
+  {
+    number: 17,
+    question: "Is a Lupyd subscription beneficial for a normal user?",
+    answer: "It's great for organizations, and it also offers special features that benefit individual users."
+  },
+  {
+    number: 18,
+    question: "What changes is Lupyd going to bring to the internet/platform space?",
+    answer: "Lupyd aims to raise the privacy standards of the digital world."
+  },
+  {
+    number: 19,
+    question: "Is Lupyd hiring?",
+    answer: "Yes, we're currently hiring for various roles."
+  },
+  {
+    number: 20,
+    question: "Is there any career guidance available at Lupyd?",
+    answer: "Not at the moment, but it's coming soon."
+  }
+];
+---
+
+<Layout
+  title="FAQ - Lupyd"
+  description="Frequently Asked Questions about Lupyd: privacy, encryption, open source, and collaboration."
+>
+
+  <div class="faq-page-wrapper">
+    <!-- Grid Background (Neutral / Monochromatic, No Pink) -->
+    <div class="faq-bg-grid" aria-hidden="true"></div>
+
+    <div class="faq-container">
+      
+      <!-- Top Header -->
+      <div class="faq-header sr">
+        <span class="faq-pill">FAQ</span>
+        <h1 class="faq-title">
+          Frequently Asked<br/>
+          <em>Questions</em>
+        </h1>
+        <p class="faq-subtitle">
+          Curious about Lupyd? Here's everything you need to know.
+        </p>
+
+        <!-- Floating 3D decorative clay element -->
+        <div class="faq-hero-float-badge" aria-hidden="true">
+          <div class="clay-badge-dots">
+            <span class="clay-dot"></span>
+            <span class="clay-dot"></span>
+            <span class="clay-dot"></span>
+          </div>
+          <div class="clay-badge-shield">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Watermark brand text like the reference design -->
+      <div class="faq-watermark" aria-hidden="true">@LUPYD.COM</div>
+
+      <!-- FAQ Chat Bubbles Grid -->
+      <div class="faq-bubbles-grid">
+        {faqs.map((faq, index) => {
+          // Alternate themes: Dark / Light pattern like the reference image
+          const isDark = (Math.floor(index / 2) + (index % 2)) % 2 === 0;
+          const bubbleTheme = isDark ? "dark" : "light";
+          
+          return (
+            <div class={`faq-bubble-card sr faq-bubble-${bubbleTheme}`} style={`animation-delay:${0.04 * index}s`}>
+              <div class="faq-bubble-inner">
+                <!-- Question Row -->
+                <div class="faq-bubble-row faq-row-question">
+                  <span class="faq-bubble-badge">Q</span>
+                  <div class="faq-bubble-text-wrap">
+                    <p class="faq-bubble-question">{faq.question}</p>
+                  </div>
+                </div>
+
+                <!-- Answer Row -->
+                <div class="faq-bubble-row faq-row-answer">
+                  <span class="faq-bubble-badge">A</span>
+                  <div class="faq-bubble-text-wrap">
+                    <p class="faq-bubble-answer">{faq.answer}</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Speech Bubble Tail -->
+              <svg class="faq-bubble-tail" viewBox="0 0 32 20" aria-hidden="true">
+                <path d="M0 0 C6 0 14 12 18 20 C18 10 16 0 32 0 Z" />
+              </svg>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Bottom Floating 3D Accent & CTA -->
+      <div class="faq-bottom-section sr">
+        <div class="faq-bottom-bubble" aria-hidden="true">
+          <div class="clay-badge-dots-bottom">
+            <span class="clay-dot"></span>
+            <span class="clay-dot"></span>
+            <span class="clay-dot"></span>
+          </div>
+        </div>
+        <a href="/" class="faq-back-btn">
+          &larr; Back to Home
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+/* ─── PAGE WRAPPER & GRID BACKGROUND ─────────────────────────── */
+.faq-page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding: 4.5rem 0 6rem;
+  overflow: hidden;
+  background-color: hsl(var(--background));
+}
+
+/* Neutral Grid Background (No Pink) */
+.faq-bg-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.6) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, hsl(var(--border) / 0.6) 1.5px, transparent 1.5px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse 95% 85% at 50% 10%, black 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 10%, black 50%, transparent 100%);
+}
+
+.faq-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Vertical watermark along grid line, matching reference image */
+.faq-watermark {
+  position: absolute;
+  top: 180px;
+  left: -20px;
+  transform: rotate(-90deg);
+  transform-origin: top left;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: hsl(var(--muted-foreground) / 0.4);
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 1200px) {
+  .faq-watermark {
+    display: none;
+  }
+}
+
+/* ─── HERO HEADER ────────────────────────────────────────────── */
+.faq-header {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto 3.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faq-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card) / 0.8);
+  border-radius: 999px;
+  padding: 3px 14px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.faq-title {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  color: hsl(var(--foreground));
+  margin: 0 0 1.25rem;
+}
+
+.faq-title em {
+  font-style: italic;
+  font-family: serif;
+  font-weight: 400;
+  color: hsl(var(--muted-foreground));
+}
+
+.faq-subtitle {
+  font-size: clamp(0.88rem, 1.6vw, 1.05rem);
+  color: hsl(var(--muted-foreground));
+  line-height: 1.65;
+  margin: 0;
+  max-width: 520px;
+}
+
+/* ─── 3D CLAY FLOATING BADGES ────────────────────────────────── */
+.faq-hero-float-badge {
+  position: absolute;
+  top: 10px;
+  right: -50px;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+@media (max-width: 860px) {
+  .faq-hero-float-badge {
+    display: none;
+  }
+}
+
+.clay-badge-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 58px;
+  height: 44px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #dedcd4, #cac6bc);
+  box-shadow:
+    0 10px 20px -4px rgba(0, 0, 0, 0.18),
+    inset 0 2px 3px rgba(255, 255, 255, 0.7),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.15);
+}
+
+.dark .clay-badge-dots {
+  background: linear-gradient(145deg, #383535, #262424);
+  box-shadow:
+    0 10px 20px -4px rgba(0, 0, 0, 0.5),
+    inset 0 2px 3px rgba(255, 255, 255, 0.18),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.35);
+}
+
+.clay-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .clay-dot {
+  background: #888888;
+}
+
+.clay-badge-shield {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #2b2828, #181717);
+  color: #ffffff;
+  box-shadow:
+    0 8px 18px -3px rgba(0, 0, 0, 0.35),
+    inset 0 2px 3px rgba(255, 255, 255, 0.25),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── 3D CLAY CHAT BUBBLES GRID ──────────────────────────────── */
+.faq-bubbles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 2rem;
+  align-items: start;
+}
+
+@media (max-width: 780px) {
+  .faq-bubbles-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}
+
+/* Base Bubble Style */
+.faq-bubble-card {
+  position: relative;
+  border-radius: 30px;
+  padding: 2.2rem 2.2rem 2.4rem;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
+  user-select: text;
+}
+
+.faq-bubble-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Bubble Tail */
+.faq-bubble-tail {
+  position: absolute;
+  bottom: -15px;
+  left: 48px;
+  width: 28px;
+  height: 18px;
+  pointer-events: none;
+}
+
+/* ── DARK CLAY BUBBLE (Matches reference top bubble) ── */
+.faq-bubble-dark {
+  background: linear-gradient(145deg, #322f2f, #232121);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 22px 42px -10px rgba(0, 0, 0, 0.4),
+    0 8px 18px -4px rgba(0, 0, 0, 0.25),
+    inset 0 2px 3px rgba(255, 255, 255, 0.16),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.35);
+}
+
+.faq-bubble-dark:hover {
+  box-shadow:
+    0 28px 52px -10px rgba(0, 0, 0, 0.5),
+    0 12px 24px -4px rgba(0, 0, 0, 0.3),
+    inset 0 2px 3px rgba(255, 255, 255, 0.2),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.faq-bubble-dark .faq-bubble-tail path {
+  fill: #242222;
+}
+
+.faq-bubble-dark .faq-bubble-badge {
+  color: #ffffff;
+}
+
+.faq-bubble-dark .faq-bubble-question {
+  color: #ffffff;
+}
+
+.faq-bubble-dark .faq-bubble-answer {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ── LIGHT CLAY BUBBLE (Matches reference bottom bubble) ── */
+.faq-bubble-light {
+  background: linear-gradient(145deg, #f7f5ed, #e6e3d7);
+  color: #1e1d1d;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 20px 40px -10px rgba(0, 0, 0, 0.12),
+    0 8px 18px -4px rgba(0, 0, 0, 0.06),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.08);
+}
+
+.dark .faq-bubble-light {
+  /* In dark mode: sophisticated warm silver/ceramic clay */
+  background: linear-gradient(145deg, #e4e1d7, #cfcbc0);
+  box-shadow:
+    0 20px 42px -10px rgba(0, 0, 0, 0.4),
+    0 8px 18px -4px rgba(0, 0, 0, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.85),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.12);
+}
+
+.faq-bubble-light:hover {
+  box-shadow:
+    0 26px 48px -10px rgba(0, 0, 0, 0.16),
+    0 12px 24px -4px rgba(0, 0, 0, 0.08),
+    inset 0 2px 4px rgba(255, 255, 255, 0.95),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faq-bubble-light .faq-bubble-tail path {
+  fill: #e6e3d7;
+}
+
+.dark .faq-bubble-light .faq-bubble-tail path {
+  fill: #cfcbc0;
+}
+
+.faq-bubble-light .faq-bubble-badge {
+  color: #1a1a1c;
+}
+
+.faq-bubble-light .faq-bubble-question {
+  color: #161618;
+}
+
+.faq-bubble-light .faq-bubble-answer {
+  color: rgba(28, 28, 30, 0.86);
+}
+
+/* ── INNER BUBBLE ROWS (Q & A matching reference typography) ── */
+.faq-bubble-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.faq-bubble-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+}
+
+.faq-bubble-badge {
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  width: 22px;
+  text-align: center;
+}
+
+.faq-bubble-text-wrap {
+  flex: 1;
+}
+
+.faq-bubble-question {
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.faq-bubble-answer {
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── BOTTOM CTA & ACCENTS ────────────────────────────────────── */
+.faq-bottom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 4.5rem;
+  text-align: center;
+}
+
+.faq-bottom-bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clay-badge-dots-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 64px;
+  height: 48px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #dedcd4, #cac6bc);
+  box-shadow:
+    0 12px 24px -4px rgba(0, 0, 0, 0.16),
+    inset 0 2px 3px rgba(255, 255, 255, 0.7),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.15);
+}
+
+.dark .clay-badge-dots-bottom {
+  background: linear-gradient(145deg, #343131, #222020);
+  box-shadow:
+    0 12px 24px -4px rgba(0, 0, 0, 0.45),
+    inset 0 2px 3px rgba(255, 255, 255, 0.18),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.35);
+}
+
+.faq-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.faq-back-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* ── RESPONSIVE TWEAKS ───────────────────────────────────────── */
+@media (max-width: 600px) {
+  .faq-page-wrapper {
+    padding: 3rem 0 4.5rem;
+  }
+  .faq-bubble-card {
+    padding: 1.6rem 1.5rem 1.8rem;
+    border-radius: 24px;
+  }
+  .faq-bubble-question {
+    font-size: 0.95rem;
+  }
+  .faq-bubble-answer {
+    font-size: 0.86rem;
+  }
+  .faq-bubble-badge {
+    font-size: 1.1rem;
+    width: 18px;
+  }
+  .faq-bubble-row {
+    gap: 0.85rem;
+  }
+}
+</style>
+
+<script>
+  function initSR() {
+    const els = document.querySelectorAll('.sr');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+    els.forEach(el => io.observe(el));
+  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', initSR)
+    : initSR();
+  document.addEventListener('astro:page-load', initSR);
+</script>
