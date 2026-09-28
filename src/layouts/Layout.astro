@@ -46,6 +46,7 @@ const ogImageURL = image.startsWith("http") ? image : new URL(image, siteUrl).hr
 
 // ── COMPANY / REGION DATA ────────────────────────────────────
 const legalName = "Lupyd Media Private Limited";
+const contactEmail = "contact@lupyd.com";
 const address = {
   "@type": "PostalAddress",
   "streetAddress": "15-18-276/5/A/1, Prashanti Nagar 2",
@@ -80,13 +81,28 @@ const organizationSchema = {
     "name": "Khammam, Telangana, India",
     "address": address
   },
+  "email": contactEmail,
   "contactPoint": [
     {
       "@type": "ContactPoint",
       "contactType": "customer support",
+      "email": contactEmail,
       "areaServed": ["IN", "Worldwide"],
       "availableLanguage": ["English", "Telugu"],
-      "url": `${siteUrl}/support`
+      "url": `${siteUrl}/support`,
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceType": "Email support",
+        "serviceUrl": `mailto:${contactEmail}`,
+        "availableLanguage": ["English", "Telugu"]
+      }
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": contactEmail,
+      "areaServed": ["IN", "Worldwide"],
+      "availableLanguage": ["English", "Telugu"]
     }
   ],
   "sameAs": [
@@ -202,6 +218,8 @@ const navLinks = [
     <meta name="ICBM" content="17.2473, 80.1514" />
     <meta name="author" content={legalName} />
     <meta name="publisher" content={legalName} />
+    <meta name="contact" content={contactEmail} />
+    <meta name="email" content={contactEmail} />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />
@@ -221,6 +239,7 @@ const navLinks = [
     <meta property="business:contact_data:region" content="Telangana" />
     <meta property="business:contact_data:postal_code" content="507002" />
     <meta property="business:contact_data:country_name" content="India" />
+    <meta property="business:contact_data:email" content={contactEmail} />
     {publishedTime && <meta property="article:published_time" content={publishedTime} />}
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
     
@@ -432,6 +451,7 @@ const navLinks = [
                 <li><a href="https://www.linkedin.com/company/lupyd" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">LinkedIn</a></li>
                 <li><a href="https://x.com/TheLupyd" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">Twitter / X</a></li>
                 <li><a href="https://www.instagram.com/lupyd.official" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">Instagram</a></li>
+                <li><a href="mailto:contact@lupyd.com" class="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">contact@lupyd.com</a></li>
               </ul>
               <p class="mt-4 text-xs text-muted-foreground leading-relaxed">
                 Lupyd Media Private Limited<br />
@@ -446,6 +466,7 @@ const navLinks = [
           <p class="text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} Lupyd. Developed with focus on security.
           </p>
+          <div class="flex flex-col sm:items-end gap-3">
           <div class="flex items-center gap-2 text-muted-foreground">
             <!-- YouTube -->
             <a
@@ -503,6 +524,17 @@ const navLinks = [
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
+            </a>
+          </div>
+            <a
+              href="mailto:contact@lupyd.com"
+              class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <span>contact@lupyd.com</span>
             </a>
           </div>
         </div>
