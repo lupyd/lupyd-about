@@ -11,6 +11,20 @@ const softwareSchema = {
   "description": "The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption.",
   "url": "https://www.lupyd.com",
   "downloadUrl": "https://download.lupyd.com",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Lupyd Media Private Limited",
+    "url": "https://www.lupyd.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "15-18-276/5/A/1, Prashanti Nagar 2",
+      "addressLocality": "Khammam",
+      "addressRegion": "Telangana",
+      "postalCode": "507002",
+      "addressCountry": "IN"
+    }
+  },
+  "areaServed": ["IN", "Worldwide"],
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -83,8 +97,53 @@ const softwareSchema = {
       </div>
 
       <!-- Right: Procedural Skewed 3D Laptop Mockup -->
-      <div class="lg:col-span-6 xl:col-span-6 anim-hero hero-laptop-perspective" style="animation-delay:0.18s">
-        <div class="laptop-assembly">
+      <div class="lg:col-span-6 xl:col-span-6 anim-hero" style="animation-delay:0.18s">
+        <div class="hero-stage flex flex-col items-center gap-4">
+
+          <!-- PAUSED EXPERIMENT — live phone demo (iframe of demo.lupyd.com/demo).
+               Kept here for later; re-enable by 1) uncommenting this block,
+               2) re-adding the .hero-switch above it, and 3) dropping the
+               `hidden` + `aria-hidden` on the laptop panel below. The
+               .phone-* styles in the <style> block below are still intact. 
+          <div class="hero-view hero-view--phone" data-hero-panel="phone">
+            <div class="phone-frame">
+              <div class="phone-camera-dot" aria-hidden="true"></div>
+              <div class="phone-screen">
+                <div class="phone-statusbar" aria-hidden="true">
+                  <span class="phone-statusbar-time">9:41</span>
+                  <span class="phone-statusbar-icons">
+                    <svg width="13" height="10" viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="5.5" width="3" height="6.5" rx="1"/><rect x="9" y="3" width="3" height="9" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".35"/></svg>
+                    <svg width="12" height="10" viewBox="0 0 24 18" fill="currentColor"><path d="M12 17.5l3.5-4.1a5.6 5.6 0 0 0-7 0L12 17.5zM12 12.4l2.3-2.7a9 9 0 0 0-4.6 0L12 12.4zM12 8.1l1-1.2a13 13 0 0 0-2 0l1 1.2zM12 2.9C8 2.9 4.3 4.7 1.6 7.6L0 6a15.4 15.4 0 0 1 24 0l-1.6 1.6A13.4 13.4 0 0 0 12 2.9z"/></svg>
+                    <svg width="20" height="10" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="1.6" fill="currentColor"/><path d="M23 4.2v3.6c1-.4 1.5-1 1.5-1.8s-.5-1.4-1.5-1.8z" fill="currentColor" opacity=".4"/></svg>
+                  </span>
+                </div>
+                <iframe
+                  id="hero-demo-frame"
+                  src="https://demo.lupyd.com/demo"
+                  title="Lupyd mobile app — live interactive demo"
+                  loading="eager"
+                  allow="clipboard-write; fullscreen"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+                <div class="phone-fallback" id="phone-fallback" hidden>
+                  <div class="phone-fallback-inner">
+                    <p class="phone-fallback-title">Live demo unavailable</p>
+                    <p class="phone-fallback-text">
+                      Open it directly on
+                      <a href="https://demo.lupyd.com/demo" target="_blank" rel="noopener noreferrer">demo.lupyd.com/demo</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="hero-hint">Live interactive demo &mdash; tap around inside the phone.</p>
+          </div>
+          </div>
+          -->
+
+          <div class="hero-view hero-view--laptop" data-hero-panel="laptop">
+            <div class="hero-laptop-perspective">
+            <div class="laptop-assembly">
           <!-- Laptop Screen Lid -->
           <div class="laptop-lid">
             <!-- Camera Bezel -->
@@ -155,6 +214,10 @@ const softwareSchema = {
 
           <!-- Ambient Desk Shadow -->
           <div class="laptop-ambient-shadow" aria-hidden="true"></div>
+            </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -267,30 +330,283 @@ const softwareSchema = {
     ? document.addEventListener('DOMContentLoaded', initSR)
     : initSR();
   document.addEventListener('astro:page-load', initSR);
+
+  // Hero preview switcher: live phone demo ⇄ laptop backup
+  function initHeroSwitch() {
+    const buttons = document.querySelectorAll('[data-hero-view]');
+    const panels = document.querySelectorAll('[data-hero-panel]');
+    if (!buttons.length) return;
+
+    buttons.forEach((btn) => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', () => {
+        const view = btn.dataset.heroView;
+        buttons.forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', String(on));
+        });
+        panels.forEach((p) => {
+          const on = p.dataset.heroPanel === view;
+          p.classList.toggle('hidden', !on);
+          p.setAttribute('aria-hidden', String(!on));
+        });
+      });
+    });
+  }
+
+  // If the cross-origin iframe never paints, surface the fallback link
+  function initDemoWatchdog() {
+    const frame = document.getElementById('hero-demo-frame');
+    const fallback = document.getElementById('phone-fallback');
+    if (!frame || !fallback) return;
+
+    let painted = false;
+    const markPainted = () => { painted = true; fallback.hidden = true; };
+    frame.addEventListener('load', markPainted);
+
+    setTimeout(() => {
+      if (!painted) fallback.hidden = false;
+    }, 6000);
+  }
+
+  [initHeroSwitch, initDemoWatchdog].forEach((fn) => {
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', fn)
+      : fn();
+    document.addEventListener('astro:page-load', fn);
+  });
 </script>
 
 <style>
+  /* ─── HERO STAGE: phone demo ⇄ laptop backup ──────────────── */
+  .hero-switch {
+    display: inline-flex;
+    padding: 3px;
+    gap: 2px;
+    border-radius: 999px;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--muted) / 0.7);
+  }
+
+  .hero-switch-btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: hsl(var(--muted-foreground));
+    padding: 5px 14px;
+    border-radius: 999px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .hero-switch-btn:hover { color: hsl(var(--foreground)); }
+
+  .hero-switch-btn.is-active {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+
+  .hero-view { width: 100%; display: flex; justify-content: center; }
+  .hero-view--phone { flex-direction: column; align-items: center; }
+  .hero-view.hidden { display: none; }
+
+  .hero-hint {
+    margin: 14px 0 0;
+    font-size: 0.7rem;
+    color: hsl(var(--muted-foreground));
+    text-align: center;
+  }
+
+  /* Phone hardware
+     Built at a natural 470px width (bezel, screen, status bar, iframe all in
+     the same coordinate space) and then scaled down as one unit with `zoom`
+     on the frame. Scaling the frame instead of the iframe keeps the bezel,
+     the display and the demo content perfectly aligned at any size. */
+  .phone-frame {
+    --bezel: 20px;
+    --screen-radius: 48px;
+    position: relative;
+    width: 470px;
+    aspect-ratio: 9 / 19.5;
+    border-radius: 68px;
+    padding: var(--bezel);
+    zoom: 0.52;
+    background: linear-gradient(155deg, #3a3d47 0%, #1b1d23 45%, #0d0e11 100%);
+    border: 1px solid #4a4e5a;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 26px 60px -18px rgba(0, 0, 0, 0.5),
+      0 50px 100px -30px rgba(0, 0, 0, 0.45);
+  }
+
+  :global(.dark) .phone-frame {
+    background: linear-gradient(155deg, #2b2e37 0%, #131419 50%, #08090c 100%);
+    border-color: #31353f;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 30px 70px -20px rgba(0, 0, 0, 0.85),
+      0 60px 120px -30px rgba(0, 0, 0, 0.95);
+  }
+
+  @media (max-width: 440px) { .phone-frame { zoom: 0.46; } }
+  @media (max-width: 360px) { .phone-frame { zoom: 0.4; } }
+  @media (max-width: 300px) { .phone-frame { zoom: 0.34; } }
+
+  .phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--screen-radius);
+    overflow: hidden;
+    background: hsl(var(--card));
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  /* Fake status bar — same corner radius as the display, so the top and
+     bottom edges of the internal screen match exactly. */
+  .phone-statusbar {
+    flex: 0 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    background: hsl(var(--card));
+    color: hsl(var(--foreground));
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    border-radius: var(--screen-radius) var(--screen-radius) 0 0;
+  }
+
+  .phone-statusbar-icons {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* The demo paints an opaque full-bleed background, so the content box needs
+     the same bottom radius as the display or it reads as a flat square edge. */
+  .phone-screen iframe {
+    display: block;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    border: 0;
+    background: hsl(var(--card));
+    border-radius: 0 0 var(--screen-radius) var(--screen-radius);
+  }
+
+  /* Notch / punch-hole camera — centred in the status bar row */
+  .phone-camera-dot {
+    position: absolute;
+    top: 31px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #06070a;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14), inset 0 1px 2px rgba(0, 0, 0, 0.9);
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .phone-camera-dot::after {
+    content: "";
+    position: absolute;
+    top: 1.5px;
+    left: 1.5px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(130, 175, 255, 0.65);
+  }
+
+  /* Shown when the iframe cannot load */
+  .phone-fallback {
+    position: absolute;
+    inset: 32px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+    background: hsl(var(--card));
+    border-radius: 0 0 var(--screen-radius) var(--screen-radius);
+  }
+  .phone-fallback[hidden] { display: none; }
+  .phone-fallback-title { font-size: 0.8rem; font-weight: 700; margin: 0 0 6px; }
+  .phone-fallback-text { font-size: 0.7rem; color: hsl(var(--muted-foreground)); margin: 0; line-height: 1.6; }
+  .phone-fallback-text a { text-decoration: underline; text-underline-offset: 2px; }
+
   .hero-laptop-perspective {
-    perspective: 1400px;
-    perspective-origin: 30% 45%;
+    perspective: 1600px;
+    perspective-origin: 18% 40%;
+    padding-bottom: 8%;
   }
 
   .laptop-assembly {
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* 3D Skew & Angle towards the viewer */
+  /* Static 3D angle — no hover motion */
   @media (min-width: 1024px) {
     .laptop-assembly {
-      transform: rotateY(-13deg) rotateX(7deg) rotateZ(-1.2deg) scale(0.96);
+      transform: rotateY(-15deg) rotateX(9deg) rotateZ(-1.4deg) scale(0.94);
       transform-origin: center right;
     }
+  }
 
-    .laptop-assembly:hover {
-      transform: rotateY(-6deg) rotateX(3deg) rotateZ(0deg) scale(0.99) translateY(-4px);
-    }
+  /* Screen glass: fixed specular sheen so the panel reads as a physical surface */
+  .laptop-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    pointer-events: none;
+    background: linear-gradient(
+      112deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.05) 26%,
+      rgba(255, 255, 255, 0) 48%,
+      rgba(255, 255, 255, 0.04) 76%,
+      rgba(255, 255, 255, 0.11) 100%
+    );
+  }
+
+  :global(.dark) .laptop-screen::after {
+    background: linear-gradient(
+      112deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.03) 28%,
+      rgba(255, 255, 255, 0) 52%,
+      rgba(255, 255, 255, 0.03) 78%,
+      rgba(255, 255, 255, 0.07) 100%
+    );
+  }
+
+  /* Edge highlight along the lid's lit side */
+  .laptop-lid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px 14px 2px 2px;
+    pointer-events: none;
+    background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0) 18%
+    );
   }
 
   /* ─── Laptop Screen Lid ─────────────────────────────────── */
@@ -343,6 +659,7 @@ const softwareSchema = {
   }
 
   .laptop-screen {
+    position: relative;
     border-radius: 8px;
     overflow: hidden;
     background: hsl(var(--card));
@@ -463,11 +780,13 @@ const softwareSchema = {
 
   /* Desk Shadow */
   .laptop-ambient-shadow {
-    width: 90%;
-    height: 22px;
-    margin: -6px auto 0;
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
-    filter: blur(7px);
+    width: 92%;
+    height: 46px;
+    margin: -10px auto 0;
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 62%),
+      radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 72%);
+    filter: blur(9px);
   }
 </style>
 
