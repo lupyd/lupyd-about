@@ -128,6 +128,12 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
               </a>
             </div>
 
+            <!-- Bottom Notice: New updates will come soon -->
+            <div class="sp-bottom-updates">
+              <span class="sp-pulse-dot" aria-hidden="true"></span>
+              <span>New updates will come soon</span>
+            </div>
+
           </div>
         </div>
 
@@ -576,6 +582,44 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
   
   .sp-contact-btn {
     width: 100%;
+  }
+}
+
+/* 5. Bottom Notice (New updates will come soon) */
+.sp-bottom-updates {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #78736d;
+  text-align: center;
+}
+
+:global(.dark) .sp-bottom-updates {
+  color: #7e8796;
+}
+
+.sp-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #dda74f;
+  box-shadow: 0 0 8px rgba(221, 167, 79, 0.6);
+  animation: spPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes spPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
   }
 }
 
