@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+---
+
+<Layout
+  title="Roadmap - Lupyd"
+  description="Lupyd Roadmap"
+  breadcrumbs={[{ name: "Roadmap", href: "/roadmap" }]}
+>
+  <div class="roadmap-page relative w-full flex-1 min-h-[calc(100vh-4rem-15rem)]">
+    <!-- Semi-transparent Road Theme Background Layer -->
+    <div
+      class="roadmap-bg-layer fixed inset-0 pointer-events-none"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Content Container -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 w-full">
+      <div class="pb-6">
+        <Breadcrumbs items={[{ name: "Roadmap" }]} />
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
+        Roadmap
+      </h1>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .roadmap-bg-layer {
+    background-image: url('/roadmap-bg.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    z-index: 0;
+    opacity: 0.28;
+    transition: opacity 0.3s ease;
+  }
+
+  :global(.dark) .roadmap-bg-layer {
+    opacity: 0.35;
+  }
+</style>
