@@ -1,8 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 ---
 
-<Layout title="Community & Connections - Lupyd" description="Build meaningful relationships and connect with like-minded individuals on Lupyd's community-focused platform.">
+<Layout
+  title="Community & Connections - Lupyd"
+  description="Build meaningful relationships and connect with like-minded individuals on Lupyd's privacy-focused community platform."
+  pageType="AboutPage"
+  breadcrumbs={[{ name: "Community", href: "/community" }]}
+>
 
   <!-- ═══════════════════════════════════════════════════════════
        HERO
@@ -11,6 +17,9 @@ import Layout from "../layouts/Layout.astro";
     <div class="cm-hero-bg" aria-hidden="true"><div class="cm-hero-grid"></div></div>
 
     <div class="cm-container">
+      <div class="pt-2 pb-4">
+        <Breadcrumbs items={[{ name: "Community" }]} />
+      </div>
 
       <div class="cm-hero-inner">
         <!-- Left: headline block -->

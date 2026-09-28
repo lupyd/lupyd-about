@@ -1,11 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ScreenshotCarousel from "../components/ScreenshotCarousel.astro";
+
+const softwareSchema = {
+  "@type": "SoftwareApplication",
+  "@id": "https://www.lupyd.com/#software",
+  "name": "Lupyd",
+  "operatingSystem": "Web, macOS, Windows, Linux, iOS, Android",
+  "applicationCategory": "CommunicationApplication, SecurityApplication",
+  "description": "The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption.",
+  "url": "https://www.lupyd.com",
+  "downloadUrl": "https://download.lupyd.com",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "End-to-End Encryption",
+    "Zero-Knowledge Architecture",
+    "Team Channels & Messaging",
+    "Secure File Sharing",
+    "Cross-Platform Sync"
+  ]
+};
 ---
 
 <Layout
   title="Lupyd : Private by design. Connected by default. Collaborative Platform"
   description="The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption, not bolted on as an afterthought."
+  pageType="AboutPage"
+  schema={softwareSchema}
 >
 
 <!-- ════════════════════════════════════════════════════════════
@@ -81,6 +106,59 @@ import ScreenshotCarousel from "../components/ScreenshotCarousel.astro";
          class="inline-flex items-center justify-center rounded-md text-sm font-semibold
                 border border-border bg-background hover:bg-muted transition-colors h-11 px-8">
         Download Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     FEATURED ON (Badges)
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-12 md:py-16 border-t border-border/30 bg-muted/10">
+  <div class="mx-auto px-6 max-w-5xl text-center sr">
+    <p class="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-6">
+      Featured on
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
+      <a
+        href="https://kickproduct.com/products/6aba04f7992d87eba5b6a8f5"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center transition-all duration-200 hover:opacity-85 hover:scale-105 active:scale-95"
+      >
+        <img
+          src="https://www.kickproduct.com/listedbadge.png"
+          alt="Listed on Kick Product"
+          width="250"
+          class="h-11 sm:h-12 w-auto object-contain rounded-md"
+        />
+      </a>
+      <a
+        href="https://fazier.com/launches/www.lupyd.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center transition-all duration-200 hover:opacity-85 hover:scale-105 active:scale-95"
+      >
+        <img
+          src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=neutral"
+          width="120"
+          alt="Fazier badge"
+          class="h-10 sm:h-11 w-auto object-contain rounded-md"
+        />
+      </a>
+      <a
+        href="https://www.producthunt.com/products/lupyd?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-lupyd"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center transition-all duration-200 hover:opacity-85 hover:scale-105 active:scale-95"
+      >
+        <img
+          alt="Lupyd - Collaborative work needs to be secure? look no futher | Product Hunt"
+          width="250"
+          height="54"
+          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1073847&amp;theme=light&amp;t=1790579008506"
+          class="h-11 sm:h-12 w-auto object-contain rounded-md"
+        />
       </a>
     </div>
   </div>
