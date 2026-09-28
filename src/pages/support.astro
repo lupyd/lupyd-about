@@ -1,14 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 ---
 
 <Layout
   title="Support - Lupyd"
-  description="Support - Lupyd"
+  description="Lupyd Support - Get help with login issues, failed payment resolution, premium plans, and security assistance."
+  pageType="ContactPage"
+  breadcrumbs={[{ name: "Support", href: "/support" }]}
 >
 
   <section class="sp-page-wrapper">
     <div class="sp-container">
+      
+      <div class="pt-2 pb-5">
+        <Breadcrumbs items={[{ name: "Support" }]} />
+      </div>
 
       <!-- Scrapbook Collage Theme Frame (Matching Reference Image) -->
       <div class="sp-scrapbook-frame sr">
@@ -18,10 +25,109 @@ import Layout from "../layouts/Layout.astro";
 
 
 
-        <!-- Central Torn Paper Sheet (Blank Canvas) -->
+        <!-- Central Torn Paper Sheet -->
         <div class="sp-torn-paper">
           <div class="sp-torn-paper-inner">
-            <!-- Blank: Content to be added via prompt -->
+            
+            <!-- Lupyd Support Main Heading (Matching screenshot) -->
+            <div class="sp-header-block">
+              <h1 class="sp-main-title">
+                <span>Lupyd</span>
+                <span>Support</span>
+              </h1>
+            </div>
+
+            <!-- Divider Line below header -->
+            <div class="sp-divider"></div>
+
+            <!-- Quick Help Section -->
+            <div class="sp-quick-help-section">
+              <h2 class="sp-section-title">Quick help</h2>
+
+              <div class="sp-divider"></div>
+
+              <!-- List of Quick Help Items -->
+              <div class="sp-help-list">
+                <!-- Item 1: Can't log in to Lupyd -->
+                <details class="sp-help-accordion" id="help-login">
+                  <summary class="sp-help-summary">
+                    <span class="sp-help-label">Can't log in to Lupyd</span>
+                    <span class="sp-help-arrow" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="sp-help-body">
+                    <p>Having trouble signing in to your account? Here are the quickest ways to resolve it:</p>
+                    <ul>
+                      <li><strong>Reset Password:</strong> Use the recovery link on the sign-in page to reset your password via your registered email.</li>
+                      <li><strong>Two-Factor Authentication:</strong> Ensure your authenticator app's clock is synced, or use your emergency backup recovery codes.</li>
+                      <li><strong>Locked Out?</strong> If you can't access your email or 2FA device, reach out to our security team at <a href="mailto:contact@lupyd.com?subject=Account%20Access%20Help">contact@lupyd.com</a>.</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <div class="sp-divider"></div>
+
+                <!-- Item 2: Failed payment help -->
+                <details class="sp-help-accordion" id="help-payment">
+                  <summary class="sp-help-summary">
+                    <span class="sp-help-label">Failed payment help</span>
+                    <span class="sp-help-arrow" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="sp-help-body">
+                    <p>If your subscription payment did not go through:</p>
+                    <ul>
+                      <li><strong>Review Card Details:</strong> Double-check card number, expiration date, and billing address in <a href="https://billing.lupyd.com" target="_blank" rel="noopener noreferrer">Billing & Subscriptions</a>.</li>
+                      <li><strong>Bank Approval:</strong> Ensure international transactions and online recurring payments are permitted by your issuing bank.</li>
+                      <li><strong>Payment Inquiries:</strong> If money was deducted without plan activation, contact <a href="mailto:contact@lupyd.com?subject=Payment%20Issue%20Resolution">contact@lupyd.com</a> with your transaction reference.</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <div class="sp-divider"></div>
+
+                <!-- Item 3: Premium plans -->
+                <details class="sp-help-accordion" id="help-plans">
+                  <summary class="sp-help-summary">
+                    <span class="sp-help-label">Premium plans</span>
+                    <span class="sp-help-arrow" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="sp-help-body">
+                    <p>Upgrade to Lupyd Premium for enhanced privacy, encrypted storage, and team features:</p>
+                    <ul>
+                      <li><strong>Encrypted Vaults:</strong> Expanded cloud storage with zero-knowledge end-to-end encryption.</li>
+                      <li><strong>Dedicated Channels:</strong> Create unrestricted private channels and collaborate with larger team groups.</li>
+                      <li><strong>Priority Support:</strong> Access dedicated support engineers with expedited response times.</li>
+                      <li><strong>Pricing & Tiers:</strong> View full comparison and pricing details at <a href="https://billing.lupyd.com" target="_blank" rel="noopener noreferrer">billing.lupyd.com &rarr;</a></li>
+                    </ul>
+                  </div>
+                </details>
+
+                <div class="sp-divider"></div>
+              </div>
+            </div>
+
+            <!-- Still need help? Callout Card (Matching screenshot) -->
+            <div class="sp-callout-card">
+              <div class="sp-callout-text">
+                <h3 class="sp-callout-title">Still need help?</h3>
+                <p class="sp-callout-desc">Reach out and our team will get back to you.</p>
+              </div>
+              <a href="mailto:contact@lupyd.com" class="sp-contact-btn">
+                Contact support
+              </a>
+            </div>
+
           </div>
         </div>
 
@@ -129,10 +235,12 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+
 /* ─── PAGE WRAPPER ───────────────────────────────────────────── */
 .sp-page-wrapper {
   position: relative;
-  padding: 4rem 0 6rem;
+  padding: 3rem 0 6rem;
   background-color: hsl(var(--background));
   overflow-x: hidden;
 }
@@ -149,17 +257,17 @@ import Layout from "../layouts/Layout.astro";
   position: relative;
   background: #eae8e1;
   border-radius: 18px;
-  padding: 2.5rem 2.2rem;
+  padding: 2.75rem 2.5rem;
   box-shadow:
     0 25px 60px -15px rgba(0, 0, 0, 0.18),
     0 0 0 1px rgba(0, 0, 0, 0.08);
   overflow: visible;
 }
 
-.dark .sp-scrapbook-frame {
-  background: #1c1b1a;
+:global(.dark) .sp-scrapbook-frame {
+  background: #0d121c;
   box-shadow:
-    0 25px 60px -15px rgba(0, 0, 0, 0.6),
+    0 25px 60px -15px rgba(0, 0, 0, 0.7),
     0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
@@ -176,20 +284,18 @@ import Layout from "../layouts/Layout.astro";
   z-index: 1;
 }
 
-.dark .sp-graph-grid {
+:global(.dark) .sp-graph-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
-
-
-/* ── CENTRAL TORN PAPER SHEET (BLANK CANVAS) ── */
+/* ── CENTRAL TORN PAPER SHEET ── */
 .sp-torn-paper {
   position: relative;
   z-index: 3;
   margin: 0 auto;
-  max-width: 820px;
+  max-width: 780px;
   background: #fbfaf6;
   border-radius: 6px;
   box-shadow:
@@ -204,22 +310,272 @@ import Layout from "../layouts/Layout.astro";
   );
 }
 
-.dark .sp-torn-paper {
-  background: #252422;
+:global(.dark) .sp-torn-paper {
+  background: #111622;
   box-shadow:
-    0 15px 35px -8px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.06);
+    0 18px 45px -10px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.07);
 }
 
 .sp-torn-paper-inner {
-  padding: 3rem 2.5rem;
+  padding: 3.5rem 3.5rem 3.25rem;
   min-height: 520px;
 }
 
 @media (max-width: 640px) {
+  .sp-scrapbook-frame {
+    padding: 1.5rem 1rem;
+    border-radius: 14px;
+  }
   .sp-torn-paper-inner {
-    padding: 2rem 1.5rem;
+    padding: 2.25rem 1.5rem 2rem;
     min-height: 420px;
+  }
+}
+
+/* ─── SCREENSHOT ELEMENTS & TYPOGRAPHY ───────────────────────── */
+
+/* 1. Lupyd Support Header */
+.sp-header-block {
+  margin-bottom: 0.5rem;
+}
+
+.sp-main-title {
+  font-family: 'Newsreader', 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-size: clamp(2.6rem, 5.5vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #1a1918;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+:global(.dark) .sp-main-title {
+  color: #f5f6f8;
+}
+
+/* Divider Lines */
+.sp-divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 1.6rem 0;
+  width: 100%;
+}
+
+:global(.dark) .sp-divider {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* 2. Quick Help Section */
+.sp-quick-help-section {
+  width: 100%;
+}
+
+.sp-section-title {
+  font-family: 'Newsreader', 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #1a1918;
+  margin: 0;
+}
+
+:global(.dark) .sp-section-title {
+  color: #f5f6f8;
+}
+
+/* 3. Help Accordion Items */
+.sp-help-list {
+  width: 100%;
+}
+
+.sp-help-accordion {
+  width: 100%;
+}
+
+.sp-help-summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.85rem 0;
+  user-select: none;
+  transition: color 0.15s ease;
+}
+
+.sp-help-summary::-webkit-details-marker {
+  display: none;
+}
+
+.sp-help-label {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #1a1918;
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
+}
+
+:global(.dark) .sp-help-label {
+  color: #e4e7ec;
+}
+
+.sp-help-summary:hover .sp-help-label {
+  color: #dda74f;
+}
+
+.sp-help-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.45;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease, color 0.15s ease;
+}
+
+:global(.dark) .sp-help-arrow {
+  color: #f5f6f8;
+}
+
+.sp-help-summary:hover .sp-help-arrow {
+  opacity: 1;
+  color: #dda74f;
+}
+
+.sp-help-accordion[open] .sp-help-arrow {
+  transform: rotate(180deg);
+  opacity: 1;
+  color: #dda74f;
+}
+
+.sp-help-body {
+  padding: 0.4rem 0 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #4a4642;
+  animation: spFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:global(.dark) .sp-help-body {
+  color: #a4adba;
+}
+
+.sp-help-body ul {
+  margin: 0.6rem 0 0 1.25rem;
+  list-style-type: disc;
+}
+
+.sp-help-body li {
+  margin-bottom: 0.5rem;
+}
+
+.sp-help-body a {
+  color: #dda74f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: opacity 0.15s;
+}
+
+.sp-help-body a:hover {
+  opacity: 0.85;
+}
+
+@keyframes spFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 4. Bottom Callout Card (Still need help?) */
+.sp-callout-card {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 1.85rem;
+  background: rgba(0, 0, 0, 0.035);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+
+:global(.dark) .sp-callout-card {
+  background: #171d2a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sp-callout-text {
+  flex: 1;
+}
+
+.sp-callout-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1a1918;
+  margin: 0 0 0.3rem;
+}
+
+:global(.dark) .sp-callout-title {
+  color: #ffffff;
+}
+
+.sp-callout-desc {
+  font-size: 0.88rem;
+  color: #66635f;
+  margin: 0;
+  line-height: 1.4;
+}
+
+:global(.dark) .sp-callout-desc {
+  color: #8f98a8;
+}
+
+.sp-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.72rem 1.55rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #dda74f;
+  color: #1a160d;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 8px rgba(221, 167, 79, 0.25);
+}
+
+.sp-contact-btn:hover {
+  background-color: #e5b35c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(221, 167, 79, 0.35);
+}
+
+.sp-contact-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .sp-callout-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.35rem 1.25rem;
+    gap: 1.25rem;
+  }
+  
+  .sp-contact-btn {
+    width: 100%;
   }
 }
 
@@ -231,7 +587,7 @@ import Layout from "../layouts/Layout.astro";
   filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.25));
 }
 
-.dark .sp-daisy {
+:global(.dark) .sp-daisy {
   filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.6));
 }
 
