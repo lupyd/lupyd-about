@@ -115,6 +115,11 @@ const slides: Slide[] = [
     mode: "light"
   }
 ];
+
+const getCarouselSrcset = (src: string) => {
+  const base = src.replace(/\.webp$/, '');
+  return `${base}-480.webp 480w, ${base}-768.webp 768w, ${src} 1350w`;
+};
 ---
 
 <section
@@ -205,6 +210,8 @@ const slides: Slide[] = [
             >
               <img
                 src={slide.src}
+                srcset={getCarouselSrcset(slide.src)}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 85vw, 1024px"
                 alt={slide.alt}
                 class="w-full h-full object-cover object-top select-none"
                 loading={index === 0 ? "eager" : "lazy"}
@@ -398,20 +405,41 @@ const slides: Slide[] = [
       });
     });
 
+    const setModeFilter = (mode: string) => {
+      const btn = filterBtns.find(b => b.dataset.filter === mode);
+      if (!btn) return;
+      filterBtns.forEach(b => {
+        b.classList.remove("active-filter", "border-foreground/20", "bg-foreground/8", "text-foreground");
+        b.classList.add("border-border", "text-muted-foreground");
+      });
+      btn.classList.add("active-filter", "border-foreground/20", "bg-foreground/8", "text-foreground");
+      btn.classList.remove("border-border", "text-muted-foreground");
+
+      visibleIndices = mode === "all"
+        ? allSlides.map((_, i) => i)
+        : allSlides.map((s, i) => s.dataset.mode === mode ? i : -1).filter(i => i !== -1);
+      activePos = 0;
+      updateView();
+      startAutoplay();
+    };
+
+    let manualFilter = false;
     filterBtns.forEach(btn => {
       btn.addEventListener("click", () => {
-        const filter = btn.dataset.filter;
-        filterBtns.forEach(b => b.classList.remove("active-filter"));
-        btn.classList.add("active-filter");
-
-        visibleIndices = filter === "all"
-          ? allSlides.map((_, i) => i)
-          : allSlides.map((s, i) => s.dataset.mode === filter ? i : -1).filter(i => i !== -1);
-        activePos = 0;
-        updateView();
-        startAutoplay();
+        manualFilter = true;
+        setModeFilter(btn.dataset.filter || "all");
       });
     });
+
+    window.addEventListener("theme-change", ((e: CustomEvent) => {
+      if (!manualFilter) {
+        setModeFilter(e.detail.isDark ? "dark" : "light");
+      }
+    }) as EventListener);
+
+    if (!document.documentElement.classList.contains("dark")) {
+      setModeFilter("light");
+    }
 
     autoplayBtn?.addEventListener("click", () => {
       isAutoplay = !isAutoplay;

@@ -24,7 +24,7 @@ export interface Props {
 const { 
   title = "Lupyd : Private by design. Connected by default.", 
   description = "The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption, not bolted on as an afterthought.",
-  image = "/screenshots-bg.webp",
+  image = "/favicon.webp",
   imageAlt = "Lupyd - Private by design. Connected by default.",
   type = "website",
   pageType = "WebPage",
@@ -569,6 +569,7 @@ const navLinks = [
           element.classList.toggle('dark');
           const isDark = element.classList.contains('dark');
           localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          window.dispatchEvent(new CustomEvent('theme-change', { detail: { isDark } }));
         });
       }
 

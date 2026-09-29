@@ -7,43 +7,22 @@ const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.c
 const deleteDocSchema = {
   "@type": "WebPage",
   "@id": `${siteBase}/delete-account#webpage`,
-  "name": "Request Account & Data Deletion - Lupyd",
-  "headline": "Request Account and Data Deletion - Lupyd (Lupyd Media Private Limited)",
-  "description": "Official instructions to request account and personal data deletion for the Lupyd app, developed by Lupyd Media Private Limited, in accordance with Google Play Store policies.",
+  "name": "Delete Account & Data - Lupyd",
+  "headline": "Delete Account & Data - Lupyd",
+  "description": "How to request deletion of your Lupyd account and associated data.",
   "url": `${siteBase}/delete-account`,
-  "dateModified": "2026-09-29",
-  "inLanguage": "en-US",
   "publisher": {
     "@type": "Organization",
     "name": "Lupyd Media Private Limited",
-    "url": siteBase,
-    "email": "contact@lupyd.com"
+    "url": siteBase
   }
 };
-
-const mailtoSubject = encodeURIComponent("Request for Lupyd Account & Data Deletion");
-const mailtoBody = encodeURIComponent(`Hello Lupyd Support Team,
-
-I am writing to formally request the permanent deletion of my Lupyd account and all associated personal data.
-
-Account Information:
-- Registered Email Address: [Enter your email address used to log in to Lupyd]
-- Lupyd Username / Handle: [e.g. @yourusername]
-- Scope of Deletion: [Complete Account & Data Deletion / Specific Data Deletion (please specify)]
-- Reason for Deletion (Optional): [Optional feedback]
-
-I confirm that I am the authorized owner of this account and I understand that this deletion request is permanent and irreversible once completed.
-
-Thank you.`);
-
-const mailtoLink = `mailto:contact@lupyd.com?subject=${mailtoSubject}&body=${mailtoBody}`;
 ---
 
 <Layout
-  title="Request Account & Data Deletion - Lupyd"
-  description="Request account and personal data deletion for Lupyd (developed by Lupyd Media Private Limited). Review steps to delete your data in compliance with Google Play Store Data Safety policies."
+  title="Delete Account & Data - Lupyd"
+  description="Request deletion of your Lupyd account and data. Send a request to contact@lupyd.com from your registered email."
   pageType="WebPage"
-  modifiedTime="2026-09-29"
   breadcrumbs={[
     { name: "Legal", href: "/privacy" },
     { name: "Delete Account", href: "/delete-account" }
@@ -52,7 +31,7 @@ const mailtoLink = `mailto:contact@lupyd.com?subject=${mailtoSubject}&body=${mai
 >
   <!-- Legal Sub-nav Tabs -->
   <section class="border-b border-border/50 bg-background/60 backdrop-blur-md sticky top-16 z-30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2 sm:gap-6 overflow-x-auto no-scrollbar py-1">
         <a
           href="/privacy"
@@ -80,488 +59,82 @@ const mailtoLink = `mailto:contact@lupyd.com?subject=${mailtoSubject}&body=${mai
           Delete Account
         </a>
       </div>
-      <span class="hidden sm:inline-block text-xs text-muted-foreground font-mono">Google Play Compliant</span>
     </div>
   </section>
 
   <!-- Main Container -->
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-    <!-- Breadcrumbs -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
     <div class="mb-6">
       <Breadcrumbs items={[{ name: "Legal", href: "/privacy" }, { name: "Delete Account" }]} />
     </div>
 
-    <!-- Page Header & Google Play Developer Notice -->
-    <header class="mb-10 sm:mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 border border-primary/20 text-primary mb-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        <span>Google Play Store Data Safety &amp; Account Deletion</span>
-      </div>
-      
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mb-4">
-        Request Account &amp; Data Deletion
-      </h1>
-      
-      <p class="text-base sm:text-lg text-muted-foreground max-w-3xl leading-relaxed">
-        This page details the official account and data deletion procedure for the <strong class="text-foreground">Lupyd</strong> application, developed and operated by <strong class="text-foreground">Lupyd Media Private Limited</strong>.
-      </p>
-
-      <!-- App and Developer Reference Card -->
-      <div class="mt-6 p-4 rounded-xl border border-border/60 bg-muted/30 flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center font-black text-primary text-base">
-            L
-          </div>
-          <div>
-            <div class="font-bold text-foreground">App: Lupyd</div>
-            <div class="text-muted-foreground">Developer: Lupyd Media Private Limited</div>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center gap-x-6 gap-y-1 text-xs text-muted-foreground">
-          <span>Package: <code class="font-mono text-foreground font-medium">com.lupyd.client</code></span>
-          <span>Support: <a href="mailto:contact@lupyd.com" class="text-primary hover:underline">contact@lupyd.com</a></span>
-        </div>
-      </div>
-    </header>
-
-    <!-- PROMINENT CALLOUT: Steps to Delete Your Account -->
-    <section aria-labelledby="steps-heading" class="mb-12">
-      <div class="p-6 sm:p-8 rounded-2xl border-2 border-primary/40 bg-gradient-to-b from-primary/5 via-card/50 to-card shadow-lg relative overflow-hidden">
-        <div class="absolute -top-12 -right-12 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
-        
-        <div class="relative z-10">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-border/60">
-            <div>
-              <span class="text-xs font-bold uppercase tracking-wider text-primary">Required Procedure</span>
-              <h2 id="steps-heading" class="text-2xl sm:text-3xl font-extrabold text-foreground mt-1">
-                How to Request Account &amp; Data Deletion
-              </h2>
-            </div>
-            <a
-              href={mailtoLink}
-              class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity shadow-sm shrink-0"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-              </svg>
-              <span>Send Deletion Email</span>
-            </a>
-          </div>
-
-          <p class="mt-4 text-sm sm:text-base text-foreground/90 leading-relaxed">
-            To request the deletion of your Lupyd account and all associated personal data, please follow the steps below. 
-            <strong class="text-foreground">Important:</strong> You must send your request to 
-            <a href="mailto:contact@lupyd.com" class="text-primary font-bold hover:underline">contact@lupyd.com</a> 
-            <em class="underline decoration-primary/50 underline-offset-2">from the specific email address used for logging in to Lupyd</em>.
-          </p>
-
-          <!-- Step-by-Step Instructions -->
-          <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Step 1 -->
-            <div class="p-5 rounded-xl border border-border/60 bg-background/80 space-y-2">
-              <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">1</span>
-                <h3 class="text-base font-bold text-foreground">Open your registered email</h3>
-              </div>
-              <p class="text-xs sm:text-sm text-muted-foreground pl-10">
-                Log into the email inbox associated with the email address you used to register and sign in to Lupyd. Requests submitted from unverified third-party email addresses cannot be processed.
-              </p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="p-5 rounded-xl border border-border/60 bg-background/80 space-y-2">
-              <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">2</span>
-                <h3 class="text-base font-bold text-foreground">Send email to contact@lupyd.com</h3>
-              </div>
-              <p class="text-xs sm:text-sm text-muted-foreground pl-10">
-                Address your email to <strong class="text-foreground">contact@lupyd.com</strong> with the subject line: 
-                <span class="font-mono text-xs text-foreground bg-muted px-1.5 py-0.5 rounded">Request for Lupyd Account &amp; Data Deletion</span>.
-              </p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="p-5 rounded-xl border border-border/60 bg-background/80 space-y-2">
-              <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">3</span>
-                <h3 class="text-base font-bold text-foreground">Specify your account &amp; scope</h3>
-              </div>
-              <p class="text-xs sm:text-sm text-muted-foreground pl-10">
-                Include your <strong class="text-foreground">registered email address</strong>, your <strong class="text-foreground">Lupyd username</strong>, and state whether you want a full account deletion or specific data wiped (e.g. chat history or media).
-              </p>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="p-5 rounded-xl border border-border/60 bg-background/80 space-y-2">
-              <div class="flex items-center gap-3">
-                <span class="w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">4</span>
-                <h3 class="text-base font-bold text-foreground">Verification &amp; Confirmation</h3>
-              </div>
-              <p class="text-xs sm:text-sm text-muted-foreground pl-10">
-                Our security team validates account ownership to prevent malicious unauthorized deletions. Once verified, your account and data will be permanently purged within 30 days, and a confirmation email will be sent.
-              </p>
-            </div>
-          </div>
-
-          <!-- Note on In-App Deletion -->
-          <div class="mt-5 p-4 rounded-xl bg-muted/60 border border-border/50 text-xs sm:text-sm text-muted-foreground flex items-start gap-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-primary mt-0.5" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-            <div>
-              <strong class="text-foreground">In-App Deletion Option:</strong> If you currently have the Lupyd application installed on your Android device or desktop, you can also initiate deletion directly in the app by going to: 
-              <span class="font-semibold text-foreground">Profile &rarr; Settings &rarr; Account &rarr; Delete Account</span>. Both methods permanently delete your account and personal data.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EMAIL TEMPLATE SECTION -->
-    <section aria-labelledby="template-heading" class="mb-12">
-      <div class="p-6 rounded-xl border border-border/50 bg-card/40 space-y-4">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div>
-            <h2 id="template-heading" class="text-xl sm:text-2xl font-bold text-foreground">
-              Ready-to-Use Email Template
-            </h2>
-            <p class="text-xs sm:text-sm text-muted-foreground">
-              Copy and paste this template into your email client from your registered Lupyd login email:
-            </p>
-          </div>
-          <button
-            type="button"
-            id="copy-template-btn"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-muted/80 text-foreground text-xs font-semibold border border-border/80 transition-all shrink-0 cursor-pointer"
-            aria-label="Copy email template to clipboard"
-          >
-            <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
-              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
-            </svg>
-            <span id="copy-text">Copy Template</span>
-          </button>
-        </div>
-
-        <div class="relative">
-          <pre id="email-template-content" class="p-4 sm:p-5 rounded-lg bg-background border border-border/70 text-xs sm:text-sm text-foreground/90 font-mono whitespace-pre-wrap leading-relaxed overflow-x-auto select-all">To: contact@lupyd.com
-Subject: Request for Lupyd Account &amp; Data Deletion
-
-Hello Lupyd Support Team,
-
-I am writing to formally request the permanent deletion of my Lupyd account and all associated personal data.
-
-Account Information:
-- Registered Email Address: [Enter your email used for logging in Lupyd]
-- Lupyd Username / Handle: [e.g. @yourusername]
-- Scope of Deletion: [Complete Account &amp; Data Deletion / Specific Data Deletion (specify below)]
-- Details (if specific): [e.g., delete message history, remove media files]
-- Reason for Deletion (Optional): [Optional feedback]
-
-I confirm that I am the authorized owner of this account and I understand that this deletion request is permanent and irreversible once completed.
-
-Thank you.</pre>
-        </div>
-
-        <div class="flex flex-wrap items-center justify-between gap-3 pt-2 text-xs text-muted-foreground">
-          <span>Recipient email: <strong class="text-foreground font-mono">contact@lupyd.com</strong></span>
-          <a
-            href={mailtoLink}
-            class="text-primary hover:underline font-semibold inline-flex items-center gap-1"
-          >
-            <span>Open in default email app &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- DATA BREAKDOWN: TYPES OF DATA DELETED VS KEPT -->
-    <section aria-labelledby="data-types-heading" class="mb-12 space-y-6">
+    <div class="space-y-8">
+      <!-- Title & Developer Reference -->
       <div>
-        <h2 id="data-types-heading" class="text-2xl sm:text-3xl font-extrabold text-foreground">
-          Data Types: What Is Deleted vs. What Is Retained
-        </h2>
-        <p class="text-sm sm:text-base text-muted-foreground mt-2 leading-relaxed">
-          Google Play Store guidelines require developers to transparently state which types of data are permanently deleted, which data may be retained for legitimate business or legal compliance, and the applicable retention period.
+        <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-foreground">
+          Delete Account &amp; Data
+        </h1>
+        <p class="text-sm text-muted-foreground mt-2">
+          App: <strong>Lupyd</strong> &bull; Developer: <strong>Lupyd Media Private Limited</strong>
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Data Deleted Card -->
-        <div class="p-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-foreground">Data Permanently Deleted</h3>
-              <span class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">Irrevocably erased from primary systems</span>
-            </div>
-          </div>
-
-          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            Upon verification of your deletion request, the following data categories are scheduled for permanent, irreversible erasure:
-          </p>
-
-          <ul class="space-y-3 text-xs sm:text-sm text-foreground/90">
-            <li class="flex items-start gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
-              <div>
-                <strong class="text-foreground">Profile &amp; Account Details:</strong>
-                <span class="text-muted-foreground"> Full name, display name, unique username/handle, registered email, phone number (if linked), avatar/profile pictures, status, and bio.</span>
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
-              <div>
-                <strong class="text-foreground">Messages &amp; Content:</strong>
-                <span class="text-muted-foreground"> Direct messages (DMs), group channel posts, shared messages, text logs, voice messages, and emojis/reactions.</span>
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
-              <div>
-                <strong class="text-foreground">Uploaded Media &amp; Files:</strong>
-                <span class="text-muted-foreground"> Images, videos, documents, audio clips, and file attachments stored in user or channel repositories.</span>
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
-              <div>
-                <strong class="text-foreground">Cryptographic Keys &amp; Sessions:</strong>
-                <span class="text-muted-foreground"> End-to-end encryption key pairs, session keys, authentication tokens, and login credentials.</span>
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
-              <div>
-                <strong class="text-foreground">Device &amp; Notification Data:</strong>
-                <span class="text-muted-foreground"> Firebase Cloud Messaging (FCM) tokens, push notification endpoint registrations, active session state, and device telemetry.</span>
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
-              <div>
-                <strong class="text-foreground">Social &amp; Permissions:</strong>
-                <span class="text-muted-foreground"> Contact lists, channel memberships, custom workspace roles, administrative permissions, and notification preferences.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Data Kept Card -->
-        <div class="p-6 rounded-2xl border border-amber-500/30 bg-amber-500/5 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-500 flex items-center justify-center shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-foreground">Data That May Be Kept</h3>
-              <span class="text-xs text-amber-600 dark:text-amber-400 font-semibold">Strict legal, financial &amp; safety retention only</span>
-            </div>
-          </div>
-
-          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            In accordance with legal, financial, and security obligations, limited categories of data may be retained for defined retention windows:
-          </p>
-
-          <ul class="space-y-3 text-xs sm:text-sm text-foreground/90">
-            <li class="flex items-start gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0"></span>
-              <div>
-                <strong class="text-foreground">Financial &amp; Invoicing Records:</strong>
-                <span class="text-muted-foreground"> If you purchased paid subscriptions (via Google Play In-App Billing or billing gateway), transaction IDs, tax records, and invoices must be retained for statutory auditing and taxation laws (typically <strong>up to 180 days</strong> or as required by applicable tax statutes).</span>
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0"></span>
-              <div>
-                <strong class="text-foreground">Fraud Prevention &amp; Security Audits:</strong>
-                <span class="text-muted-foreground"> Anonymized security logs and abuse prevention hashes necessary to protect system integrity, investigate DDoS/intrusion incidents, or prevent malicious re-abuse (retained without personal profile identifiers).</span>
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0"></span>
-              <div>
-                <strong class="text-foreground">Legal &amp; Regulatory Compliance:</strong>
-                <span class="text-muted-foreground"> Where Lupyd Media Private Limited is required under lawful court orders, law enforcement warrants, or ongoing dispute resolution to preserve specific evidentiary records.</span>
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0"></span>
-              <div>
-                <strong class="text-foreground">Backup &amp; Disaster Recovery Window:</strong>
-                <span class="text-muted-foreground"> Off-site encrypted database snapshots and disaster recovery backups are overwritten and expunged within a rolling lifecycle of <strong>30 to 90 days</strong>.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- RETENTION TIMELINES & SPECIFIC DATA DELETION -->
-    <section aria-labelledby="timeline-heading" class="mb-12">
-      <div class="p-6 sm:p-8 rounded-2xl border border-border/60 bg-card/30 space-y-6">
-        <h2 id="timeline-heading" class="text-xl sm:text-2xl font-bold text-foreground">
-          Processing Timelines &amp; Scope Options
+      <!-- Main Action Callout -->
+      <div class="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card/60 shadow-sm space-y-4">
+        <h2 class="text-xl font-bold text-foreground">
+          How to request account deletion
         </h2>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div class="space-y-2 p-4 rounded-xl border border-border/40 bg-background/50">
-            <div class="text-2xl font-extrabold text-primary">48-72h</div>
-            <h3 class="text-sm font-bold text-foreground">Acknowledgment &amp; Verification</h3>
-            <p class="text-xs text-muted-foreground">
-              Our support team reviews your email request and verifies account ownership.
-            </p>
-          </div>
-
-          <div class="space-y-2 p-4 rounded-xl border border-border/40 bg-background/50">
-            <div class="text-2xl font-extrabold text-primary">30 Days</div>
-            <h3 class="text-sm font-bold text-foreground">Primary Database Erasure</h3>
-            <p class="text-xs text-muted-foreground">
-              Account credentials, profiles, messages, and uploaded files are permanently deleted.
-            </p>
-          </div>
-
-          <div class="space-y-2 p-4 rounded-xl border border-border/40 bg-background/50">
-            <div class="text-2xl font-extrabold text-primary">30-90 Days</div>
-            <h3 class="text-sm font-bold text-foreground">Backup Rotation Purge</h3>
-            <p class="text-xs text-muted-foreground">
-              All residual encrypted disaster-recovery backup snapshots are completely overwritten.
-            </p>
-          </div>
+        <p class="text-foreground/90 text-base leading-relaxed">
+          You can request to delete your Lupyd account and associated data at any time by sending an email to:
+        </p>
+        <div class="p-4 rounded-xl bg-muted/80 border border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <a
+            href="mailto:contact@lupyd.com?subject=Request%20to%20delete%20Lupyd%20account"
+            class="text-lg font-bold text-primary hover:underline font-mono break-all"
+          >
+            contact@lupyd.com
+          </a>
+          <a
+            href="mailto:contact@lupyd.com?subject=Request%20to%20delete%20Lupyd%20account"
+            class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity shrink-0"
+          >
+            Send Email
+          </a>
         </div>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Please make sure to send the request from the <strong>email address you used to sign up or log in to Lupyd</strong> so we can verify account ownership.
+        </p>
+        <div class="pt-2 text-sm font-semibold text-foreground">
+          Your request will be processed and completed within <span class="text-primary font-bold">24&ndash;72 hours</span>.
+        </div>
+      </div>
 
-        <!-- Scope: Complete vs Specific Data -->
-        <div class="p-5 rounded-xl border border-border/60 bg-muted/20 space-y-3">
-          <h3 class="text-base font-bold text-foreground">Can I request deletion of specific data without deleting my entire account?</h3>
-          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            <strong class="text-foreground">Yes.</strong> Under Google Play policies and global privacy regulations, users may request the deletion of specific subsets of personal data rather than terminating their entire Lupyd account. Examples include:
-          </p>
-          <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-muted-foreground pl-2">
-            <li>Clearing message and conversation history while keeping your username and profile.</li>
-            <li>Removing uploaded media files (photos, voice notes, documents).</li>
-            <li>Unlinking specific contact sync permissions or notification device tokens.</li>
+      <!-- Data Details -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+        <div class="p-5 rounded-xl border border-border/60 bg-card/30 space-y-3">
+          <h3 class="text-base font-bold text-foreground">Data that is deleted</h3>
+          <ul class="text-sm text-muted-foreground space-y-1.5 list-disc list-inside">
+            <li>Your account profile (username, email, avatar, bio)</li>
+            <li>All messages, chats, and conversation history</li>
+            <li>Uploaded files, media, and attachments</li>
+            <li>Encryption keys and active login sessions</li>
           </ul>
-          <p class="text-xs sm:text-sm text-muted-foreground">
-            Simply indicate in your email whether you desire <strong class="text-foreground">"Complete Account Deletion"</strong> or specify the particular data items you wish to have removed.
-          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-border/60 bg-card/30 space-y-3">
+          <h3 class="text-base font-bold text-foreground">Data kept &amp; retention period</h3>
+          <ul class="text-sm text-muted-foreground space-y-1.5 list-disc list-inside">
+            <li>Financial or transaction records required by law for taxation and accounting (retained up to 180 days)</li>
+            <li>Encrypted system backups are automatically overwritten and purged within 30 days</li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <!-- FREQUENTLY ASKED QUESTIONS -->
-    <section aria-labelledby="faq-heading" class="mb-12 space-y-4">
-      <h2 id="faq-heading" class="text-2xl sm:text-3xl font-extrabold text-foreground mb-4">
-        Frequently Asked Questions
-      </h2>
-
-      <div class="space-y-3">
-        <!-- Q1 -->
-        <details class="p-4 sm:p-5 rounded-xl border border-border/50 bg-card/30 group">
-          <summary class="font-bold text-sm sm:text-base text-foreground cursor-pointer flex items-center justify-between list-none">
-            <span>What happens if I send a deletion request from an email that does not match my Lupyd account?</span>
-            <span class="text-muted-foreground group-open:rotate-180 transition-transform">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </summary>
-          <p class="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            To prevent malicious third parties from deleting accounts without authorization, we require that deletion requests come directly from the email address registered with the Lupyd account. If you no longer have access to that email address, you must contact our security team at <a href="mailto:contact@lupyd.com" class="text-primary hover:underline">contact@lupyd.com</a> to complete a secondary identity and security verification before deletion can proceed.
-          </p>
-        </details>
-
-        <!-- Q2 -->
-        <details class="p-4 sm:p-5 rounded-xl border border-border/50 bg-card/30 group">
-          <summary class="font-bold text-sm sm:text-base text-foreground cursor-pointer flex items-center justify-between list-none">
-            <span>What happens to my Google Play subscriptions when I delete my account?</span>
-            <span class="text-muted-foreground group-open:rotate-180 transition-transform">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </summary>
-          <p class="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            Deleting your Lupyd account does not automatically cancel recurring subscriptions managed by Google Play. Before or immediately after requesting account deletion, please open the <strong class="text-foreground">Google Play Store app &rarr; Profile &rarr; Payments &amp; Subscriptions &rarr; Subscriptions</strong> and cancel your active Lupyd subscription to avoid future recurring billing charges by Google.
-          </p>
-        </details>
-
-        <!-- Q3 -->
-        <details class="p-4 sm:p-5 rounded-xl border border-border/50 bg-card/30 group">
-          <summary class="font-bold text-sm sm:text-base text-foreground cursor-pointer flex items-center justify-between list-none">
-            <span>Can I recover my account once deletion is completed?</span>
-            <span class="text-muted-foreground group-open:rotate-180 transition-transform">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </summary>
-          <p class="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            No. Account deletion is permanent. Once your account is permanently purged from our database, all messages, encrypted files, contacts, and settings are destroyed and cannot be recovered by you or Lupyd personnel.
-          </p>
-        </details>
-
-        <!-- Q4 -->
-        <details class="p-4 sm:p-5 rounded-xl border border-border/50 bg-card/30 group">
-          <summary class="font-bold text-sm sm:text-base text-foreground cursor-pointer flex items-center justify-between list-none">
-            <span>Can I export my data before requesting deletion?</span>
-            <span class="text-muted-foreground group-open:rotate-180 transition-transform">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </summary>
-          <p class="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            Yes. You may request a machine-readable export of your personal data before initiating account deletion by emailing <a href="mailto:contact@lupyd.com?subject=Data%20Export%20Request" class="text-primary hover:underline">contact@lupyd.com</a> with the subject "Data Export Request" from your registered email address.
-          </p>
-        </details>
+      <!-- Contact Info -->
+      <div class="pt-4 border-t border-border/50 text-xs text-muted-foreground space-y-1">
+        <p>Lupyd Media Private Limited &bull; 15-18-276/5/A/1, Prashanti Nagar 2, Khammam, Telangana 507002, India</p>
+        <p>Questions? Reach us anytime at <a href="mailto:contact@lupyd.com" class="text-foreground hover:underline">contact@lupyd.com</a>.</p>
       </div>
-    </section>
-
-    <!-- DEVELOPER & LEGAL CONTACT FOOTER CARD -->
-    <section class="p-6 rounded-xl border border-border/60 bg-muted/40 text-xs sm:text-sm text-muted-foreground space-y-3">
-      <div class="font-bold text-foreground text-sm sm:text-base">Developer &amp; Publisher Contact Details</div>
-      <p class="leading-relaxed">
-        This account and data deletion policy is published by <strong class="text-foreground">Lupyd Media Private Limited</strong>, the registered developer of <strong class="text-foreground">Lupyd</strong> on Google Play. For any questions regarding your data privacy rights, data retention, or deletion requests, contact our Data Protection and Support Officer:
-      </p>
-      <div class="space-y-1 pt-1">
-        <div><strong class="text-foreground">Email:</strong> <a href="mailto:contact@lupyd.com" class="text-primary hover:underline">contact@lupyd.com</a></div>
-        <div><strong class="text-foreground">Company:</strong> Lupyd Media Private Limited</div>
-        <div><strong class="text-foreground">Address:</strong> 15-18-276/5/A/1, Prashanti Nagar 2, Khammam &ndash; 507002, Telangana, India</div>
-        <div><strong class="text-foreground">Application:</strong> Lupyd (com.lupyd.client)</div>
-      </div>
-      <div class="pt-2 border-t border-border/40 text-xs text-muted-foreground">
-        Related documents: <a href="/privacy" class="text-foreground underline">Privacy Policy</a> &bull; <a href="/terms-of-use" class="text-foreground underline">Terms of Use</a> &bull; <a href="/terms-of-service" class="text-foreground underline">Terms of Service</a> &bull; <a href="/support" class="text-foreground underline">Customer Support</a>
-      </div>
-    </section>
+    </div>
   </main>
-
-  <script>
-    const copyBtn = document.getElementById('copy-template-btn');
-    const copyText = document.getElementById('copy-text');
-    const templateContent = document.getElementById('email-template-content');
-
-    if (copyBtn && copyText && templateContent) {
-      copyBtn.addEventListener('click', async () => {
-        try {
-          const textToCopy = templateContent.innerText;
-          await navigator.clipboard.writeText(textToCopy);
-          const originalText = copyText.textContent;
-          copyText.textContent = 'Copied to clipboard!';
-          copyBtn.classList.add('bg-emerald-500/20', 'text-emerald-500', 'border-emerald-500/40');
-          setTimeout(() => {
-            copyText.textContent = originalText;
-            copyBtn.classList.remove('bg-emerald-500/20', 'text-emerald-500', 'border-emerald-500/40');
-          }, 2500);
-        } catch (err) {
-          // Fallback if clipboard API is blocked
-          copyText.textContent = 'Selected - press Ctrl+C';
-        }
-      });
-    }
-  </script>
 </Layout>

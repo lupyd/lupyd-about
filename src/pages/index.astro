@@ -84,6 +84,19 @@ const faqSchema = {
 
 const pageSchemas = [softwareSchema, faqSchema];
 
+const getDesktopLightSrc = (src: string) => src.replace('-dark.webp', '.webp');
+const getMobileLightSrc = (src: string) => src.replace('-dark.webp', '.webp');
+
+const getDesktopSrcset = (src: string) => {
+  const base = src.replace(/\.webp$/, '');
+  return `${base}-640.webp 640w, ${base}-1024.webp 1024w, ${src} 1440w`;
+};
+
+const getMobileSrcset = (src: string) => {
+  const base = src.replace(/\.webp$/, '');
+  return `${base}-360.webp 360w, ${base}-540.webp 540w, ${src} 780w`;
+};
+
 const showcaseTabs = [
   {
     id: "channels",
@@ -373,13 +386,27 @@ const showcaseTabs = [
                 </div>
                 <!-- Image - Never zooms on hover -->
                 <div class="relative aspect-[16/10] bg-background overflow-hidden">
+                  <!-- Dark mode desktop screenshot -->
                   <img
                     src={tab.desktopSrc}
+                    srcset={getDesktopSrcset(tab.desktopSrc)}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
                     alt={tab.desktopAlt}
                     width="1440"
                     height="900"
                     loading="lazy"
-                    class="w-full h-full object-cover object-top block"
+                    class="hidden dark:block w-full h-full object-cover object-top"
+                  />
+                  <!-- Light mode desktop screenshot -->
+                  <img
+                    src={getDesktopLightSrc(tab.desktopSrc)}
+                    srcset={getDesktopSrcset(getDesktopLightSrc(tab.desktopSrc))}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1024px"
+                    alt={tab.desktopAlt}
+                    width="1440"
+                    height="900"
+                    loading="lazy"
+                    class="block dark:hidden w-full h-full object-cover object-top"
                   />
                 </div>
               </div>
@@ -388,15 +415,15 @@ const showcaseTabs = [
               <div class="mobile-frame hidden w-[300px] sm:w-[320px] rounded-[36px] border border-border bg-card p-2 shadow-2xl">
                 <div class="relative rounded-[28px] overflow-hidden border border-border/80 bg-neutral-950 aspect-[9/19.5] flex flex-col">
                   <!-- Mobile Status / Notification Bar -->
-                  <div class="relative z-20 w-full px-3 pt-2 pb-1 flex items-center justify-between text-neutral-300 select-none bg-neutral-950/80 backdrop-blur-xs border-b border-neutral-800/40">
-                    <div class="text-[10px] font-semibold tracking-tight text-neutral-200">9:41</div>
+                  <div class="relative z-20 w-full px-3 pt-2 pb-1 flex items-center justify-between text-neutral-700 dark:text-neutral-300 select-none bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xs border-b border-border/50 dark:border-neutral-800/40">
+                    <div class="text-[10px] font-semibold tracking-tight text-neutral-800 dark:text-neutral-200">9:41</div>
                     <!-- Camera Notch / Punch Hole -->
                     <div class="absolute left-1/2 -translate-x-1/2 top-2 flex items-center justify-center" aria-hidden="true">
-                      <div class="w-2.5 h-2.5 rounded-full bg-neutral-950 border border-neutral-800 shadow-inner flex items-center justify-center">
-                        <span class="w-1 h-1 rounded-full bg-neutral-900 ring-1 ring-cyan-950/40"></span>
+                      <div class="w-2.5 h-2.5 rounded-full bg-neutral-900 border border-neutral-700 dark:border-neutral-800 shadow-inner flex items-center justify-center">
+                        <span class="w-1 h-1 rounded-full bg-neutral-950 ring-1 ring-cyan-950/40"></span>
                       </div>
                     </div>
-                    <div class="flex items-center gap-1.5 text-neutral-300" aria-hidden="true">
+                    <div class="flex items-center gap-1.5 opacity-80" aria-hidden="true">
                       <!-- Cellular Signal -->
                       <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 16 16">
                         <rect x="1" y="11" width="2" height="4" rx="0.5"></rect>
@@ -410,29 +437,43 @@ const showcaseTabs = [
                       </svg>
                       <!-- Battery -->
                       <div class="flex items-center">
-                        <div class="w-3.5 h-2 rounded-[2px] border border-neutral-300 p-[1px] flex items-center">
-                          <div class="w-full h-full bg-neutral-200 rounded-[1px]"></div>
+                        <div class="w-3.5 h-2 rounded-[2px] border border-current p-[1px] flex items-center">
+                          <div class="w-full h-full bg-current rounded-[1px]"></div>
                         </div>
-                        <div class="w-[1px] h-1 bg-neutral-400 rounded-r-[1px]"></div>
+                        <div class="w-[1px] h-1 bg-current rounded-r-[1px]"></div>
                       </div>
                     </div>
                   </div>
 
                   <!-- Image - Never zooms on hover -->
                   <div class="relative flex-1 w-full overflow-hidden bg-background">
+                    <!-- Dark mode mobile screenshot -->
                     <img
                       src={tab.mobileSrc}
+                      srcset={getMobileSrcset(tab.mobileSrc)}
+                      sizes="(max-width: 640px) 90vw, 320px"
                       alt={tab.mobileAlt}
                       width="750"
                       height="1624"
                       loading="lazy"
-                      class="w-full h-full object-cover object-top block"
+                      class="hidden dark:block w-full h-full object-cover object-top"
+                    />
+                    <!-- Light mode mobile screenshot -->
+                    <img
+                      src={getMobileLightSrc(tab.mobileSrc)}
+                      srcset={getMobileSrcset(getMobileLightSrc(tab.mobileSrc))}
+                      sizes="(max-width: 640px) 90vw, 320px"
+                      alt={tab.mobileAlt}
+                      width="750"
+                      height="1624"
+                      loading="lazy"
+                      class="block dark:hidden w-full h-full object-cover object-top"
                     />
                   </div>
 
                   <!-- Android Home Navigation Pill Indicator -->
-                  <div class="relative z-20 w-full py-1.5 flex justify-center bg-neutral-950 select-none pointer-events-none" aria-hidden="true">
-                    <div class="w-14 h-1 rounded-full bg-neutral-500/60"></div>
+                  <div class="relative z-20 w-full py-1.5 flex justify-center bg-neutral-100 dark:bg-neutral-950 select-none pointer-events-none" aria-hidden="true">
+                    <div class="w-14 h-1 rounded-full bg-neutral-400 dark:bg-neutral-500/60"></div>
                   </div>
                 </div>
               </div>

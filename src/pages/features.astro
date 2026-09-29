@@ -4,6 +4,11 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.com").replace(/\/$/, "");
 
+const getDesktopFeatureSrcset = (src: string) => {
+  const base = src.replace(/\.webp$/, '');
+  return `${base}-640.webp 640w, ${base}-1024.webp 1024w, ${src} 1440w`;
+};
+
 const features = [
   {
     number: "01",
@@ -193,13 +198,27 @@ const featuresSchema = {
 
                     <!-- Screenshot Container - No hover zoom, preserves image borders -->
                     <div class="relative bg-background aspect-[16/10] overflow-hidden">
+                      <!-- Dark mode screenshot -->
                       <img
                         src={item.screenshot}
+                        srcset={getDesktopFeatureSrcset(item.screenshot)}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
                         alt={item.screenshotAlt}
                         loading="lazy"
                         width="1440"
                         height="900"
-                        class="w-full h-full object-cover object-top block"
+                        class="hidden dark:block w-full h-full object-cover object-top"
+                      />
+                      <!-- Light mode screenshot -->
+                      <img
+                        src={item.screenshot.replace('-dark.webp', '.webp')}
+                        srcset={getDesktopFeatureSrcset(item.screenshot.replace('-dark.webp', '.webp'))}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 800px"
+                        alt={item.screenshotAlt}
+                        loading="lazy"
+                        width="1440"
+                        height="900"
+                        class="block dark:hidden w-full h-full object-cover object-top"
                       />
                     </div>
                   </div>

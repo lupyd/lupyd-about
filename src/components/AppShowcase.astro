@@ -34,6 +34,11 @@ const bottomRowScreenshots = [
 ];
 
 const allScreenshots = [...topRowScreenshots, ...bottomRowScreenshots];
+
+const getScreenshotSrcset = (src: string) => {
+  const base = src.replace(/\.webp$/, '');
+  return `${base}-480.webp 480w, ${base}-768.webp 768w, ${src} 1024w`;
+};
 ---
 
 <section 
@@ -70,6 +75,8 @@ const allScreenshots = [...topRowScreenshots, ...bottomRowScreenshots];
               <div class="rounded-lg overflow-hidden border border-border/40 aspect-[16/10] bg-background">
                 <img
                   src={item.src}
+                  srcset={getScreenshotSrcset(item.src)}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
                   alt={item.alt}
                   loading="eager"
                   class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
@@ -89,6 +96,8 @@ const allScreenshots = [...topRowScreenshots, ...bottomRowScreenshots];
               <div class="rounded-lg overflow-hidden border border-border/40 aspect-[16/10] bg-background">
                 <img
                   src={item.src}
+                  srcset={getScreenshotSrcset(item.src)}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
                   alt={item.alt}
                   loading="eager"
                   class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
