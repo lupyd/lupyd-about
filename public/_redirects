@@ -1,2 +1,4 @@
 /privacy-policy /privacy 301
 /privacy-policy/* /privacy 301
+/data-deletion /delete-account 301
+/account-deletion /delete-account 301

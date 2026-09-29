@@ -8,11 +8,13 @@ export default defineConfig({
   redirects: {
     '/privacy-policy': '/privacy',
     '/feature': '/features',
+    '/data-deletion': '/delete-account',
+    '/account-deletion': '/delete-account',
   },
   integrations: [
     tailwind(),
     sitemap({
-      filter: (page) => !page.includes('/privacy-policy'),
+      filter: (page) => !page.includes('/privacy-policy') && !page.includes('/data-deletion') && !page.includes('/account-deletion'),
     }),
   ],
 });
