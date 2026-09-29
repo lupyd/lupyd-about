@@ -73,17 +73,24 @@ function decodePng(filePath) {
   return { w, h, pixels };
 }
 
-function crc32(buf) {
-  let crc = -1;
-  for (let i = 0; i < buf.length; i++) {
-    let byte = buf[i];
-    for (let j = 0; j < 8; j++) {
-      const mask = -(byte & 1);
-      byte = (byte >>> 1) ^ (0xedb88320 & mask);
-    }
-    crc = (crc >>> 8) ^ (0xedb88320 & -(crc & 1 ^ byte));
+const crcTable = new Uint32Array(256);
+for (let n = 0; n < 256; n++) {
+  let c = n;
+  for (let k = 0; k < 8; k++) {
+    c = (c & 1) ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
   }
-  return ~crc;
+  crcTable[n] = c;
+}
+
+function crc32(buf) {
+  if (typeof zlib.crc32 === 'function') {
+    return zlib.crc32(buf);
+  }
+  let crc = 0xffffffff;
+  for (let i = 0; i < buf.length; i++) {
+    crc = (crc >>> 8) ^ crcTable[(crc ^ buf[i]) & 0xff];
+  }
+  return (crc ^ 0xffffffff) >>> 0;
 }
 
 function makeChunk(ctype, cdata) {
@@ -92,7 +99,7 @@ function makeChunk(ctype, cdata) {
   const type = Buffer.from(ctype, 'ascii');
   const combined = Buffer.concat([type, cdata]);
   const crc = Buffer.alloc(4);
-  crc.writeInt32BE(crc32(combined), 0);
+  crc.writeUInt32BE(crc32(combined), 0);
   return Buffer.concat([len, combined, crc]);
 }
 
