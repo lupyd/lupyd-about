@@ -73,54 +73,190 @@ function decodePng(filePath) {
   return { w, h, pixels };
 }
 
+function crc32(buf) {
+  let crc = -1;
+  for (let i = 0; i < buf.length; i++) {
+    let byte = buf[i];
+    for (let j = 0; j < 8; j++) {
+      const mask = -(byte & 1);
+      byte = (byte >>> 1) ^ (0xedb88320 & mask);
+    }
+    crc = (crc >>> 8) ^ (0xedb88320 & -(crc & 1 ^ byte));
+  }
+  return ~crc;
+}
+
+function makeChunk(ctype, cdata) {
+  const len = Buffer.alloc(4);
+  len.writeUInt32BE(cdata.length, 0);
+  const type = Buffer.from(ctype, 'ascii');
+  const combined = Buffer.concat([type, cdata]);
+  const crc = Buffer.alloc(4);
+  crc.writeInt32BE(crc32(combined), 0);
+  return Buffer.concat([len, combined, crc]);
+}
+
+function encodePng(w, h, rgba) {
+  const filtered = Buffer.alloc(h * (1 + w * 4));
+  for (let y = 0; y < h; y++) {
+    const fOffset = y * (1 + w * 4);
+    filtered[fOffset] = 0;
+    rgba.copy(filtered, fOffset + 1, y * w * 4, (y + 1) * w * 4);
+  }
+
+  const idat = zlib.deflateSync(filtered, { level: 9 });
+  const ihdr = Buffer.alloc(13);
+  ihdr.writeUInt32BE(w, 0);
+  ihdr.writeUInt32BE(h, 4);
+  ihdr[8] = 8;
+  ihdr[9] = 6;
+  ihdr[10] = 0;
+  ihdr[11] = 0;
+  ihdr[12] = 0;
+
+  const pngHeader = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  return Buffer.concat([
+    pngHeader,
+    makeChunk('IHDR', ihdr),
+    makeChunk('IDAT', idat),
+    makeChunk('IEND', Buffer.alloc(0))
+  ]);
+}
+
 export function generateStickers() {
-  const log = [];
   try {
-    const img1 = decodePng('/home/kittu/.gemini/antigravity-ide/brain/15091e67-2a54-41f1-af31-78a5483c6dc7/.user_uploaded/media_1790666382857.png');
-    // In img1, check which pixels are NOT slate and NOT purple
-    // slate: (b - r >= 15 && g - r >= 12)
-    // purple: (b > 160 && r > 80 && g < 100)
-    let minX1 = img1.w, maxX1 = 0, minY1 = img1.h, maxY1 = 0;
-    for (let y = 0; y < 140; y++) {
-      for (let x = 0; x < img1.w; x++) {
-        const i = (y * img1.w + x) * 4;
-        const r = img1.pixels[i], g = img1.pixels[i+1], b = img1.pixels[i+2];
-        const isPurple = (b > 160 && r > 80 && g < 100);
-        const isSlate = (b - r >= 15 && g - r >= 12 && r < 180);
-        const isWhiteSelectionHandle = (r > 250 && g > 250 && b > 250 && (x < 10 || x > 165 || y < 10 || y > 130));
-        if (!isPurple && !isSlate && !isWhiteSelectionHandle) {
-          if (x < minX1) minX1 = x;
-          if (x > maxX1) maxX1 = x;
-          if (y < minY1) minY1 = y;
-          if (y > maxY1) maxY1 = y;
+    // 1. Minimalist Theme (Bunny at Laptop)
+    {
+      const srcPath = '/home/kittu/.gemini/antigravity-ide/brain/15091e67-2a54-41f1-af31-78a5483c6dc7/.user_uploaded/media_1790666382857.png';
+      const outPath = '/home/kittu/lupyd-about/public/minimalist-theme.png';
+      const { w: origW, pixels } = decodePng(srcPath);
+
+      const cropW = origW;
+      const cropH = 137;
+      const img = Buffer.alloc(cropW * cropH * 4);
+      for (let y = 0; y < cropH; y++) {
+        pixels.copy(img, y * cropW * 4, y * origW * 4, (y * origW + cropW) * 4);
+      }
+
+      const visited = new Uint8Array(cropW * cropH);
+      const q = [];
+      for (let x = 0; x < cropW; x++) {
+        q.push(x, 0);
+        q.push(x, cropH - 1);
+      }
+      for (let y = 0; y < cropH; y++) {
+        q.push(0, y);
+        q.push(cropW - 1, y);
+      }
+
+      let head = 0;
+      while (head < q.length) {
+        const x = q[head++];
+        const y = q[head++];
+        const idx = y * cropW + x;
+        if (visited[idx]) continue;
+        visited[idx] = 1;
+
+        const pIdx = idx * 4;
+        const r = img[pIdx], g = img[pIdx + 1], b = img[pIdx + 2];
+
+        const isSlate = (g - r >= 6 && b - r >= 8 && r < 185) || (Math.abs(r - 143) < 30 && Math.abs(g - 166) < 30 && Math.abs(b - 172) < 30);
+        const isPurple = (b > 135 && r > 70 && g < 115) || (r > 105 && b > 145 && g < 115);
+        const isCornerHandle = (x <= 14 || x >= cropW - 15) && (y <= 14) && (r > 200 && g > 200 && b > 200);
+        const isBottomEdge = (y >= cropH - 3) && (r > 185 || isPurple || isSlate);
+
+        if (isSlate || isPurple || isCornerHandle || isBottomEdge) {
+          img[pIdx + 3] = 0;
+          if (x + 1 < cropW && !visited[idx + 1]) q.push(x + 1, y);
+          if (x - 1 >= 0 && !visited[idx - 1]) q.push(x - 1, y);
+          if (y + 1 < cropH && !visited[idx + cropW]) q.push(x, y + 1);
+          if (y - 1 >= 0 && !visited[idx - cropW]) q.push(x, y - 1);
         }
       }
-    }
-    log.push(`Img1 illustration bounds: minX=${minX1}, maxX=${maxX1}, minY=${minY1}, maxY=${maxY1}`);
 
-    const img2 = decodePng('/home/kittu/.gemini/antigravity-ide/brain/15091e67-2a54-41f1-af31-78a5483c6dc7/.user_uploaded/media_1790666388120.png');
-    // In img2, yellow is: (r > 220 && g > 200 && b < 210 && (r - b) > 35)
-    // purple is: (b > 150 && r > 70 && g < 110)
-    // white bottom is: (y > 375 && r > 230 && g > 230 && b > 230)
-    let minX2 = img2.w, maxX2 = 0, minY2 = img2.h, maxY2 = 0;
-    for (let y = 0; y < img2.h; y++) {
-      for (let x = 0; x < img2.w; x++) {
-        const i = (y * img2.w + x) * 4;
-        const r = img2.pixels[i], g = img2.pixels[i+1], b = img2.pixels[i+2];
-        const isPurple = (b > 150 && r > 70 && g < 110);
-        const isYellow = (r > 220 && g > 200 && b < 210 && (r - b) > 35);
-        const isBottomWhite = (y > 375 && r > 225 && g > 225 && b > 225);
-        if (!isPurple && !isYellow && !isBottomWhite) {
-          if (x < minX2) minX2 = x;
-          if (x > maxX2) maxX2 = x;
-          if (y < minY2) minY2 = y;
-          if (y > maxY2) maxY2 = y;
+      for (let y = 0; y < cropH; y++) {
+        for (let x = 0; x < cropW; x++) {
+          const pIdx = (y * cropW + x) * 4;
+          const r = img[pIdx], g = img[pIdx + 1], b = img[pIdx + 2];
+          const isPurple = (b > 130 && r > 65 && g < 115) || (r > 100 && b > 140 && g < 115);
+          const isCornerArtifact = (x <= 6 || x >= cropW - 7) && (y <= 8);
+          const isRightEdgeSlate = (x >= 155 && y >= 125 && g - r >= 4 && b - r >= 4);
+          if (isPurple || isCornerArtifact || isRightEdgeSlate) {
+            img[pIdx + 3] = 0;
+          }
         }
       }
-    }
-    log.push(`Img2 illustration bounds: minX=${minX2}, maxX=${maxX2}, minY=${minY2}, maxY=${maxY2}`);
 
-    fs.writeFileSync('/home/kittu/lupyd-about/scripts/log.txt', log.join('\n'));
+      fs.writeFileSync(outPath, encodePng(cropW, cropH, img));
+    }
+
+    // 2. No Distractions (Person shouting with megaphone)
+    {
+      const srcPath = '/home/kittu/.gemini/antigravity-ide/brain/15091e67-2a54-41f1-af31-78a5483c6dc7/.user_uploaded/media_1790666388120.png';
+      const outPath = '/home/kittu/lupyd-about/public/no-distractions.png';
+      const { w: origW, pixels } = decodePng(srcPath);
+
+      const cropW = origW;
+      const cropH = 376;
+      const img = Buffer.alloc(cropW * cropH * 4);
+      for (let y = 0; y < cropH; y++) {
+        pixels.copy(img, y * cropW * 4, y * origW * 4, (y * origW + cropW) * 4);
+      }
+
+      const visited = new Uint8Array(cropW * cropH);
+      const q = [];
+      for (let x = 0; x < cropW; x++) {
+        q.push(x, 0);
+        q.push(x, cropH - 1);
+      }
+      for (let y = 0; y < cropH; y++) {
+        q.push(0, y);
+        q.push(cropW - 1, y);
+      }
+
+      let head = 0;
+      while (head < q.length) {
+        const x = q[head++];
+        const y = q[head++];
+        const idx = y * cropW + x;
+        if (visited[idx]) continue;
+        visited[idx] = 1;
+
+        const pIdx = idx * 4;
+        const r = img[pIdx], g = img[pIdx + 1], b = img[pIdx + 2];
+
+        const isYellow = ((r - b) > 28 && (g - b) > 22 && r > 200 && g > 180);
+        const isPurple = (b > 135 && r > 70 && g < 110) || (r > 110 && b > 145 && g < 110);
+        const isFloor = (y >= 325 && (x < 145 || x > 255));
+        const isOuter = (x <= 14 || x >= 322 || y <= 10);
+
+        if (isYellow || isPurple || isFloor || isOuter) {
+          img[pIdx + 3] = 0;
+          if (x + 1 < cropW && !visited[idx + 1]) q.push(x + 1, y);
+          if (x - 1 >= 0 && !visited[idx - 1]) q.push(x - 1, y);
+          if (y + 1 < cropH && !visited[idx + cropW]) q.push(x, y + 1);
+          if (y - 1 >= 0 && !visited[idx - cropW]) q.push(x, y - 1);
+        }
+      }
+
+      // Cleanup remaining yellow pixels and horizontal tick marks
+      for (let y = 0; y < cropH; y++) {
+        for (let x = 0; x < cropW; x++) {
+          const pIdx = (y * cropW + x) * 4;
+          const r = img[pIdx], g = img[pIdx + 1], b = img[pIdx + 2];
+          const isPurple = (b > 130 && r > 65 && g < 115) || (r > 100 && b > 140 && g < 115);
+          const isYellowPkt = ((r - b) > 26 && (g - b) > 20 && b < 210 && r > 205 && g > 185);
+          const isFloorLine = (y >= 325 && y <= 335 && (x <= 148 || x >= 253));
+          if (isPurple || isYellowPkt || x >= 321 || x <= 14 || isFloorLine || (y >= 325 && (x < 142 || x > 258))) {
+            img[pIdx + 3] = 0;
+          }
+        }
+      }
+
+      fs.writeFileSync(outPath, encodePng(cropW, cropH, img));
+    }
+
+    fs.writeFileSync('/home/kittu/lupyd-about/scripts/log.txt', 'Clean stickers ready!');
   } catch (err) {
     fs.writeFileSync('/home/kittu/lupyd-about/scripts/log.txt', err.stack);
   }
