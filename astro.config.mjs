@@ -7,6 +7,7 @@ export default defineConfig({
   site: 'https://www.lupyd.com',
   redirects: {
     '/privacy-policy': '/privacy',
+    '/feature': '/features',
   },
   integrations: [
     tailwind(),

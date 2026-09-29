@@ -184,6 +184,7 @@ const fullJsonLd = {
 };
 
 const navLinks = [
+  { href: "/features", label: "Features", external: false },
   { href: "https://billing.lupyd.com", label: "Pricing", external: true },
   { href: "/roadmap", label: "Roadmap", external: false },
   { href: "/faq", label: "FAQ", external: false },
@@ -411,37 +412,38 @@ const navLinks = [
       <slot />
     </main>
 
-    <footer class="border-t border-border/40 bg-background/50 backdrop-blur-sm py-10 md:py-16 mt-auto">
+    <footer class="relative z-20 border-t-2 border-border/80 bg-background py-12 md:py-16 mt-auto shadow-[0_-4px_24px_rgba(0,0,0,0.06)]">
       <div class="container mx-auto px-4 max-w-7xl">
-        <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-10">
           <div class="space-y-4 max-w-md">
-            <a href="/" class="text-xl font-bold tracking-tight">Lupyd</a>
-            <p class="text-sm text-muted-foreground">
+            <a href="/" class="text-2xl font-black tracking-tight text-foreground hover:opacity-85 transition-opacity">Lupyd</a>
+            <p class="text-sm font-medium text-foreground/85 leading-relaxed">
               The workspace where nothing leaks. Private by design, connected by default.
             </p>
             <!-- Global Status Notice -->
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-muted/60 border border-border/60 text-muted-foreground">
-              <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-muted border border-border text-foreground shadow-sm">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
               <span>New updates will come soon</span>
             </div>
           </div>
-          <div class="flex flex-col sm:flex-row gap-8 sm:gap-12 lg:gap-16">
-            <div class="space-y-3">
-              <h4 class="text-sm font-semibold tracking-wider uppercase text-foreground">Platform</h4>
-              <ul class="space-y-2">
-                <li><a href="/faq" class="text-sm text-muted-foreground hover:text-foreground transition-colors">FAQ</a></li>
-                <li><a href="/support" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Support</a></li>
-                <li><a href="https://billing.lupyd.com" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a></li>
-                <li><a href="https://docs.lupyd.com" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Documentation</a></li>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 w-full md:w-auto">
+            <div class="space-y-4">
+              <h4 class="text-sm font-bold tracking-wider uppercase text-foreground border-b-2 border-primary/30 pb-1.5 inline-block">Platform</h4>
+              <ul class="space-y-2.5">
+                <li><a href="/features" class="text-sm font-medium text-foreground/85 hover:text-foreground hover:translate-x-1 transition-all duration-150 inline-flex items-center gap-1.5">Features</a></li>
+                <li><a href="/faq" class="text-sm font-medium text-foreground/85 hover:text-foreground hover:translate-x-1 transition-all duration-150 inline-flex items-center gap-1.5">FAQ</a></li>
+                <li><a href="/support" class="text-sm font-medium text-foreground/85 hover:text-foreground hover:translate-x-1 transition-all duration-150 inline-flex items-center gap-1.5">Support</a></li>
+                <li><a href="https://billing.lupyd.com" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-foreground/85 hover:text-foreground hover:translate-x-1 transition-all duration-150 inline-flex items-center gap-1.5">Pricing</a></li>
+                <li><a href="https://docs.lupyd.com" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-foreground/85 hover:text-foreground hover:translate-x-1 transition-all duration-150 inline-flex items-center gap-1.5">Documentation</a></li>
               </ul>
             </div>
-            <div class="space-y-3">
-              <h4 class="text-sm font-semibold tracking-wider uppercase text-foreground">Community</h4>
-              <ul class="space-y-2">
-                <li><a href="https://blogs.lupyd.com" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Blogs</a></li>
-                <li><a href="/privacy" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy</a></li>
-                <li><a href="/terms-of-use" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Use</a></li>
-                <li><a href="/terms-of-service" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a></li>
+            <div class="space-y-4">
+              <h4 class="text-sm font-bold tracking-wider uppercase text-foreground border-b-2 border-primary/30 pb-1.5 inline-block">Community</h4>
+              <ul class="space-y-2.5">
+                <li><a href="https://blogs.lupyd.com" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-foreground/85 hover:text-foreground hover:translate-x-1 transition-all duration-150 inline-flex items-center gap-1.5">Blogs</a></li>
+                <li><a href="/privacy" class="text-sm font-medium text-foreground/85 hover:text-foreground hover:translate-x-1 transition-all duration-150 inline-flex items-center gap-1.5">Privacy</a></li>
+                <li><a href="/terms-of-use" class="text-sm font-medium text-foreground/85 hover:text-foreground hover:translate-x-1 transition-all duration-150 inline-flex items-center gap-1.5">Terms of Use</a></li>
+                <li><a href="/terms-of-service" class="text-sm font-medium text-foreground/85 hover:text-foreground hover:translate-x-1 transition-all duration-150 inline-flex items-center gap-1.5">Terms of Service</a></li>
               </ul>
             </div>
             <div class="space-y-3">
@@ -462,8 +464,8 @@ const navLinks = [
           </div>
         </div>
 
-        <div class="mt-8 pt-8 border-t border-border/20 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p class="text-xs text-muted-foreground">
+        <div class="mt-10 pt-8 border-t border-border/80 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p class="text-xs font-medium text-foreground/75">
             &copy; {new Date().getFullYear()} Lupyd. Developed with focus on security.
           </p>
           <div class="flex flex-col sm:items-end gap-3">
@@ -473,7 +475,7 @@ const navLinks = [
               href="https://www.youtube.com/@TheLupyd"
               target="_blank"
               rel="noopener noreferrer"
-              class="p-2 rounded-full hover:bg-muted hover:text-foreground transition-colors"
+              class="p-2.5 rounded-lg bg-muted/80 hover:bg-muted text-foreground/80 hover:text-foreground border border-border/60 transition-all hover:scale-105"
               aria-label="YouTube"
               title="YouTube"
             >
@@ -501,7 +503,7 @@ const navLinks = [
               href="https://x.com/TheLupyd"
               target="_blank"
               rel="noopener noreferrer"
-              class="p-2 rounded-full hover:bg-muted hover:text-foreground transition-colors"
+              class="p-2.5 rounded-lg bg-muted/80 hover:bg-muted text-foreground/80 hover:text-foreground border border-border/60 transition-all hover:scale-105"
               aria-label="Twitter / X"
               title="Twitter / X"
             >
@@ -515,7 +517,7 @@ const navLinks = [
               href="https://www.instagram.com/lupyd.official"
               target="_blank"
               rel="noopener noreferrer"
-              class="p-2 rounded-full hover:bg-muted hover:text-foreground transition-colors"
+              class="p-2.5 rounded-lg bg-muted/80 hover:bg-muted text-foreground/80 hover:text-foreground border border-border/60 transition-all hover:scale-105"
               aria-label="Instagram"
               title="Instagram"
             >
