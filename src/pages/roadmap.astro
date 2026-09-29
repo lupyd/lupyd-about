@@ -9,7 +9,7 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
   breadcrumbs={[{ name: "Roadmap", href: "/roadmap" }]}
 >
   <div class="roadmap-page relative w-full flex-1 min-h-[calc(100vh-4rem-15rem)]">
-    <!-- Semi-transparent Road Theme Background Layer -->
+    <!-- 45% Transparency Theme Background Layer -->
     <div
       class="roadmap-bg-layer fixed inset-0 pointer-events-none"
       aria-hidden="true"
@@ -30,16 +30,12 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 <style>
   .roadmap-bg-layer {
-    background-image: url('/roadmap-bg.png');
+    background-image: url('/floral-bg.jpg');
     background-repeat: no-repeat;
-    background-position: center bottom;
+    background-position: center;
     background-size: cover;
     z-index: 0;
-    opacity: 0.28;
+    opacity: 0.45;
     transition: opacity 0.3s ease;
-  }
-
-  :global(.dark) .roadmap-bg-layer {
-    opacity: 0.35;
   }
 </style>

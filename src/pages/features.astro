@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+---
+
+<Layout
+  title="Features - Lupyd"
+  description="Lupyd Features"
+  breadcrumbs={[{ name: "Features", href: "/features" }]}
+>
+  <div class="features-page relative w-full flex-1 min-h-[calc(100vh-4rem-15rem)]">
+    <!-- 45% Transparency Floral Theme Background Layer -->
+    <div
+      class="features-bg-layer fixed inset-0 pointer-events-none"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Content Container -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 w-full">
+      <div class="pb-6">
+        <Breadcrumbs items={[{ name: "Features" }]} />
+      </div>
+
+      <h1 class="features-title text-2xl sm:text-3xl md:text-4xl text-foreground text-center tracking-wider">
+        FEATURES
+      </h1>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @font-face {
+    font-family: 'Daydream';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/Daydream.ttf') format('truetype');
+    font-display: swap;
+  }
+
+  .features-title {
+    font-family: 'Daydream', monospace, sans-serif;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+  }
+
+  .features-bg-layer {
+    background-image: url('/floral-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+    opacity: 0.45;
+    transition: opacity 0.3s ease;
+  }
+</style>
