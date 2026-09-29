@@ -6,52 +6,102 @@ const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.c
 
 const features = [
   {
-    number: "1",
-    title: "1. End-to-End Encryption",
-    description: "Every message you send is locked on your device before it leaves it, and it can only be unlocked by the people in that conversation. This means no one in between, including hackers, outside parties, or even our own team, can read what you write. It covers your messages and shared files, so you can talk about private plans, sensitive documents, or personal matters with confidence. It's turned on by default for everyone, so you don't need to change any settings.",
-    icon: "lock",
-    sticker: "/end-to-end-encryption-sticker.png?v=2",
-    stickerAlt: "End-to-End Encryption Cute Mascot Sticker"
+    number: "01",
+    tag: "Encryption",
+    title: "Signal Protocol & MLS Encryption",
+    description: "Conversations are end-to-end encrypted using the Signal Protocol for direct messages and Messaging Layer Security (MLS) for group chats. Shared files, attachments, and chat backups are protected with AES encryption. Keys remain on your devices.",
+    details: [
+      "Signal Protocol for 1-on-1 conversations",
+      "Messaging Layer Security (MLS) for group chats",
+      "AES encryption for files and backups",
+      "Multi-device cryptographic key management"
+    ],
+    screenshot: "/screenshots/desktop/dm-dark.webp",
+    screenshotAlt: "Lupyd Direct Messaging Interface"
   },
   {
-    number: "2",
-    title: "2. Channels, Roles & Permissions",
-    description: "Channels are separate spaces for different topics, teams, or projects, so a design discussion doesn't get mixed up with a payroll conversation. You can decide who joins each channel and give people roles such as Admin, Moderator, or Member. Each role comes with its own permissions, like who can read messages, who can post, and who can manage the channel. For example, you can let everyone read an announcements channel while only admins can post in it. This keeps large groups organized and makes sure sensitive information reaches only the people who need it.",
-    icon: "roles",
-    sticker: "/channels-roles-permissions.png?v=2",
-    stickerAlt: "Channels, Roles & Permissions Cute Mascot Sticker"
+    number: "02",
+    tag: "Channels",
+    title: "Custom Channel Creation & Organization",
+    description: "Create text, voice, or announcement channels on the fly. Organize conversations with targeted topics, channel-specific privacy settings, and dedicated access rules.",
+    details: [
+      "Text, Voice, and Announcement channel types",
+      "Public and private channel visibility controls",
+      "Channel-specific permission overrides",
+      "Real-time synchronization across devices"
+    ],
+    screenshot: "/screenshots/desktop/channel-create-dark.webp",
+    screenshotAlt: "Lupyd Channel Creation Interface"
   },
   {
-    number: "3",
-    title: "3. Full-Text Search",
-    description: "Full-text search looks through every word in your messages, not just channel names or titles. If you remember a single phrase from a conversation held months ago, type it in and the message appears in seconds. You can find decisions, links, instructions, or shared details without scrolling through endless chat history. It saves time and means nothing important gets lost as your conversations grow.",
-    icon: "search",
-    sticker: "/full-text-search.png?v=2",
-    stickerAlt: "Full-Text Search Cute Mascot Sticker"
+    number: "03",
+    tag: "Permissions",
+    title: "Arbitrary Roles & Granular Permissions",
+    description: "No fixed hierarchies like admin or moderator. Build any custom role from the ground up, define its exact permission flags, and assign it to any member. Anything can be anyone.",
+    details: [
+      "No locked role hierarchies—create any role name",
+      "Fine-grained workspace and channel permission flags",
+      "Custom role colors, order, and member assignment",
+      "Invite members and allocate access dynamically"
+    ],
+    screenshot: "/screenshots/desktop/roles-dark.webp",
+    screenshotAlt: "Lupyd Roles and Permissions Management Interface"
   },
   {
-    number: "4",
-    title: "4. Minimalist Theme",
-    description: "The app is designed with a clean, simple look that shows only what you need and hides the rest. There are no crowded menus or unnecessary buttons, so new users can understand it quickly and regular users can move around faster. A calm layout is also easier on the eyes during long hours of use, which helps you concentrate on the conversation itself.",
-    icon: "theme",
-    sticker: "/minimalist-theme.png?v=2",
-    stickerAlt: "Minimalist Theme Cute Mascot Sticker"
+    number: "04",
+    tag: "Search",
+    title: "Local Full-Text Search",
+    description: "Search across message history instantly. Lupyd maintains an inverted index locally on your device, returning results in milliseconds without sending your search queries to a remote server.",
+    details: [
+      "Local on-device indexing",
+      "Fast keyboard search shortcut",
+      "Filter by channel, sender, and date",
+      "Instant query results with zero server leakage"
+    ],
+    screenshot: "/screenshots/desktop/messages-dark.webp",
+    screenshotAlt: "Lupyd Search and Messaging Interface"
   },
   {
-    number: "5",
-    title: "5. No Distractions",
-    description: "The app is completely free of ads, so you'll never see banners, sponsored messages, or promotional pop-ups. Everything on your screen is there because it's part of your conversations or your work. Without interruptions competing for your attention, you can stay focused, reply faster, and finish what you started.",
-    icon: "shield",
-    sticker: "/no-distractions.png?v=2",
-    stickerAlt: "No Distractions Mascot Sticker"
+    number: "05",
+    tag: "Security",
+    title: "Client Security & Multi-Device Sync",
+    description: "Seamlessly switch between macOS, Windows, Linux, and Android with cryptographic session sync. Manage active sessions and encryption keys without central telemetry.",
+    details: [
+      "Multi-device sync across macOS, Windows, Linux, and Android",
+      "Zero tracking scripts, telemetry beacons, or third-party ads",
+      "On-device encryption key management",
+      "Complete data sovereignty and session revocation"
+    ],
+    screenshot: "/screenshots/desktop/settings-dark.webp",
+    screenshotAlt: "Lupyd Settings and Security Interface"
   },
   {
-    number: "6",
-    title: "6. Bot Integrations",
-    description: "Bots are helpful assistants you can add to any channel to handle repetitive tasks automatically. They can send reminders, post alerts, share regular updates, or help with everyday routines, all inside the app you already use. For example, a bot can remind your team of a meeting each morning so nobody has to do it manually. This saves time, reduces manual effort, and lets you focus on the work that needs your attention.",
-    icon: "bot",
-    sticker: "/bot-integrations.png?v=2",
-    stickerAlt: "Bot Integrations Cute Mascot Sticker"
+    number: "06",
+    tag: "Audio & Video",
+    title: "Voice & Video Calls",
+    description: "Encrypted voice and video calling built directly into your channels and direct conversations. Connect with your team without leaving the app.",
+    details: [
+      "Direct encrypted audio and video",
+      "Screen sharing support",
+      "Low latency connection",
+      "Works across supported desktop and mobile devices"
+    ],
+    screenshot: "/screenshots/desktop/calls-dark.webp",
+    screenshotAlt: "Lupyd Voice and Video Calling Interface"
+  },
+  {
+    number: "07",
+    tag: "Media",
+    title: "AES Encrypted File Sharing & Backups",
+    description: "Send documents, images, and project files with AES encryption. Files are encrypted before upload and decrypted on the receiving device. Export and restore encrypted chat backups.",
+    details: [
+      "Client-side AES file encryption",
+      "Inline image and document previews",
+      "Encrypted chat backup exports and restores",
+      "Drag-and-drop file transfers"
+    ],
+    screenshot: "/screenshots/desktop/media-dark.webp",
+    screenshotAlt: "Lupyd Media and File Library Interface"
   }
 ];
 
@@ -59,7 +109,7 @@ const featuresSchema = {
   "@type": "ItemList",
   "@id": `${siteBase}/features#list`,
   "name": "Lupyd Features",
-  "description": "Core features of the Lupyd platform including End-to-End Encryption, Channels, Full-Text Search, Minimalist Theme, Ad-Free Focus, and Bot Integrations.",
+  "description": "Core features of Lupyd: Signal Protocol and MLS encryption, custom channels and creation, arbitrary roles and permissions, local search, client security, voice/video calls, and AES encrypted files.",
   "itemListElement": features.map((feature, index) => ({
     "@type": "ListItem",
     "position": index + 1,
@@ -71,270 +121,118 @@ const featuresSchema = {
 
 <Layout
   title="Features - Lupyd"
-  description="Discover Lupyd's core features: End-to-End Encryption, Channels, Roles & Permissions, Full-Text Search, Minimalist Theme, Ad-Free Focus, and Bot Integrations."
+  description="Explore Lupyd features: Signal Protocol and MLS encryption, custom channels, flexible roles and permissions, local full-text search, AES file encryption, and multi-device sync."
   breadcrumbs={[{ name: "Features", href: "/features" }]}
   schema={featuresSchema}
 >
-  <div class="features-page relative w-full flex-1 min-h-[calc(100vh-4rem-15rem)]">
-    <!-- 45% Transparency Floral Theme Background Layer -->
-    <div
-      class="features-bg-layer fixed inset-0 pointer-events-none"
-      aria-hidden="true"
-    ></div>
-
-    <!-- Content Container -->
-    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 w-full">
+  <div class="features-page relative w-full flex-1">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 w-full">
       <div class="pb-6">
         <Breadcrumbs items={[{ name: "Features" }]} />
       </div>
 
-      <!-- Page Title -->
-      <div class="text-center mb-8 md:mb-12">
-        <h1 class="features-title">
-          FEATURES
+      <!-- Header -->
+      <div class="max-w-3xl mb-16 md:mb-20">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
+          Features
         </h1>
+        <p class="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+          Lupyd uses the Signal Protocol and MLS for conversation encryption, AES for files and backups, and gives you complete control over channels and custom roles.
+        </p>
       </div>
 
       <!-- Features List -->
-      <div class="features-list">
-        {features.map((item) => (
-          <div class="feature-block-container">
-            <div class="feature-mascot-hero-wrapper">
-              <img
-                src={item.sticker}
-                alt={item.stickerAlt}
-                class="feature-mascot-sticker"
-                width="140"
-                height="140"
-                loading="lazy"
-              />
-            </div>
-            <article class="feature-card">
-              <div class="feature-heading-container">
-                <h2 class="feature-heading">
-                  <span class="heading-highlight">
-                    <span class="heading-icon" aria-hidden="true">
-                      {item.icon === "lock" && (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                      )}
-                      {item.icon === "roles" && (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                          <circle cx="9" cy="7" r="4"></circle>
-                          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                      )}
-                      {item.icon === "search" && (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                          <circle cx="11" cy="11" r="8"></circle>
-                          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                      )}
-                      {item.icon === "theme" && (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                          <line x1="3" y1="9" x2="21" y2="9"></line>
-                          <line x1="9" y1="21" x2="9" y2="9"></line>
-                        </svg>
-                      )}
-                      {item.icon === "shield" && (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                          <line x1="2" y1="2" x2="22" y2="22"></line>
-                        </svg>
-                      )}
-                      {item.icon === "bot" && (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                          <rect x="3" y="11" width="18" height="10" rx="2"></rect>
-                          <circle cx="12" cy="5" r="2"></circle>
-                          <path d="M12 7v4"></path>
-                          <line x1="8" y1="16" x2="8" y2="16"></line>
-                          <line x1="16" y1="16" x2="16" y2="16"></line>
-                        </svg>
-                      )}
-                    </span>
-                    <span>{item.title}</span>
-                  </span>
-                </h2>
+      <div class="space-y-16 md:space-y-24">
+        {features.map((item, index) => {
+          const isReversed = index % 2 === 1;
+          return (
+            <section class="feature-item pb-16 border-b border-border/50 last:border-0 last:pb-0" id={`feature-${item.number}`}>
+              <div class={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
+                
+                <!-- Text Column -->
+                <div class={`lg:col-span-5 space-y-4 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
+                  <div class="flex items-center gap-2">
+                    <span class="font-mono text-xs text-muted-foreground">{item.number}</span>
+                    <span class="text-muted-foreground/40">/</span>
+                    <span class="text-xs uppercase tracking-wider font-semibold text-muted-foreground">{item.tag}</span>
+                  </div>
+
+                  <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+                    {item.title}
+                  </h2>
+
+                  <p class="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  <ul class="space-y-2 pt-2">
+                    {item.details.map((detail) => (
+                      <li class="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/80">
+                        <span class="w-1.5 h-1.5 rounded-full bg-foreground/40 mt-1.5 shrink-0" aria-hidden="true"></span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <!-- Window Screenshot Column -->
+                <div class={`lg:col-span-7 ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
+                  <div class="rounded-xl border border-border bg-card overflow-hidden shadow-sm">
+                    <!-- Clean Monotonic Window Chrome -->
+                    <div class="flex items-center justify-between px-3.5 py-2 border-b border-border bg-muted/30 select-none">
+                      <div class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-border inline-block"></span>
+                        <span class="w-2 h-2 rounded-full bg-border inline-block"></span>
+                        <span class="w-2 h-2 rounded-full bg-border inline-block"></span>
+                      </div>
+                      <div class="text-xs font-medium text-muted-foreground tracking-tight">
+                        Lupyd
+                      </div>
+                      <div class="w-8"></div>
+                    </div>
+
+                    <!-- Screenshot Container - No hover zoom, preserves image borders -->
+                    <div class="relative bg-background aspect-[16/10] overflow-hidden">
+                      <img
+                        src={item.screenshot}
+                        alt={item.screenshotAlt}
+                        loading="lazy"
+                        width="1440"
+                        height="900"
+                        class="w-full h-full object-cover object-top block"
+                      />
+                    </div>
+                  </div>
+                </div>
+
               </div>
-              <p class="feature-desc">
-                {item.description}
-              </p>
-            </article>
-          </div>
-        ))}
+            </section>
+          );
+        })}
       </div>
+
+      <!-- Bottom Simple Navigation -->
+      <div class="mt-20 pt-10 border-t border-border/60 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h3 class="font-bold text-foreground">Ready to try Lupyd?</h3>
+          <p class="text-sm text-muted-foreground">Available on macOS, Windows, Linux, and Android.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <a
+            href="https://lupyd.com"
+            class="inline-flex items-center justify-center rounded-md font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-all h-10 px-5 text-sm"
+          >
+            Get Started
+          </a>
+          <a
+            href="https://download.lupyd.com"
+            class="inline-flex items-center justify-center rounded-md font-semibold border border-border bg-background hover:bg-muted transition-colors h-10 px-5 text-sm"
+          >
+            Downloads
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </Layout>
-
-<style>
-  .features-title {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.025em;
-    line-height: 1.1;
-    color: #000000 !important;
-    margin: 0;
-  }
-
-  .features-page :global(.text-muted-foreground),
-  .features-page :global(.text-foreground) {
-    color: #000000 !important;
-  }
-
-  .features-bg-layer {
-    background-image: url('/floral-bg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: 0;
-    opacity: 0.45;
-    transition: opacity 0.3s ease;
-  }
-
-  /* Feature Block & Left-Aligned Starting Mascot Sticker */
-  .feature-block-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  .feature-mascot-hero-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    margin-top: 0.75rem;
-    margin-bottom: 0.35rem;
-    padding-left: 0.5rem;
-    position: relative;
-    z-index: 10;
-  }
-
-  .feature-mascot-sticker {
-    width: 135px;
-    height: 135px;
-    object-fit: contain;
-    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.16));
-    animation: cuteFloating 4s ease-in-out infinite;
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
-    user-select: none;
-    cursor: pointer;
-  }
-
-  .feature-mascot-sticker:hover {
-    transform: translateY(-6px) scale(1.08) rotate(2deg);
-    filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.22));
-  }
-
-  @keyframes cuteFloating {
-    0%, 100% {
-      transform: translateY(0) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-6px) rotate(-1.5deg);
-    }
-  }
-
-  .features-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .feature-card {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(160, 170, 185, 0.4);
-    border-left: 6px solid #6b7785; /* Thick ash color accent */
-    border-radius: 1rem;
-    padding: 1.75rem 2rem;
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .feature-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 26px -4px rgba(0, 0, 0, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.06);
-  }
-
-  .feature-heading-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.85rem;
-  }
-
-  .feature-heading {
-    margin: 0;
-  }
-
-  /* Headings highlighted with thick ash colour and black text */
-  .heading-highlight {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    background-color: #b0b8c1; /* Thick ash colour highlight */
-    color: #000000 !important; /* Pure black text */
-    padding: 0.45rem 1.15rem;
-    border-radius: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: 800;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-    border: 1.5px solid #8e99a4;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-
-  .heading-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #000000 !important; /* Pure black icon */
-  }
-
-  /* Feature descriptions in dark black colour */
-  .feature-desc {
-    color: #000000 !important; /* Pure black text */
-    font-size: 1.025rem;
-    line-height: 1.75;
-    font-weight: 600;
-    margin: 0;
-    letter-spacing: 0.01em;
-  }
-
-  @media (max-width: 640px) {
-    .feature-card {
-      padding: 1.25rem 1.25rem;
-      border-left-width: 5px;
-    }
-    .heading-highlight {
-      font-size: 1.05rem;
-      padding: 0.4rem 0.85rem;
-      gap: 0.5rem;
-    }
-    .feature-desc {
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
-    .feature-mascot-sticker {
-      width: 110px;
-      height: 110px;
-    }
-    .feature-mascot-hero-wrapper {
-      padding-left: 0.25rem;
-      margin-top: 0.5rem;
-      margin-bottom: 0.2rem;
-    }
-  }
-</style>

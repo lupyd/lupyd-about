@@ -1,0 +1,132 @@
+---
+interface Props {
+  desktopSrc?: string;
+  desktopAlt?: string;
+  mobileSrc?: string;
+  mobileAlt?: string;
+  class?: string;
+}
+
+const {
+  desktopSrc = "/screenshots/desktop/group-channel-dark.webp",
+  desktopAlt = "Lupyd Desktop Application",
+  mobileSrc = "/screenshots/mobile/group-channel-dark.webp",
+  mobileAlt = "Lupyd Mobile Application",
+  class: className = ""
+} = Astro.props;
+---
+
+<div class={`relative w-full max-w-5xl mx-auto select-none ${className}`}>
+  <!-- Laptop Container -->
+  <div class="relative w-full aspect-[4256/2834]">
+    <!-- Ambient glow behind laptop -->
+    <div 
+      class="absolute inset-x-12 top-10 bottom-16 bg-neutral-900/30 blur-3xl rounded-full pointer-events-none -z-10" 
+      aria-hidden="true"
+    ></div>
+
+    <!-- Desktop Screen Cutout Area (sitting beneath the bezel) -->
+    <div
+      class="absolute overflow-hidden bg-[#0c0d0e] rounded-t-[3px] sm:rounded-t-[6px]"
+      style="left: 9.40%; top: 12.84%; width: 81.18%; height: 76.54%;"
+    >
+      <img
+        src={desktopSrc}
+        alt={desktopAlt}
+        width="1440"
+        height="900"
+        class="w-full h-full object-cover object-top block select-none pointer-events-none"
+        loading="eager"
+      />
+    </div>
+
+    <!-- MacBook Pro 16 Hardware Frame Overlay -->
+    <img
+      src="/frames/macbook-pro-16.webp"
+      alt="MacBook Pro hardware frame"
+      width="4256"
+      height="2834"
+      class="pointer-events-none relative z-10 w-full h-full select-none block"
+      loading="eager"
+      aria-hidden="true"
+    />
+
+    <!-- Overlaid Mobile Device (Pixel 9 Pro with Notification Bar & Camera Notch) -->
+    <div
+      class="absolute -bottom-6 sm:-bottom-8 md:-bottom-12 -right-1 sm:right-2 md:right-6 lg:right-10 z-20 w-[30%] sm:w-[26%] md:w-[22%] max-w-[230px] aspect-[1620/3136] drop-shadow-[0_25px_35px_rgba(0,0,0,0.9)] filter transition-transform duration-300"
+    >
+      <!-- Mobile Inner Screen Container -->
+      <div
+        class="absolute overflow-hidden bg-[#0b0c0e] flex flex-col justify-between"
+        style="left: 10.49%; top: 4.53%; width: 78.95%; height: 91.04%; border-radius: 8.5% / 4.2%;"
+      >
+        <!-- Mobile Status / Notification Bar -->
+        <div class="relative z-20 w-full px-2.5 sm:px-3 pt-1.5 pb-1 flex items-center justify-between text-neutral-300 select-none bg-neutral-950/80 backdrop-blur-xs border-b border-neutral-800/40">
+          <!-- Time -->
+          <div class="text-[8px] sm:text-[10px] md:text-[11px] font-semibold tracking-tight text-neutral-200 pl-0.5">
+            9:41
+          </div>
+
+          <!-- Camera Notch / Punch Hole -->
+          <div class="absolute left-1/2 -translate-x-1/2 top-1.5 flex items-center justify-center" aria-hidden="true">
+            <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-neutral-950 border border-neutral-800/90 shadow-inner flex items-center justify-center">
+              <span class="w-1 h-1 rounded-full bg-neutral-900 ring-1 ring-cyan-950/40"></span>
+            </div>
+          </div>
+
+          <!-- Status Icons: Wi-Fi, Cellular, Battery -->
+          <div class="flex items-center gap-1 sm:gap-1.5 text-neutral-300 pr-0.5" aria-hidden="true">
+            <!-- Cellular Signal -->
+            <svg class="w-2 h-2 sm:w-2.5 sm:h-2.5 fill-current" viewBox="0 0 16 16">
+              <rect x="1" y="11" width="2" height="4" rx="0.5"></rect>
+              <rect x="5" y="8" width="2" height="7" rx="0.5"></rect>
+              <rect x="9" y="5" width="2" height="10" rx="0.5"></rect>
+              <rect x="13" y="2" width="2" height="13" rx="0.5"></rect>
+            </svg>
+
+            <!-- Wi-Fi Icon -->
+            <svg class="w-2 h-2 sm:w-2.5 sm:h-2.5 fill-current" viewBox="0 0 16 16">
+              <path d="M8 12.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0 .75.75 0 1 1-1.06 1.06 4.5 4.5 0 0 0-6.36 0 .75.75 0 1 1-1.06-1.06zm-2.83-2.83a10 10 0 0 1 14.14 0 .75.75 0 1 1-1.06 1.06 8.5 8.5 0 0 0-12.02 0 .75.75 0 0 1-1.06-1.06z"></path>
+            </svg>
+
+            <!-- Battery -->
+            <div class="flex items-center">
+              <div class="w-3 sm:w-3.5 h-1.5 sm:h-2 rounded-[2px] border border-neutral-300 p-[1px] flex items-center">
+                <div class="w-full h-full bg-neutral-200 rounded-[1px]"></div>
+              </div>
+              <div class="w-[1px] h-1 bg-neutral-400 rounded-r-[1px]"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile App Screenshot -->
+        <div class="relative flex-1 w-full overflow-hidden bg-neutral-950">
+          <img
+            src={mobileSrc}
+            alt={mobileAlt}
+            width="750"
+            height="1624"
+            class="w-full h-full object-cover object-top block select-none pointer-events-none"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Android Home Navigation Pill Indicator -->
+        <div class="relative z-20 w-full py-1 sm:py-1.5 flex justify-center bg-neutral-950/70 select-none pointer-events-none" aria-hidden="true">
+          <div class="w-10 sm:w-14 h-0.5 sm:h-1 rounded-full bg-neutral-400/60"></div>
+        </div>
+      </div>
+
+      <!-- Pixel 9 Pro Hardware Frame Overlay -->
+      <img
+        src="/frames/pixel-9-pro.webp"
+        alt="Android Phone hardware frame"
+        width="1620"
+        height="3136"
+        class="pointer-events-none relative z-30 w-full h-full select-none block"
+        loading="eager"
+        aria-hidden="true"
+      />
+    </div>
+  </div>
+</div>

@@ -1,14 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ScreenshotCarousel from "../components/ScreenshotCarousel.astro";
+import DeviceHeroMockup from "../components/DeviceHeroMockup.astro";
+
+const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.com").replace(/\/$/, "");
 
 const softwareSchema = {
   "@type": "SoftwareApplication",
   "@id": "https://www.lupyd.com/#software",
   "name": "Lupyd",
-  "operatingSystem": "Web, macOS, Windows, Linux, iOS, Android",
+  "operatingSystem": "macOS, Windows, Linux, Android",
   "applicationCategory": "CommunicationApplication, SecurityApplication",
-  "description": "The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption.",
+  "description": "The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and collaborate with Signal Protocol and MLS encryption.",
   "url": "https://www.lupyd.com",
   "downloadUrl": "https://download.lupyd.com",
   "publisher": {
@@ -31,24 +33,158 @@ const softwareSchema = {
     "priceCurrency": "USD"
   },
   "featureList": [
-    "End-to-End Encryption",
-    "Zero-Knowledge Architecture",
-    "Team Channels & Messaging",
-    "Secure File Sharing",
-    "Cross-Platform Sync"
+    "Signal Protocol for 1-on-1 conversations",
+    "Messaging Layer Security (MLS) for group chats",
+    "AES Encryption for files and chat backups",
+    "Custom channels and arbitrary roles",
+    "Multi-device synchronization",
+    "Local full-text search"
   ]
 };
+
+const landingFaqs = [
+  {
+    question: "What encryption protocols does Lupyd use?",
+    answer: "Lupyd uses the Signal Protocol for direct one-on-one conversations and Messaging Layer Security (MLS) for group chats. Shared files, attachments, and chat backups are protected with AES encryption. Keys remain on your devices."
+  },
+  {
+    question: "How do custom channels and roles work?",
+    answer: "There are no fixed roles like admin or moderator in Lupyd. You can create any custom role from scratch, give it any name, and attach any specific combination of permissions. Anything can be assigned to anyone, giving your workspace complete structural freedom."
+  },
+  {
+    question: "Which platforms are currently supported?",
+    answer: "Lupyd currently supports macOS, Windows, Linux, and Android. Support for iOS is in active development on our roadmap. We do not support web at this time."
+  },
+  {
+    question: "Does Lupyd support multi-device use?",
+    answer: "Yes. Lupyd supports multi-device synchronization, allowing you to use your account across your desktop and mobile devices while preserving end-to-end encryption."
+  },
+  {
+    question: "How does full-text search work with encrypted messages?",
+    answer: "Search queries run locally on your device against an on-device inverted index. Your search terms never leave your hardware and are never sent to a remote server."
+  },
+  {
+    question: "Are there ads, tracking, or algorithmic feeds?",
+    answer: "No. Lupyd is completely ad-free, runs zero tracking or telemetry, and maintains a strict chronological conversation feed."
+  }
+];
+
+const faqSchema = {
+  "@type": "FAQPage",
+  "@id": `${siteBase}/#faq`,
+  "mainEntity": landingFaqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const pageSchemas = [softwareSchema, faqSchema];
+
+const showcaseTabs = [
+  {
+    id: "channels",
+    name: "Channels",
+    title: "Custom Channels & Workspaces",
+    description: "Organize conversations into distinct public or private channels. Structure your workspace to fit how your team actually works.",
+    bullets: ["Public & private channels", "Real-time updates", "Multi-device sync"],
+    desktopSrc: "/screenshots/desktop/group-channel-dark.webp",
+    desktopAlt: "Lupyd Channels Desktop Interface",
+    mobileSrc: "/screenshots/mobile/group-channel-dark.webp",
+    mobileAlt: "Lupyd Channels Mobile Interface"
+  },
+  {
+    id: "channel-create",
+    name: "Channel Creation",
+    title: "On-the-Fly Channel Configuration",
+    description: "Create text, voice, or announcement channels instantly. Set custom channel topics and granular member access with client-side encryption.",
+    bullets: ["Text, Voice, & Announcement types", "Granular channel privacy", "Custom topics"],
+    desktopSrc: "/screenshots/desktop/channel-create-dark.webp",
+    desktopAlt: "Lupyd Channel Creation Interface",
+    mobileSrc: "/screenshots/mobile/channel-create-dark.webp",
+    mobileAlt: "Lupyd Channel Creation Mobile Interface"
+  },
+  {
+    id: "roles",
+    name: "Roles & Permissions",
+    title: "Arbitrary Roles & Fine-Grained Permissions",
+    description: "No locked role hierarchies like admin or moderator. Define any role name from scratch and attach any combination of permissions. Anything can be assigned to anyone.",
+    bullets: ["Zero fixed role hierarchies", "Granular permission flags", "Custom role colors & tags"],
+    desktopSrc: "/screenshots/desktop/roles-dark.webp",
+    desktopAlt: "Lupyd Roles and Permissions Interface",
+    mobileSrc: "/screenshots/mobile/roles-dark.webp",
+    mobileAlt: "Lupyd Roles Mobile Interface"
+  },
+  {
+    id: "role-assignment",
+    name: "Role Assignment",
+    title: "Member Invitations & Role Allocation",
+    description: "Invite team members directly to workspaces and assign customized roles with explicit access rights. Revoke or reconfigure permissions at any time.",
+    bullets: ["Direct member invitations", "Instant role allocation", "Access control"],
+    desktopSrc: "/screenshots/desktop/role-assignment-dark.webp",
+    desktopAlt: "Lupyd Role Assignment Interface",
+    mobileSrc: "/screenshots/mobile/role-assignment-dark.webp",
+    mobileAlt: "Lupyd Role Assignment Mobile Interface"
+  },
+  {
+    id: "dm",
+    name: "Direct Messages",
+    title: "Signal Protocol 1-on-1 Conversations",
+    description: "End-to-end encrypted direct messaging using the Signal Protocol. Fast, private communication where only you and your recipient hold the keys.",
+    bullets: ["Signal Protocol encryption", "Instant delivery", "Multi-device sync"],
+    desktopSrc: "/screenshots/desktop/dm-dark.webp",
+    desktopAlt: "Lupyd Direct Messaging Desktop Interface",
+    mobileSrc: "/screenshots/mobile/dm-dark.webp",
+    mobileAlt: "Lupyd Direct Messaging Mobile Interface"
+  },
+  {
+    id: "calls",
+    name: "Voice & Video",
+    title: "Direct Voice & Video Calling",
+    description: "Encrypted voice and video calls built straight into your channels and direct conversations with screen sharing.",
+    bullets: ["Encrypted audio & video", "Low-latency streaming", "Screen sharing"],
+    desktopSrc: "/screenshots/desktop/calls-dark.webp",
+    desktopAlt: "Lupyd Calling Desktop Interface",
+    mobileSrc: "/screenshots/mobile/calls-dark.webp",
+    mobileAlt: "Lupyd Calling Mobile Interface"
+  },
+  {
+    id: "media",
+    name: "Files & Backups",
+    title: "AES Encrypted Files & Backups",
+    description: "Send project files, code, and documents with client-side AES encryption. Export and restore encrypted chat backups.",
+    bullets: ["AES encrypted file uploads", "Inline file preview", "Encrypted backups"],
+    desktopSrc: "/screenshots/desktop/media-dark.webp",
+    desktopAlt: "Lupyd Media and Files Desktop Interface",
+    mobileSrc: "/screenshots/mobile/media-dark.webp",
+    mobileAlt: "Lupyd Media Mobile Interface"
+  },
+  {
+    id: "settings",
+    name: "Settings",
+    title: "Account & Device Controls",
+    description: "Manage your active devices, cryptographic keys, notification preferences, and workspace settings with zero surveillance.",
+    bullets: ["Multi-device management", "Zero tracking telemetry", "Notification controls"],
+    desktopSrc: "/screenshots/desktop/settings-dark.webp",
+    desktopAlt: "Lupyd Settings Desktop Interface",
+    mobileSrc: "/screenshots/mobile/settings-dark.webp",
+    mobileAlt: "Lupyd Settings Mobile Interface"
+  }
+];
 ---
 
 <Layout
   title="Lupyd : Private by design. Connected by default. Collaborative Platform"
-  description="The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption, not bolted on as an afterthought."
+  description="The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and collaborate with Signal Protocol and MLS encryption."
   pageType="AboutPage"
-  schema={softwareSchema}
+  schema={pageSchemas}
 >
 
 <!-- ════════════════════════════════════════════════════════════
-     HERO
+     1. HERO SECTION
 ════════════════════════════════════════════════════════════ -->
 <section class="w-full py-12 md:py-16 lg:py-20 overflow-hidden relative">
   <div class="mx-auto px-6 max-w-7xl">
@@ -56,15 +192,13 @@ const softwareSchema = {
       <!-- Left: Content -->
       <div class="lg:col-span-6 xl:col-span-6 space-y-6 anim-hero" style="animation-delay:0.08s">
         <!-- Headline -->
-        <h1 class="font-extrabold tracking-tight leading-[1.08] text-foreground
-                   text-[clamp(2.1rem,3.8vw,3.4rem)]">
+        <h1 class="font-extrabold tracking-tight leading-[1.08] text-foreground text-[clamp(2.1rem,3.8vw,3.4rem)]">
           Lupyd : Private by design.<br />
           <span class="text-muted-foreground">Connected by default. Collaborative Platform</span>
         </h1>
 
         <!-- Sub / Description -->
-        <p class="text-muted-foreground leading-relaxed
-                  text-[clamp(0.95rem,1.2vw,1.05rem)]">
+        <p class="text-muted-foreground leading-relaxed text-[clamp(0.95rem,1.2vw,1.05rem)]">
           The workspace where nothing leaks. Organize conversations into channels, message your team in real time, and stay updated — all protected with end-to-end encryption, not bolted on as an afterthought.
         </p>
 
@@ -80,173 +214,431 @@ const softwareSchema = {
              class="inline-flex items-center justify-center rounded-md font-semibold transition-all
                     border border-border bg-background hover:bg-muted active:scale-[0.98]
                     h-11 px-7 text-sm">
-            Download Now
+            Download App
+          </a>
+          <a href="/features"
+             class="inline-flex items-center justify-center rounded-md font-semibold transition-all
+                    text-muted-foreground hover:text-foreground hover:bg-muted/50
+                    h-11 px-5 text-sm gap-1.5">
+            Features
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
           </a>
         </div>
 
-        <!-- Security Badge -->
-        <div class="flex items-center gap-2 pt-1 text-xs text-muted-foreground">
-          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-               class="text-foreground shrink-0">
-            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-          </svg>
-          <span>End-to-End Encrypted &bull; Zero-Knowledge Architecture</span>
+        <!-- Monotonic Technical Specs Strip -->
+        <div class="flex flex-wrap items-center gap-y-2 gap-x-5 pt-1 text-xs text-muted-foreground">
+          <span>Signal Protocol (1-on-1)</span>
+          <span class="text-border">&bull;</span>
+          <span>MLS (Group Chats)</span>
+          <span class="text-border">&bull;</span>
+          <span>AES (Files &amp; Backups)</span>
+          <span class="text-border">&bull;</span>
+          <span>Multi-Device</span>
         </div>
       </div>
 
-      <!-- Right: Procedural Skewed 3D Laptop Mockup -->
-      <div class="lg:col-span-6 xl:col-span-6 anim-hero" style="animation-delay:0.18s">
-        <div class="hero-stage flex flex-col items-center gap-4">
-
-          <!-- PAUSED EXPERIMENT — live phone demo (iframe of demo.lupyd.com/demo).
-               Kept here for later; re-enable by 1) uncommenting this block,
-               2) re-adding the .hero-switch above it, and 3) dropping the
-               `hidden` + `aria-hidden` on the laptop panel below. The
-               .phone-* styles in the <style> block below are still intact. 
-          <div class="hero-view hero-view--phone" data-hero-panel="phone">
-            <div class="phone-frame">
-              <div class="phone-camera-dot" aria-hidden="true"></div>
-              <div class="phone-screen">
-                <div class="phone-statusbar" aria-hidden="true">
-                  <span class="phone-statusbar-time">9:41</span>
-                  <span class="phone-statusbar-icons">
-                    <svg width="13" height="10" viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="5.5" width="3" height="6.5" rx="1"/><rect x="9" y="3" width="3" height="9" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".35"/></svg>
-                    <svg width="12" height="10" viewBox="0 0 24 18" fill="currentColor"><path d="M12 17.5l3.5-4.1a5.6 5.6 0 0 0-7 0L12 17.5zM12 12.4l2.3-2.7a9 9 0 0 0-4.6 0L12 12.4zM12 8.1l1-1.2a13 13 0 0 0-2 0l1 1.2zM12 2.9C8 2.9 4.3 4.7 1.6 7.6L0 6a15.4 15.4 0 0 1 24 0l-1.6 1.6A13.4 13.4 0 0 0 12 2.9z"/></svg>
-                    <svg width="20" height="10" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="16" height="8" rx="1.6" fill="currentColor"/><path d="M23 4.2v3.6c1-.4 1.5-1 1.5-1.8s-.5-1.4-1.5-1.8z" fill="currentColor" opacity=".4"/></svg>
-                  </span>
-                </div>
-                <iframe
-                  id="hero-demo-frame"
-                  src="https://demo.lupyd.com/demo"
-                  title="Lupyd mobile app — live interactive demo"
-                  loading="eager"
-                  allow="clipboard-write; fullscreen"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                ></iframe>
-                <div class="phone-fallback" id="phone-fallback" hidden>
-                  <div class="phone-fallback-inner">
-                    <p class="phone-fallback-title">Live demo unavailable</p>
-                    <p class="phone-fallback-text">
-                      Open it directly on
-                      <a href="https://demo.lupyd.com/demo" target="_blank" rel="noopener noreferrer">demo.lupyd.com/demo</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="hero-hint">Live interactive demo &mdash; tap around inside the phone.</p>
-          </div>
-          </div>
-          -->
-
-          <div class="hero-view hero-view--laptop" data-hero-panel="laptop">
-            <div class="hero-laptop-perspective">
-            <div class="laptop-assembly">
-          <!-- Laptop Screen Lid -->
-          <div class="laptop-lid">
-            <!-- Camera Bezel -->
-            <div class="laptop-camera-bar">
-              <span class="laptop-camera-dot">
-                <span class="camera-lens-glare"></span>
-              </span>
-            </div>
-
-            <!-- Screen Viewport -->
-            <div class="laptop-screen">
-              <img
-                src="/screenshots/desktop/group-channel.webp"
-                alt="Lupyd Desktop Application"
-                width="1440"
-                height="900"
-                class="w-full h-auto block select-none"
-                loading="eager"
-              />
-            </div>
-          </div>
-
-          <!-- Laptop Hinge -->
-          <div class="laptop-hinge" aria-hidden="true"></div>
-
-          <!-- Laptop Keyboard Deck Base -->
-          <div class="laptop-base" aria-hidden="true">
-            <div class="laptop-keyboard-recess">
-              <div class="laptop-keyboard-grid">
-                <div class="key-row">
-                  <span class="key key-esc"></span>
-                  <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-                  <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-                  <span class="key"></span><span class="key"></span><span class="key"></span><span class="key key-pwr"></span>
-                </div>
-                <div class="key-row">
-                  <span class="key key-tab"></span>
-                  <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-                  <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-                  <span class="key"></span><span class="key"></span><span class="key"></span><span class="key key-del"></span>
-                </div>
-                <div class="key-row">
-                  <span class="key key-caps"></span>
-                  <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-                  <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-                  <span class="key"></span><span class="key"></span><span class="key key-return"></span>
-                </div>
-                <div class="key-row">
-                  <span class="key key-shift"></span>
-                  <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-                  <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
-                  <span class="key"></span><span class="key key-shift-r"></span>
-                </div>
-                <div class="key-row">
-                  <span class="key key-fn"></span><span class="key key-ctrl"></span><span class="key key-opt"></span><span class="key key-cmd"></span>
-                  <span class="key key-space"></span>
-                  <span class="key key-cmd"></span><span class="key key-opt"></span><span class="key key-arrows"></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Trackpad -->
-            <div class="laptop-trackpad"></div>
-
-            <!-- Opening Thumb Notch -->
-            <div class="laptop-thumb-notch"></div>
-          </div>
-
-          <!-- Ambient Desk Shadow -->
-          <div class="laptop-ambient-shadow" aria-hidden="true"></div>
-            </div>
-            </div>
-          </div>
-
-        </div>
+      <!-- Right: Authentic MacBook Pro 16 + Overlaid Mobile with Camera Notch & Status Bar -->
+      <div class="lg:col-span-6 xl:col-span-6 anim-hero w-full" style="animation-delay:0.18s">
+        <DeviceHeroMockup
+          desktopSrc="/screenshots/desktop/group-channel-dark.webp"
+          desktopAlt="Lupyd Desktop Application showing channels and workspaces"
+          mobileSrc="/screenshots/mobile/group-channel-dark.webp"
+          mobileAlt="Lupyd Mobile Application showing encrypted conversation"
+        />
       </div>
     </div>
   </div>
 </section>
 
-
+<!-- ════════════════════════════════════════════════════════════
+     2. TECHNICAL SPECIFICATIONS BAR
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-8 border-y border-border/40 bg-muted/20">
+  <div class="mx-auto px-6 max-w-7xl">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center sr">
+      <div class="space-y-1">
+        <div class="text-xl sm:text-2xl font-bold text-foreground">Signal Protocol</div>
+        <div class="text-xs text-muted-foreground">1-on-1 End-to-End Encryption</div>
+      </div>
+      <div class="space-y-1">
+        <div class="text-xl sm:text-2xl font-bold text-foreground">MLS</div>
+        <div class="text-xs text-muted-foreground">Messaging Layer Security for Groups</div>
+      </div>
+      <div class="space-y-1">
+        <div class="text-xl sm:text-2xl font-bold text-foreground">AES</div>
+        <div class="text-xs text-muted-foreground">Encrypted Files &amp; Backups</div>
+      </div>
+      <div class="space-y-1">
+        <div class="text-xl sm:text-2xl font-bold text-foreground">Multi-Device</div>
+        <div class="text-xs text-muted-foreground">macOS, Windows, Linux, Android</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ════════════════════════════════════════════════════════════
-     FINAL CTA
+     3. VISUAL PRODUCT SHOWCASE
 ════════════════════════════════════════════════════════════ -->
-<section class="w-full py-24 md:py-32 border-t border-border/30">
+<section class="w-full py-16 md:py-24" id="showcase">
+  <div class="mx-auto px-6 max-w-7xl">
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-10 md:mb-14 sr">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+        Workspace Interface
+      </h2>
+      <p class="mt-3 text-base text-muted-foreground">
+        Screenshots of Lupyd across desktop and mobile.
+      </p>
+
+      <!-- Device View Toggle: Desktop ⇄ Mobile -->
+      <div class="mt-6 inline-flex items-center p-1 rounded-lg border border-border bg-card">
+        <button
+          type="button"
+          class="device-toggle-btn active flex items-center gap-2 px-4 py-1.5 rounded-md text-xs font-semibold transition-all"
+          data-device="desktop"
+          aria-pressed="true"
+        >
+          Desktop
+        </button>
+        <button
+          type="button"
+          class="device-toggle-btn flex items-center gap-2 px-4 py-1.5 rounded-md text-xs font-semibold transition-all text-muted-foreground hover:text-foreground"
+          data-device="mobile"
+          aria-pressed="false"
+        >
+          Mobile
+        </button>
+      </div>
+    </div>
+
+    <!-- Category Tabs Selector -->
+    <div class="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto mb-8 px-4 sr">
+      {showcaseTabs.map((tab, idx) => (
+        <button
+          type="button"
+          class={`showcase-tab-btn px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all border ${idx === 0 ? 'is-active bg-foreground text-background border-foreground' : 'bg-card text-muted-foreground border-border hover:text-foreground hover:border-foreground/30'}`}
+          data-tab={tab.id}
+          aria-selected={idx === 0 ? "true" : "false"}
+        >
+          {tab.name}
+        </button>
+      ))}
+    </div>
+
+    <!-- Showcase Display Card Container -->
+    <div class="sr">
+      {showcaseTabs.map((tab, idx) => (
+        <div
+          class={`showcase-panel ${idx === 0 ? 'active' : 'hidden'}`}
+          id={`showcase-panel-${tab.id}`}
+        >
+          <div class="rounded-xl border border-border bg-card p-6 md:p-8">
+            <!-- Contextual Info Header -->
+            <div class="max-w-2xl mb-6 space-y-2">
+              <h3 class="text-lg sm:text-xl font-bold text-foreground">
+                {tab.title}
+              </h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">
+                {tab.description}
+              </p>
+              <div class="flex flex-wrap items-center gap-2 pt-1">
+                {tab.bullets.map((b) => (
+                  <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs bg-muted text-foreground/80 border border-border">
+                    <span class="w-1 h-1 rounded-full bg-foreground/40"></span>
+                    {b}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Viewport Stage -->
+            <div class="showcase-stage flex justify-center items-center">
+              
+              <!-- Desktop Frame (Window: clean dots + Lupyd title, no URLs, no E2EE labels, NO hover zoom) -->
+              <div class="desktop-frame w-full max-w-5xl rounded-lg border border-border bg-card overflow-hidden shadow-sm">
+                <!-- Desktop Chrome Bar -->
+                <div class="flex items-center justify-between px-3.5 py-2 border-b border-border bg-muted/30 select-none">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-border inline-block"></span>
+                    <span class="w-2 h-2 rounded-full bg-border inline-block"></span>
+                    <span class="w-2 h-2 rounded-full bg-border inline-block"></span>
+                  </div>
+                  <div class="text-xs font-medium text-muted-foreground tracking-tight">
+                    Lupyd
+                  </div>
+                  <div class="w-8"></div>
+                </div>
+                <!-- Image - Never zooms on hover -->
+                <div class="relative aspect-[16/10] bg-background overflow-hidden">
+                  <img
+                    src={tab.desktopSrc}
+                    alt={tab.desktopAlt}
+                    width="1440"
+                    height="900"
+                    loading="lazy"
+                    class="w-full h-full object-cover object-top block"
+                  />
+                </div>
+              </div>
+
+              <!-- Mobile Frame (Shown when Mobile toggle is active, with Notification Bar & Camera Notch, NO hover zoom) -->
+              <div class="mobile-frame hidden w-[300px] sm:w-[320px] rounded-[36px] border border-border bg-card p-2 shadow-2xl">
+                <div class="relative rounded-[28px] overflow-hidden border border-border/80 bg-neutral-950 aspect-[9/19.5] flex flex-col">
+                  <!-- Mobile Status / Notification Bar -->
+                  <div class="relative z-20 w-full px-3 pt-2 pb-1 flex items-center justify-between text-neutral-300 select-none bg-neutral-950/80 backdrop-blur-xs border-b border-neutral-800/40">
+                    <div class="text-[10px] font-semibold tracking-tight text-neutral-200">9:41</div>
+                    <!-- Camera Notch / Punch Hole -->
+                    <div class="absolute left-1/2 -translate-x-1/2 top-2 flex items-center justify-center" aria-hidden="true">
+                      <div class="w-2.5 h-2.5 rounded-full bg-neutral-950 border border-neutral-800 shadow-inner flex items-center justify-center">
+                        <span class="w-1 h-1 rounded-full bg-neutral-900 ring-1 ring-cyan-950/40"></span>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-neutral-300" aria-hidden="true">
+                      <!-- Cellular Signal -->
+                      <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 16 16">
+                        <rect x="1" y="11" width="2" height="4" rx="0.5"></rect>
+                        <rect x="5" y="8" width="2" height="7" rx="0.5"></rect>
+                        <rect x="9" y="5" width="2" height="10" rx="0.5"></rect>
+                        <rect x="13" y="2" width="2" height="13" rx="0.5"></rect>
+                      </svg>
+                      <!-- Wi-Fi -->
+                      <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 16 16">
+                        <path d="M8 12.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0 .75.75 0 1 1-1.06 1.06 4.5 4.5 0 0 0-6.36 0 .75.75 0 1 1-1.06-1.06zm-2.83-2.83a10 10 0 0 1 14.14 0 .75.75 0 1 1-1.06 1.06 8.5 8.5 0 0 0-12.02 0 .75.75 0 0 1-1.06-1.06z"></path>
+                      </svg>
+                      <!-- Battery -->
+                      <div class="flex items-center">
+                        <div class="w-3.5 h-2 rounded-[2px] border border-neutral-300 p-[1px] flex items-center">
+                          <div class="w-full h-full bg-neutral-200 rounded-[1px]"></div>
+                        </div>
+                        <div class="w-[1px] h-1 bg-neutral-400 rounded-r-[1px]"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Image - Never zooms on hover -->
+                  <div class="relative flex-1 w-full overflow-hidden bg-background">
+                    <img
+                      src={tab.mobileSrc}
+                      alt={tab.mobileAlt}
+                      width="750"
+                      height="1624"
+                      loading="lazy"
+                      class="w-full h-full object-cover object-top block"
+                    />
+                  </div>
+
+                  <!-- Android Home Navigation Pill Indicator -->
+                  <div class="relative z-20 w-full py-1.5 flex justify-center bg-neutral-950 select-none pointer-events-none" aria-hidden="true">
+                    <div class="w-14 h-1 rounded-full bg-neutral-500/60"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     4. CORE CAPABILITIES (MONOTONIC & PRECISE)
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-16 md:py-24 border-t border-border/30 bg-muted/10">
+  <div class="mx-auto px-6 max-w-7xl">
+    <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16 sr">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground">
+        Core Architecture
+      </h2>
+      <p class="mt-3 text-base text-muted-foreground">
+        Built for private communication, flexible workspace structure, and direct performance.
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sr">
+      
+      <!-- Card 1: Signal Protocol & MLS -->
+      <div class="lg:col-span-2 rounded-xl border border-border bg-card p-6 md:p-8 space-y-3">
+        <div class="font-mono text-xs text-muted-foreground">01 / ENCRYPTION</div>
+        <h3 class="text-xl font-bold text-foreground">
+          Signal Protocol &amp; Messaging Layer Security (MLS)
+        </h3>
+        <p class="text-sm sm:text-base text-muted-foreground leading-relaxed">
+          One-on-one direct messages are encrypted with the Signal Protocol. Group conversations scale securely with Messaging Layer Security (MLS). All shared files, attachments, and chat backups are protected with client-side AES encryption. Decryption keys remain exclusively on your devices.
+        </p>
+      </div>
+
+      <!-- Card 2: Custom Channels & Arbitrary Roles -->
+      <div class="rounded-xl border border-border bg-card p-6 md:p-8 space-y-3">
+        <div class="font-mono text-xs text-muted-foreground">02 / STRUCTURE</div>
+        <h3 class="text-xl font-bold text-foreground">
+          Custom Channels &amp; Arbitrary Roles
+        </h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          There are no locked, predefined roles like admin or moderator. You can define any role from scratch and attach any combination of permissions. Anything can be assigned to anyone.
+        </p>
+      </div>
+
+      <!-- Card 3: Local Full-Text Search -->
+      <div class="rounded-xl border border-border bg-card p-6 md:p-8 space-y-3">
+        <div class="font-mono text-xs text-muted-foreground">03 / SEARCH</div>
+        <h3 class="text-xl font-bold text-foreground">
+          Local Inverted Index Search
+        </h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Search message history across all channels in milliseconds. The search index is built and queried entirely on your local device without sending query terms to a server.
+        </p>
+      </div>
+
+      <!-- Card 4: Distraction-Free & No Tracking -->
+      <div class="rounded-xl border border-border bg-card p-6 md:p-8 space-y-3">
+        <div class="font-mono text-xs text-muted-foreground">04 / PRIVACY</div>
+        <h3 class="text-xl font-bold text-foreground">
+          Zero Ads &amp; No Telemetry
+        </h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          No third-party trackers, no behavioral advertising, and no algorithmic timeline manipulation. Communication is purely chronological.
+        </p>
+      </div>
+
+      <!-- Card 5: Voice & Video Calling -->
+      <div class="rounded-xl border border-border bg-card p-6 md:p-8 space-y-3">
+        <div class="font-mono text-xs text-muted-foreground">05 / CALLING</div>
+        <h3 class="text-xl font-bold text-foreground">
+          Encrypted Voice &amp; Video
+        </h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Direct peer-to-peer audio and video calling with screen sharing built into direct chats and channels.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Link to Features -->
+    <div class="text-center mt-10 sr">
+      <a
+        href="/features"
+        class="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:underline underline-offset-4"
+      >
+        View features overview
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     5. PLATFORMS SUPPORTED
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-16 md:py-20 border-t border-border/30">
+  <div class="mx-auto px-6 max-w-5xl">
+    <div class="text-center max-w-2xl mx-auto mb-10 sr">
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+        Supported Platforms
+      </h2>
+      <p class="mt-2 text-sm text-muted-foreground">
+        Multi-device synchronization across desktop and mobile.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center sr">
+      <div class="p-4 rounded-xl border border-border bg-card">
+        <div class="font-bold text-foreground text-sm">macOS</div>
+        <div class="text-xs text-muted-foreground mt-0.5">Desktop</div>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-card">
+        <div class="font-bold text-foreground text-sm">Windows</div>
+        <div class="text-xs text-muted-foreground mt-0.5">Desktop</div>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-card">
+        <div class="font-bold text-foreground text-sm">Linux</div>
+        <div class="text-xs text-muted-foreground mt-0.5">Desktop</div>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-card">
+        <div class="font-bold text-foreground text-sm">Android</div>
+        <div class="text-xs text-muted-foreground mt-0.5">Mobile</div>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-muted-foreground mt-4 sr">
+      Note: iOS release is currently in active development on our <a href="/roadmap" class="underline underline-offset-2 hover:text-foreground">roadmap</a>. Web is not supported.
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     6. FREQUENTLY ASKED QUESTIONS
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-16 md:py-20 border-t border-border/30 bg-muted/10" id="faq">
+  <div class="mx-auto px-6 max-w-4xl">
+    <div class="text-center max-w-2xl mx-auto mb-10 sr">
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+        Frequently Asked Questions
+      </h2>
+    </div>
+
+    <!-- FAQ Accordions -->
+    <div class="space-y-3 sr">
+      {landingFaqs.map((faq) => (
+        <details class="group rounded-xl border border-border bg-card p-4 sm:p-5 transition-all">
+          <summary class="flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-foreground cursor-pointer list-none select-none">
+            <span>{faq.question}</span>
+            <span class="w-6 h-6 rounded-full bg-muted flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </summary>
+          <div class="mt-3 pt-3 border-t border-border/50 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="text-center mt-8 sr">
+      <a
+        href="/faq"
+        class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-muted-foreground hover:text-foreground hover:underline underline-offset-4"
+      >
+        View full FAQ
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     7. FINAL CTA
+════════════════════════════════════════════════════════════ -->
+<section class="w-full py-20 md:py-28 border-t border-border/30">
   <div class="mx-auto px-6 max-w-2xl text-center sr">
-    <h2 class="font-extrabold tracking-tight text-foreground
-               text-[clamp(1.8rem,4vw,3rem)] leading-tight">
+    <h2 class="font-extrabold tracking-tight text-foreground text-2xl sm:text-4xl leading-tight">
       Ready to join Lupyd?
     </h2>
-    <p class="mt-4 text-muted-foreground text-sm leading-relaxed">
+    <p class="mt-3 text-muted-foreground text-sm sm:text-base leading-relaxed">
       Social when you want it. Collaborative when you need it. Private by design.
     </p>
     <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
       <a href="https://lupyd.com"
          class="inline-flex items-center justify-center rounded-md text-sm font-semibold
-                bg-primary text-primary-foreground hover:opacity-88 transition-all h-11 px-8 shadow-sm">
+                bg-primary text-primary-foreground hover:opacity-88 transition-all h-11 px-7 shadow-sm">
         Get Started
       </a>
       <a href="https://download.lupyd.com"
          class="inline-flex items-center justify-center rounded-md text-sm font-semibold
-                border border-border bg-background hover:bg-muted transition-colors h-11 px-8">
+                border border-border bg-background hover:bg-muted transition-colors h-11 px-7">
         Download Now
       </a>
     </div>
@@ -254,25 +646,29 @@ const softwareSchema = {
 </section>
 
 <!-- ════════════════════════════════════════════════════════════
-     FEATURED ON (Badges)
+     8. FEATURED ON (Badges)
 ════════════════════════════════════════════════════════════ -->
-<section class="w-full py-12 md:py-16 border-t border-border/30 bg-muted/10">
+<section class="w-full py-10 md:py-12 border-t border-border/30 bg-muted/10">
   <div class="mx-auto px-6 max-w-5xl text-center sr">
-    <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-8">
+    <div class="flex flex-wrap items-center justify-center gap-6">
       <a
         href="https://www.producthunt.com/products/lupyd?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-lupyd"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center transition-all duration-200 hover:opacity-85 hover:scale-105 active:scale-95"
+        class="inline-flex items-center transition-all duration-200 hover:opacity-85"
       >
         <img
           alt="Lupyd - Collaborative work needs to be secure? look no futher | Product Hunt"
           width="250"
           height="54"
           src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1073847&amp;theme=light&amp;t=1790579008506"
-          class="h-11 sm:h-12 w-auto object-contain rounded-md"
+          class="h-10 w-auto object-contain rounded-md"
         />
       </a>
+
+      <a href="https://www.launchbuck.com/p/lupyd" target="_blank" rel="noopener noreferrer">
+        <img src="https://www.launchbuck.com/badges/pill-accent.png" alt="Lupyd — Featured on LaunchBuck" width="168" height="49" />
+      </a>      
     </div>
   </div>
 </section>
@@ -297,52 +693,64 @@ const softwareSchema = {
     }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
     els.forEach(el => io.observe(el));
   }
-  document.readyState === 'loading'
-    ? document.addEventListener('DOMContentLoaded', initSR)
-    : initSR();
-  document.addEventListener('astro:page-load', initSR);
 
-  // Hero preview switcher: live phone demo ⇄ laptop backup
-  function initHeroSwitch() {
-    const buttons = document.querySelectorAll('[data-hero-view]');
-    const panels = document.querySelectorAll('[data-hero-panel]');
-    if (!buttons.length) return;
+  // Showcase Tabs & Device Toggle
+  function initShowcase() {
+    const tabButtons = document.querySelectorAll('.showcase-tab-btn');
+    const panels = document.querySelectorAll('.showcase-panel');
+    const deviceButtons = document.querySelectorAll('.device-toggle-btn');
+    const desktopFrames = document.querySelectorAll('.desktop-frame');
+    const mobileFrames = document.querySelectorAll('.mobile-frame');
 
-    buttons.forEach((btn) => {
+    tabButtons.forEach(btn => {
       if (btn.dataset.bound) return;
       btn.dataset.bound = '1';
       btn.addEventListener('click', () => {
-        const view = btn.dataset.heroView;
-        buttons.forEach((b) => {
-          const on = b === btn;
-          b.classList.toggle('is-active', on);
-          b.setAttribute('aria-pressed', String(on));
+        const tabId = btn.getAttribute('data-tab');
+
+        tabButtons.forEach(b => {
+          const active = b === btn;
+          b.setAttribute('aria-selected', String(active));
+          b.classList.toggle('is-active', active);
+          b.classList.toggle('bg-foreground', active);
+          b.classList.toggle('text-background', active);
+          b.classList.toggle('border-foreground', active);
+          b.classList.toggle('bg-card', !active);
+          b.classList.toggle('text-muted-foreground', !active);
+          b.classList.toggle('border-border', !active);
         });
-        panels.forEach((p) => {
-          const on = p.dataset.heroPanel === view;
-          p.classList.toggle('hidden', !on);
-          p.setAttribute('aria-hidden', String(!on));
+
+        panels.forEach(p => {
+          const match = p.id === `showcase-panel-${tabId}`;
+          p.classList.toggle('hidden', !match);
+          p.classList.toggle('active', match);
         });
+      });
+    });
+
+    deviceButtons.forEach(btn => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', () => {
+        const device = btn.getAttribute('data-device');
+        const isDesktop = device === 'desktop';
+
+        deviceButtons.forEach(b => {
+          const active = b === btn;
+          b.classList.toggle('active', active);
+          b.classList.toggle('bg-foreground', active);
+          b.classList.toggle('text-background', active);
+          b.classList.toggle('text-muted-foreground', !active);
+          b.setAttribute('aria-pressed', String(active));
+        });
+
+        desktopFrames.forEach(f => f.classList.toggle('hidden', !isDesktop));
+        mobileFrames.forEach(f => f.classList.toggle('hidden', isDesktop));
       });
     });
   }
 
-  // If the cross-origin iframe never paints, surface the fallback link
-  function initDemoWatchdog() {
-    const frame = document.getElementById('hero-demo-frame');
-    const fallback = document.getElementById('phone-fallback');
-    if (!frame || !fallback) return;
-
-    let painted = false;
-    const markPainted = () => { painted = true; fallback.hidden = true; };
-    frame.addEventListener('load', markPainted);
-
-    setTimeout(() => {
-      if (!painted) fallback.hidden = false;
-    }, 6000);
-  }
-
-  [initHeroSwitch, initDemoWatchdog].forEach((fn) => {
+  [initSR, initShowcase].forEach((fn) => {
     document.readyState === 'loading'
       ? document.addEventListener('DOMContentLoaded', fn)
       : fn();
@@ -351,415 +759,21 @@ const softwareSchema = {
 </script>
 
 <style>
-  /* ─── HERO STAGE: phone demo ⇄ laptop backup ──────────────── */
-  .hero-switch {
-    display: inline-flex;
-    padding: 3px;
-    gap: 2px;
-    border-radius: 999px;
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--muted) / 0.7);
-  }
-
-  .hero-switch-btn {
-    appearance: none;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    font: inherit;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: hsl(var(--muted-foreground));
-    padding: 5px 14px;
-    border-radius: 999px;
-    transition: color 0.2s, background 0.2s;
-  }
-
-  .hero-switch-btn:hover { color: hsl(var(--foreground)); }
-
-  .hero-switch-btn.is-active {
+  /* ─── SHOWCASE STYLES ───────────────────────────────────────── */
+  .device-toggle-btn.active {
     background: hsl(var(--foreground));
     color: hsl(var(--background));
   }
 
-  .hero-view { width: 100%; display: flex; justify-content: center; }
-  .hero-view--phone { flex-direction: column; align-items: center; }
-  .hero-view.hidden { display: none; }
-
-  .hero-hint {
-    margin: 14px 0 0;
-    font-size: 0.7rem;
-    color: hsl(var(--muted-foreground));
-    text-align: center;
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
-  /* Phone hardware
-     Built at a natural 470px width (bezel, screen, status bar, iframe all in
-     the same coordinate space) and then scaled down as one unit with `zoom`
-     on the frame. Scaling the frame instead of the iframe keeps the bezel,
-     the display and the demo content perfectly aligned at any size. */
-  .phone-frame {
-    --bezel: 20px;
-    --screen-radius: 48px;
-    position: relative;
-    width: 470px;
-    aspect-ratio: 9 / 19.5;
-    border-radius: 68px;
-    padding: var(--bezel);
-    zoom: 0.52;
-    background: linear-gradient(155deg, #3a3d47 0%, #1b1d23 45%, #0d0e11 100%);
-    border: 1px solid #4a4e5a;
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.08),
-      0 26px 60px -18px rgba(0, 0, 0, 0.5),
-      0 50px 100px -30px rgba(0, 0, 0, 0.45);
-  }
-
-  :global(.dark) .phone-frame {
-    background: linear-gradient(155deg, #2b2e37 0%, #131419 50%, #08090c 100%);
-    border-color: #31353f;
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.06),
-      0 30px 70px -20px rgba(0, 0, 0, 0.85),
-      0 60px 120px -30px rgba(0, 0, 0, 0.95);
-  }
-
-  @media (max-width: 440px) { .phone-frame { zoom: 0.46; } }
-  @media (max-width: 360px) { .phone-frame { zoom: 0.4; } }
-  @media (max-width: 300px) { .phone-frame { zoom: 0.34; } }
-
-  .phone-screen {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--screen-radius);
-    overflow: hidden;
-    background: hsl(var(--card));
-    border: 1px solid rgba(0, 0, 0, 0.5);
-  }
-
-  /* Fake status bar — same corner radius as the display, so the top and
-     bottom edges of the internal screen match exactly. */
-  .phone-statusbar {
-    flex: 0 0 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
-    background: hsl(var(--card));
-    color: hsl(var(--foreground));
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    border-radius: var(--screen-radius) var(--screen-radius) 0 0;
-  }
-
-  .phone-statusbar-icons {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  /* The demo paints an opaque full-bleed background, so the content box needs
-     the same bottom radius as the display or it reads as a flat square edge. */
-  .phone-screen iframe {
-    display: block;
-    flex: 1 1 auto;
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    border: 0;
-    background: hsl(var(--card));
-    border-radius: 0 0 var(--screen-radius) var(--screen-radius);
-  }
-
-  /* Notch / punch-hole camera — centred in the status bar row */
-  .phone-camera-dot {
-    position: absolute;
-    top: 31px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: #06070a;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14), inset 0 1px 2px rgba(0, 0, 0, 0.9);
-    z-index: 3;
-    pointer-events: none;
-  }
-
-  .phone-camera-dot::after {
-    content: "";
-    position: absolute;
-    top: 1.5px;
-    left: 1.5px;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: rgba(130, 175, 255, 0.65);
-  }
-
-  /* Shown when the iframe cannot load */
-  .phone-fallback {
-    position: absolute;
-    inset: 32px 0 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    text-align: center;
-    background: hsl(var(--card));
-    border-radius: 0 0 var(--screen-radius) var(--screen-radius);
-  }
-  .phone-fallback[hidden] { display: none; }
-  .phone-fallback-title { font-size: 0.8rem; font-weight: 700; margin: 0 0 6px; }
-  .phone-fallback-text { font-size: 0.7rem; color: hsl(var(--muted-foreground)); margin: 0; line-height: 1.6; }
-  .phone-fallback-text a { text-decoration: underline; text-underline-offset: 2px; }
-
-  .hero-laptop-perspective {
-    perspective: 1600px;
-    perspective-origin: 18% 40%;
-    padding-bottom: 8%;
-  }
-
-  .laptop-assembly {
-    position: relative;
-    transform-style: preserve-3d;
-  }
-
-  /* Static 3D angle — no hover motion */
-  @media (min-width: 1024px) {
-    .laptop-assembly {
-      transform: rotateY(-15deg) rotateX(9deg) rotateZ(-1.4deg) scale(0.94);
-      transform-origin: center right;
-    }
-  }
-
-  /* Screen glass: fixed specular sheen so the panel reads as a physical surface */
-  .laptop-screen::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    pointer-events: none;
-    background: linear-gradient(
-      112deg,
-      rgba(255, 255, 255, 0.16) 0%,
-      rgba(255, 255, 255, 0.05) 26%,
-      rgba(255, 255, 255, 0) 48%,
-      rgba(255, 255, 255, 0.04) 76%,
-      rgba(255, 255, 255, 0.11) 100%
-    );
-  }
-
-  :global(.dark) .laptop-screen::after {
-    background: linear-gradient(
-      112deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.03) 28%,
-      rgba(255, 255, 255, 0) 52%,
-      rgba(255, 255, 255, 0.03) 78%,
-      rgba(255, 255, 255, 0.07) 100%
-    );
-  }
-
-  /* Edge highlight along the lid's lit side */
-  .laptop-lid::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 14px 14px 2px 2px;
-    pointer-events: none;
-    background: linear-gradient(
-      100deg,
-      rgba(255, 255, 255, 0.22) 0%,
-      rgba(255, 255, 255, 0) 18%
-    );
-  }
-
-  /* ─── Laptop Screen Lid ─────────────────────────────────── */
-  .laptop-lid {
-    position: relative;
-    background: linear-gradient(155deg, #2b2e37 0%, #16171d 50%, #0d0e11 100%);
-    border: 1.5px solid #3d414e;
-    border-radius: 14px 14px 2px 2px;
-    padding: 7px 7px 4px 7px;
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.08),
-      0 20px 45px -10px rgba(0, 0, 0, 0.45),
-      0 40px 90px -20px rgba(0, 0, 0, 0.35);
-  }
-
-  :global(.dark) .laptop-lid {
-    background: linear-gradient(155deg, #22242c 0%, #131419 50%, #08090c 100%);
-    border-color: #31353f;
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.06),
-      0 25px 60px -15px rgba(0, 0, 0, 0.8),
-      0 55px 120px -25px rgba(0, 0, 0, 0.95);
-  }
-
-  .laptop-camera-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 5px;
-  }
-
-  .laptop-camera-dot {
-    position: relative;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #08090b;
-    box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.8);
-    display: inline-block;
-  }
-
-  .camera-lens-glare {
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    width: 1.5px;
-    height: 1.5px;
-    border-radius: 50%;
-    background: rgba(130, 175, 255, 0.7);
-  }
-
-  .laptop-screen {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    background: hsl(var(--card));
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
-  }
-
-  .laptop-screen img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  /* ─── Laptop Hinge ──────────────────────────────────────── */
-  .laptop-hinge {
-    height: 4px;
-    background: linear-gradient(to bottom, #111216, #090a0d);
-    margin: 0 45px;
-    border-radius: 1px 1px 0 0;
-  }
-
-  /* ─── Laptop Keyboard Deck Base ─────────────────────────── */
-  .laptop-base {
-    position: relative;
-    background: linear-gradient(to bottom, #252831 0%, #1e2027 40%, #16171d 100%);
-    border: 1px solid #363944;
-    border-top: 1px solid #4a4f5d;
-    border-radius: 2px 2px 16px 16px;
-    padding: 8px 12px 6px;
-    transform-origin: top center;
-    transform: rotateX(32deg);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.12),
-      0 18px 40px -4px rgba(0, 0, 0, 0.55),
-      0 4px 10px rgba(0, 0, 0, 0.35);
-  }
-
-  :global(.dark) .laptop-base {
-    background: linear-gradient(to bottom, #1d1e25 0%, #16171d 40%, #0f1013 100%);
-    border-color: #2b2e38;
-    border-top-color: #3d414f;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
-      0 20px 48px -4px rgba(0, 0, 0, 0.75),
-      0 6px 14px rgba(0, 0, 0, 0.5);
-  }
-
-  .laptop-keyboard-recess {
-    background: #0f1014;
-    border-radius: 5px;
-    padding: 4px 5px;
-    border: 0.5px solid rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
-  }
-
-  .laptop-keyboard-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5px;
-  }
-
-  .key-row {
-    display: flex;
-    gap: 2.5px;
-    align-items: center;
-  }
-
-  .key {
-    flex: 1;
-    height: 5.5px;
-    background: #1e2026;
-    border-radius: 1px;
-    box-shadow: 0 0.5px 0 #0d0e12;
-  }
-
-  :global(.dark) .key {
-    background: #18191f;
-  }
-
-  .key-esc { flex: 1.2; }
-  .key-pwr { flex: 1.2; }
-  .key-tab { flex: 1.4; }
-  .key-del { flex: 1.4; }
-  .key-caps { flex: 1.6; }
-  .key-return { flex: 1.8; }
-  .key-shift { flex: 2.1; }
-  .key-shift-r { flex: 2.1; }
-  .key-space { flex: 5.5; }
-  .key-fn, .key-ctrl, .key-opt, .key-cmd { flex: 1.2; }
-  .key-arrows { flex: 2; }
-
-  /* Trackpad */
-  .laptop-trackpad {
-    width: 84px;
-    height: 28px;
-    margin: 6px auto 2px;
-    border-radius: 4px;
-    border: 0.5px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(to bottom, #1f2128, #18191f);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
-  }
-
-  :global(.dark) .laptop-trackpad {
-    background: linear-gradient(to bottom, #17181e, #111216);
-    border-color: rgba(255, 255, 255, 0.05);
-  }
-
-  /* Thumb Notch */
-  .laptop-thumb-notch {
-    width: 38px;
-    height: 2px;
-    margin: 3px auto 0;
-    border-radius: 1px;
-    background: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.08);
-  }
-
-  /* Desk Shadow */
-  .laptop-ambient-shadow {
-    width: 92%;
-    height: 46px;
-    margin: -10px auto 0;
-    background:
-      radial-gradient(ellipse at 50% 30%, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 62%),
-      radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 72%);
-    filter: blur(9px);
+  .showcase-panel {
+    transition: opacity 0.2s ease;
   }
 </style>
-
-
-
