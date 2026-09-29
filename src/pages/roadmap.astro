@@ -1,41 +1,143 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+
+const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.com").replace(/\/$/, "");
+
+const roadmapStages = [
+  {
+    title: "1. Improving User Experience and Product",
+    paragraphs: [
+      "This stage makes Lupyd easier and more pleasant to use, based on what real users tell you. It covers faster loading, smoother navigation, clearer onboarding for new users, and fixing the rough edges people report. User experience (UX) simply means how the product feels to use: whether things are where you expect them and whether tasks take few steps.",
+      "Work here is guided by feedback loops: collecting reports and suggestions, spotting patterns, then shipping fixes quickly. Performance and reliability improvements also belong here, so the app stays fast as groups and message history grow."
+    ]
+  },
+  {
+    title: "2. Improving Quality of Life",
+    paragraphs: [
+      "Quality-of-life (QoL) features are small improvements that don't change what the product does but remove daily annoyances. Examples are message drafts that save automatically, keyboard shortcuts, better notification controls, message editing and reactions, pinned messages, and the ability to jump back to where you stopped reading.",
+      "Individually each one looks minor, but together they decide whether people enjoy using Lupyd every day. They should follow the minimalist principle: helpful, never cluttered."
+    ]
+  },
+  {
+    title: "3. Federation",
+    paragraphs: [
+      "Federation means many independent Lupyd servers, run by different people or organizations, can talk to each other as one network, the way email works: someone on one email provider can write to someone on another. A company could run its own Lupyd server while its members still chat with people hosted elsewhere, and nobody depends on a single central owner.",
+      "The hard part is keeping the promises Lupyd already makes across servers you don't control. End-to-end encryption must still hold when messages cross servers, roles and permissions must be understood by both sides, and search must still respect who is allowed to see what. That needs an agreed protocol, a shared set of rules for how servers identify each other, exchange messages, and verify trust. Expect this to be the most complex stage."
+    ]
+  },
+  {
+    title: "4. iOS Release",
+    paragraphs: [
+      "This brings Lupyd to iPhone and iPad through Apple's App Store. The app needs to feel native, with proper push notifications, background syncing, and support for the different screen sizes. Encryption keys should be kept in Apple's secure storage on the device (the Keychain), so they stay protected.",
+      "Before release, the app must pass App Store review, which checks privacy disclosures, content moderation rules, and technical quality. A staged rollout, starting with TestFlight (Apple's tool for beta testing), lets a small group try the app first and catch problems before the public launch."
+    ]
+  },
+  {
+    title: "5. More Project Management Tools, With Encryption",
+    paragraphs: [
+      "Teams don't only chat; they also plan and track work. This stage adds project management tools inside Lupyd, such as task boards, to-do lists, deadlines, assignments, and shared notes, so conversations and work live in one place.",
+      "What makes this different from typical tools is that the data stays encrypted. Tasks, comments, and files would be protected the same way messages are, so the server can't read them. That limits some features, such as server-side processing, so each tool must be designed around encryption from the start rather than added afterward."
+    ]
+  },
+  {
+    title: "6. First-Class Support for More Plugins and Extensions",
+    paragraphs: [
+      "A plugin or extension is an add-on that gives Lupyd new abilities without changing the core app. First-class support means plugins are treated as an official, fully supported part of the product, with stable tools, clear documentation, and the same quality bar as built-in features, rather than an afterthought."
+    ]
+  }
+];
+
+const roadmapSchema = {
+  "@type": "ItemList",
+  "@id": `${siteBase}/roadmap#list`,
+  "name": "Lupyd Product Roadmap",
+  "description": "Future product development roadmap for Lupyd, covering User Experience, Quality of Life, Federation, iOS Release, Encrypted Project Management, and Plugins.",
+  "itemListElement": roadmapStages.map((stage, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": stage.title,
+    "description": stage.paragraphs.join(" ")
+  }))
+};
 ---
 
 <Layout
   title="Roadmap - Lupyd"
-  description="Lupyd Roadmap"
+  description="Explore the future development roadmap for Lupyd: UX enhancements, Quality of Life features, Federation, iOS release, encrypted project management tools, and plugin extensibility."
   breadcrumbs={[{ name: "Roadmap", href: "/roadmap" }]}
+  schema={roadmapSchema}
 >
   <div class="roadmap-page relative w-full flex-1 min-h-[calc(100vh-4rem-15rem)]">
-    <!-- 45% Transparency Theme Background Layer -->
+    <!-- Centered Theme Background Layer (35% Opacity, Seamless) -->
     <div
       class="roadmap-bg-layer fixed inset-0 pointer-events-none"
       aria-hidden="true"
     ></div>
 
     <!-- Content Container -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 w-full">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 w-full">
       <div class="pb-6">
         <Breadcrumbs items={[{ name: "Roadmap" }]} />
       </div>
 
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
-        Roadmap
-      </h1>
+      <!-- Roadmap Header in Center of Header Space -->
+      <div class="text-center mb-10 sm:mb-16">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
+          Roadmap
+        </h1>
+      </div>
+
+      <!-- One-Way Flow Timeline (No Boxy Blocks) -->
+      <div class="roadmap-one-way-flow relative pl-6 sm:pl-10 border-l-2 border-border/70 dark:border-border/50 ml-3 sm:ml-8 space-y-12 sm:space-y-16 py-2">
+        {roadmapStages.map((item) => (
+          <section class="roadmap-flow-step relative">
+            <!-- Node Marker along the one-way flow line -->
+            <div
+              class="roadmap-flow-dot absolute -left-[31px] sm:-left-[47px] top-1.5 w-3.5 h-3.5 rounded-full bg-foreground border-2 border-background ring-4 ring-foreground/10"
+              aria-hidden="true"
+            ></div>
+
+            <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-foreground mb-3">
+              {item.title}
+            </h2>
+
+            <div class="space-y-3.5 text-muted-foreground leading-relaxed text-base sm:text-lg">
+              {item.paragraphs.map((p) => (
+                <p>{p}</p>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
     </div>
   </div>
 </Layout>
 
 <style>
   .roadmap-bg-layer {
-    background-image: url('/floral-bg.jpg');
+    background-image: url('/roadmap-theme.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: min(85vw, 680px) auto;
     z-index: 0;
-    opacity: 0.45;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
     transition: opacity 0.3s ease;
+  }
+
+  :global(.dark) .roadmap-bg-layer {
+    mix-blend-mode: screen;
+    filter: invert(1);
+    opacity: 0.35;
+  }
+
+  .roadmap-flow-step {
+    transition: transform 0.2s ease;
+  }
+
+  .roadmap-flow-step:hover .roadmap-flow-dot {
+    transform: scale(1.25);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 </style>
