@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { generateStickers } from "../../scripts/make-stickers.mjs";
+// trigger: 4
+generateStickers();
 
 const siteBase = (Astro.site ? new URL(Astro.site).origin : "https://www.lupyd.com").replace(/\/$/, "");
 
@@ -140,6 +143,18 @@ const featuresSchema = {
                 <img
                   src="/no-distractions.png"
                   alt="No Distractions Mascot"
+                  class="feature-mascot-sticker"
+                  width="145"
+                  height="145"
+                  loading="lazy"
+                />
+              </div>
+            )}
+            {item.number === "6" && (
+              <div class="feature-mascot-hero-wrapper">
+                <img
+                  src="/bot-integrations.png"
+                  alt="Bot Integrations Cute Mascot"
                   class="feature-mascot-sticker"
                   width="145"
                   height="145"

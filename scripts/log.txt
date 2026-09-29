@@ -1,0 +1,2 @@
+Img1 illustration bounds: minX=0, maxX=175, minY=0, maxY=139
+Img2 illustration bounds: minX=0, maxX=361, minY=0, maxY=378
