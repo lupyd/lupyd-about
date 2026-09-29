@@ -8,34 +8,29 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
   description="Lupyd Roadmap"
   breadcrumbs={[{ name: "Roadmap", href: "/roadmap" }]}
 >
-  <div class="roadmap-page relative w-full flex-1 min-h-[calc(100vh-4rem-15rem)]">
-    <!-- 45% Transparency Theme Background Layer -->
-    <div
-      class="roadmap-bg-layer fixed inset-0 pointer-events-none"
-      aria-hidden="true"
-    ></div>
-
+  <div class="roadmap-page relative w-full flex-1 min-h-[calc(100vh-4rem-15rem)] flex flex-col">
     <!-- Content Container -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14 w-full">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 w-full flex-1 flex flex-col">
       <div class="pb-6">
         <Breadcrumbs items={[{ name: "Roadmap" }]} />
       </div>
 
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
-        Roadmap
-      </h1>
+      <div class="text-center mb-6 sm:mb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
+          Roadmap
+        </h1>
+      </div>
+
+      <!-- Centered Enlarged Theme (35% Transparency, Seamless Blending) -->
+      <div class="flex-1 flex items-center justify-center py-6 sm:py-10">
+        <img
+          src="/roadmap-theme.png"
+          alt="Roadmap Theme"
+          class="w-full max-w-lg sm:max-w-xl md:max-w-2xl h-auto object-contain select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen dark:invert"
+          style="opacity: 0.35;"
+          loading="eager"
+        />
+      </div>
     </div>
   </div>
 </Layout>
-
-<style>
-  .roadmap-bg-layer {
-    background-image: url('/floral-bg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: 0;
-    opacity: 0.45;
-    transition: opacity 0.3s ease;
-  }
-</style>
