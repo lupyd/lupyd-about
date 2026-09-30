@@ -89,23 +89,23 @@ const getMobileSrcset = (src: string) => {
     >
       <!-- Mobile Inner Screen Container -->
       <div
-        class="absolute overflow-hidden bg-[#0b0c0e] flex flex-col justify-between"
+        class="absolute overflow-hidden bg-white dark:bg-[#050810] flex flex-col"
         style="left: 10.49%; top: 4.53%; width: 78.95%; height: 91.04%; border-radius: 8.5% / 4.2%;"
       >
-        <!-- Sleek Micro Notification Bar Overlay -->
-        <div class="absolute top-0 inset-x-0 z-20 h-2 sm:h-2.5 px-1.5 flex items-center justify-between text-neutral-600 dark:text-neutral-300 select-none bg-white/75 dark:bg-neutral-950/75 backdrop-blur-xs pointer-events-none">
+        <!-- Sleek Micro Notification Bar (in-flow above screenshot so headers are pushed down) -->
+        <div class="relative z-20 shrink-0 w-full h-3.5 sm:h-4 px-2.5 pt-0.5 flex items-center justify-between text-neutral-700 dark:text-neutral-300 select-none bg-white dark:bg-[#050810] pointer-events-none">
           <!-- Time -->
-          <div class="text-[5px] sm:text-[6px] font-semibold tracking-tight leading-none">
+          <div class="text-[5.5px] sm:text-[6.5px] font-semibold tracking-tight leading-none">
             9:41
           </div>
 
           <!-- Camera Notch / Punch Hole -->
-          <div class="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-neutral-900 border border-neutral-700/60 flex items-center justify-center" aria-hidden="true">
+          <div class="absolute left-1/2 -translate-x-1/2 top-1 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-neutral-900 border border-neutral-700/70 flex items-center justify-center" aria-hidden="true">
             <span class="w-0.5 h-0.5 rounded-full bg-neutral-950"></span>
           </div>
 
           <!-- Status Icons -->
-          <div class="flex items-center gap-0.5 opacity-80" aria-hidden="true">
+          <div class="flex items-center gap-0.5 opacity-85" aria-hidden="true">
             <!-- Cellular -->
             <svg class="w-1.5 h-1.5 fill-current" viewBox="0 0 16 16">
               <rect x="1" y="11" width="2" height="4" rx="0.5"></rect>
@@ -124,8 +124,8 @@ const getMobileSrcset = (src: string) => {
           </div>
         </div>
 
-        <!-- Mobile App Screenshot: Dark & Light -->
-        <div class="relative w-full h-full overflow-hidden bg-background">
+        <!-- Mobile App Screenshot: Dark & Light (pushed down below notification bar) -->
+        <div class="relative flex-1 w-full min-h-0 overflow-hidden bg-background">
           <img
             src={mobileDark}
             srcset={getMobileSrcset(mobileDark)}
